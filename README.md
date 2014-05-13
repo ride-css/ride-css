@@ -10,7 +10,7 @@ Ride requires Stylus.js and (obviously) node.js installed
 Coming soon
 
 ##Contributing
-*Fork this repo
-*Commit you changes
-*Report bugs
-*Drink beer and eat your veggies
+* Fork this repo
+* Commit you changes
+* Report bugs
+* Drink beer and eat your veggies

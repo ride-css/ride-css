@@ -1,0 +1,21 @@
+use('functions.js')
+
+get-lineheight(emFontsizeMultiplier, baseLineheight)
+  return baseLineheight / emFontsizeMultiplier
+
+// onePercent function
+// this function will return the one percent of the passed number
+onePercent(number)
+  if number is a 'number'
+    number = number/100
+  number
+
+// setUnit function 
+// this function will set the passed unit to the passed css items 
+setUnit(items, unit)
+  offset = 0
+
+  for item in items
+    items[offset] = unit(item, unit)
+    offset = offset+1
+  items

@@ -1,0 +1,14 @@
+ride-anchors(color, light = false, ratio = 21%, class = 'a')
+  {class}
+    color color
+    {block}
+    &:hover
+      if !light
+        color darken(color, ratio)
+      if light
+        color lighten(color, ratio)
+    &:active
+      if !light
+        color darken(color, ratio+8%)
+      if light
+        color lighten(color, ratio+8%)

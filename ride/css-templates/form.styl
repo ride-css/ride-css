@@ -1,0 +1,16 @@
+ride-form-elements(border = 0, padding = 0)
+  input, textarea, select
+    box-sizing()
+    if border != 0
+      border border
+    if border == 0
+      border 0 none
+    if padding != 0
+      padding padding
+    {block}
+  select
+    if padding != 0
+      selectPadding = ''
+      for pad in padding
+        selectPadding = selectPadding +' '+ (pad/100)*85 unit(pad)
+      padding unquote(selectPadding)

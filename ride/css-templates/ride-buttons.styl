@@ -1,0 +1,46 @@
+// common button template
+button(lineHeight = 3)
+  cursor pointer
+  display inline-block
+  line-height lineHeight
+  position relative
+  {block}
+
+button-bar(class = '.actions')
+  {class}
+    margin 0
+    padding 0
+    line-height 0
+    {block}
+
+sliding-button(class, direction = 'left', transition = .4s, lineHeight = 3)
+  {class}
+    button(lineHeight)
+    overflow hidden
+    z-index 1
+    {block}
+    &:hover:before
+      if direction == 'left' || direction == 'right'
+        translateX(0)
+      if direction == 'top' || direction == 'bottom'
+        translateY(0)
+    &:before
+      if direction == 'top'
+        translateY(-100%)
+      if direction == 'right'
+        translateX(100%)
+      if direction == 'bottom'
+        translateY(100%)
+      if direction == 'left'
+        translateX(-100%)
+      content ''
+      height 100%
+      left 0
+      position absolute
+      top 0
+      width 100%
+      z-index -1
+
+  {class}
+  {class}:before
+    transition(transition)

@@ -1,0 +1,146 @@
+// vendor prefixes
+$webkit = '-webkit-'
+$mozilla = '-moz-'
+$opera = '-o-'
+$microsoft = '-ms-'
+$allprefixes = $webkit $mozilla $microsoft $opera
+
+// vendor prefixes global usage
+$current-prefix = false
+$no-prefixes = false
+
+// css proxy core mixin
+// will help you to keep your code dry, clean and vendor free
+_cssProxy(prefixes, property, values...)
+  if !$no-prefixes and !$current-prefix
+    for prefix in prefixes  
+      {prefix}{property} values
+  if !$current-prefix
+    {property} values
+  if $current-prefix
+    {$current-prefix}{property} values
+
+// here comes the sun
+
+// keyframes
+// keyframes(name)
+// not avaible atm sorry
+
+// animation
+animation(animationShorthand, fillMode = both, direction = forward)
+  _cssProxy($webkit $mozilla $opera, animation, animationShorthand)
+  if fillMode != ''
+    fill-mode(fillMode)
+  if direction != ''
+    animation-direction(direction)
+
+// animation-name
+animation-name(name)
+  _cssProxy($webkit $mozilla $opera, animation-name, name)
+
+// animation-delay
+animation-delay(delay)
+  _cssProxy($webkit $mozilla $opera, animation-delay, delay)
+
+// animation-direction
+animation-direction(direction)
+  _cssProxy($webkit $mozilla $opera, animation-direction, direction)
+
+// animation-duration
+animation-duration(duration)
+  _cssProxy($webkit $mozilla $opera, animation-duration, duration)
+
+// background-size css property
+background-size(size)
+  _cssProxy($webkit, background-size, size)
+
+// border-radius css property
+border-radius(values)
+  _cssProxy($webkit $mozilla, border-radius, values)
+
+// box-shadow
+box-shadow(shadows...)
+  _cssProxy($webkit, box-shadow, shadows)
+
+// box-sizing
+box-sizing(size = 'border-box')
+  _cssProxy($webkit $mozilla, box-sizing, unquote(size))
+
+// column-count
+column-count(count)
+  _cssProxy($webkit $mozilla, column-count, count)
+
+// column-gap
+column-gap(gap)
+  _cssProxy($webkit $mozilla, column-gap, gap)
+
+// fill-mode
+fill-mode(mode)
+  _cssProxy($webkit $mozilla $opera, animation-fill-mode, mode)
+
+// matrix
+matrix(a, b, c, d, x, y)
+  _cssProxy($allprefixes, transform, unquote(s('matrix(%s,%s,%s,%s,%s,%s)', a, b, c, d, x, y)))
+
+// page-break-inside
+page-break-inside(value = avoid)
+  _cssProxy($webkit $mozilla $opera, page-break-inside, value)
+
+// perspective
+perspective(value)
+  _cssProxy($webkit $mozilla $opera, perspective, value)
+
+// play-state
+play-state(state)
+  _cssProxy($webkit $mozilla $opera, animation-play-state, state)
+
+// rotate css property
+rotate(rotation)
+  transform(s('rotate(%sdeg)', rotation))
+
+// rotateX
+rotateX(rotation)
+  transform(s('rotateX(%sdeg)'), rotation)
+
+// rotateY
+rotateY(rotation)
+  transform(s('rotateY(%sdeg)'), rotation)
+
+// rotateZ
+rotateZ(rotation)
+  transform(s('rotateZ(%sdeg)'), rotation)
+
+// scale css property
+scale(ratio)
+  transform(s('scale(%s)', ratio))
+
+// tab-size
+tab-size(size)
+  _cssProxy($mozilla $opera, tab-size, size)
+
+// text-selection
+text-selection(background, color)
+  &::selection
+  &::{$mozilla}selection
+    background-color background
+    color color
+
+// transition
+transition(time = .4s, easing = ease-out, transitions = all)
+  _cssProxy($webkit $mozilla $opera, transition, transitions time easing)
+
+// translate css property
+translate(x, y)
+  transform(s('translate(%s, %s)', x, y))
+
+// translateX
+translateX(x)
+  transform(s('translateX(%s)', x))
+
+// translateY
+translateY(x)
+  transform(s('translateY(%s)', x))
+
+// transform css property
+transform(transformations...)
+  _cssProxy($allprefixes, transform, unquote(transformations))

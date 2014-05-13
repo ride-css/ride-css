@@ -1,0 +1,105 @@
+// ride column grid
+// options passed as an [object Object]
+ride-grid(options = {})
+  // setting up defaults
+  class = options.gridClass || '.ride-grid'
+  column = options.columnClass || '.cl'
+  columns = options.columns || 12
+  float = options.floatClass || '.float'
+  gridGutter = options.gridGutter || 0
+  gridGutterType = options.gridGutterType || 'padding'
+  gutter = options.gutter || 0 2
+  padding = options.padding || false
+  push = options.pushClass || '.push'
+  row = options.rowClass || '.row'
+  rowGutter = options.rowGutter || 0
+  rowGutterType = options.rowGutterType || 'margin'
+  width = options.width || 100%
+
+  gridUnit = unit(width)
+
+  {class}
+    width width
+    margin 0 auto
+
+  for columnNumber in 1...(columns+1)
+    {column}{columnNumber}
+      if !padding
+        ride-column(width, gutter, columns, columnNumber, false)
+      if padding
+        ride-column(width, gutter, columns, columnNumber, 'both false')
+    
+  for columnNumber in 1...columns
+    {class} {float}{columnNumber}
+      ride-float(width, gutter, columns, columnNumber, margin, false)
+    
+  for columnNumber in 1...columns
+    {class} {push}{columnNumber}
+      ride-float(width, gutter, columns, columnNumber, margin, false, right)
+
+  [class*="cl"] 
+  [class*="float"] 
+    float left
+
+  .cl{columns}
+    float none
+
+  [class*="cl"]
+    margin setUnit(gutter, gridUnit)
+    if padding
+      padding setUnit(gutter, gridUnit)
+
+  .outgrid
+    if rowGutter not 0
+      {rowGutterType} (rowGutter*-1)
+
+  .row
+    clearfix()
+    if rowGutter not 0
+      {rowGutterType} rowGutter
+
+// twelve columns grid
+ride-grid-12(gutter = 0 2, gridGutter = 0 2, gridWidth = 100%, padding = false)
+  options = {}
+  options.gridClass = '.ride-grid-12'
+  options.gutter = gutter
+  options.width = gridWidth
+  options.padding = padding
+  ride-grid(options)
+
+// twelve columns grid reset. Ideal for smaller devices
+ride-grid-12-reset(gutter = 2, gridWidth = 100%, gutterType = 'both')
+  .ride-grid-12
+    margin 0 2%
+    width 96%
+    [class*="cl"]
+    [class*="cl"][class*="float"]
+    [class*="cl"][class*="push"]
+      ride-column(100%, gutter, 1, 1, gutterType)
+
+// two columns grid. Ideal for "app style" designs
+ride-two-columns(class = '.site-nav', contentClass = '.site-content', contentWidth = 61.8, navPosition = left)
+  {class}
+    a
+      display block
+
+    smallColumn = parseInt(100 - contentWidth)
+    ride-column(width: 100%, columnCount: 100, currentColumn: smallColumn, gutterType: 'padding', gutter: 0 2)
+    {navPosition} 0
+    height 100%
+    position fixed
+    top 0
+
+  {contentClass}
+    ride-column(width: 100%, columnCount: 100, currentColumn: contentWidth, gutterType: 'padding', gutter: 0 2)
+    if navPosition == left
+      ride-float(width: 100%, columnCount: 100, currentColumn: contentWidth, gutter: 0 2)
+
+ride-column-grid(class, columnCount, columnClass = '.cl')
+  {class}
+    column-count(columnCount)
+    {block}
+  {columnClass}
+    page-break-inside(avoid)
+    margin 0
+    float none

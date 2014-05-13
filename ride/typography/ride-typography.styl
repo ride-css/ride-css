@@ -1,0 +1,26 @@
+headings()
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+    {block}
+
+ride-headings(fontMultiplier = 2, line-height = 1.5, multiplier = 0.2)
+  for heading in 1 2 3 4 5 6
+    h{heading}
+      if heading > 1
+        if heading > 2
+          multiplier = multiplier * heading
+        fontMultiplier = fontMultiplier - multiplier
+      font-size unit(fontMultiplier, 'em')
+      line-height  get-lineheight(fontMultiplier, line-height)
+  +headings()
+    margin 0
+
+ride-paragraph(font-size = 1em, line-height = 1.5, margin = .5em 0)
+  p
+    font-size font-size
+    line-height line-height
+    margin unit(line-height - font-size, 'em') 0

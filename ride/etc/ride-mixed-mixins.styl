@@ -1,0 +1,67 @@
+clearfix()
+  &:after
+  &:before
+    clear both
+    content ''
+    display table
+
+absolute(top = false, left = false, right = false, bottom = false)
+  position absolute
+  if top != false
+    top top
+  if left != false
+    left left
+  if right != false
+    right right
+  if bottom != false
+    bottom bottom
+
+dont-select()
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+
+reset-ul()
+  ul
+    margin 0
+    padding 0
+    li
+      margin 0
+      padding 0
+    
+ride-body()
+  body
+    {block}
+    font-weight normal unless @font-weight
+    font-size 62.5% unless @font-size
+    line-height 1.5 unless @line-height
+
+tooltip(className = '.has-tooltip', dataAttribute = data-tooltip)
+  {className}
+    position: relative;
+    &:before
+      translateX(-50%) unless @transform;
+      content attr(dataAttribute);
+      opacity 0;
+      position absolute;
+      right 0;
+      top 0;
+      visibility hidden;
+      white-space nowrap;
+      {block}
+    &:hover:before
+      translateX(0) unless @transform;
+      opacity 1;
+      visibility visible;
+
+wrapper(class = '.wrap')
+  {class}
+    {block}
+    height 100%
+    width 100%
+
+// aliasing the wrapper mixin with wrap
+wrap = wrapper

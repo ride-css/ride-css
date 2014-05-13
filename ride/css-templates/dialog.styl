@@ -1,0 +1,35 @@
+ride-dialog(class = '.ride-dialog', overlay-class = '.overlay', width = 40%, height = 40%)
+  {class}
+    {block}
+    font-size 1.6em
+    height height
+    opacity 0
+    overflow hidden
+    width width
+    padding (@width / @height)
+    position fixed
+    visibility hidden
+    z-index 10
+    left ((100% - @width - @padding*2)/2)
+    top ((100% - @height - @padding*2)/2)
+    &.show
+      opacity 1
+      visibility visible
+      &~.overlay
+        opacity 1
+        visibility visible
+
+  {overlay-class}
+    background-color rgba(black, .4)
+    height 100%
+    left 0
+    opacity 0
+    position fixed
+    top 0
+    visibility hidden
+    width 100%
+    z-index 9    
+
+  {class},
+  {overlay-class}
+    transition(.2s)

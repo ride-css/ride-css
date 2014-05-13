@@ -3,13 +3,13 @@ Ride csss
 
 Stylus mixin library
 
-#Installing ride
+##Installing ride
 Ride requires Stylus.js and (obviously) node.js installed
 
-#Documentation
+##Documentation
 Coming soon
 
-#Contributing
+##Contributing
 *Fork this repo
 *Commit you changes
 *Report bugs

@@ -1,12 +1,12 @@
 var plugins,
   _parseInt,
-  intRegexp;
+  _parseFloat;
 
-intRegexp = /[a-zA-Z]+/g;
-
+// parseint function
 _parseInt = function (number) {
   return parseInt(number.val);
 }
+// parsefloat function
 _parseFloat = function (number) {
   return parseFloat(number.val);
 }

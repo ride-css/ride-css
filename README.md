@@ -1,13 +1,24 @@
-Ride csss
+Ride css
 ========
 
 Stylus mixin library
 
 ##Installing ride
-Ride requires Stylus.js and (obviously) node.js installed
+Ride **requires** Stylus.js and (obviously) node.js installed
+
+> [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
+
+> [Install stylus.js](http://learnboost.github.io/stylus//#get-styling-with-stylus "Click here to go to stylus.js website")
 
 ##Documentation
-Coming soon
+####How to include Ride in your .styl file
+```
+
+// do this and you've done!
+@require 'ride/*'
+
+```
+*the full doc is coming soon &copy;*
 
 ##Contributing
 * Fork this repo

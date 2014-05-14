@@ -129,6 +129,10 @@ text-selection(background, color)
 transition(time = .4s, easing = ease-out, transitions = all)
   _cssProxy($webkit $mozilla $opera, transition, transitions time easing)
 
+// transition
+transitions()
+  _cssProxy($webkit $mozilla $opera, transition, arguments)
+
 // translate css property
 translate(x, y)
   transform(s('translate(%s, %s)', x, y))

@@ -1,6 +1,6 @@
-var plugins,
-  _parseInt,
-  _parseFloat;
+var plugins
+  , _parseInt
+  , _parseFloat;
 
 // parseint function
 _parseInt = function (number) {
@@ -11,6 +11,7 @@ _parseFloat = function (number) {
   return parseFloat(number.val);
 }
 
+// building the plugin
 plugins = function () {
   return function (style) {
     style.define('parseInt', _parseInt);
@@ -18,4 +19,5 @@ plugins = function () {
   }
 }
 
+// exporting the plugin
 module.exports = plugins;

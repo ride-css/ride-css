@@ -14,7 +14,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 ####How to include Ride in your .styl file
 ```
 
-// do this and you've done!
+// do this and you're ready to code your beautiful webapp/website!
 @require 'ride/*'
 
 ```

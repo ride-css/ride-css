@@ -1,3 +1,4 @@
+// returns all h1-h6 html selectors
 headings()
   h1
   h2
@@ -7,6 +8,8 @@ headings()
   h6
     {block}
 
+// returns all h1-h6 html selectors
+// it will properly calculate line-height and font size 
 ride-headings(fontMultiplier = 2, line-height = 1.5, multiplier = 0.2)
   for heading in 1 2 3 4 5 6
     h{heading}
@@ -19,6 +22,7 @@ ride-headings(fontMultiplier = 2, line-height = 1.5, multiplier = 0.2)
   +headings()
     margin 0
 
+// returns a properly calculated "p" selector 
 ride-paragraph(font-size = 1em, line-height = 1.5, margin = .5em 0)
   p
     font-size font-size

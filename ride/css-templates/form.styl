@@ -1,5 +1,42 @@
-ride-form-elements(border = 0, padding = 0)
+form-elements()
   input, textarea, select
+    {block}
+
+form-elements-readonly()
+  +form-elements()
+    &:read-only
+      {block}
+
+form-in-range()
+  input[type='number']:in-range
+    {block}
+
+form-not-valid()
+  +form-elements()
+    &:invalid
+      {block}
+      
+form-optional()
+  +form-elements()
+    &:optional
+      {block}
+
+form-out-range()
+  input[type='number']:out-of-range
+    {block}
+      
+form-required()
+  +form-elements()
+    &:required
+      {block}
+
+form-valid()
+  +form-elements()
+    &:invalid
+      {block}
+
+ride-form-elements(border = 0, padding = 0)
+  +form-elements()
     box-sizing()
     if border != 0
       border border
@@ -14,3 +51,6 @@ ride-form-elements(border = 0, padding = 0)
       for pad in padding
         selectPadding = selectPadding +' '+ (pad/100)*85 unit(pad)
       padding unquote(selectPadding)
+
+form-invalid = form-not-valid
+form-optionals = form-optional

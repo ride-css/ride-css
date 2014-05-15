@@ -1,3 +1,5 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
 var plugins
   , _parseInt
   , _parseFloat;

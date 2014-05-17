@@ -22,8 +22,7 @@ ride-grid(options = {})
   gridUnit = unit(width)
 
   {class}
-    width width
-    margin 0 auto
+    ride-column(width, gridGutter, 1, 1)
 
   for columnNumber in 1...(columns+1)
     {column}{columnNumber}
@@ -31,11 +30,11 @@ ride-grid(options = {})
         ride-column(width, gutter, columns, columnNumber, false)
       if padding
         ride-column(width, gutter, columns, columnNumber, 'both false')
-    
+
   for columnNumber in 1...columns
     {floaterScope} {float}{columnNumber}
       ride-float(width, gutter, columns, columnNumber, margin, false)
-    
+
   for columnNumber in 1...columns
     {floaterScope} {push}{columnNumber}
       ride-float(width, gutter, columns, columnNumber, margin, false, right)
@@ -44,13 +43,13 @@ ride-grid(options = {})
   [class*="float"] 
     float left
 
-  .cl{columns}
-    float none
-
   [class*="cl"]
     margin setUnit(gutter, gridUnit)
     if padding
       padding setUnit(gutter, gridUnit)
+
+  .cl{columns}
+    float none
 
   .outgrid
     if rowGutter not 0
@@ -66,6 +65,7 @@ ride-grid-12(gutter = 0 2, gridGutter = 0 2, gridWidth = 100%, padding = false)
   options = {}
   options.gridClass = '.ride-grid-12'
   options.gutter = gutter
+  options.gridGutter = gridGutter
   options.width = gridWidth
   options.padding = padding
   ride-grid(options)

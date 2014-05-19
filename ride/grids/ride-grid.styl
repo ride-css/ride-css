@@ -55,8 +55,10 @@ ride-grid(options = {})
     if rowGutter not 0
       {rowGutterType} (rowGutter*-1)
 
-  {row}
+  {row},
+  {class}
     clearfix()
+  {row}
     if rowGutter not 0
       {rowGutterType} rowGutter
 
@@ -82,11 +84,11 @@ ride-grid-12-reset(gutter = 2, gridWidth = 100%, gutterType = 'both')
 
 // two columns grid. Ideal for "app style" designs
 ride-two-columns(class = '.site-nav', contentClass = '.site-content', contentWidth = 61.8, navPosition = left)
+  smallColumn = parseInt(100 - contentWidth)
+  
   {class}
     a
       display block
-
-    smallColumn = parseInt(100 - contentWidth)
     ride-column(width: 100%, columnCount: 100, currentColumn: smallColumn, gutterType: 'padding', gutter: 0 2)
     {navPosition} 0
     height 100%
@@ -96,7 +98,21 @@ ride-two-columns(class = '.site-nav', contentClass = '.site-content', contentWid
   {contentClass}
     ride-column(width: 100%, columnCount: 100, currentColumn: contentWidth, gutterType: 'padding', gutter: 0 2)
     if navPosition == left
-      ride-float(width: 100%, columnCount: 100, currentColumn: contentWidth, gutter: 0 2)
+      float left
+      margin-{navPosition} unit(smallColumn, '%')
+
+ride-two-columns-reset(class='.site-nav', contentClass='.site-content')
+  {class}, {contentClass}
+    height auto
+    margin 0
+    padding 0 2%
+    width 96%
+    a
+      display inline-block
+
+  {contentClass}
+    {block}
+
 
 ride-column-grid(class, columnCount, columnClass = '.cl')
   {class}

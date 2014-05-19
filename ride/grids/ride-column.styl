@@ -33,6 +33,7 @@ ride-column(width, gutter = 0, columnCount = 1, currentColumn = 1, gutterType = 
   if returnsWidth
     width column
 
+
 // floating column mixin
 // doesn't accept a code block
 ride-float(width, gutter, columnCount = 1, currentColumn = 1, gutterType = 'margin', addFloat = true, floatDirection = 'left')
@@ -43,12 +44,12 @@ ride-float(width, gutter, columnCount = 1, currentColumn = 1, gutterType = 'marg
     if gutterType == 'both'
       float = float + gutter
 
-  else if gutter[1] && !gutter[3]
+  if gutter[1] && !gutter[3]
     float = gutter[1]
     if gutterType == 'both'
       float = float + gutter[1]
 
-  else if gutter[1] && gutter[3]
+  if gutter[1] && gutter[3]
     float = gutter[3]
     if gutterType == 'both'
       float = float + gutter[3]
@@ -56,7 +57,13 @@ ride-float(width, gutter, columnCount = 1, currentColumn = 1, gutterType = 'marg
   // smallest column width
   column = (width / columnCount) * currentColumn
 
-  {gutterType}-{floatDirection} (column + float)
+  // {gutterType}-{floatDirection} (column + float)
+  if gutterType && gutterType != 'both' &&  gutterType != 'both false'
+    {gutterType}-{floatDirection} setUnit((column + float), columnUnit)
+
+  if gutterType == 'both'
+    margin-{floatDirection} setUnit((column + float), columnUnit)
+    padding-{floatDirection} setUnit((column + float), columnUnit)
 
   if addFloat
-    float left
+    float left  

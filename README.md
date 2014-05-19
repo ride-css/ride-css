@@ -28,5 +28,5 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 ##Todos
 - [x] add basic mixins
-- [] make the documentation
-- [] sleep at night
+- [ ] make the documentation
+- [ ] sleep at night

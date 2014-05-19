@@ -25,3 +25,8 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 * Commit you changes
 * Report bugs
 * Drink beer and eat your veggies
+
+##Todos
+- [x] add basic mixins
+- [] make the documentation
+- [] sleep at night

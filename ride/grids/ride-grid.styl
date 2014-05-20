@@ -39,16 +39,16 @@ ride-grid(options = {})
     {floaterScope} {push}{columnNumber}
       ride-float(width, gutter, columns, columnNumber, margin, false, right)
 
-  [class*="cl"] 
-  [class*="float"] 
+  {unquote(replace('[class*="%s"]', '%s', replace(column, '.', '')))},
+  {unquote(replace('[class*="%s"]', '%s', replace(float, '.', '')))}
     float left
 
-  [class*="cl"]
+  {unquote(replace('[class*="%s"]', '%s', replace(column, '.', '')))}
     margin setUnit(gutter, gridUnit)
     if padding
       padding setUnit(gutter, gridUnit)
 
-  .cl{columns}
+  {column}{columns}
     float none
 
   .outgrid
@@ -65,6 +65,34 @@ ride-grid(options = {})
 // twelve columns grid
 ride-grid-12(gutter = 0 2, gridGutter = 0 2, gridWidth = 100%, padding = false)
   options = {}
+  options.gridClass = '.ride-grid-12'
+  options.gutter = gutter
+  options.gridGutter = gridGutter
+  options.width = gridWidth
+  options.padding = padding
+  ride-grid(options)
+
+// six columns grid (ideal for mobile use)
+ride-grid-12-small(gutter = 0 2, gridGutter = 0 2, gridWidth = 100%, padding = false)
+  options = {}
+  options.columnClass = '.sm-cl'
+  options.floatClass = '.sm-float'
+  options.pushClass = '.sm-push'
+  options.columns = 6
+  options.gridClass = '.ride-grid-12'
+  options.gutter = gutter
+  options.gridGutter = gridGutter
+  options.width = gridWidth
+  options.padding = padding
+  ride-grid(options)
+
+// four columns grid (ideal for mobile use)
+ride-grid-12-smallest(gutter = 0 2, gridGutter = 0 2, gridWidth = 100%, padding = false)
+  options = {}
+  options.columnClass = '.smt-cl'
+  options.floatClass = '.smt-float'
+  options.pushClass = '.smt-push'
+  options.columns = 4
   options.gridClass = '.ride-grid-12'
   options.gutter = gutter
   options.gridGutter = gridGutter

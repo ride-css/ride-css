@@ -6,7 +6,8 @@ var stylus = require('stylus')
 
 var plugins
   , _parseInt
-  , _parseFloat;
+  , _parseFloat
+  , _replace;
 
 // parseint function
 _parseInt = function (param) {
@@ -16,11 +17,21 @@ _parseInt = function (param) {
 _parseFloat = function (param) {
   return parseFloat(param.val);
 }
+// replace function
+_replace = function (str, search, replace) {
+  var str = str.clone().val
+    , search = search.clone().val
+    , replace = replace.clone().val;
+
+  return str.replace(search, replace);
+}
+
 // building the plugin
 plugins = function () {
   return function (style) {
     style.define('parseInt', _parseInt);
     style.define('parseFloat', _parseFloat);
+    style.define('replace', _replace);
   }
 }
 

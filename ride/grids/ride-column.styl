@@ -2,7 +2,7 @@
 // https://github.com/OctoD/ride-css/
 // column mixin
 // doesn't accept a code block
-ride-column(width, gutter = 0, columnCount = 1, currentColumn = 1, gutterType = 'margin', returnsWidth = true)
+ride-column(width, gutter = 0, columnCount = 1, currentColumn = 1, gutterType = 'margin', returnsWidth = true, important = false)
   columnUnit = unit(width)
 
   // smallest column width
@@ -31,8 +31,10 @@ ride-column(width, gutter = 0, columnCount = 1, currentColumn = 1, gutterType = 
     padding setUnit(gutter, columnUnit)
 
   if returnsWidth
-    width column
-
+    if important
+      width column !important
+    unless important
+      width column
 
 // floating column mixin
 // doesn't accept a code block

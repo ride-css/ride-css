@@ -116,7 +116,7 @@ This is the mixins list (Organized in folders)
     - ride-two-columns-reset
 * typography/
   * anchors.styl
-    - ride-anchors
+    - [ride-anchors](#ride-anchors)
   * ride-typography.styl
     - headings
     - ride-headings
@@ -136,3 +136,41 @@ This is the mixins list (Organized in folders)
   - [ ] write how to use mixins
   - [ ] a website maybe?
 - [ ] sleep at night
+
+####Using the mixins
+#####ride-anchors
+```
+// how to include the mixin
+// this mixins has not a {block}
+// @params
+// color color -> is the basic color for your anchors
+// bool light -> determines if the hover state color will be brighter (true) or darker (false) default: false
+// percent ratio -> the basic percentual the color will be enlighted or darkened
+// string class -> the css selector. 
+// ride-anchors(color, light = false, ratio = 21%, class = 'a')
+example:
+// using
+ride-anchors(red)
+// the output will be like
+a {
+  color: #f00;
+}
+a:hover {
+  color: #c90000;
+}
+a:active {
+  color: #c50000;
+}
+// or using
+ride-anchors(red, true, 45%, '.test-anchor')
+// will output
+.test-anchor {
+  color: #f00;
+}
+.test-anchor:hover {
+  color: #ff7373;
+}
+.test-anchor:active {
+  color: #ff7c7c;
+}
+```

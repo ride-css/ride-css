@@ -18,7 +18,6 @@ $no-prefixes = false
 _cssProxy(prefixes, property, values...)
   if !$no-prefixes and !$current-prefix
     for prefix in prefixes
-      p(prefix)
       {prefix}{property}: values
   if !$current-prefix
     {property} values

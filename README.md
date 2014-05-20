@@ -127,6 +127,7 @@ This is the mixins list (Organized in folders)
 ##Todos
 - [x] add basic mixins
 - [ ] make the documentation
-  - [x] make the mixins list tree
+  - [x] write the mixins list tree
   - [ ] write how to use mixins
+  - [ ] a website maybe?
 - [ ] sleep at night

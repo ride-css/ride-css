@@ -23,10 +23,10 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 The library is made of mixins. A mixin is a portion of code useful to be reused and it's dinamically generated.
 This is the mixins list (Organized in folders)
 
-* css-templates
-  * dialog
+* css-templates/
+  * dialog.styl
     - ride-dialog
-  * form
+  * form.styl
     - form-elements
     - form-elements-readonly
     - form-in-range
@@ -36,11 +36,11 @@ This is the mixins list (Organized in folders)
     - form-required
     - form-valid
     - ride-form-elements
-  * ride-buttons
+  * ride-buttons.styl
     - button
     - button-bar
     - sliding-button
-  * ride-media-queries
+  * ride-media-queries.styl
     - high-dpi
     - responsive-huge
     - responsive-normal
@@ -48,12 +48,17 @@ This is the mixins list (Organized in folders)
     - responsive-small
     - responsive-smallest
     - responsive-tablet
-* etc
-  * css-normalize
+* etc/
+  * css-normalize.styl
     - css-normalize
-  * css-reset
+  * css-reset.styl
     - css-reset
-  * ride-css3-proxies
+
+  * ride-css3-proxies.styl 
+    
+    *since css3 support is not already optimal in Ride, you could install Nib. For installing it type*
+    ```npm install -g nib```
+    
     - animation
     - animation-delay
     - animation-direction
@@ -83,13 +88,13 @@ This is the mixins list (Organized in folders)
     - translate
     - translateX
     - translateY
-  * ride-functions
+  * ride-functions.styl
     - get-lineheight
     - onePercent
     - parseInt
     - parseFloat
     - setUnit
-  * ride-mixed-mixins
+  * ride-mixed-mixins.styl
     - absolute
     - clearfix
     - dont-select
@@ -98,21 +103,21 @@ This is the mixins list (Organized in folders)
     - ride-body
     - tooltip
     - wrapper
-* grids
-  * ride-column
+* grids/
+  * ride-column.styl
     - ride-column
     - ride-float
-  * ride-grid
+  * ride-grid.styl
     - ride-column-grid
     - ride-grid
     - ride-grid-12
     - ride-grid-12-reset
     - ride-two-columns
     - ride-two-columns-reset
-* typography
-  * anchors
+* typography/
+  * anchors.styl
     - ride-anchors
-  * ride-typography
+  * ride-typography.styl
     - headings
     - ride-headings
     - ride-paragraph

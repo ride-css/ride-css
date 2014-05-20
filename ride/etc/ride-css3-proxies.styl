@@ -1,5 +1,8 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
+
+// if you want a better css3 support you should type "npm install -g nib"
+
 // vendor prefixes
 $webkit = '-webkit-'
 $mozilla = '-moz-'
@@ -10,24 +13,19 @@ $allprefixes = $webkit $mozilla $microsoft $opera
 // vendor prefixes global usage
 $current-prefix = false
 $no-prefixes = false
-
 // css proxy core mixin
 // will help you to keep your code dry, clean and vendor free
 _cssProxy(prefixes, property, values...)
   if !$no-prefixes and !$current-prefix
-    for prefix in prefixes  
-      {prefix}{property} values
+    for prefix in prefixes
+      p(prefix)
+      {prefix}{property}: values
   if !$current-prefix
     {property} values
   if $current-prefix
     {$current-prefix}{property} values
 
 // here comes the sun
-
-// keyframes
-// keyframes(name)
-// not avaible atm sorry
-
 // animation
 animation(animationShorthand, fillMode = both, direction = forward)
   _cssProxy($webkit $mozilla $opera, animation, animationShorthand)

@@ -120,7 +120,7 @@ This is the mixins list (Organized in folders)
   * ride-typography.styl
     - [headings](#headings)
     - [ride-headings](#ride-headings)
-    - ride-paragraph
+    - [ride-paragraph](#ride-paragraph)
     - ride-typography
 
 ##Contributing
@@ -140,7 +140,6 @@ This is the mixins list (Organized in folders)
 ####Using the mixins
 #####ride-anchors
 ```
-// how to include the mixin
 // this mixins has not a {block}
 // @params
 // color color -> is the basic color for your anchors
@@ -177,7 +176,6 @@ ride-anchors(red, true, 45%, '.test-anchor')
 
 #####headings
 ```
-// how to include this mixin
 // this mixin has a {block}
 // @params: none
 // heading()
@@ -193,7 +191,6 @@ h1, h2, h3, h4, h5, h6{
 
 #####ride-headings
 ```
-// how to include this mixin
 // this mixin has a {block}
 // @params
 // number fontMultiplier (default: 2) -> the h1 size multiplier (2 will means 2x the inherited font-size)
@@ -239,3 +236,24 @@ h6 {
   color: #f00;
 }
 ```
+
+#####ride-paragraph
+```
+// this mixin has a {block}
+// @params
+// font-size font-size (default: 1em) -> the font-size the paragraph will have (suggested: 1em)
+// number line-height (default: 1.5) -> the line-height the paragraph will have (suggested: 1.5)
+// margin margin (default: .5em 0) -> the margin the paragraph will have (suggested: .5em 0)
+// ride-paragraph(font-size = 1em, line-height = 1.5, margin = .5em 0)
+example:
+// using
+ride-paragraph()
+// will output
+p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0.5em 0;
+}
+```
+
+

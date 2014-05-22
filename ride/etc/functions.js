@@ -1,13 +1,23 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
+// nodejs requirements
 var stylus = require('stylus')
   , nodes = stylus.nodes
   , utils = stylus.utils;
 
+// plugin variables
 var plugins
+  , _log
   , _parseInt
   , _parseFloat
   , _replace;
+
+// a console log for debugging functions
+_log = function () {
+  var args = [].slice.call(arguments);
+
+  console.log(args);
+}
 
 // parseint function
 _parseInt = function (param) {
@@ -29,6 +39,7 @@ _replace = function (str, search, replace) {
 // building the plugin
 plugins = function () {
   return function (style) {
+    style.define('log', _log);
     style.define('parseInt', _parseInt);
     style.define('parseFloat', _parseFloat);
     style.define('replace', _replace);

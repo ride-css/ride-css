@@ -11,11 +11,11 @@ var plugins
 
 // parseint function
 _parseInt = function (param) {
-  return parseInt(param.val);
+  return parseInt(param.clone().val);
 }
 // parsefloat function
 _parseFloat = function (param) {
-  return parseFloat(param.val);
+  return parseFloat(param.clone().val);
 }
 // replace function
 _replace = function (str, search, replace) {

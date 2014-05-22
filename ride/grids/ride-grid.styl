@@ -111,23 +111,33 @@ ride-grid-12-reset(gutter = 2, gridWidth = 100%, gutterType = 'both')
       ride-column(100%, gutter, 1, 1, gutterType)
 
 // two columns grid. Ideal for "app style" designs
-ride-two-columns(class = '.site-nav', contentClass = '.site-content', contentWidth = 61.8, navPosition = left)
-  smallColumn = parseInt(100 - contentWidth)
-  
+ride-two-columns(class = '.site-nav', contentClass = '.site-content', hideNav = '.hide-nav', contentWidth = 61.8, navPosition = left, gridGutter = 0 2, width = 100%, options = {})
+  // the nav will have this width! 
+  smallColumn = parseFloat(100 - contentWidth)
+  // nav class
   {class}
     a
       display block
-    ride-column(width: 100%, columnCount: 100, currentColumn: smallColumn, gutterType: 'padding', gutter: 0 2)
+    ride-column(width: width, columnCount: 100, currentColumn: smallColumn, gutterType: 'padding', gutter: gridGutter)
     {navPosition} 0
     height 100%
     position fixed
     top 0
-
+    {hideNav} &
+      {navPosition} -(smallColumn)%
+  // content class
   {contentClass}
-    ride-column(width: 100%, columnCount: 100, currentColumn: contentWidth, gutterType: 'padding', gutter: 0 2)
+    ride-column(width: width, columnCount: 100, currentColumn: contentWidth, gutterType: 'padding', gutter: gridGutter)
     if navPosition == left
-      float left
-      margin-{navPosition} unit(smallColumn, '%')
+      ride-float(width: width, columnCount: 100, currentColumn: smallColumn, floatDirection: navPosition, gutter: gridGutter, gutterType: 'both')
+    {hideNav} &
+      float none
+      unless options.toFull
+        margin-{navPosition} unit(smallColumn/2, '%')
+      if options.toFull
+        margin 0
+        ride-column(width: width, columnCount: 100, currentColumn: width, gutterType: 'padding', gutter: gridGutter)
+
 
 ride-two-columns-reset(class='.site-nav', contentClass='.site-content')
   {class}, {contentClass}

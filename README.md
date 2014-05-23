@@ -121,7 +121,7 @@ This is the mixins list (Organized in folders)
     - [headings](#headings)
     - [ride-headings](#ride-headings)
     - [ride-paragraph](#ride-paragraph)
-    - ride-typography
+    - [ride-typography](#ride-typography)
 
 ##Contributing
 * Fork this repo
@@ -255,5 +255,51 @@ p {
   margin: 0.5em 0;
 }
 ```
-
-
+#####ride-typography
+```
+// this mixin has not a {block}
+// this mixin will output the current mixins with their defaults params
+// ride-paragraph()
+// ride-headings()
+example:
+// using
+ride-typography
+// will output
+h1 {
+  font-size: 2em;
+  line-height: 0.75;
+}
+h2 {
+  font-size: 1.8em;
+  line-height: 0.833333333333333;
+}
+h3 {
+  font-size: 1.4em;
+  line-height: 1.071428571428571;
+}
+h4 {
+  font-size: 1.2em;
+  line-height: 1.25;
+}
+h5 {
+  font-size: 1em;
+  line-height: 1.5;
+}
+h6 {
+  font-size: 0.8em;
+  line-height: 1.875;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0.5em 0;
+}
+```

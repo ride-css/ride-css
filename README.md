@@ -263,7 +263,7 @@ p {
 // ride-headings()
 example:
 // using
-ride-typography
+ride-typography()
 // will output
 h1 {
   font-size: 2em;

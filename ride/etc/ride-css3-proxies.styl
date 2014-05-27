@@ -113,6 +113,18 @@ rotateZ(rotation)
 scale(ratio)
   transform(s('scale(%s)', ratio))
 
+// skewX
+skewX(degrees)
+  transform(s('skewX(%sdeg)', degrees))
+
+// skewY
+skewY(degrees)
+  transform(s('skewY(%sdeg)', degrees))
+
+// skew
+skew(degrees...)
+  transform(s('skew(%sdeg, %sdeg)', degrees...))
+
 // tab-size
 tab-size(size)
   _cssProxy($mozilla $opera, tab-size, size)

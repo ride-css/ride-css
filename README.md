@@ -18,6 +18,13 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 @require 'ride/*'
 
 ```
+
+##Contributing
+* Fork this repo
+* Commit you changes
+* Report bugs
+* Drink beer and eat your veggies
+
 *the full doc is coming soon &copy;*
 ####Mixins list
 The library is made of mixins. A mixin is a portion of code useful to be reused and it's dinamically generated.
@@ -80,6 +87,9 @@ This is the mixins list (Organized in folders)
     - rotateY
     - rotateZ
     - scale
+    - skewX
+    - skewY
+    - skew
     - tab-size
     - text-selection
     - transform
@@ -122,12 +132,6 @@ This is the mixins list (Organized in folders)
     - [ride-headings](#ride-headings)
     - [ride-paragraph](#ride-paragraph)
     - [ride-typography](#ride-typography)
-
-##Contributing
-* Fork this repo
-* Commit you changes
-* Report bugs
-* Drink beer and eat your veggies
 
 ##Todos
 - [x] add basic mixins

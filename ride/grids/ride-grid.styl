@@ -55,14 +55,14 @@ ride-grid(options = {})
 
   .outgrid
     if rowGutter not 0
-      {rowGutterType} (rowGutter*-1)
+      {rowGutterType} setUnit((rowGutter*-1), gridUnit)
 
   {row},
   {class}
     clearfix()
   {row}
     if rowGutter not 0
-      {rowGutterType} rowGutter
+      {rowGutterType} setUnit(rowGutter, gridUnit)
 
 // twelve columns grid
 ride-grid-12(gutter = 0 2, gridGutter = 0 2, gridWidth = 100%, padding = false, gutterType = 'margin')
@@ -165,7 +165,7 @@ ride-column-grid(class, columnCount, columnClass = '.cl')
   {class}
     column-count(columnCount)
     {block}
-  {columnClass}
+  {class} {columnClass}
     page-break-inside(avoid)
     margin 0
     float none

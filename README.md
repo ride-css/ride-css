@@ -118,8 +118,8 @@ This is the mixins list (Organized in folders)
     - ride-column
     - ride-float
   * ride-grid.styl
-    - ride-column-grid
-    - ride-grid
+    - [ride-column-grid](#ride-column-grid)
+    - [ride-grid](#ride-grid)
     - ride-grid-12
     - ride-grid-12-reset
     - ride-two-columns
@@ -142,7 +142,145 @@ This is the mixins list (Organized in folders)
 - [ ] sleep at night
 
 ####Using the mixins
-#####ride-anchors
+
+#####**grid mixins**
+
+######ride-column-grid
+this mixin will create a column-count grid
+```
+// this mixin has not a {block}
+// @params
+// string class -> the wrapper
+// int columnCount -> the number of columns
+// string columnClass (default: '.cl') -> the css selector for the columns
+// ride-column-grid(class, columnCount, columnClass = '.cl')
+example:
+// using
+ride-column-grid('.my-grid', 6, 'article')
+// the output will be like
+.my-grid {
+  -webkit-column-count: 6;
+  -moz-column-count: 6;
+  column-count: 6;
+}
+.my-grid article {
+  -webkit-page-break-inside: avoid;
+  -moz-page-break-inside: avoid;
+  -o-page-break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 0;
+  float: none;
+}
+```
+
+######ride-grid
+this mixin is quite complicated, but it will help you to build your custom css grids.
+If you want something more friendly user, you should choose the ride-grid-12/6/4 mixins
+```
+// this mixin has not a {block}
+// @params
+// hash options (default: {})
+//      string options.gridClass (default: '.ride-grid') -> this is the css selector that the grid will have
+//      string options.columnClass (default: '.cl') -> this is the prefix for each css column
+//      int options.columns (default: 12) -> this is the number of columns the mixin will render
+//      string options.columnScope (default: '') -> this is the scope for the columns
+//      string options.floatClass (default: '.float') -> this is the float column class prefix
+//      string options.floatScope (default: 'body') -> this is the scope for the float column class prefix
+//      int options.gridGutter (default: 0) -> this is the grid margin (or padding, see the option below)
+//      string options.gridGutterType (default: 'padding') -> this is the type of gutter for the grid wrapper
+//      int options.gutter (default: 0 2) -> this is the gutter for the columns
+//      string options.gutterType (default: 'margin') -> this is the gutter type for the columns
+//      bool options.padding (default: false) -> if true, the columns will also have a padding (equal to margin)
+//      string options.pushClass (default: '.push') -> this is the pushing column class prefix
+//      string options.rowClass (default: '.row') -> this is the clearfix container for the columns
+//      int options.rowGutter (default: 0) -> this is the gutter for the row
+//      string options.rowGutterType (default: 'margin') -> this is the gutter type for the row
+//      width options.width (default: 100%) -> this is the width for the grid wrapper. Notice that if you are going to use a different unit from '%', the columns width will be rendered using that unit
+
+example:
+// using
+ride-grid({
+  columns: 6,
+  gridClass: '.test',
+  columnClass: '.span',
+})
+// will output
+.test {
+  margin: 0%;
+  width: 100%;
+}
+.span1 {
+  width: 12.666666666666668%;
+}
+.span2 {
+  width: 29.333333333333336%;
+}
+.span3 {
+  width: 46%;
+}
+.span4 {
+  width: 62.66666666666667%;
+}
+.span5 {
+  width: 79.33333333333334%;
+}
+.span6 {
+  width: 96%;
+}
+body .float1 {
+  margin-left: 18.666666666666668%;
+}
+body .float2 {
+  margin-left: 35.333333333333336%;
+}
+body .float3 {
+  margin-left: 52%;
+}
+body .float4 {
+  margin-left: 68.66666666666667%;
+}
+body .float5 {
+  margin-left: 85.33333333333334%;
+}
+body .push1 {
+  margin-right: 18.666666666666668%;
+}
+body .push2 {
+  margin-right: 35.333333333333336%;
+}
+body .push3 {
+  margin-right: 52%;
+}
+body .push4 {
+  margin-right: 68.66666666666667%;
+}
+body .push5 {
+  margin-right: 85.33333333333334%;
+}
+[class*="span"],
+[class*="float"] {
+  float: left;
+}
+[class*="span"] {
+  margin: 0% 2%;
+}
+.span6 {
+  float: none;
+}
+.row:after,
+.test:after,
+.row:before,
+.test:before {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+```
+
+#####**typography mixins**
+
+######ride-anchors
 ```
 // this mixins has not a {block}
 // @params
@@ -178,7 +316,7 @@ ride-anchors(red, true, 45%, '.test-anchor')
 }
 ```
 
-#####headings
+######headings
 ```
 // this mixin has a {block}
 // @params: none
@@ -193,7 +331,7 @@ h1, h2, h3, h4, h5, h6{
 }
 ```
 
-#####ride-headings
+######ride-headings
 ```
 // this mixin has a {block}
 // @params
@@ -241,7 +379,7 @@ h6 {
 }
 ```
 
-#####ride-paragraph
+######ride-paragraph
 ```
 // this mixin has a {block}
 // @params
@@ -259,7 +397,7 @@ p {
   margin: 0.5em 0;
 }
 ```
-#####ride-typography
+######ride-typography
 ```
 // this mixin has not a {block}
 // this mixin will output the current mixins with their defaults params

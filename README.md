@@ -339,7 +339,7 @@ p {
 ```
 
 
-######css-normalize
+######css-reset
 ```
 // this mixin has not a {block}
 // using

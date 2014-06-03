@@ -10,9 +10,9 @@ button(lineHeight = 3)
 
 button-bar(class = '.actions')
   {class}
-    margin 0
-    padding 0
-    line-height 0
+    margin 0 unless @margin
+    padding 0 unless @padding
+    line-height 0 unless @line-height
     {block}
 
 sliding-button(class, direction = 'left', transition = .4s, lineHeight = 3)

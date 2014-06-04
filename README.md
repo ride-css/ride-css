@@ -121,7 +121,7 @@ This is the mixins list (Organized in folders)
   * ride-grid.styl
     - [ride-column-grid](#ride-column-grid)
     - [ride-grid](#ride-grid)
-    - ride-grid-12
+    - [ride-grid-12](#ride-grid-12)
     - ride-grid-12-reset
     - ride-two-columns
     - ride-two-columns-reset
@@ -607,6 +607,150 @@ body .push5 {
 }
 
 ```
+
+######ride-grid-12
+This is the basic Ride css twelve column grid
+```
+// this mixin has not a {block}
+// @params
+// int gutter (default: 0 2) -> this is the gutter each column will have 
+// int gridGutter (default: 0 2) -> this is the grid gutter
+// size gridWidth (default: 100%) -> this is the gridwidth. Note that if you use a different Unit(px, em etc) 
+// the columns width and gutter will be calculated with that Unit  
+// bool padding (default: false) -> if set to true, each column will also have a padding (measuring the same of column gutter)  
+// string gutterType (default: 'margin') -> this is the column gutter type 
+
+// example:
+// using
+ride-grid-12(padding: true)
+// ths output will be like
+.ride-grid-12 {
+  margin: 0%;
+  width: 100%;
+}
+.cl1 {
+  width: 0.333333333333334%;
+}
+.cl2 {
+  width: 8.666666666666668%;
+}
+.cl3 {
+  width: 17%;
+}
+.cl4 {
+  width: 25.333333333333336%;
+}
+.cl5 {
+  width: 33.66666666666667%;
+}
+.cl6 {
+  width: 42%;
+}
+.cl7 {
+  width: 50.333333333333336%;
+}
+.cl8 {
+  width: 58.66666666666667%;
+}
+.cl9 {
+  width: 67%;
+}
+.cl10 {
+  width: 75.33333333333334%;
+}
+.cl11 {
+  width: 83.66666666666667%;
+}
+.cl12 {
+  width: 92%;
+}
+body .float1 {
+  margin-left: 10.333333333333334%;
+}
+body .float2 {
+  margin-left: 18.666666666666668%;
+}
+body .float3 {
+  margin-left: 27%;
+}
+body .float4 {
+  margin-left: 35.333333333333336%;
+}
+body .float5 {
+  margin-left: 43.66666666666667%;
+}
+body .float6 {
+  margin-left: 52%;
+}
+body .float7 {
+  margin-left: 60.333333333333336%;
+}
+body .float8 {
+  margin-left: 68.66666666666667%;
+}
+body .float9 {
+  margin-left: 77%;
+}
+body .float10 {
+  margin-left: 85.33333333333334%;
+}
+body .float11 {
+  margin-left: 93.66666666666667%;
+}
+body .push1 {
+  margin-right: 10.333333333333334%;
+}
+body .push2 {
+  margin-right: 18.666666666666668%;
+}
+body .push3 {
+  margin-right: 27%;
+}
+body .push4 {
+  margin-right: 35.333333333333336%;
+}
+body .push5 {
+  margin-right: 43.66666666666667%;
+}
+body .push6 {
+  margin-right: 52%;
+}
+body .push7 {
+  margin-right: 60.333333333333336%;
+}
+body .push8 {
+  margin-right: 68.66666666666667%;
+}
+body .push9 {
+  margin-right: 77%;
+}
+body .push10 {
+  margin-right: 85.33333333333334%;
+}
+body .push11 {
+  margin-right: 93.66666666666667%;
+}
+[class*="cl"],
+[class*="float"] {
+  float: left;
+}
+[class*="cl"] {
+  margin: 0% 2%;
+  padding: 0% 2%;
+}
+.cl12 {
+  float: none;
+}
+.row:after,
+.ride-grid-12:after,
+.row:before,
+.ride-grid-12:before {
+  clear: both;
+  content: '';
+  display: table;
+} 
+```
+
 
 #####**typography mixins**
 

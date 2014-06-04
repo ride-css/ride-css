@@ -16,9 +16,9 @@ onePercent(number)
 // this function will set the passed unit to the passed css items 
 setUnit(items, unit)
   offset = 0
-
   for item in items
-    items[offset] = unit(item, unit)
+    if items[offset]
+      items[offset] = unit(item, unit)
     offset = offset+1
   items
 

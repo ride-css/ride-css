@@ -29,8 +29,6 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 *the full doc is coming soon &copy;*
 ####Mixins list
-The library is made of mixins. A mixin is a portion of code useful to be reused and it's dinamically generated.
-This is the mixins list (Organized in folders)
 
 * css-templates/
   * dialog.styl

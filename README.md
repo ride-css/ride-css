@@ -120,6 +120,8 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [ride-column-grid](#ride-column-grid)
     - [ride-grid](#ride-grid)
     - [ride-grid-12](#ride-grid-12)
+    - [ride-grid-12-small](#ride-grid-12-small)
+    - [ride-grid-12-smallest](#ride-grid-12-smallest)
     - ride-grid-12-reset
     - ride-two-columns
     - ride-two-columns-reset
@@ -748,6 +750,164 @@ body .push11 {
   display: table;
 } 
 ```
+#####ride-grid-12-small
+Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-12-small is useful for tablet smaller devices.
+```
+// this mixin has not a {block}
+// @params
+// int gutter (default: 0 2) -> this is the gutter each column will have 
+// int gridGutter (default: 0 2) -> this is the grid gutter
+// size gridWidth (default: 100%) -> this is the gridwidth. Note that if you use a different Unit(px, em etc) 
+// the columns width and gutter will be calculated with that Unit  
+// bool padding (default: false) -> if set to true, each column will also have a padding (measuring the same of column gutter)  
+// string gutterType (default: 'margin') -> this is the column gutter type 
+
+// example:
+// using
+ride-grid-12-small()
+// ths output will be like
+.ride-grid-12 {
+  margin: 0;
+  width: 100%;
+}
+body .sm-cl1 {
+  width: 12.666666666666668%;
+}
+body .sm-cl2 {
+  width: 29.333333333333336%;
+}
+body .sm-cl3 {
+  width: 46%;
+}
+body .sm-cl4 {
+  width: 62.66666666666667%;
+}
+body .sm-cl5 {
+  width: 79.33333333333334%;
+}
+body .sm-cl6 {
+  width: 96%;
+}
+html body .sm-float1 {
+  margin-left: 18.666666666666668%;
+}
+html body .sm-float2 {
+  margin-left: 35.333333333333336%;
+}
+html body .sm-float3 {
+  margin-left: 52%;
+}
+html body .sm-float4 {
+  margin-left: 68.66666666666667%;
+}
+html body .sm-float5 {
+  margin-left: 85.33333333333334%;
+}
+html body .sm-push1 {
+  margin-right: 18.666666666666668%;
+}
+html body .sm-push2 {
+  margin-right: 35.333333333333336%;
+}
+html body .sm-push3 {
+  margin-right: 52%;
+}
+html body .sm-push4 {
+  margin-right: 68.66666666666667%;
+}
+html body .sm-push5 {
+  margin-right: 85.33333333333334%;
+}
+body [class*="sm-cl"],
+body [class*="sm-float"] {
+  float: left;
+}
+body [class*="sm-cl"] {
+  margin: 0 2%;
+}
+.sm-cl6 {
+  float: none;
+}
+.row:after,
+.ride-grid-12:after,
+.row:before,
+.ride-grid-12:before {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+```
+#####ride-grid-12-smallest
+Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-12-smallest is useful for tablet smaller devices.
+```
+// this mixin has not a {block}
+// @params
+// int gutter (default: 0 2) -> this is the gutter each column will have 
+// int gridGutter (default: 0 2) -> this is the grid gutter
+// size gridWidth (default: 100%) -> this is the gridwidth. Note that if you use a different Unit(px, em etc) 
+// the columns width and gutter will be calculated with that Unit  
+// bool padding (default: false) -> if set to true, each column will also have a padding (measuring the same of column gutter)  
+// string gutterType (default: 'margin') -> this is the column gutter type 
+
+// example:
+// using
+ride-grid-12-smallest()
+// ths output will be like
+.ride-grid-12 {
+  margin: 0;
+  width: 100%;
+}
+body .smt-cl1 {
+  width: 21%;
+}
+body .smt-cl2 {
+  width: 46%;
+}
+body .smt-cl3 {
+  width: 71%;
+}
+body .smt-cl4 {
+  width: 96%;
+}
+html body .smt-float1 {
+  margin-left: 27%;
+}
+html body .smt-float2 {
+  margin-left: 52%;
+}
+html body .smt-float3 {
+  margin-left: 77%;
+}
+html body .smt-push1 {
+  margin-right: 27%;
+}
+html body .smt-push2 {
+  margin-right: 52%;
+}
+html body .smt-push3 {
+  margin-right: 77%;
+}
+body [class*="smt-cl"],
+body [class*="smt-float"] {
+  float: left;
+}
+body [class*="smt-cl"] {
+  margin: 0 2%;
+}
+.smt-cl4 {
+  float: none;
+}
+.row:after,
+.ride-grid-12:after,
+.row:before,
+.ride-grid-12:before {
+  clear: both;
+  content: '';
+  display: table;
+}
+```
+
 
 #####**typography mixins**
 

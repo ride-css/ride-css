@@ -37,6 +37,16 @@ form-valid()
     &:invalid
       {block}
 
+placeholder()
+  &::-webkit-placeholder
+    {block}
+  &::-moz-placeholder
+    {block}
+  &:-moz-placeholder
+    {block}
+  &::-ms-placeholder
+    {block}
+
 ride-form-elements(border = 0, padding = 0)
   +form-elements()
     box-sizing()

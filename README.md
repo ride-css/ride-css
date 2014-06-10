@@ -42,6 +42,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - form-out-range
     - form-required
     - form-valid
+    - placeholder
     - ride-form-elements
   * ride-buttons.styl
     - button

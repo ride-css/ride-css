@@ -123,9 +123,6 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [ride-grid-12](#ride-grid-12)
     - [ride-grid-12-small](#ride-grid-12-small)
     - [ride-grid-12-smallest](#ride-grid-12-smallest)
-    - ride-grid-12-reset
-    - ride-two-columns
-    - ride-two-columns-reset
 * typography/
   * anchors.styl
     - [ride-anchors](#ride-anchors)
@@ -908,7 +905,6 @@ body [class*="smt-cl"] {
   display: table;
 }
 ```
-
 
 #####**typography mixins**
 

@@ -115,8 +115,8 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - wrapper
 * grids/
   * ride-column.styl
-    - ride-column
-    - ride-float
+    - [ride-column](#ride-column)
+    - [ride-float](#ride-float)
   * ride-grid.styl
     - [ride-column-grid](#ride-column-grid)
     - [ride-grid](#ride-grid)
@@ -469,6 +469,55 @@ table {
   border-spacing: 0;
 }
 
+```
+
+#####**grid helpers**
+######ride-column
+this mixin is useful for making fast calculations about a column width
+```
+// this mixin has not a {block}
+// @params
+// width width -> the container width
+// int/s gutter (default: 0) -> the container gutter
+// int columnCount (default: 1) -> the number of columns the grid has
+// int currentColumn (default: 1) -> the space occupied by this column
+// string gutterType (default: 'margin', avaible: 'margin', 'both', 'both false') -> the gutter type (margin, margin+padding, width - margin)
+// bool returnsWidth (default: true) -> shall this mixin return the column width or only the gutter?
+// bool important (default: false) -> this mixin will returns the proprerties with the !important flag (false/true) 
+
+// example:
+// using
+.test
+  ride-column(100%, 0 1 2, 12, 4, padding: true)
+// will output
+.test {
+  margin: 0 1% 2%;
+  padding: 0 1% 2%;
+  width: 29.333333333333336%;
+}
+```
+######ride-float
+this mixin is useful for making fast calculations about a column float
+```
+// this mixin has not a {block}
+// @params
+// width width -> the container width
+// int/s gutter (default: 0) -> the container gutter
+// int columnCount (default: 1) -> the number of columns the grid has
+// int currentColumn (default: 1) -> the space occupied by this column
+// bool addFloat (default: true) -> this flag will add the css "float" property
+// string floatDirection (default: 'left') -> this flag will determine where the extra gutter will be added and the float direction 
+ride-float(width, gutter, columnCount = 1, currentColumn = 1, gutterType = 'margin', addFloat = true, floatDirection = 'left')
+
+// example:
+// using
+.test
+  ride-float(100%, 0 2, 12, 4, floatDirection: 'right')
+// will output
+.test {
+  margin-right: 35.333333333333336%;
+  float: left;
+}
 ```
 
 #####**grid mixins**

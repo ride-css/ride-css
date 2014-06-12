@@ -159,3 +159,7 @@ translateY(x)
 // transform css property
 transform(transformations...)
   _cssProxy($allprefixes, transform, unquote(transformations))
+
+// transform origin css property
+transform-origin(transformations...)
+  _cssProxy($allprefixes, transform-origin, transformations)

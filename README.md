@@ -47,6 +47,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
   * ride-buttons.styl
     - button
     - button-bar
+    - menu-button
     - sliding-button
   * ride-media-queries.styl
     - high-dpi

@@ -15,6 +15,46 @@ button-bar(class = '.actions')
     line-height 0 unless @line-height
     {block}
 
+menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger' fontSize = 1em)
+  {className}
+    {block}
+    background-color white unless @background-color
+    border-radius .25em
+    display inline-block
+    height .25em
+    transition all .4s ease 0s
+    width 2em
+  {className}
+  {className}:after
+  {className}:before
+    border-radius .25em
+  {className}:before
+    background-color white unless @background-color
+    content ""
+    display block
+    height .25em
+    margin-top -.5em
+    position relative
+    transition all .4s ease 0s
+  {className}:after
+    background-color white unless @background-color
+    content ""
+    display block
+    height .25em
+    margin-top .5em
+    position relative
+    top .25em
+    transition all .4s ease 0s
+  {triggerEvent}
+    background-color transparent
+    &:after
+      rotate -45
+      transform-origin 0 50% 0
+    &:before
+      rotate 45
+      transform-origin 25% 0 0
+
+
 sliding-button(class, direction = 'left', transition = .4s, lineHeight = 3)
   {class}
     button(lineHeight)

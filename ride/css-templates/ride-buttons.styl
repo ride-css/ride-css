@@ -24,27 +24,26 @@ menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger' fon
     height .25em
     transition all .4s ease 0s
     width 2em
+    &:after
+    &:before
+      background-color @background-color
+      content ""
+      display unquote('block') // had to do this due to a Stylus bug. (the block value is rendered as a stylus block)
+      height @height
+      position relative
+    &:before
+      margin-top -(@height*2)
+      transition all .4s ease 0s
+    &:after
+      margin-top (@height*2)
+      top @height
+      transition all .4s ease 0s
+
   {className}
   {className}:after
   {className}:before
     border-radius .25em
-  {className}:before
-    background-color white unless @background-color
-    content ""
-    display block
-    height .25em
-    margin-top -.5em
-    position relative
-    transition all .4s ease 0s
-  {className}:after
-    background-color white unless @background-color
-    content ""
-    display block
-    height .25em
-    margin-top .5em
-    position relative
-    top .25em
-    transition all .4s ease 0s
+  
   {triggerEvent}
     background-color transparent
     &:after

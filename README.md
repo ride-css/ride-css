@@ -50,13 +50,13 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - menu-button
     - sliding-button
   * ride-media-queries.styl
-    - high-dpi
-    - responsive-huge
-    - responsive-normal
-    - responsive-phone
-    - responsive-small
-    - responsive-smallest
-    - responsive-tablet
+    - [high-dpi](#high-dpi)
+    - [responsive-huge](#responsive-huge)
+    - [responsive-normal](#responsive-normal)
+    - [responsive-phone](#responsive-phone)
+    - [responsive-small](#responsive-small)
+    - [responsive-smallest](#responsive-smallest)
+    - [responsive-tablet](#responsive-tablet)
 * etc/
   * css-normalize.styl
     - [css-normalize](#css-normalize)
@@ -470,6 +470,130 @@ table {
   border-spacing: 0;
 }
 
+```
+
+#####**media queries: breakpoints and more**
+######high-dpi
+```
+// this mixin has a {block}
+// using
++high-dpi()
+  .test
+    color red
+// will render into
+@media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2) {
+  .test {
+    color: #f00;
+  }
+}
+```
+######responsive-huge
+```
+// this mixin has a {block}
+// using
++responsive-huge()
+  .test
+    color red
+// will render into
+@media only screen and (min-width: 1600px) {
+  :root .huge-hide {
+    display: none;
+  }
+  .test {
+    color: #f00;
+  }
+}
+```
+######responsive-normal
+```
+// this mixin has a {block}
+// using
++responsive-normal()
+  .test
+    color red
+// will render into
+@media only screen and (min-width: 960px) and (max-width: 1599px) {
+  :root .normal-hide {
+    display: none;
+  }
+  .test {
+    color: #f00;
+  }
+}
+```
+######responsive-phone
+```
+// this mixin has a {block}
+// using
++responsive-phone()
+  .test
+    color red
+// will render into
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  body {
+    font-size: 100%;
+  }
+  :root .phone-hide {
+    display: none;
+  }
+  .test {
+    color: #f00;
+  }
+}
+```
+######responsive-small
+```
+// this mixin has a {block}
+// using
++responsive-small()
+  .test
+    color red
+// will render into
+@media only screen and (min-width: 481px) and (max-width: 959px) {
+  :root .small-hide {
+    display: none;
+  }
+  .test {
+    color: #f00;
+  }
+}
+```
+######responsive-smallest
+```
+// this mixin has a {block}
+// using
++responsive-smallest()
+  .test
+    color red
+// will render into
+@media only screen and (max-width: 480px) {
+  :root .smallest-hide {
+    display: none;
+  }
+  .test {
+    color: #f00;
+  }
+}
+```
+######responsive-tablet
+```
+// this mixin has a {block}
+// using
++responsive-tablet()
+  .test
+    color red
+// will render into
+@media only screen and (min-width: 321px) and (max-width: 1024px) {
+  body {
+    font-size: 100%;
+  }
+  :root .tablet-hide {
+    display: none;
+  }
+  .test {
+    color: #f00;
+  }
+}
 ```
 
 #####**grid helpers**

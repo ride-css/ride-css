@@ -8,7 +8,7 @@ responsive-phone()
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) 
     body
       font-size: 100%
-    .phone-hide
+    :root .phone-hide
       display: none
     {block}
 
@@ -16,42 +16,42 @@ responsive-tablet()
   @media only screen and (min-width: 321px)and (max-width: 1024px) 
     body
       font-size: 100%
-    .tablet-hide
+    :root .tablet-hide
       display: none
     {block}
 
 responsive-tablet-landscape() 
   @media only screen and (min-width: 321px)and (max-width: 1024px) and (orientation: landscape) 
-    .tablet-hide
+    :root .tablet-hide
       display: none
     {block}
 
 responsive-tablet-portrait() 
   @media only screen and (min-width: 321px)and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)
-    .tablet-hide
+    :root .tablet-hide
       display: none
     {block}
 
 responsive-smallest() 
   @media only screen and (max-width: 480px) 
-    .smallest-hide
+    :root .smallest-hide
       display: none
     {block}
 
 responsive-small() 
   @media only screen and (min-width: 481px)and (max-width: 959px) 
-    .small-hide
+    :root .small-hide
       display: none
     {block}
 
 responsive-normal() 
   @media only screen and (min-width: 960px) and (max-width: 1599px)
-    .normal-hide
+    :root .normal-hide
       display: none
     {block}
 
 responsive-huge() 
   @media only screen and (min-width: 1600px) 
-    .huge-hide
+    :root .huge-hide
       display: none
     {block}

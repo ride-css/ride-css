@@ -1135,7 +1135,7 @@ h1, h2, h3, h4, h5, h6{
 
 ######ride-headings
 ```
-// this mixin has a {block}
+// this mixin has not a {block}
 // @params
 // number fontMultiplier (default: 2) -> the h1 size multiplier (2 will means 2x the inherited font-size)
 // number line-height (default: 1.5) -> the base line-height
@@ -1143,8 +1143,7 @@ h1, h2, h3, h4, h5, h6{
 // heading()
 example:
 // using
-+ride-headings()
-  color red
+ride-headings()
 // will output
 h1 {
   font-size: 2em;
@@ -1177,7 +1176,6 @@ h4,
 h5,
 h6 {
   margin: 0;
-  color: #f00;
 }
 ```
 

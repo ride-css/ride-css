@@ -1182,11 +1182,7 @@ h6 {
 ######ride-paragraph
 ```
 // this mixin has a {block}
-// @params
-// font-size font-size (default: 1em) -> the font-size the paragraph will have (suggested: 1em)
-// number line-height (default: 1.5) -> the line-height the paragraph will have (suggested: 1.5)
-// margin margin (default: .5em 0) -> the margin the paragraph will have (suggested: .5em 0)
-// ride-paragraph(font-size = 1em, line-height = 1.5, margin = .5em 0)
+// ride-paragraph()
 example:
 // using
 ride-paragraph()
@@ -1195,6 +1191,16 @@ p {
   font-size: 1em;
   line-height: 1.5;
   margin: 0.5em 0;
+}
+// and for example
++ride-paragraph()
+  font-size 1.2em
+  line-height 2
+// will output in
+p {
+  font-size: 1.2em;
+  line-height: 2;
+  margin: 0.8em 0;
 }
 ```
 ######ride-typography

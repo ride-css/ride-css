@@ -73,8 +73,8 @@ tooltip(className = '.has-tooltip', dataAttribute = data-tooltip)
 wrapper(class = '.wrap')
   {class}
     {block}
-    height 100%
-    width 100%
+    height 100% unless @height
+    width 100% unless @width
 
 // aliasing the wrapper mixin with wrap
 wrap = wrapper

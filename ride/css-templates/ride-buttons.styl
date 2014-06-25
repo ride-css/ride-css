@@ -1,21 +1,21 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
 // common button template
-button(lineHeight = 3)
-  cursor pointer
-  display inline-block
-  line-height lineHeight
-  position relative
+button()
   {block}
+  cursor pointer unless @cursor
+  display inline-block unless @display
+  line-height 3 unless @line-height
+  position relative unless @position
 
 button-bar(class = '.actions')
   {class}
+    {block}
     margin 0 unless @margin
     padding 0 unless @padding
     line-height 0 unless @line-height
-    {block}
 
-menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger' fontSize = 1em)
+menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger')
   {className}
     {block}
     background-color white unless @background-color
@@ -54,12 +54,12 @@ menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger' fon
       transform-origin 25% 0 0
 
 
-sliding-button(class, direction = 'left', transition = .4s, lineHeight = 3)
+sliding-button(class, direction = 'left', transition = .4s)
   {class}
-    button(lineHeight)
+    {block}
+    button()
     overflow hidden
     z-index 1
-    {block}
     &:hover:before
       if direction == 'left' || direction == 'right'
         translateX(0)
@@ -74,11 +74,9 @@ sliding-button(class, direction = 'left', transition = .4s, lineHeight = 3)
         translateY(100%)
       if direction == 'left'
         translateX(-100%)
+      absolute(top: 0, left: 0)
       content ''
       height 100%
-      left 0
-      position absolute
-      top 0
       width 100%
       z-index -1
 

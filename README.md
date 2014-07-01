@@ -34,21 +34,21 @@ Ride **requires** Stylus.js and (obviously) node.js installed
   * dialog.styl
     - ride-dialog
   * form.styl
-    - form-elements
-    - form-elements-readonly
-    - form-in-range
-    - form-not-valid
-    - form-optional
-    - form-out-range
-    - form-required
-    - form-valid
-    - placeholder
-    - ride-form-elements
+    - [form-elements](#form-elements)
+    - [form-elements-readonly](#form-elements-readonly)
+    - [form-in-range](#form-in-range)
+    - [form-not-valid](#form-not-valid)
+    - [form-optional](#form-optional)
+    - [form-out-range](#form-out-range)
+    - [form-required](#form-required)
+    - [form-valid](#form-valid)
+    - [placeholder](#placeholder)
+    - [ride-form-elements](#ride-form-elements)
   * ride-buttons.styl
-    - button
-    - button-bar
-    - menu-button
-    - sliding-button
+    - [button](#button)
+    - [button-bar](#button-bar)
+    - [menu-button](#menu-button)
+    - [sliding-button](#sliding-button)
   * ride-media-queries.styl
     - [high-dpi](#high-dpi)
     - [responsive-huge](#responsive-huge)
@@ -100,20 +100,20 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - translateX
     - translateY
   * ride-functions.styl
-    - get-lineheight
-    - onePercent
-    - parseInt
-    - parseFloat
-    - setUnit
+    - [get-lineheight](#get-lineheight)
+    - [onePercent](#onePercent)
+    - [parseInt](#parseInt)
+    - [parseFloat](#parseFloat)
+    - [setUnit](#setUnit)
   * ride-mixed-mixins.styl
-    - absolute
-    - clearfix
-    - dont-select
-    - fixed
-    - reset-ul
-    - ride-body
-    - tooltip
-    - wrapper
+    - [absolute](#absolute)
+    - [clearfix](#clearfix)
+    - [dont-select](#dont-select)
+    - [fixed](#fixed)
+    - [reset-ul](#reset-ul)
+    - [ride-body](#ride-body)
+    - [tooltip](#tooltip)
+    - [wrapper](#wrapper)
 * grids/
   * ride-column.styl
     - [ride-column](#ride-column)
@@ -142,6 +142,65 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 - [ ] sleep at night
 
 ####Using the mixins
+
+#####**form mixins**
+######form-elements
+```
+
+```
+######form-elements-readonly
+```
+
+```
+######form-in-range
+```
+
+```
+######form-not-valid
+```
+
+```
+######form-optional
+```
+
+```
+######form-out-range
+```
+
+```
+######form-required
+```
+
+```
+######form-valid
+```
+
+```
+######placeholder
+```
+
+```
+######ride-form-elements
+```
+
+```
+#####**button mixins**
+######button
+```
+
+```
+######button-bar
+```
+
+```
+######menu-button
+```
+
+```
+######sliding-button
+```
+
+```
 
 #####**misc mixins**
 

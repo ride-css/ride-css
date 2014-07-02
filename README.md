@@ -146,60 +146,318 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 #####**form mixins**
 ######form-elements
 ```
+// this mixin has a {block}
+// how to use it
++form-elements()
+  border 1px solid #f2f2f2
+  color #222
+// will render in
+input,
+textarea,
+select {
+  border: 1px solid #f2f2f2;
+  color: #222;
+}
 
 ```
 ######form-elements-readonly
 ```
-
+// this mixin has a {block}
+// how to use it
++form-elements-readonly()
+  background-color #f2f2f2
+  color #999
+// will render in
+input:read-only,
+textarea:read-only,
+select:read-only {
+  background-color: #f2f2f2;
+  color: #999;
+}
 ```
 ######form-in-range
 ```
-
+// this mixin has a {block}
+// how to use it
++form-in-range()
+  color green
+// will render in
+input[type='number']:in-range {
+  color: #008000;
+}
 ```
 ######form-not-valid
 ```
-
+// this mixin has a {block}
+// how to use it
++form-not-valid()
+  color red
+// will render in
+input:invalid,
+textarea:invalid,
+select:invalid {
+  color: #f00;
+}
 ```
 ######form-optional
 ```
-
+// this mixin has a {block}
+// how to use it
++form-optional()
+  color blue
+// will render in
+input:optional,
+textarea:optional,
+select:optional {
+  color: #00f;
+}
 ```
 ######form-out-range
 ```
-
+// this mixin has a {block}
+// how to use it
++form-out-range()
+  color red
+// will render in
+input[type='number']:out-of-range {
+  color: #f00;
+}
 ```
 ######form-required
 ```
-
+// this mixin has a {block}
+// how to use it
++form-required()
+  font-weight bold
+// will render in
+input:required,
+textarea:required,
+select:required {
+  font-weight: bold;
+}
 ```
 ######form-valid
 ```
-
+// this mixin has a {block}
+// how to use it
++form-valid()
+  border 1px solid green
+// will render in
+input:invalid,
+textarea:invalid,
+select:invalid {
+  border: 1px solid #008000;
+}
 ```
 ######placeholder
 ```
-
+// this mixin has a {block}
+// how to use it
++form-elements()
+  +placeholder()
+    color grey
+// will render in
+input::-webkit-placeholder,
+textarea::-webkit-placeholder,
+select::-webkit-placeholder {
+  color: #808080;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+select::-moz-placeholder {
+  color: #808080;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder,
+select:-moz-placeholder {
+  color: #808080;
+}
+input::-ms-placeholder,
+textarea::-ms-placeholder,
+select::-ms-placeholder {
+  color: #808080;
+}
 ```
 ######ride-form-elements
 ```
-
+// this mixin has a {block}
+// how to use it
+ride-form-elements(1px solid silver, 0 .5em)
+// will render in
+input,
+textarea,
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #c0c0c0;
+  padding: 0 0.5em;
+}
+select {
+  padding: 0 0.425em;
+}
 ```
 #####**button mixins**
 ######button
 ```
-
+// this mixin has not a {block}
+.button
+  button()
+// will render in
+.button {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 3;
+  position: relative;
+}
 ```
 ######button-bar
 ```
-
+// this mixin has a {block}
+button-bar()
+// will render in
+.actions {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
 ```
 ######menu-button
 ```
-
+// this mixin has a {block}
+// @params
+// string className (default: '.hamburger'): the element selector
+// string trigger Event (default: '.show-menu .hamburger'): when the element will be triggered to become a close button
+menu-button()
+// will render in
+.hamburger {
+  background-color: #fff;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+  display: inline-block;
+  height: 0.25em;
+  -webkit-transition: ease all 0.4s;
+  -moz-transition: ease all 0.4s;
+  -o-transition: ease all 0.4s;
+  transition: ease all 0.4s;
+  width: 2em;
+}
+.hamburger:after,
+.hamburger:before {
+  background-color: #fff;
+  content: "";
+  display: block;
+  height: 0.25em;
+  position: relative;
+}
+.hamburger:before {
+  margin-top: -0.5em;
+  -webkit-transition: ease all 0.4s;
+  -moz-transition: ease all 0.4s;
+  -o-transition: ease all 0.4s;
+  transition: ease all 0.4s;
+}
+.hamburger:after {
+  margin-top: 0.5em;
+  top: 0.25em;
+  -webkit-transition: ease all 0.4s;
+  -moz-transition: ease all 0.4s;
+  -o-transition: ease all 0.4s;
+  transition: ease all 0.4s;
+}
+.hamburger:after,
+.hamburger:before {
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+.show-menu .hamburger {
+  background-color: transparent;
+}
+.show-menu .hamburger:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 0 50% 0;
+  -moz-transform-origin: 0 50% 0;
+  -ms-transform-origin: 0 50% 0;
+  -o-transform-origin: 0 50% 0;
+  transform-origin: 0 50% 0;
+}
+.show-menu .hamburger:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 25% 0 0;
+  -moz-transform-origin: 25% 0 0;
+  -ms-transform-origin: 25% 0 0;
+  -o-transform-origin: 25% 0 0;
+  transform-origin: 25% 0 0;
+}
 ```
 ######sliding-button
 ```
-
+// this mixin has a {block}
+// @params
+// string class: button's selector
+// string direction (default: 'left'): this is where the :before pseudo will come from
+// seconds transition (default: .4s)
++sliding-button('.sliding-button', 'top')
+  background-color red
+  color white
+  &:hover
+    color red
+  &:before
+    background-color #fff
+// will render in
+.sliding-button {
+  background-color: #f00;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 3;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.sliding-button:hover {
+  color: #f00;
+}
+.sliding-button:before {
+  background-color: #fff;
+}
+.sliding-button:hover:before {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+.sliding-button:before {
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.sliding-button:before {
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  -o-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
 ```
 
 #####**misc mixins**

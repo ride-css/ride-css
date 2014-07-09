@@ -31,8 +31,6 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 ####Mixins list
 
 * css-templates/
-  * dialog.styl
-    - ride-dialog
   * form.styl
     - [form-elements](#form-elements)
     - [form-elements-readonly](#form-elements-readonly)
@@ -64,10 +62,9 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [css-reset](#css-reset)
 
   * ride-css3-proxies.styl 
-    
-    *since css3 support in Ride is not optimal at this moment, you could install Nib. For installing it type*
-    ```npm install -g nib```
-    
+  
+    *use them as normal css properties, the vendorization will be automatic*
+
     - animation
     - animation-delay
     - animation-direction
@@ -135,11 +132,10 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 ##Todos
 - [x] add basic mixins
-- [ ] make the documentation
+- [ ] basic documentation
   - [x] write the mixins list tree
-  - [ ] write how to use mixins
+  - [x] write how to use mixins
   - [ ] a website maybe?
-- [ ] sleep at night
 
 ####Using the mixins
 

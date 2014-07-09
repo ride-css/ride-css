@@ -20,11 +20,13 @@ ride-grid(options = {})
   rowGutter = options.rowGutter || 0
   rowGutterType = options.rowGutterType || 'margin'
   width = options.width || 100%
+  wrap = options.wrap || false
 
   gridUnit = unit(width)
 
-  {class}
-    ride-column(width, gridGutter, 1, 1)
+  if wrap == true
+    {class}
+      ride-column(width, gridGutter, 1, 1)
 
   for columnNumber in 1...(columns+1)
     {columnScope} {column}{columnNumber}
@@ -57,9 +59,14 @@ ride-grid(options = {})
     if rowGutter not 0
       {rowGutterType} setUnit((rowGutter*-1), gridUnit)
 
-  {row},
-  {class}
-    clearfix()
+  if wrap == true
+    {row},
+    {class}
+      clearfix()
+
+  if wrap == false
+    {row}
+      clearfix()
   {row}
     if rowGutter not 0
       {rowGutterType} setUnit(rowGutter, gridUnit)

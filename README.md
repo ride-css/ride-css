@@ -1,7 +1,9 @@
 Ride css
 ========
 
-Stylus mixin library
+Stylus mixin library for a faster frontend development.
+
+Why walk when you can Ride?
 
 ##Installing ride
 Ride **requires** Stylus.js and (obviously) node.js installed
@@ -11,14 +13,13 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 > [Install stylus.js](http://learnboost.github.io/stylus//#get-styling-with-stylus "Click here to go to stylus.js website")
 
 > download Ride css or clone the repository
+  ``` git clone https://github.com/OctoD/ride-css ```
 
 ##Documentation
 ####How to include Ride in your .styl file
 ```
-
 // do this and you're ready to code your beautiful webapp/website!
 @require 'ride/*'
-
 ```
 
 ##Contributing
@@ -62,9 +63,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [css-reset](#css-reset)
 
   * ride-css3-proxies.styl 
-  
     *use them as normal css properties, the vendorization will be automatic*
-
     - animation
     - animation-delay
     - animation-direction
@@ -86,11 +85,13 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - rotateY
     - rotateZ
     - scale
+    - skew
     - skewX
     - skewY
     - tab-size
     - text-selection
     - transform
+    - transform-origin
     - transition
     - transitions
     - translate

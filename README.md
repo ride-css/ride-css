@@ -1,6 +1,8 @@
 Ride css
 ========
 
+#I'm looking for beta testers. Write your suggestions or bug reports at iamoctod@gmail.com or on the bug tracker
+
 Stylus mixin library for a faster frontend development.
 
 Why walk when you can Ride?

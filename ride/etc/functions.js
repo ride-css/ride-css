@@ -14,7 +14,7 @@ var stylus = require('stylus')
   , _parseFloat
   , _replace;
 
-console.log(ride.grid(100, 12, [0, 2], [0, 4]))
+console.log()
 
 // calculates the column width
 _columnWidth = function (columns, column, gutter) {
@@ -56,11 +56,24 @@ _replace = function (str, search, replace) {
 plugins = function () {
   return function (style) {
     style.define('columnWidth', _columnWidth);
+    style.define('getGrid', function (width, columns, gutter, padding) {
+      a = ride.grid(width.val, columns.val, gutter.val.split(','), padding.val.split(','));
+      console.log(a)
+    })
     style.define('id', _id);
     style.define('log', _log);
     style.define('parseInt', _parseInt);
     style.define('parseFloat', _parseFloat);
     style.define('replace', _replace);
+    style.define('toArray', function () {
+      var vals = [].slice.call(arguments)
+        , array = [];
+
+      vals.forEach(function (value) {
+        array.push(value.val);
+      });
+      return array;
+    });
   }
 }
 

@@ -4,6 +4,7 @@
 var stylus = require('stylus')
   , nodes = stylus.nodes
   , utils = stylus.utils
+  , ride = require('ride-css')
   // plugin variables
   , plugins
   , _columnWidth
@@ -12,6 +13,8 @@ var stylus = require('stylus')
   , _parseInt
   , _parseFloat
   , _replace;
+
+console.log(ride.grid(100, 12, [0, 2], [0, 4]))
 
 // calculates the column width
 _columnWidth = function (columns, column, gutter) {

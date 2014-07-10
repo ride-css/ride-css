@@ -1,0 +1,54 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+ride-table(className = 'table', effect = 'blur')
+  {className}
+    {block}
+    background-color white unless @background-color
+    border-collapse separate unless @border-collapse
+    border 0px none
+    color #222 unless @color
+    width 100% unless @width
+    &:hover tr td
+      if effect == 'blur'
+        text-shadow 0 0 .2em @color
+        border-color rgba(@color, .1)
+        color transparent
+      if effect == 'blur scale'
+        text-shadow 0 0 .1em @color
+        border-color rgba(@color, .1)
+        color transparent
+    &:hover tr:hover td
+      color @color
+      if effect == 'blur'
+        border-color @color
+        text-shadow 0 0 0 transparent
+      if effect == 'blur scale'
+        border-color @color
+        text-shadow 0 0 0 transparent
+    &:hover tbody tr:hover
+      if effect == 'blur scale'
+        scale(1.0125)
+    td
+    th
+    tr
+      transition .2s
+    th
+    td
+      padding .5em
+      text-align left unless @text-align
+    td
+      baseColor = invert(@background-color)
+      fibo = 5
+      fibo2 = 8
+      if light(baseColor)
+        border 1px solid darken(baseColor, fibo)
+        border-bottom-color darken(baseColor, fibo2) 
+      if dark(baseColor)
+        border 1px solid lighten(baseColor, fibo)
+        border-bottom-color lighten(baseColor, fibo2)
+      &+td
+        border-left-width 0
+    thead 
+      th 
+        background-color @color
+        color invert(@color)

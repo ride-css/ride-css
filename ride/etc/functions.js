@@ -3,14 +3,19 @@
 // nodejs requirements
 var stylus = require('stylus')
   , nodes = stylus.nodes
-  , utils = stylus.utils;
-
-// plugin variables
-var plugins
+  , utils = stylus.utils
+  // plugin variables
+  , plugins
+  , _id
   , _log
   , _parseInt
   , _parseFloat
   , _replace;
+
+// returns a momentary id useful for caching
+_id = function () {
+  return (new Date).toISOString();
+}
 
 // a console log for debugging functions
 _log = function () {
@@ -39,6 +44,7 @@ _replace = function (str, search, replace) {
 // building the plugin
 plugins = function () {
   return function (style) {
+    style.define('id', _id);
     style.define('log', _log);
     style.define('parseInt', _parseInt);
     style.define('parseFloat', _parseFloat);

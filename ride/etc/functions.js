@@ -6,11 +6,19 @@ var stylus = require('stylus')
   , utils = stylus.utils
   // plugin variables
   , plugins
+  , _columnWidth
   , _id
   , _log
   , _parseInt
   , _parseFloat
   , _replace;
+
+// calculates the column width
+_columnWidth = function (columns, column, gutter) {
+  var width = Math.round(((100 / columns) * column) * 10000) / 10000;
+
+  return (new nodes.String(width)).toJSON().val;
+}
 
 // returns a momentary id useful for caching
 _id = function () {
@@ -44,6 +52,7 @@ _replace = function (str, search, replace) {
 // building the plugin
 plugins = function () {
   return function (style) {
+    style.define('columnWidth', _columnWidth);
     style.define('id', _id);
     style.define('log', _log);
     style.define('parseInt', _parseInt);

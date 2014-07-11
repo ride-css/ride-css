@@ -57,7 +57,10 @@ plugins = function () {
   return function (style) {
     style.define('columnWidth', _columnWidth);
     style.define('getGrid', function (width, columns, gutter, padding) {
-      var mygrid = ride.grid(width.val, columns.val, gutter.val.split(','), padding.val.split(','));
+      var mygrid;
+
+      mygrid = ride.grid(width.clone().val, columns.clone().val, gutter.clone().val.split(' '), padding.clone().val.split(' '));
+
       return utils.coerceObject(mygrid, {});
     });
     style.define('id', _id);

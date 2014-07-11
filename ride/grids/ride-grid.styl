@@ -2,7 +2,11 @@
 // https://github.com/OctoD/ride-css/
 // ride column grid
 // options passed as an [object Object]
-ride-grid(columns, gutter = 0, padding = 0, config = {column: '.cl', float: '.float', push: '.push', scope: ''})
+ride-grid(columns, gutter = 0, padding = 0, config = {})
+  config.column = config.column || '.cl'
+  config.float = config.float || '.float'
+  config.push = config.push || '.push'
+  config.scope = config.scope || ''
   mygrid = getGrid(100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
   
   for col, colName in mygrid.cols

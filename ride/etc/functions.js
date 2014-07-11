@@ -14,10 +14,8 @@ var stylus = require('stylus')
   , _parseFloat
   , _replace;
 
-console.log()
-
 // calculates the column width
-_columnWidth = function (columns, column, gutter) {
+_columnWidth = function (columns, column) {
   var width = Math.round(((100 / columns) * column) * 10000) / 10000;
 
   return (new nodes.String(width)).toJSON().val;

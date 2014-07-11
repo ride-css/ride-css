@@ -6,27 +6,36 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
   config.column = config.column || '.cl'
   config.float = config.float || '.float'
   config.push = config.push || '.push'
+  config.row = config.row || '.row'
   config.scope = config.scope || ''
   mygrid = getGrid(100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
   
   for col, colName in mygrid.cols
     {config.scope} {config.column}{colName + 1}
-      width unit(col, '%')
+      +cache('grid-width'+ col)
+        width unit(col, '%')
   for float, floatName in mygrid.floats
     {config.scope} {config.float}{floatName + 1}
-      margin-left unit(float, '%')
+      +cache('grid-float'+ float)
+        margin-left unit(float, '%')
   for push, pushName in mygrid.floats
     {config.scope} {config.push}{pushName + 1}
-      margin-right unit(push, '%')
+      +cache('grid-push'+ push)
+        margin-right unit(push, '%')
+
   for col, colName in mygrid.cols
     {config.scope} {config.column}{colName + 1}
-      +cache('grid-float')
+      +cache('grid-gutter'+ gutter + padding)
         float left
         margin setUnit(gutter, '%')
         padding setUnit(padding, '%')
 
   {config.scope} {config.column}{columns}
     float none
+
+  {config.scope} {config.row}
+    +cache('grid-clearfix')
+      clearfix()
 
 // twelve columns grid
 ride-grid-12(gutter = (0 2), gridGutter = (0 2), gridWidth = 100%, padding = false, gutterType = 'margin')

@@ -11,8 +11,6 @@ module.exports = function () {
     style.define('getGrid', function (width, columns, gutter, padding) {
       var mygrid = ride.grid(width.clone().val, columns.clone().val, gutter.clone().val.split(' '), padding.clone().val.split(' '));
 
-      console.log(mygrid)
-
       return utils.coerceObject(mygrid, {});
     });
   }

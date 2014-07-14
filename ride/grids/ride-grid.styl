@@ -10,7 +10,7 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
   config.push = config.push || '.push'
   config.row = config.row || '.row'
   config.scope = config.scope || ''
-  mygrid = getGrid(100, columns, s('%s', gutter), s('%s', padding))
+  mygrid = getGrid(100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
   
   for col, colName in mygrid.cols
     {config.scope} {config.column}{colName + 1}

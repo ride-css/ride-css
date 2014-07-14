@@ -9,9 +9,9 @@ var ride = require('ride-css')
 module.exports = function () {
   return function (style) {
     style.define('getGrid', function (width, columns, gutter, padding) {
-      var mygrid;
+      var mygrid = ride.grid(width.clone().val, columns.clone().val, gutter.clone().val.split(' '), padding.clone().val.split(' '));
 
-      mygrid = ride.grid(width.clone().val, columns.clone().val, gutter.clone().val.split(' '), padding.clone().val.split(' '));
+      console.log(mygrid)
 
       return utils.coerceObject(mygrid, {});
     });

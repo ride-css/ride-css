@@ -14,20 +14,20 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
   
   for col, colName in mygrid.cols
     {config.scope} {config.column}{colName + 1}
-      +cache('grid-width'+ col)
+      +cache('grid-width'+ columns + col)
         width unit(col, '%')
   for float, floatName in mygrid.floats
     {config.scope} {config.float}{floatName + 1}
-      +cache('grid-float'+ float)
+      +cache('grid-float'+ columns + float)
         margin-left unit(float, '%')
   for push, pushName in mygrid.floats
     {config.scope} {config.push}{pushName + 1}
-      +cache('grid-push'+ push)
+      +cache('grid-push'+ columns + push)
         margin-right unit(push, '%')
 
   for col, colName in mygrid.cols
     {config.scope} {config.column}{colName + 1}
-      +cache('grid-gutter'+ gutter + padding)
+      +cache('grid-gutter'+ columns + gutter + padding)
         float left
         margin setUnit(gutter, '%')
         padding setUnit(padding, '%')

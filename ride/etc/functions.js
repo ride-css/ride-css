@@ -54,13 +54,6 @@ _replace = function (str, search, replace) {
 plugins = function () {
   return function (style) {
     style.define('columnWidth', _columnWidth);
-    style.define('getGrid', function (width, columns, gutter, padding) {
-      var mygrid;
-
-      mygrid = ride.grid(width.clone().val, columns.clone().val, gutter.clone().val.split(' '), padding.clone().val.split(' '));
-
-      return utils.coerceObject(mygrid, {});
-    });
     style.define('id', _id);
     style.define('log', _log);
     style.define('parseInt', _parseInt);

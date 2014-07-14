@@ -8,10 +8,7 @@ css-normalize()
 ride-body()
 +ride-anchors(blue)
   text-decoration none
-ride-grid({
-  columns: 12,
-  gutter: (1 2)
-})
+ride-grid-12(1, 1)
 ride-typography()
 +wrap()
   font-size 1.4em
@@ -20,19 +17,7 @@ ride-typography()
 
 // media queries
 +responsive-small()
-  ride-grid({
-    columns: 6,
-    columnClass: '.sm-cl',
-    floatClass: '.sm-float',
-    pushClass: '.sm-push',
-    gutter: (1 2)  
-  })
+  ride-grid-12-small(1, 1)
 +responsive-smallest()
-  ride-grid({
-    columns: 4,
-    columnClass: '.smt-cl',
-    floatClass: '.smt-float',
-    pushClass: '.smt-push',
-    gutter: (2)  
-  })
+  ride-grid-12-smallest(1, 1)
 // @keyframes here

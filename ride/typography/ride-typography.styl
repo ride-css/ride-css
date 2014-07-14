@@ -14,7 +14,7 @@ headings()
 
 // returns all h1-h6 html selectors
 // it will properly calculate line-height and font size 
-ride-headings(headings, lineHeight = 1.5)
+ride-headings(headings = 2 1.8 1.6 1.4 1.2 1, lineHeight = 1.5)
   _headings = getTypography(s('%s', headings), lineHeight)
 
   for _currentHeading, offset in _headings.headings
@@ -25,12 +25,17 @@ ride-headings(headings, lineHeight = 1.5)
     margin 0
 
 // returns a properly calculated "p" selector 
-ride-paragraph()
+ride-paragraph(fontSize = 1, lineHeight = 1.5)
+  _paragraph = getTypography(s('%s', fontSize), lineHeight)
+  fontSize = _paragraph.paragraph.fontSize
+  lineHeight = _paragraph.paragraph.lineHeight
+  margin = _paragraph.paragraph.margin
   p
     {block}
-    font-size 1em unless @font-size
-    line-height 1.5 unless @line-height
-    margin unit(@line-height - @font-size, 'em') 0
+    font-size unit(fontSize, 'em')
+    line-height lineHeight unless @line-height
+    if margin > 0
+      margin unit(margin, 'em') 0
 
 // using default ride-typography mixins
 ride-typography()

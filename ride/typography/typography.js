@@ -7,11 +7,11 @@ var ride = require('ride-css')
 
 module.exports = function () {
   return function (style) {
-    style.define('getTypography', function (fontSize, lineHeight) {
+    style.define('getTypography', function (fontSize, lineHeight, forceMargin) {
       var typography
         , fontSize = fontSize.clone().val.split(' ');
 
-      typography = ride.typography(fontSize.length ? fontSize : [1], lineHeight ? lineHeight.clone().val : undefined);
+      typography = ride.typography(fontSize.length ? fontSize : [1], lineHeight ? lineHeight.clone().val : undefined, forceMargin);
 
       return utils.coerceObject(typography, {});
     });

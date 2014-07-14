@@ -18,11 +18,17 @@ ride-headings(headings = 2 1.8 1.6 1.4 1.2 1, lineHeight = 1.5)
   _headings = getTypography(s('%s', headings), lineHeight)
 
   for _currentHeading, offset in _headings.headings
+    fontSize = _currentHeading['fontSize']
+    lineHeight = _currentHeading['lineHeight']
+    margin = _currentHeading['margin']
     h{offset + 1}
-      font-size unit(_currentHeading['fontSize'], 'em')
-      line-height _currentHeading['lineHeight']
-  +headings()
-    margin 0
+      +cache('ride-headings-margin' + margin)
+        margin margin 0
+    h{offset + 1}
+      font-size unit(fontSize, 'em')
+      line-height lineHeight
+  // +headings()
+  //   margin 0
 
 // returns a properly calculated "p" selector 
 ride-paragraph(fontSize = 1, lineHeight = 1.5)

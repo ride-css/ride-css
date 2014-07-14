@@ -52,3 +52,15 @@ ride-table(className = 'table', effect = 'blur')
       th 
         background-color @color
         color invert(@color)
+
+fixed-table(className)
+  {className}
+    {block}
+    table-layout fixed-table
+    text-align left
+    width 100% unless @width
+    white-space nowrap
+    td
+      max-width 100%
+      text-overflow ellipsis
+      white-space @white-space

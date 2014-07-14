@@ -1,9 +1,9 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
-var stylus = require('stylus')
+var ride = require('ride-css')
+  , stylus = require('stylus')
   , nodes = stylus.nodes
-  , utils = stylus.utils
-  , ride = require('ride-css');
+  , utils = stylus.utils;
 
 // exporting
 module.exports = function () {

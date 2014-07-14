@@ -1,10 +1,10 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
 // nodejs requirements
-var stylus = require('stylus')
+var ride = require('ride-css')
+  , stylus = require('stylus')
   , nodes = stylus.nodes
   , utils = stylus.utils
-  , ride = require('ride-css')
   // plugin variables
   , plugins
   , _columnWidth

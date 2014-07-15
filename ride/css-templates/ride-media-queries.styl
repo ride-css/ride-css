@@ -1,5 +1,13 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
+breakpoint(minWidth, maxWidth, orientation = false)
+  if orientation != false
+    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth)
+      {block}
+  else
+    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth) and (orientation: orientation)
+      {block}
+
 high-dpi()
   @media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2)
     {block}

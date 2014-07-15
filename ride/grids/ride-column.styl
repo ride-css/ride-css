@@ -2,39 +2,19 @@
 // https://github.com/OctoD/ride-css/
 // column mixin
 // doesn't accept a code block
-ride-column(width, gutter = 0, columnCount = 1, currentColumn = 1, gutterType = 'margin', returnsWidth = true, important = false)
+ride-column(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0)
   columnUnit = unit(width)
+  column = getColumn(parseFloat(width), columnCount, currentColumn, s('%s', gutter), s('%s', padding))
+  _margin = column.gutter
+  _padding = column.padding
+  _cols = column.cols
+  if _margin
+    margin setUnit(_margin, columnUnit)
+  if _padding
+    padding setUnit(_padding, columnUnit)
+  if _cols
+    width setUnit(_cols, columnUnit)
 
-  // smallest column width
-  column = (width / columnCount) * currentColumn
-
-  if !gutter[1]
-    column = column - (gutter[0] * 2)
-    if gutterType == 'both' || gutterType == 'both false'
-      column = column - (gutter[0] * 2)   
-
-  if gutter[1] && !gutter[3]
-    column = column - gutter[1] * 2
-    if gutterType == 'both' || gutterType == 'both false'
-      column = column - gutter[1] * 2
-
-  if gutter[1] && gutter[3]
-    column = column - gutter[1] - gutter[3]
-    if gutterType == 'both' || gutterType == 'both false'
-      column = column - gutter[1] - gutter[3]
-
-  if gutterType && gutterType != 'both' &&  gutterType != 'both false'
-    {gutterType} setUnit(gutter, columnUnit)
-
-  if gutterType == 'both'
-    margin setUnit(gutter, columnUnit)
-    padding setUnit(gutter, columnUnit)
-
-  if returnsWidth
-    if important
-      width column !important
-    unless important
-      width column
 
 // floating column mixin
 // doesn't accept a code block

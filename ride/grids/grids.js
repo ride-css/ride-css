@@ -13,5 +13,12 @@ module.exports = function () {
 
       return utils.coerceObject(mygrid, {});
     });
+
+    style.define('getColumn', function (width, columns, currentColumn, gutter, padding) {
+      var mygrid = ride.grid(width.clone().val, columns.clone().val, gutter.clone().val.split(' '), padding.clone().val.split(' '));
+
+      mygrid.cols = mygrid.instance.calcColumn(currentColumn);
+      return utils.coerceObject(mygrid, {});
+    });
   }
 }

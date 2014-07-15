@@ -7,37 +7,38 @@ use('grids.js')
 ride-grid(columns, gutter = 0, padding = 0, config = {})
   config.column = config.column || '.cl'
   config.float = config.float || '.float'
+  config.prefix = config.prefix || ''
   config.push = config.push || '.push'
   config.row = config.row || '.row'
   config.scope = config.scope || ''
   mygrid = getGrid(100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
   
-  for col, colName in mygrid.cols
-    {config.scope} {config.column}{colName + 1}
-      +cache('grid-width'+ columns + col)
-        width unit(col, '%')
-  for float, floatName in mygrid.floats
-    {config.scope} {config.float}{floatName + 1}
-      +cache('grid-float'+ columns + float)
-        margin-left unit(float, '%')
-  for push, pushName in mygrid.floats
-    {config.scope} {config.push}{pushName + 1}
-      +cache('grid-push'+ columns + push)
-        margin-right unit(push, '%')
+  {config.scope}
+    +prefix-classes(config.prefix)
+      for col, colName in mygrid.cols
+        {config.column}{colName + 1}
+          +cache('grid-width'+ columns + col)
+            width unit(col, '%')
+      for float, floatName in mygrid.floats
+        {config.float}{floatName + 1}
+          +cache('grid-float'+ columns + float)
+            margin-left unit(float, '%')
+      for push, pushName in mygrid.floats
+        {config.push}{pushName + 1}
+          +cache('grid-push'+ columns + push)
+            margin-right unit(push, '%')
 
-  for col, colName in mygrid.cols
-    {config.scope} {config.column}{colName + 1}
-      +cache('grid-gutter'+ columns + gutter + padding)
-        float left
-        margin setUnit(gutter, '%')
-        padding setUnit(padding, '%')
-
-  {config.scope} {config.column}{columns}
-    float none
-
-  {config.scope} {config.row}
-    +cache('grid-clearfix')
-      clearfix()
+      for col, colName in mygrid.cols
+        {config.column}{colName + 1}
+          +cache('grid-gutter'+ columns + gutter + padding)
+            float left
+            margin setUnit(gutter, '%')
+            padding setUnit(padding, '%')
+      {config.column}{columns}
+        float none
+      {config.row}
+        +cache('grid-clearfix'+ columns + gutter + padding)
+          clearfix()
 
 // twelve columns grid
 ride-grid-12(gutter = (0 2), padding = (0 2), config = {})

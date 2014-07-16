@@ -49,6 +49,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [menu-button](#menu-button)
     - [sliding-button](#sliding-button)
   * ride-media-queries.styl
+    - [breakpoint](#breakpoint)
     - [high-dpi](#high-dpi)
     - [responsive-huge](#responsive-huge)
     - [responsive-normal](#responsive-normal)
@@ -120,8 +121,8 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [ride-column-grid](#ride-column-grid)
     - [ride-grid](#ride-grid)
     - [ride-grid-12](#ride-grid-12)
-    - [ride-grid-12-small](#ride-grid-12-small)
-    - [ride-grid-12-smallest](#ride-grid-12-smallest)
+    - [ride-grid-6](#ride-grid-6)
+    - [ride-grid-4](#ride-grid-4)
 * typography/
   * anchors.styl
     - [ride-anchors](#ride-anchors)
@@ -129,6 +130,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [headings](#headings)
     - [ride-headings](#ride-headings)
     - [ride-paragraph](#ride-paragraph)
+    - [ride-small](#ride-small)
     - [ride-typography](#ride-typography)
 
 ##Todos
@@ -786,6 +788,23 @@ table {
 ```
 
 #####**media queries: breakpoints and more**
+######breakpoint
+This mixin is ideal if you are planning to design an agnostic device website
+```
+// this mixin has a {block}
+// @params
+// [width] min-device-width: the minimum device width
+// [width] max-device-width: the maximum device width
+// [orientation] orientation (optional): if set, an orientation will be added to the media query
+// how to use it
++breakpoint(300px, 400px, portrait)
+  // write your awesome stuff here!
+// will render into
+@media (min-device-width: 300px) and (max-device-width: 400px) and (orientation: portrait) {
+  /*you will find your awesome stuff here!*/  
+}
+```
+
 ######high-dpi
 ```
 // this mixin has a {block}
@@ -989,103 +1008,91 @@ ride-column-grid('.my-grid', 6, 'article')
 ```
 
 ######ride-grid
-this mixin is quite complicated, but it will help you to build your custom css grids.
-If you want something more friendly user, you should choose the ride-grid-12/6/4 mixins
+this mixin will help you to build your custom css grids.
 ```
 // this mixin has not a {block}
 // @params
-// hash options (default: {})
-//      string options.gridClass (default: '.ride-grid') -> this is the css selector that the grid will have
-//      string options.columnClass (default: '.cl') -> this is the prefix for each css column
-//      int options.columns (default: 12) -> this is the number of columns the mixin will render
-//      string options.columnScope (default: '') -> this is the scope for the columns
-//      string options.floatClass (default: '.float') -> this is the float column class prefix
-//      string options.floatScope (default: 'body') -> this is the scope for the float column class prefix
-//      int options.gridGutter (default: 0) -> this is the grid margin (or padding, see the option below)
-//      string options.gridGutterType (default: 'padding') -> this is the type of gutter for the grid wrapper
-//      int options.gutter (default: 0 2) -> this is the gutter for the columns
-//      string options.gutterType (default: 'margin') -> this is the gutter type for the columns
-//      bool options.padding (default: false) -> if true, the columns will also have a padding (equal to margin)
-//      string options.pushClass (default: '.push') -> this is the pushing column class prefix
-//      string options.rowClass (default: '.row') -> this is the clearfix container for the columns
-//      int options.rowGutter (default: 0) -> this is the gutter for the row
-//      string options.rowGutterType (default: 'margin') -> this is the gutter type for the row
-//      width options.width (default: 100%) -> this is the width for the grid wrapper. Notice that if you are going to use a different unit from '%', the columns width will be rendered using that unit
+// [int] columns: the number of columns the grid will have
+// [ints] gutter (default: 0): the columns gutter
+// [ints] padding (default: 0): the columns padding
+// hash config (default: {})
+//   string config.column (default: '.cl') -> this is the prefix for each css column
+//   string config.scope (default: '') -> this is the scope for the columns
+//   string config.float (default: '.float') -> this is the float column class prefix
+//   string config.push (default: '.push') -> this is the pushing column class prefix
+//   string config.prefix (default: '') -> this will add a prefix to columns, push, floats and row
+//   string config.row (default: '.row') -> this is the clearfix container for the columns
 
 example:
 // using
-ride-grid({
-  columns: 6,
-  gridClass: '.test',
-  columnClass: '.span',
+ride-grid(6, 0 0 2, 2, {
+  column: '.test',
+  prefix: 'ride-'
 })
 // will output
-.test {
-  margin: 0%;
-  width: 100%;
+.ride-test1,
+.ride-test2,
+.ride-test3,
+.ride-test4,
+.ride-test5,
+.ride-test6 {
+  float: left;
+  margin: 0 0 2%;
+  padding: 2%;
 }
-.span1 {
+.ride-test1 {
   width: 12.666666666666668%;
 }
-.span2 {
+.ride-test2 {
   width: 29.333333333333336%;
 }
-.span3 {
+.ride-test3 {
   width: 46%;
 }
-.span4 {
+.ride-test4 {
   width: 62.66666666666667%;
 }
-.span5 {
+.ride-test5 {
   width: 79.33333333333334%;
 }
-.span6 {
+.ride-test6 {
   width: 96%;
 }
-body .float1 {
-  margin-left: 18.666666666666668%;
+.ride-float1 {
+  margin-left: 12.666666666666668%;
 }
-body .float2 {
-  margin-left: 35.333333333333336%;
+.ride-float2 {
+  margin-left: 29.333333333333336%;
 }
-body .float3 {
-  margin-left: 52%;
+.ride-float3 {
+  margin-left: 46%;
 }
-body .float4 {
-  margin-left: 68.66666666666667%;
+.ride-float4 {
+  margin-left: 62.66666666666667%;
 }
-body .float5 {
-  margin-left: 85.33333333333334%;
+.ride-float5 {
+  margin-left: 79.33333333333334%;
 }
-body .push1 {
-  margin-right: 18.666666666666668%;
+.ride-push1 {
+  margin-right: 12.666666666666668%;
 }
-body .push2 {
-  margin-right: 35.333333333333336%;
+.ride-push2 {
+  margin-right: 29.333333333333336%;
 }
-body .push3 {
-  margin-right: 52%;
+.ride-push3 {
+  margin-right: 46%;
 }
-body .push4 {
-  margin-right: 68.66666666666667%;
+.ride-push4 {
+  margin-right: 62.66666666666667%;
 }
-body .push5 {
-  margin-right: 85.33333333333334%;
+.ride-push5 {
+  margin-right: 79.33333333333334%;
 }
-[class*="span"],
-[class*="float"] {
-  float: left;
-}
-[class*="span"] {
-  margin: 0% 2%;
-}
-.span6 {
+.ride-test6 {
   float: none;
 }
-.row:after,
-.test:after,
-.row:before,
-.test:before {
+.ride-row:after,
+.ride-row:before {
   clear: both;
   content: '';
   display: table;
@@ -1099,161 +1106,160 @@ This is the basic Ride css twelve column grid
 // this mixin has not a {block}
 // @params
 // int gutter (default: 0 2) -> this is the gutter each column will have 
-// int gridGutter (default: 0 2) -> this is the grid gutter
-// size gridWidth (default: 100%) -> this is the gridwidth. Note that if you use a different Unit(px, em etc) 
-// the columns width and gutter will be calculated with that Unit  
-// bool padding (default: false) -> if set to true, each column will also have a padding (measuring the same of column gutter)  
-// string gutterType (default: 'margin') -> this is the column gutter type 
+// int padding (default: 0 2) -> this is the padding each column will have
+// hash config (default: {}) -> a config object same as ride-grid's
 
 // example:
 // using
-ride-grid-12(padding: true)
+ride-grid-12(0 0 2, 2)
 // ths output will be like
-.ride-grid-12 {
-  margin: 0%;
-  width: 100%;
+.cl1,
+.cl2,
+.cl3,
+.cl4,
+.cl5,
+.cl6,
+.cl7,
+.cl8,
+.cl9,
+.cl10,
+.cl11,
+.cl12 {
+  float: left;
+  margin: 0 0 2%;
+  padding: 2%;
 }
 .cl1 {
-  width: 0.333333333333334%;
+  width: 4.333333333333334%;
 }
 .cl2 {
-  width: 8.666666666666668%;
+  width: 12.666666666666668%;
 }
 .cl3 {
-  width: 17%;
+  width: 21%;
 }
 .cl4 {
-  width: 25.333333333333336%;
+  width: 29.333333333333336%;
 }
 .cl5 {
-  width: 33.66666666666667%;
+  width: 37.66666666666667%;
 }
 .cl6 {
-  width: 42%;
+  width: 46%;
 }
 .cl7 {
-  width: 50.333333333333336%;
+  width: 54.333333333333336%;
 }
 .cl8 {
-  width: 58.66666666666667%;
+  width: 62.66666666666667%;
 }
 .cl9 {
-  width: 67%;
+  width: 71%;
 }
 .cl10 {
-  width: 75.33333333333334%;
+  width: 79.33333333333334%;
 }
 .cl11 {
-  width: 83.66666666666667%;
+  width: 87.66666666666667%;
 }
 .cl12 {
-  width: 92%;
+  width: 96%;
 }
-body .float1 {
-  margin-left: 10.333333333333334%;
+.float1 {
+  margin-left: 4.333333333333334%;
 }
-body .float2 {
-  margin-left: 18.666666666666668%;
+.float2 {
+  margin-left: 12.666666666666668%;
 }
-body .float3 {
-  margin-left: 27%;
+.float3 {
+  margin-left: 21%;
 }
-body .float4 {
-  margin-left: 35.333333333333336%;
+.float4 {
+  margin-left: 29.333333333333336%;
 }
-body .float5 {
-  margin-left: 43.66666666666667%;
+.float5 {
+  margin-left: 37.66666666666667%;
 }
-body .float6 {
-  margin-left: 52%;
+.float6 {
+  margin-left: 46%;
 }
-body .float7 {
-  margin-left: 60.333333333333336%;
+.float7 {
+  margin-left: 54.333333333333336%;
 }
-body .float8 {
-  margin-left: 68.66666666666667%;
+.float8 {
+  margin-left: 62.66666666666667%;
 }
-body .float9 {
-  margin-left: 77%;
+.float9 {
+  margin-left: 71%;
 }
-body .float10 {
-  margin-left: 85.33333333333334%;
+.float10 {
+  margin-left: 79.33333333333334%;
 }
-body .float11 {
-  margin-left: 93.66666666666667%;
+.float11 {
+  margin-left: 87.66666666666667%;
 }
-body .push1 {
-  margin-right: 10.333333333333334%;
+.push1 {
+  margin-right: 4.333333333333334%;
 }
-body .push2 {
-  margin-right: 18.666666666666668%;
+.push2 {
+  margin-right: 12.666666666666668%;
 }
-body .push3 {
-  margin-right: 27%;
+.push3 {
+  margin-right: 21%;
 }
-body .push4 {
-  margin-right: 35.333333333333336%;
+.push4 {
+  margin-right: 29.333333333333336%;
 }
-body .push5 {
-  margin-right: 43.66666666666667%;
+.push5 {
+  margin-right: 37.66666666666667%;
 }
-body .push6 {
-  margin-right: 52%;
+.push6 {
+  margin-right: 46%;
 }
-body .push7 {
-  margin-right: 60.333333333333336%;
+.push7 {
+  margin-right: 54.333333333333336%;
 }
-body .push8 {
-  margin-right: 68.66666666666667%;
+.push8 {
+  margin-right: 62.66666666666667%;
 }
-body .push9 {
-  margin-right: 77%;
+.push9 {
+  margin-right: 71%;
 }
-body .push10 {
-  margin-right: 85.33333333333334%;
+.push10 {
+  margin-right: 79.33333333333334%;
 }
-body .push11 {
-  margin-right: 93.66666666666667%;
-}
-[class*="cl"],
-[class*="float"] {
-  float: left;
-}
-[class*="cl"] {
-  margin: 0% 2%;
-  padding: 0% 2%;
+.push11 {
+  margin-right: 87.66666666666667%;
 }
 .cl12 {
   float: none;
 }
 .row:after,
-.ride-grid-12:after,
-.row:before,
-.ride-grid-12:before {
+.row:before {
   clear: both;
   content: '';
   display: table;
-} 
+}
+
 ```
-#####ride-grid-12-small
-Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-12-small is useful for tablet smaller devices.
+#####ride-grid-6
+Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-6 is useful for tablet devices.
 ```
 // this mixin has not a {block}
-// @params
-// int gutter (default: 0 2) -> this is the gutter each column will have 
-// int gridGutter (default: 0 2) -> this is the grid gutter
-// size gridWidth (default: 100%) -> this is the gridwidth. Note that if you use a different Unit(px, em etc) 
-// the columns width and gutter will be calculated with that Unit  
-// bool padding (default: false) -> if set to true, each column will also have a padding (measuring the same of column gutter)  
-// string gutterType (default: 'margin') -> this is the column gutter type 
+// @params: are the same of ride-grid-12 mixin
 
 // example:
 // using
-ride-grid-12-small()
-// ths output will be like
-.ride-grid-12 {
-  margin: 0;
-  width: 100%;
+ride-grid-6(0 0 2, 2)
+// ths output will be likebody .sm-cl1,
+body .sm-cl2,
+body .sm-cl3,
+body .sm-cl4,
+body .sm-cl5,
+body .sm-cl6 {
+  float: left;
+  margin: 0 0 2%;
+  padding: 2%;
 }
 body .sm-cl1 {
   width: 12.666666666666668%;
@@ -1273,75 +1279,64 @@ body .sm-cl5 {
 body .sm-cl6 {
   width: 96%;
 }
-html body .sm-float1 {
-  margin-left: 18.666666666666668%;
+body .sm-float1 {
+  margin-left: 12.666666666666668%;
 }
-html body .sm-float2 {
-  margin-left: 35.333333333333336%;
+body .sm-float2 {
+  margin-left: 29.333333333333336%;
 }
-html body .sm-float3 {
-  margin-left: 52%;
+body .sm-float3 {
+  margin-left: 46%;
 }
-html body .sm-float4 {
-  margin-left: 68.66666666666667%;
+body .sm-float4 {
+  margin-left: 62.66666666666667%;
 }
-html body .sm-float5 {
-  margin-left: 85.33333333333334%;
+body .sm-float5 {
+  margin-left: 79.33333333333334%;
 }
-html body .sm-push1 {
-  margin-right: 18.666666666666668%;
+body .sm-push1 {
+  margin-right: 12.666666666666668%;
 }
-html body .sm-push2 {
-  margin-right: 35.333333333333336%;
+body .sm-push2 {
+  margin-right: 29.333333333333336%;
 }
-html body .sm-push3 {
-  margin-right: 52%;
+body .sm-push3 {
+  margin-right: 46%;
 }
-html body .sm-push4 {
-  margin-right: 68.66666666666667%;
+body .sm-push4 {
+  margin-right: 62.66666666666667%;
 }
-html body .sm-push5 {
-  margin-right: 85.33333333333334%;
+body .sm-push5 {
+  margin-right: 79.33333333333334%;
 }
-body [class*="sm-cl"],
-body [class*="sm-float"] {
-  float: left;
-}
-body [class*="sm-cl"] {
-  margin: 0 2%;
-}
-.sm-cl6 {
+body .sm-cl6 {
   float: none;
 }
-.row:after,
-.ride-grid-12:after,
-.row:before,
-.ride-grid-12:before {
+body .row:after,
+body .row:before {
   clear: both;
   content: '';
   display: table;
 }
 
 ```
-#####ride-grid-12-smallest
-Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-12-smallest is useful for tablet smaller devices.
+#####ride-grid-4
+Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-4 is useful for tablet smaller devices.
 ```
 // this mixin has not a {block}
-// @params
-// int gutter (default: 0 2) -> this is the gutter each column will have 
-// int gridGutter (default: 0 2) -> this is the grid gutter
-// size gridWidth (default: 100%) -> this is the gridwidth. Note that if you use a different Unit(px, em etc) 
-// the columns width and gutter will be calculated with that Unit  
-// bool padding (default: false) -> if set to true, each column will also have a padding (measuring the same of column gutter)  
-// string gutterType (default: 'margin') -> this is the column gutter type 
+// @params: are the same of ride-grid-12 mixin
 
 // example:
 // using
-ride-grid-12-smallest()
+ride-grid-4(0 0 2, 2)
 // ths output will be like
-.ride-grid-12 {
-  margin: 0;
-  width: 100%;
+body .smt-cl1,
+body .smt-cl2,
+body .smt-cl3,
+body .smt-cl4 {
+  float: left;
+  margin: 0 0 2%;
+  padding: 2%;
 }
 body .smt-cl1 {
   width: 21%;
@@ -1355,38 +1350,29 @@ body .smt-cl3 {
 body .smt-cl4 {
   width: 96%;
 }
-html body .smt-float1 {
-  margin-left: 27%;
+body .smt-float1 {
+  margin-left: 21%;
 }
-html body .smt-float2 {
-  margin-left: 52%;
+body .smt-float2 {
+  margin-left: 46%;
 }
-html body .smt-float3 {
-  margin-left: 77%;
+body .smt-float3 {
+  margin-left: 71%;
 }
-html body .smt-push1 {
-  margin-right: 27%;
+body .smt-push1 {
+  margin-right: 21%;
 }
-html body .smt-push2 {
-  margin-right: 52%;
+body .smt-push2 {
+  margin-right: 46%;
 }
-html body .smt-push3 {
-  margin-right: 77%;
+body .smt-push3 {
+  margin-right: 71%;
 }
-body [class*="smt-cl"],
-body [class*="smt-float"] {
-  float: left;
-}
-body [class*="smt-cl"] {
-  margin: 0 2%;
-}
-.smt-cl4 {
+body .smt-cl4 {
   float: none;
 }
-.row:after,
-.ride-grid-12:after,
-.row:before,
-.ride-grid-12:before {
+body .row:after,
+body .row:before {
   clear: both;
   content: '';
   display: table;
@@ -1516,6 +1502,22 @@ p {
   margin: 0.8em 0;
 }
 ```
+######ride-small
+This mixin will add a class with a smaller font-size and regularly adapted line-height.
+``` 
+// this mixin has not a {block}
+// @params
+// [string] className (default: '.small'): this will be the css selector use to add the small font-size style
+// [float] fontSize (default: (62.5/100)): this will be the font-size returned from this mixin
+// [float] lineHeight (default: 1.5): this should be the basic line-height. I suggest you to put the body's line-height
+// how to use it:
+ride-small()
+// will render into:
+.small {
+  font-size: 0.625em;
+  line-height: 2.4;
+}
+``` 
 ######ride-typography
 ```
 // this mixin has not a {block}

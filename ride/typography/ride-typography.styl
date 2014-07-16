@@ -43,13 +43,10 @@ ride-paragraph(fontSize = 1, lineHeight = 1.5)
     if margin > 0
       margin unit(margin, 'em') 0
 
-ride-small(className = '.small', fontSize = (62.5 / 100), lineHeight = 1.5)
-  small = getTypography(s('%s', fontSize), lineHeight)
-  fontSize = small.paragraph.fontSize
-  lineHeight = small.paragraph.lineHeight
+ride-small(className = '.small', fontSize = (62.5 / 100))
   {className}
     font-size unit(fontSize, 'em')
-    line-height lineHeight
+    line-height 1
 
 // using default ride-typography mixins
 ride-typography()

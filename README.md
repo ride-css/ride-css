@@ -1509,13 +1509,12 @@ This mixin will add a class with a smaller font-size and regularly adapted line-
 // @params
 // [string] className (default: '.small'): this will be the css selector use to add the small font-size style
 // [float] fontSize (default: (62.5/100)): this will be the font-size returned from this mixin
-// [float] lineHeight (default: 1.5): this should be the basic line-height. I suggest you to put the body's line-height
 // how to use it:
 ride-small()
 // will render into:
 .small {
   font-size: 0.625em;
-  line-height: 2.4;
+  line-height: 1;
 }
 ``` 
 ######ride-typography

@@ -17,6 +17,12 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
     +prefix-classes(config.prefix)
       for col, colName in mygrid.cols
         {config.column}{colName + 1}
+          +cache('grid-gutter'+ columns + gutter + padding)
+            float left
+            margin setUnit(gutter, '%')
+            padding setUnit(padding, '%')
+      for col, colName in mygrid.cols
+        {config.column}{colName + 1}
           +cache('grid-width'+ columns + col)
             width unit(col, '%')
       for float, floatName in mygrid.floats
@@ -27,13 +33,6 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
         {config.push}{pushName + 1}
           +cache('grid-push'+ columns + push)
             margin-right unit(push, '%')
-
-      for col, colName in mygrid.cols
-        {config.column}{colName + 1}
-          +cache('grid-gutter'+ columns + gutter + padding)
-            float left
-            margin setUnit(gutter, '%')
-            padding setUnit(padding, '%')
       {config.column}{columns}
         float none
       {config.row}

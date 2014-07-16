@@ -41,11 +41,11 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
           clearfix()
 
 // twelve columns grid
-ride-grid-12(gutter = (0 2), padding = (0 2), config = {})
+ride-grid-12(gutter = (0 1), padding = (1), config = {})
   ride-grid(12, gutter, padding, config)
 
 // six columns grid (ideal for mobile use)
-ride-grid-12-small(gutter = (0 2), padding = (0 2), config = {})
+ride-grid-6(gutter = (0 2), padding = (1), config = {})
   config.column = '.sm-cl'
   config.float = '.sm-float'
   config.push = '.sm-push'
@@ -53,60 +53,20 @@ ride-grid-12-small(gutter = (0 2), padding = (0 2), config = {})
   ride-grid(6, gutter, padding, config)
 
 // four columns grid (ideal for mobile use)
-ride-grid-12-smallest(gutter = (0 2), padding = (0 2), config = {})
+ride-grid-4(gutter = (0 0 2), padding = (2), config = {})
   config.column = '.smt-cl'
   config.float = '.smt-float'
   config.push = '.smt-push'
   config.scope = 'body'
   ride-grid(4, gutter, padding, config)
 
-// two columns grid. Ideal for "app style" designs
-ride-two-columns(class = '.site-nav', contentClass = '.site-content', hideNav = '.hide-nav', contentWidth = 61.8, navPosition = left, gridGutter = 0 2, width = 100%, options = {})
-  // the nav will have this width! 
-  smallColumn = parseFloat(100 - contentWidth)
-  // nav class
-  {class}
-    a
-      display block
-    ride-column(width: width, columnCount: 100, currentColumn: smallColumn, gutterType: 'padding', gutter: gridGutter)
-    {navPosition} 0
-    height 100%
-    position fixed
-    top 0
-    {hideNav} &
-      {navPosition} -(smallColumn)%
-  // content class
-  {contentClass}
-    ride-column(width: width, columnCount: 100, currentColumn: contentWidth, gutterType: 'padding', gutter: gridGutter)
-    if navPosition == left
-      ride-float(width: width, columnCount: 100, currentColumn: smallColumn, floatDirection: navPosition, gutter: gridGutter, gutterType: 'both')
-    {hideNav} &
-      float none
-      unless options.toFull
-        margin-{navPosition} unit(smallColumn/2, '%')
-      if options.toFull
-        margin 0
-        ride-column(width: width, columnCount: 100, currentColumn: width, gutterType: 'padding', gutter: gridGutter)
-
-
-ride-two-columns-reset(class='.site-nav', contentClass='.site-content')
-  {class}, {contentClass}
-    height auto
-    margin 0
-    padding 0 2%
-    width 96%
-    a
-      display inline-block
-
-  {contentClass}
-    {block}
-
-
-ride-column-grid(class, columnCount, columnClass = '.cl')
-  {class}
+ride-column-grid(columnCount, config = {})
+  config.class = config.class || '.ride-columns'
+  config.columnClass = config.columnClass || '.cl'
+  {config.class}
     column-count(columnCount)
     {block}
-  {class} {columnClass}
+  {config.class} {config.columnClass}
     page-break-inside(avoid)
     margin 0
     float none

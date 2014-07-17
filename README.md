@@ -10,7 +10,9 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 > [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
 
-> [Install stylus.js](http://learnboost.github.io/stylus//#get-styling-with-stylus "Click here to go to stylus.js website")
+> Install stylus.js. Type ```npm install -g stylus``` in your terminal and you've done.
+
+> Install nib (recommended for css3 agnostic deveolpment). Type ```npm install -g nib``` in your terminal and you've done.
 
 > download Ride css or clone the repository
   ``` git clone https://github.com/OctoD/ride-css ```

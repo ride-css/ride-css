@@ -1,7 +1,7 @@
 Ride css
 ========
 
-Stylus mixin library for a faster frontend development.
+Stylus mixin library for a faster frontend development. This could be a good alternative to more famous buildable css libraries.
 
 Why walk when you can Ride?
 
@@ -16,6 +16,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 > download Ride css or clone the repository
   ``` git clone https://github.com/OctoD/ride-css ```
+  , include ride in your buildable "*.styl" file and you have done.
 
 ##Documentation
 ####How to include Ride in your .styl file
@@ -24,17 +25,17 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 @require 'ride/*'
 ```
 
-##Contributing
+##You could be really helpful
 * Fork this repo
 * Commit you changes
 * Report bugs
 * Drink beer and eat your veggies
+* Ask for new features, ask questions and let the project grows
 
-*the full doc is coming soon &copy;*
 ####Mixins list
 
-* css-templates/
-  * form.styl
+* **css-templates/**
+  * *form.styl*
     - [form-elements](#form-elements)
     - [form-elements-readonly](#form-elements-readonly)
     - [form-in-range](#form-in-range)
@@ -45,12 +46,12 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [form-valid](#form-valid)
     - [placeholder](#placeholder)
     - [ride-form-elements](#ride-form-elements)
-  * ride-buttons.styl
+  * *ride-buttons.styl*
     - [button](#button)
     - [button-bar](#button-bar)
     - [menu-button](#menu-button)
     - [sliding-button](#sliding-button)
-  * ride-media-queries.styl
+  * *ride-media-queries.styl*
     - [breakpoint](#breakpoint)
     - [high-dpi](#high-dpi)
     - [responsive-huge](#responsive-huge)
@@ -59,14 +60,14 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [responsive-small](#responsive-small)
     - [responsive-smallest](#responsive-smallest)
     - [responsive-tablet](#responsive-tablet)
-* etc/
-  * css-normalize.styl
+* **etc/**
+  * *css-normalize.styl*
     - [css-normalize](#css-normalize)
-  * css-reset.styl
+  * *css-reset.styl*
     - [css-reset](#css-reset)
 
-  * ride-css3-proxies.styl 
-    *use them as normal css properties, the vendorization will be automatic*
+  * **ride-css3-proxies.styl **
+    *use them as normal css properties, the vendorization will be automatic. If you prefer or you need css gradients you could install NIB.js*
     - animation
     - animation-delay
     - animation-direction
@@ -100,13 +101,13 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - translate
     - translateX
     - translateY
-  * ride-functions.styl
+  * *ride-functions.styl*
     - [get-lineheight](#get-lineheight)
     - [onePercent](#onePercent)
     - [parseInt](#parseInt)
     - [parseFloat](#parseFloat)
     - [setUnit](#setUnit)
-  * ride-mixed-mixins.styl
+  * *ride-mixed-mixins.styl*
     - [absolute](#absolute)
     - [clearfix](#clearfix)
     - [dont-select](#dont-select)
@@ -115,20 +116,20 @@ Ride **requires** Stylus.js and (obviously) node.js installed
     - [ride-body](#ride-body)
     - [tooltip](#tooltip)
     - [wrapper](#wrapper)
-* grids/
-  * ride-column.styl
+* **grids/**
+  * *ride-column.styl*
     - [ride-column](#ride-column)
     - [ride-float](#ride-float)
-  * ride-grid.styl
+  * *ride-grid.styl*
     - [ride-column-grid](#ride-column-grid)
     - [ride-grid](#ride-grid)
     - [ride-grid-12](#ride-grid-12)
     - [ride-grid-6](#ride-grid-6)
     - [ride-grid-4](#ride-grid-4)
-* typography/
-  * anchors.styl
+* **typography/**
+  * *anchors.styl*
     - [ride-anchors](#ride-anchors)
-  * ride-typography.styl
+  * *ride-typography.styl*
     - [headings](#headings)
     - [ride-headings](#ride-headings)
     - [ride-paragraph](#ride-paragraph)

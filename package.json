@@ -1,0 +1,36 @@
+{
+  "name": "ride",
+  "author": "Paolo Roth <iamoctod@gmail.com> (https://github.com/OctoD/)",
+  "main": "ride.js",
+  "version": "0.8.0",
+  "description": "A stylus mixins library",
+  "keywords": [
+    "stylus",
+    "css",
+    "framework",
+    "grid"
+  ],
+  "categories": [
+    "CSS",
+    "Frameworks"
+  ],
+  "github": "https://github.com/OctoD/",
+  "devDependencies": {
+    "stylus": "0.42.3",
+  },
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OctoD/ride-css.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OctoD/ride-css/issues",
+    "email": "iamoctod@gmail.com"
+  },
+  "search": "A stylus mixin library",
+  "license": "MIT",
+  "homepage": "https://www.ridecss.com",
+  "dependencies": {
+    "stylus": "^0.42.3"
+  }
+}

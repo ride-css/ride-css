@@ -14,15 +14,17 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 > Install nib (recommended for css3 agnostic deveolpment). Type ```npm install -g nib``` in your terminal and you've done.
 
-> download Ride css or clone the repository
-  ``` git clone https://github.com/OctoD/ride-css ```
-  , include ride in your buildable "*.styl" file and you have done.
+> download Ride css and unzip into your working folder (eg: workspace/), include ride in your buildable "*.styl" file and you have done.
 
 ##Documentation
 ####How to include Ride in your .styl file
 ```
 // do this and you're ready to code your beautiful webapp/website!
-@require 'ride-css/*'
+// assuming your buildable file is into a workspace/test folder
+// and ride-css is into your workspace/ folder
+@require '../ride-css/*'
+
+// write your wonderful code here
 ```
 
 ##You could be really helpful

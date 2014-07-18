@@ -1,36 +1,36 @@
 {
-  "name": "ride",
-  "author": "Paolo Roth <iamoctod@gmail.com> (https://github.com/OctoD/)",
-  "main": "ride.js",
-  "version": "0.8.0",
-  "description": "A stylus mixins library",
-  "keywords": [
-    "stylus",
-    "css",
-    "framework",
-    "grid"
-  ],
-  "categories": [
-    "CSS",
-    "Frameworks"
-  ],
-  "github": "https://github.com/OctoD/",
-  "devDependencies": {
-    "stylus": "0.42.3",
+  "name": "ride-css",
+  "version": "0.8.1",
+  "description": "A stylus mixin library for a faster frontend development",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
   },
-  "preferGlobal": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OctoD/ride-css.git"
+    "url": "https://github.com/OctoD/ride-css"
   },
-  "bugs": {
-    "url": "https://github.com/OctoD/ride-css/issues",
-    "email": "iamoctod@gmail.com"
+  "keywords": [
+    "css",
+    "library",
+    "frontend",
+    "ride"
+  ],
+  "author": "Paolo Roth <iamoctod@gmail.com>",
+  "engines": {
+    "node": "*"
   },
-  "search": "A stylus mixin library",
   "license": "MIT",
-  "homepage": "https://www.ridecss.com",
+  "bugs": {
+    "url": "https://github.com/OctoD/ride-css/issues"
+  },
+  "homepage": "https://github.com/OctoD/ride-css",
   "dependencies": {
-    "stylus": "^0.42.3"
+    "stylus": "^0.47.1"
   }
 }

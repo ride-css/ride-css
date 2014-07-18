@@ -26,11 +26,8 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 ```
 
 ##You could be really helpful
-* Fork this repo
-* Commit you changes
-* Report bugs
-* Drink beer and eat your veggies
-* Ask for new features, ask questions and let the project grows
+
+[How to contribute](https://github.com/octod/ride-css/blob/master/contributing.md)
 
 ##Todos
 - [x] add basic mixins
@@ -40,14 +37,14 @@ Ride **requires** Stylus.js and (obviously) node.js installed
   - [ ] a website maybe?
 
 #Mixin list
-[Buttons](https://github.com/octod/ride-css/blob/development/docs/buttons.md)
+[Buttons](https://github.com/octod/ride-css/blob/master/docs/buttons.md)
 
-[Form elements mixins](https://github.com/octod/ride-css/blob/development/docs/form-elements.md)
+[Form elements mixins](https://github.com/octod/ride-css/blob/master/docs/form-elements.md)
 
-[Grid system and helpers](https://github.com/octod/ride-css/blob/development/docs/grids.md)
+[Grid system and helpers](https://github.com/octod/ride-css/blob/master/docs/grids.md)
 
-[Media queries](https://github.com/octod/ride-css/blob/development/docs/media-queries.md)
+[Media queries](https://github.com/octod/ride-css/blob/master/docs/media-queries.md)
 
-[Typography](https://github.com/octod/ride-css/blob/development/docs/typography.md)
+[Typography](https://github.com/octod/ride-css/blob/master/docs/typography.md)
 
-[Various mixins](https://github.com/octod/ride-css/blob/development/docs/etc.md)
+[Various mixins](https://github.com/octod/ride-css/blob/master/docs/etc.md)

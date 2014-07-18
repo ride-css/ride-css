@@ -14,17 +14,6 @@
   position: relative;
 }
 ```
-##button-bar
-```
-// this mixin has a {block}
-button-bar()
-// will render in
-.actions {
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-}
-```
 ##menu-button
 ```
 // this mixin has a {block}

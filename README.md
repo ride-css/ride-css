@@ -41,8 +41,13 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 #Mixin list
 [Buttons](https://github.com/octod/ride-css/blob/development/docs/buttons.md)
+
 [Form elements mixins](https://github.com/octod/ride-css/blob/development/docs/form-elements.md)
+
 [Grid system and helpers](https://github.com/octod/ride-css/blob/development/docs/grids.md)
+
 [Media queries](https://github.com/octod/ride-css/blob/development/docs/media-queries.md)
+
 [Typography](https://github.com/octod/ride-css/blob/development/docs/typography.md)
+
 [Various mixins](https://github.com/octod/ride-css/blob/development/docs/etc.md)

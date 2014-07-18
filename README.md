@@ -938,22 +938,20 @@ this mixin is useful for making fast calculations about a column width
 // this mixin has not a {block}
 // @params
 // width width -> the container width
+// int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
+// int currentColumn (default: 1) -> current column (eg: 1, 4)
 // int/s gutter (default: 0) -> the container gutter
-// int columnCount (default: 1) -> the number of columns the grid has
-// int currentColumn (default: 1) -> the space occupied by this column
-// string gutterType (default: 'margin', avaible: 'margin', 'both', 'both false') -> the gutter type (margin, margin+padding, width - margin)
-// bool returnsWidth (default: true) -> shall this mixin return the column width or only the gutter?
-// bool important (default: false) -> this mixin will returns the proprerties with the !important flag (false/true) 
+// int/s padding (default: 0) -> the container padding
 
 // example:
 // using
 .test
-  ride-column(100%, 0 1 2, 12, 4, padding: true)
+  ride-column(100%, 12, 2, 0 2, 1)
 // will output
 .test {
-  margin: 0 1% 2%;
-  padding: 0 1% 2%;
-  width: 29.333333333333336%;
+  margin: 0% 2%;
+  padding: 1%;
+  width: 10.666666666666668%;
 }
 ```
 ######ride-float
@@ -962,21 +960,19 @@ this mixin is useful for making fast calculations about a column float
 // this mixin has not a {block}
 // @params
 // width width -> the container width
+// int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
+// int currentColumn (default: 1) -> current column (eg: 1, 4)
 // int/s gutter (default: 0) -> the container gutter
-// int columnCount (default: 1) -> the number of columns the grid has
-// int currentColumn (default: 1) -> the space occupied by this column
-// bool addFloat (default: true) -> this flag will add the css "float" property
-// string floatDirection (default: 'left') -> this flag will determine where the extra gutter will be added and the float direction 
-ride-float(width, gutter, columnCount = 1, currentColumn = 1, gutterType = 'margin', addFloat = true, floatDirection = 'left')
+// int/s padding (default: 0) -> the container padding
+// string floatDirection (default: 'left') -> float direction (left|right)
 
 // example:
 // using
 .test
-  ride-float(100%, 0 2, 12, 4, floatDirection: 'right')
+  ride-float(100%, 12, 2, 0 2, 1)
 // will output
 .test {
-  margin-right: 35.333333333333336%;
-  float: left;
+  margin-left: 12.666666666666668%;
 }
 ```
 

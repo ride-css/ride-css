@@ -15,36 +15,11 @@ ride-column(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0)
   if _cols
     width setUnit(_cols, columnUnit)
 
-
 // floating column mixin
 // doesn't accept a code block
-ride-float(width, gutter, columnCount = 1, currentColumn = 1, gutterType = 'margin', addFloat = true, floatDirection = 'left')
+ride-float(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0, marginDirection = 'left')
   columnUnit = unit(width)
-
-  if !gutter[1]
-    float = gutter
-    if gutterType == 'both'
-      float = float + gutter
-
-  if gutter[1] && !gutter[3]
-    float = gutter[1]
-    if gutterType == 'both'
-      float = float + gutter[1]
-
-  if gutter[1] && gutter[3]
-    float = gutter[3]
-    if gutterType == 'both'
-      float = float + gutter[3]
-
-  // smallest column width
-  column = (width / columnCount) * currentColumn
-
-  // {gutterType}-{floatDirection} (column + float)
-  if gutterType && gutterType != 'both' &&  gutterType != 'both false'
-    {gutterType}-{floatDirection} setUnit((column + float), columnUnit)
-
-  if gutterType == 'both'
-    margin-{floatDirection} setUnit((column + float), columnUnit)
-
-  if addFloat
-    float left  
+  column = getFloat(parseFloat(width), columnCount, currentColumn, s('%s', gutter), s('%s', padding))
+  _float = column.floats
+  if _margin
+    margin-{marginDirection} setUnit(_float, columnUnit)

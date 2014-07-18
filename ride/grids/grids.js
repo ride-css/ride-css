@@ -20,5 +20,12 @@ module.exports = function () {
       mygrid.cols = mygrid.instance.calcColumn(currentColumn);
       return utils.coerceObject(mygrid, {});
     });
+
+    style.define('getFloat', function (width, columns, currentColumn, gutter, padding) {
+      var mygrid = ride.grid(width.clone().val, columns.clone().val, gutter.clone().val.split(' '), padding.clone().val.split(' '));
+
+      mygrid.floats = mygrid.instance.calcFloat(currentColumn);
+      return utils.coerceObject(mygrid, {});
+    });
   }
 }

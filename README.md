@@ -33,10 +33,9 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 ##Todos
 - [x] add basic mixins
-- [ ] basic documentation
-  - [x] write the mixins list tree
+- [ ] better documentation
   - [x] write how to use mixins
-  - [ ] a website maybe?
+  - [ ] tips and tricks
 
 #Mixin list
 [Buttons](https://github.com/octod/ride-css/blob/master/docs/buttons.md)

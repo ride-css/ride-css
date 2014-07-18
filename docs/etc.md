@@ -96,9 +96,6 @@ pre {
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
-small {
-  font-size: 80%;
-}
 sub,
 sup {
   font-size: 75%;

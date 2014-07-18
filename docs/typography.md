@@ -128,11 +128,12 @@ This mixin will add a class with a smaller font-size and regularly adapted line-
 ``` 
 // this mixin has not a {block}
 // @params
-// [string] className (default: '.small'): this will be the css selector use to add the small font-size style
+// [string] className (default: 'small, .small'): this will be the css selector use to add the small font-size style
 // [float] fontSize (default: (62.5/100)): this will be the font-size returned from this mixin
 // how to use it:
 ride-small()
 // will render into:
+small,
 .small {
   font-size: 0.625em;
   line-height: 1;

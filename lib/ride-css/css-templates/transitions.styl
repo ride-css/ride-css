@@ -1,0 +1,11 @@
+fadein(timer = .4s, event = '&:hover')
+  opacity 0
+  transition timer
+  {event}
+    opacity 1
+
+fadeout(timer = .4s, event = '&:hover')
+  opacity 1
+  transition timer
+  {event}
+    opacity 0

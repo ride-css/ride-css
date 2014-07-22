@@ -12,6 +12,8 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
   config.row = config.row || '.row'
   config.scope = config.scope || ''
   config.width = config.width || 100%
+  config.disableFloat = config.disableFloat || false
+  config.disablePush = config.disablePush || false
   _unit = unit(config.width)
   mygrid = getGrid(parseInt(config.width) || 100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
   
@@ -27,14 +29,16 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
         {config.column}{colName + 1}
           +cache('grid-width'+ columns + col)
             width unit(col, _unit)
-      for float, floatName in mygrid.floats
-        {config.float}{floatName + 1}
-          +cache('grid-float'+ columns + float)
-            margin-left unit(float, _unit)
-      for push, pushName in mygrid.floats
-        {config.push}{pushName + 1}
-          +cache('grid-push'+ columns + push)
-            margin-right unit(push, _unit)
+      if config.disableFloat == false
+        for float, floatName in mygrid.floats
+          {config.float}{floatName + 1}
+            +cache('grid-float'+ columns + float)
+              margin-left unit(float, _unit)
+      if config.disablePush == false
+        for push, pushName in mygrid.floats
+          {config.push}{pushName + 1}
+            +cache('grid-push'+ columns + push)
+              margin-right unit(push, _unit)
       {config.column}{columns}
         float none
       {config.row}

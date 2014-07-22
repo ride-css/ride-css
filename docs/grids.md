@@ -45,6 +45,7 @@ this mixin will help you to build your custom css grids.
 //   string config.push (default: '.push') -> this is the pushing column class prefix
 //   string config.prefix (default: '') -> this will add a prefix to columns, push, floats and row
 //   string config.row (default: '.row') -> this is the clearfix container for the columns
+//   unit config.width (default: 100%) -> this is the base width every calculation will be made by
 
 example:
 // using
@@ -116,6 +117,43 @@ ride-grid(6, 0 0 2, 2, {
 }
 .ride-row:after,
 .ride-row:before {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+// or using
+ride-grid(2, 20, 20, {
+  width: 1000px  
+})
+// will render into
+.cl1 {
+  float: left;
+  margin: 20px;
+  padding: 20px;
+}
+.cl2 {
+  float: left;
+  margin: 20px;
+  padding: 20px;
+}
+.cl1 {
+  width: 420px;
+}
+.cl2 {
+  width: 920px;
+}
+.float1 {
+  margin-left: 480px;
+}
+.push1 {
+  margin-right: 480px;
+}
+.cl2 {
+  float: none;
+}
+.row:after,
+.row:before {
   clear: both;
   content: '';
   display: table;

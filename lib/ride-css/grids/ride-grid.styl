@@ -11,7 +11,9 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
   config.push = config.push || '.push'
   config.row = config.row || '.row'
   config.scope = config.scope || ''
-  mygrid = getGrid(100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
+  config.width = config.width || 100%
+  _unit = unit(config.width)
+  mygrid = getGrid(parseInt(config.width) || 100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
   
   {config.scope}
     +prefix-classes(config.prefix)
@@ -19,20 +21,20 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
         {config.column}{colName + 1}
           +cache('grid-gutter'+ columns + gutter + padding)
             float left
-            margin setUnit(gutter, '%')
-            padding setUnit(padding, '%')
+            margin setUnit(gutter, _unit)
+            padding setUnit(padding, _unit)
       for col, colName in mygrid.cols
         {config.column}{colName + 1}
           +cache('grid-width'+ columns + col)
-            width unit(col, '%')
+            width unit(col, _unit)
       for float, floatName in mygrid.floats
         {config.float}{floatName + 1}
           +cache('grid-float'+ columns + float)
-            margin-left unit(float, '%')
+            margin-left unit(float, _unit)
       for push, pushName in mygrid.floats
         {config.push}{pushName + 1}
           +cache('grid-push'+ columns + push)
-            margin-right unit(push, '%')
+            margin-right unit(push, _unit)
       {config.column}{columns}
         float none
       {config.row}

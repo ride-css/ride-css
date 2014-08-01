@@ -7,6 +7,7 @@ use('grids.js')
 ride-grid(columns, gutter = 0, padding = 0, config = {})
   config.column = config.column || '.cl'
   config.float = config.float || '.float'
+  config.oocss = config.oocss || true
   config.prefix = config.prefix || ''
   config.push = config.push || '.push'
   config.row = config.row || '.row'
@@ -19,12 +20,18 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
   
   {config.scope}
     +prefix-classes(config.prefix)
-      for col, colName in mygrid.cols
-        {config.column}{colName + 1}
-          +cache('grid-gutter'+ columns + gutter + padding)
-            float left
-            margin setUnit(gutter, _unit)
-            padding setUnit(padding, _unit)
+      if config.oocss == true
+        {config.column}
+          float left
+          margin setUnit(gutter, _unit)
+          padding setUnit(padding, _unit)
+      else 
+        for col, colName in mygrid.cols
+          {config.column}{colName + 1}
+            +cache('grid-gutter'+ columns + gutter + padding)
+              float left
+              margin setUnit(gutter, _unit)
+              padding setUnit(padding, _unit)
       for col, colName in mygrid.cols
         {config.column}{colName + 1}
           +cache('grid-width'+ columns + col)
@@ -39,8 +46,9 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
           {config.push}{pushName + 1}
             +cache('grid-push'+ columns + push)
               margin-right unit(push, _unit)
-      {config.column}{columns}
-        float none
+      if config.oocss == false
+        {config.column}{columns}
+          float none
       {config.row}
         +cache('grid-clearfix'+ columns + gutter + padding)
           clearfix()

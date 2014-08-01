@@ -40,11 +40,12 @@ this mixin will help you to build your custom css grids.
 // [ints] padding (default: 0): the columns padding
 // hash config (default: {})
 //   string config.column (default: '.cl') -> this is the prefix for each css column
-//   string config.scope (default: '') -> this is the scope for the columns
 //   string config.float (default: '.float') -> this is the float column class prefix
-//   string config.push (default: '.push') -> this is the pushing column class prefix
+//   string config.oocss (default: true) -> the grid will be rendered using the oocss pattern
 //   string config.prefix (default: '') -> this will add a prefix to columns, push, floats and row
+//   string config.push (default: '.push') -> this is the pushing column class prefix
 //   string config.row (default: '.row') -> this is the clearfix container for the columns
+//   string config.scope (default: '') -> this is the scope for the columns
 //   unit config.width (default: 100%) -> this is the base width every calculation will be made by
 
 example:

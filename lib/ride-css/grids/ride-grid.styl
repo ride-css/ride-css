@@ -25,7 +25,7 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
           float left
           margin setUnit(gutter, _unit)
           padding setUnit(padding, _unit)
-      else 
+      if config.oocss != true
         for col, colName in mygrid.cols
           {config.column}{colName + 1}
             +cache('grid-gutter'+ columns + gutter + padding)

@@ -190,6 +190,18 @@ example:
 // using
 ride-typography()
 // will output
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.align-justify {
+  text-align: justify;
+}
 h1 {
   font-size: 2em;
   line-height: 0.75;

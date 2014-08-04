@@ -47,18 +47,23 @@ menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger')
       transform-origin 25% 0 0
 
 
-sliding-button(class, direction = 'left', transition = .4s)
+sliding-button(class, direction = 'left', transition = .4s, config = {})
+  config.oocss = config.oocss || false
+  _movingThing = ':before'
+  if config.oocss == true
+    _movingThing = config.hover || '.hover'
+    _movingThing = ' '+ _movingThing
   {class}
     {block}
     button()
     overflow hidden
     z-index 1
-    &:hover:before
+    &:hover{_movingThing}
       if direction == 'left' || direction == 'right'
         translateX(0)
       if direction == 'top' || direction == 'bottom'
         translateY(0)
-    &:before
+    &{_movingThing}
       if direction == 'top'
         translateY(-100%)
       if direction == 'right'
@@ -74,5 +79,5 @@ sliding-button(class, direction = 'left', transition = .4s)
       z-index -1
 
   {class}
-  {class}:before
+  {class}{_movingThing}
     transition(transition)

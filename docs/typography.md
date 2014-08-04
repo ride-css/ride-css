@@ -38,12 +38,53 @@ ride-anchors(red, true, 45%, '.test-anchor')
 }
 ```
 
+##ride-align
+```
+// this mixin has not a {block}
+// this mixin could cache alignments
+// @params
+// string classPrefix (default: 'align-') -> the class prefix for alignment
+
+// example:
+// using
+ride-align()
+// will render to
+.align-left {
+  text-align: left;
+}
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.align-justify {
+  text-align: justify;
+}
+// using
+ride-align('test-')
+// will render to
+.test-left {
+  text-align: left;
+}
+.test-center {
+  text-align: center;
+}
+.test-right {
+  text-align: right;
+}
+.test-justify {
+  text-align: justify;
+}
+
+```
+
 ##headings
 ```
 // this mixin has a {block}
 // @params: none
 // heading()
-example:
+// example:
 // using
 +headings()
   color red

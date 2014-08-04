@@ -12,6 +12,14 @@ headings()
   h6
     {block}
 
+// returns aligned classes
+ride-align(classPrefix = 'align-')
+  for _align in left center right justify
+    +prefix-classes(classPrefix)
+      .{_align}
+        +cache('text-align'+ _align)
+          text-align _align
+
 // returns all h1-h6 html selectors
 // it will properly calculate line-height and font size 
 ride-headings(headings = 2 1.8 1.6 1.4 1.2 1, lineHeight = 1.5)

@@ -41,7 +41,7 @@ this mixin will help you to build your custom css grids.
 // hash config (default: {})
 //   string config.column (default: '.cl') -> this is the prefix for each css column
 //   string config.float (default: '.float') -> this is the float column class prefix
-//   string config.oocss (default: true) -> the grid will be rendered using the oocss pattern
+//   string config.oocss (default: false) -> the grid will be rendered using the oocss pattern
 //   string config.prefix (default: '') -> this will add a prefix to columns, push, floats and row
 //   string config.push (default: '.push') -> this is the pushing column class prefix
 //   string config.row (default: '.row') -> this is the clearfix container for the columns
@@ -125,15 +125,11 @@ ride-grid(6, 0 0 2, 2, {
 
 // or using
 ride-grid(2, 20, 20, {
+  oocss: true,
   width: 1000px  
 })
 // will render into
-.cl1 {
-  float: left;
-  margin: 20px;
-  padding: 20px;
-}
-.cl2 {
+.cl {
   float: left;
   margin: 20px;
   padding: 20px;
@@ -149,9 +145,6 @@ ride-grid(2, 20, 20, {
 }
 .push1 {
   margin-right: 480px;
-}
-.cl2 {
-  float: none;
 }
 .row:after,
 .row:before {

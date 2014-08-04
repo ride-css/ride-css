@@ -1,5 +1,20 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
+_ride-setup-position(_position, top = false, left = false, right = false, bottom = false)
+  position _position
+  if top != false
+    +cache('ride-position-top'+ top)
+      top top
+  if left != false
+    +cache('ride-position-left'+ left)
+      left left
+  if right != false
+    +cache('ride-position-right'+ right)
+      right right
+  if bottom != false
+    +cache('ride-position-bottom'+ bottom)
+      bottom bottom
+
 clearfix()
   &:after
   &:before
@@ -8,15 +23,7 @@ clearfix()
     display table
 
 absolute(top = false, left = false, right = false, bottom = false)
-  position absolute
-  if top != false
-    top top
-  if left != false
-    left left
-  if right != false
-    right right
-  if bottom != false
-    bottom bottom
+  _ride-setup-position(absolute, top, left, right, bottom)
 
 dont-select()
   -webkit-touch-callout: none;
@@ -27,23 +34,18 @@ dont-select()
   user-select: none;  
 
 fixed(top = false, left = false, right = false, bottom = false)
-  position fixed
-  if top != false
-    top top
-  if left != false
-    left left
-  if right != false
-    right right
-  if bottom != false
-    bottom bottom
+  _ride-setup-position(fixed, top, left, right, bottom)
+
+relative(top = false, left = false, right = false, bottom = false)
+  _ride-setup-position(relative, top, left, right, bottom)
 
 reset-ul()
   ul
     margin 0
-    padding 0
+    padding @margin
     li
-      margin 0
-      padding 0
+      margin @margin
+      padding @padding
     
 ride-body()
   html
@@ -82,4 +84,4 @@ wrapper(class = '.wrap')
     width 100% unless @width
 
 // aliasing the wrapper mixin with wrap
-wrap = wrapper
+ride-wrap = wrap = wrapper

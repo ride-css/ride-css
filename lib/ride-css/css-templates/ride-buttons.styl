@@ -3,10 +3,11 @@
 // common button template
 button()
   {block}
-  cursor pointer unless @cursor
-  display inline-block unless @display
-  line-height 3 unless @line-height
-  position relative unless @position
+  +cache('ride-button')
+    cursor pointer unless @cursor
+    display inline-block unless @display
+    line-height 3 unless @line-height
+    position relative unless @position
 
 menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger')
   {className}

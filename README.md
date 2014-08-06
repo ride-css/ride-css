@@ -46,6 +46,8 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 [Media queries](https://github.com/octod/ride-css/blob/master/docs/media-queries.md)
 
+[css templates](https://github.com/octod/ride-css/blob/master/docs/css-templates.md)
+
 [Typography](https://github.com/octod/ride-css/blob/master/docs/typography.md)
 
 [Various mixins](https://github.com/octod/ride-css/blob/master/docs/etc.md)

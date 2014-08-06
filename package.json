@@ -1,0 +1,36 @@
+{
+  "name": "ride-css",
+  "version": "0.8.2",
+  "description": "A stylus mixin library for a faster frontend development",
+  "main": "lib/index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OctoD/ride-css"
+  },
+  "keywords": [
+    "css",
+    "library",
+    "frontend",
+    "ride"
+  ],
+  "author": "Paolo Roth <iamoctod@gmail.com>",
+  "engines": {
+    "node": "*"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OctoD/ride-css/issues"
+  },
+  "homepage": "https://github.com/OctoD/ride-css",
+  "dependencies": {
+    "stylus": "^0.47.1",
+    "nib": "^1.0.3"
+  }
+}

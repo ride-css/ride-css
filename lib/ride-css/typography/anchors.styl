@@ -1,0 +1,18 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+ride-anchors(color, light = false, ratio = 21%, class = 'a')
+  {class}
+    color color
+    {block}
+    &:hover
+      if !light
+        color darken(color, ratio)
+      if light
+        color lighten(color, ratio)
+    &:active
+      if !light
+        color darken(color, ratio+8%)
+      if light
+        color lighten(color, ratio+8%)
+    &:visited
+      color color

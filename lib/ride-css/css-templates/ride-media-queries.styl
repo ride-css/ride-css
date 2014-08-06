@@ -1,0 +1,65 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+breakpoint(minWidth, maxWidth, orientation = false)
+  if orientation == false
+    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth)
+      {block}
+  else
+    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth) and (orientation: orientation)
+      {block}
+
+high-dpi()
+  @media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2)
+    {block}
+
+responsive-phone() 
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) 
+    body
+      font-size: 100%
+    :root .phone-hide
+      display: none
+    {block}
+
+responsive-tablet() 
+  @media only screen and (min-width: 321px)and (max-width: 1024px) 
+    body
+      font-size: 100%
+    :root .tablet-hide
+      display: none
+    {block}
+
+responsive-tablet-landscape() 
+  @media only screen and (min-width: 321px)and (max-width: 1024px) and (orientation: landscape) 
+    :root .tablet-hide
+      display: none
+    {block}
+
+responsive-tablet-portrait() 
+  @media only screen and (min-width: 321px)and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)
+    :root .tablet-hide
+      display: none
+    {block}
+
+responsive-smallest() 
+  @media only screen and (max-width: 480px) 
+    :root .smallest-hide
+      display: none
+    {block}
+
+responsive-small() 
+  @media only screen and (min-width: 481px)and (max-width: 959px) 
+    :root .small-hide
+      display: none
+    {block}
+
+responsive-normal() 
+  @media only screen and (min-width: 960px) and (max-width: 1599px)
+    :root .normal-hide
+      display: none
+    {block}
+
+responsive-huge() 
+  @media only screen and (min-width: 1600px) 
+    :root .huge-hide
+      display: none
+    {block}

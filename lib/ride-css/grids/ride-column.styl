@@ -1,0 +1,26 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+use('grids.js')
+// column mixin
+// doesn't accept a code block
+ride-column(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0)
+  columnUnit = unit(width)
+  column = getColumn(parseFloat(width), columnCount, currentColumn, s('%s', gutter), s('%s', padding))
+  _margin = column.gutter
+  _padding = column.padding
+  _cols = column.cols
+  if _margin
+    margin setUnit(_margin, columnUnit)
+  if _padding
+    padding setUnit(_padding, columnUnit)
+  if _cols
+    width setUnit(_cols, columnUnit)
+
+// floating column mixin
+// doesn't accept a code block
+ride-float(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0, marginDirection = 'left')
+  columnUnit = unit(width)
+  column = getFloat(parseFloat(width), columnCount, currentColumn, s('%s', gutter), s('%s', padding))
+  _float = column.floats
+  if _margin
+    margin-{marginDirection} setUnit(_float, columnUnit)

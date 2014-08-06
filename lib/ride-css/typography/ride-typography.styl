@@ -1,0 +1,74 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+// // returns all h1-h6 html selectors
+use('typography.js')
+
+headings()
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+    {block}
+
+// returns aligned classes
+ride-align(classPrefix = 'align-')
+  for _align in left center right justify
+    +prefix-classes(classPrefix)
+      .{_align}
+        +cache('text-align'+ _align)
+          text-align _align
+
+// returns all h1-h6 html selectors
+// it will properly calculate line-height and font size 
+ride-headings(headings = 2 1.8 1.6 1.4 1.2 1, lineHeight = 1.5, config = {})
+  config.oocss = config.oocss || false
+  config.h = config.h || '.h'
+  _headings = getTypography(s('%s', headings), lineHeight)
+
+  for _currentHeading, offset in _headings.headings
+    fontSize = _currentHeading['fontSize']
+    lineHeight = _currentHeading['lineHeight']
+    margin = _currentHeading['margin']
+    if config.oocss == true
+      {config.h}{offset + 1}
+        +cache('ride-headings-margin' + margin)
+          margin margin 0
+      {config.h}{offset + 1}
+        font-size unit(fontSize, 'em')
+        line-height lineHeight
+    else
+      h{offset + 1}
+        +cache('ride-headings-margin' + margin)
+          margin margin 0
+      h{offset + 1}
+        font-size unit(fontSize, 'em')
+        line-height lineHeight
+  // +headings()
+  //   margin 0
+
+// returns a properly calculated "p" selector 
+ride-paragraph(fontSize = 1, lineHeight = 1.5)
+  _paragraph = getTypography(s('%s', fontSize), lineHeight)
+  fontSize = _paragraph.paragraph.fontSize
+  lineHeight = _paragraph.paragraph.lineHeight
+  margin = _paragraph.paragraph.margin
+  p
+    {block}
+    font-size unit(fontSize, 'em')
+    line-height lineHeight unless @line-height
+    if margin > 0
+      margin unit(margin, 'em') 0
+
+ride-small(className = 'small, .small', fontSize = (62.5 / 100))
+  {className}
+    font-size unit(fontSize, 'em')
+    line-height 1
+
+// using default ride-typography mixins
+ride-typography()
+  ride-align()
+  ride-headings()
+  ride-paragraph()
+  ride-small()

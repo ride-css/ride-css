@@ -1,0 +1,67 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+form-elements()
+  input, textarea, select
+    {block}
+
+form-elements-readonly()
+  +form-elements()
+    &:read-only
+      {block}
+
+form-in-range()
+  input[type='number']:in-range
+    {block}
+
+form-not-valid()
+  +form-elements()
+    &:invalid
+      {block}
+      
+form-optional()
+  +form-elements()
+    &:optional
+      {block}
+
+form-out-range()
+  input[type='number']:out-of-range
+    {block}
+      
+form-required()
+  +form-elements()
+    &:required
+      {block}
+
+form-valid()
+  +form-elements()
+    &:valid
+      {block}
+
+placeholder()
+  &::-webkit-placeholder
+    {block}
+  &::-moz-placeholder
+    {block}
+  &:-moz-placeholder
+    {block}
+  &::-ms-placeholder
+    {block}
+
+ride-form-elements(border = 0, padding = 0)
+  +form-elements()
+    box-sizing()
+    if border != 0
+      border border
+    if border == 0
+      border 0 none
+    if padding != 0
+      padding padding
+  select
+    if padding != 0
+      selectPadding = ''
+      for pad in padding
+        selectPadding = selectPadding +' '+ (pad/100)*85 unit(pad)
+      padding unquote(selectPadding)
+
+form-invalid = form-not-valid
+form-optionals = form-optional

@@ -1,0 +1,19 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+
+site-nav(config = {})
+  config.current = config.current || '.current'
+  config.navClass = config.navClass || '.nav'
+  config.navItem = config.navItem || '.item'
+  config.orientation = config.orientation || '.horizontal'
+  {config.navClass}
+    display table
+    width 100%
+    {block}
+    {config.navItem}
+      button()
+      vertical-align middle
+    {config.navItem}
+      display table-cell
+    &{config.orientation} {config.navItem}
+      display s('block')

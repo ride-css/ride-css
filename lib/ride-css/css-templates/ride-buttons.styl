@@ -1,0 +1,84 @@
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+// common button template
+button()
+  {block}
+  +cache('ride-button')
+    cursor pointer unless @cursor
+    display inline-block unless @display
+    line-height 3 unless @line-height
+    position relative unless @position
+
+menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger')
+  {className}
+    {block}
+    background-color white unless @background-color
+    border-radius .25em
+    display inline-block
+    height .25em
+    transition all .4s ease 0s
+    width 2em
+    &:after
+    &:before
+      background-color @background-color
+      content ""
+      display unquote('block') // had to do this due to a Stylus bug. (the block value is rendered as a stylus block)
+      height @height
+      position relative
+    &:before
+      margin-top -(@height*2)
+      transition all .4s ease 0s
+    &:after
+      margin-top (@height*2)
+      top @height
+      transition all .4s ease 0s
+
+  {className}
+  {className}:after
+  {className}:before
+    border-radius .25em
+  
+  {triggerEvent}
+    background-color transparent
+    &:after
+      rotate -45
+      transform-origin 0 50% 0
+    &:before
+      rotate 45
+      transform-origin 25% 0 0
+
+
+sliding-button(class, direction = 'left', transition = .4s, config = {})
+  config.oocss = config.oocss || false
+  _movingThing = ':before'
+  if config.oocss == true
+    _movingThing = config.hover || '.hover'
+    _movingThing = ' '+ _movingThing
+  {class}
+    {block}
+    button()
+    overflow hidden
+    z-index 1
+    &:hover{_movingThing}
+      if direction == 'left' || direction == 'right'
+        translateX(0)
+      if direction == 'top' || direction == 'bottom'
+        translateY(0)
+    &{_movingThing}
+      if direction == 'top'
+        translateY(-100%)
+      if direction == 'right'
+        translateX(100%)
+      if direction == 'bottom'
+        translateY(100%)
+      if direction == 'left'
+        translateX(-100%)
+      absolute(top: 0, left: 0)
+      content ''
+      height 100%
+      width 100%
+      z-index -1
+
+  {class}
+  {class}{_movingThing}
+    transition(transition)

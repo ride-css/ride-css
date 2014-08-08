@@ -15,16 +15,29 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
   config.width = config.width || 100%
   config.disableFloat = config.disableFloat || false
   config.disablePush = config.disablePush || false
-  _unit = unit(config.width)
-  mygrid = getGrid(parseInt(config.width) || 100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
   
+  paddingHasUnit = unit(padding[0]) == ''
+  forceBorderBox = false
+
+  _unit = unit(config.width)
+  
+  if paddingHasUnit == true
+    mygrid = getGrid(parseInt(config.width) || 100, columns, toArray(s('%s', gutter)), toArray(s('%s', padding)))
+  else
+    forceBorderBox = true
+    mygrid = getGrid(parseInt(config.width) || 100, columns, toArray(s('%s', gutter)), toArray(s('%s', 0)))
+
   {config.scope}
     +prefix-classes(config.prefix)
       if config.oocss == true
         {config.column}
           float left
           margin setUnit(gutter, _unit)
-          padding setUnit(padding, _unit)
+          if forceBorderBox == true
+            box-sizing border-box 
+            padding padding
+          else
+            padding setUnit(padding, _unit)
       if config.oocss != true
         for col, colName in mygrid.cols
           {config.column}{colName + 1}
@@ -32,6 +45,11 @@ ride-grid(columns, gutter = 0, padding = 0, config = {})
               float left
               margin setUnit(gutter, _unit)
               padding setUnit(padding, _unit)
+              if forceBorderBox == true
+                box-sizing border-box 
+                padding padding
+              else
+                padding setUnit(padding, _unit)
       for col, colName in mygrid.cols
         {config.column}{colName + 1}
           +cache('grid-width'+ columns + col)

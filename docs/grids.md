@@ -37,7 +37,8 @@ this mixin will help you to build your custom css grids.
 // @params
 // [int] columns: the number of columns the grid will have
 // [ints] gutter (default: 0): the columns gutter
-// [ints] padding (default: 0): the columns padding
+// [ints] padding (default: 0): the columns padding. 
+//        If you will set a unit, the columns will be injected with the box-sizing property and the box model will be calculated in a different way
 // hash config (default: {})
 //   string config.column (default: '.cl') -> this is the prefix for each css column
 //   string config.float (default: '.float') -> this is the float column class prefix

@@ -51,3 +51,9 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 [Typography](https://github.com/octod/ride-css/blob/master/docs/typography.md)
 
 [Various mixins](https://github.com/octod/ride-css/blob/master/docs/etc.md)
+
+##contributors
+
+* author: [OctoD](https://github.com/OctoD/)
+* tester: [naya85](https://github.com/naya85/)
+* tester: [iamdex](https://github.com/iamdex/)

@@ -2,7 +2,7 @@
 
 #typography mixins
 
-##ride-anchors
+##ride-links (or ride-anchors)
 ```
 // this mixins has not a {block}
 // @params
@@ -13,7 +13,7 @@
 // ride-anchors(color, light = false, ratio = 21%, class = 'a')
 example:
 // using
-ride-anchors(red)
+ride-links(red)
 // the output will be like
 a {
   color: #f00;
@@ -25,7 +25,7 @@ a:active {
   color: #c50000;
 }
 // or using
-ride-anchors(red, true, 45%, '.test-anchor')
+ride-links(red, true, 45%, '.test-anchor')
 // will output
 .test-anchor {
   color: #f00;

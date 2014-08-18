@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OctoD/ride-css"
+    "url": "https://github.com/ride-css/ride-css"
   },
   "keywords": [
     "css",
@@ -26,9 +26,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OctoD/ride-css/issues"
+    "url": "https://github.com/ride-css/ride-css/issues"
   },
-  "homepage": "https://github.com/OctoD/ride-css",
+  "homepage": "https://github.com/ride-css/ride-css",
   "dependencies": {
     "stylus": "^0.47.1",
     "nib": "^1.0.3"

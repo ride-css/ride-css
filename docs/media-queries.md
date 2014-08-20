@@ -6,8 +6,27 @@ This mixin is ideal if you are planning to design an agnostic device website
 ```
 // this mixin has a {block}
 // @params
-// [width] min-device-width: the minimum device width
-// [width] max-device-width: the maximum device width
+// [unit] min-device-width: the minimum device width
+// [unit] max-device-width: the maximum device width
+// [orientation] orientation (optional): if set, an orientation will be added to the media query
+// how to use it
++breakpoint(300px, 400px, portrait)
+  // write your awesome stuff here!
+// will render into
+@media (min-device-width: 300px) and (max-device-width: 400px) and (orientation: portrait) {
+  /*you will find your awesome stuff here!*/  
+}
+```
+
+##breakpoint-full
+This mixin is ideal if you are planning to design an agnostic device website (also includes min-height and max-height)
+```
+// this mixin has a {block}
+// @params
+// [unit] min-device-width: the minimum device width
+// [unit] max-device-width: the maximum device width
+// [unit] min-device-height (optional): the minimum device height
+// [unit] max-device-height (optional): the maximum device height
 // [orientation] orientation (optional): if set, an orientation will be added to the media query
 // how to use it
 +breakpoint(300px, 400px, portrait)

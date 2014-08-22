@@ -33,7 +33,6 @@ or
 ```
 ride-links(red, true, 45%, '.test-anchor')
 ```
-```
 
 output
 
@@ -118,7 +117,6 @@ this mixin has not a {block}
 - number fontMultiplier (default: 2) -> the h1 size multiplier (2 will means 2x the inherited font-size)
 - number line-height (default: 1.5) -> the base line-height
 - number multiplier (default: 0.2) -> each heading will subtract the multiplier and will have the line-height recalculated to keep the vertical rhytm ok
-- heading()
 ```
 ride-headings()
 ```

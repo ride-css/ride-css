@@ -5,11 +5,10 @@
 ##ride-links (or ride-anchors)
 this mixins has not a {block}
 @params
-- color color -> is the basic color for your anchors
-- bool light (default: false)-> determines if the hover state color will be brighter (true) or darker (false)
-- percent ratio (default: 21%)-> the basic percentual the color will be enlighted or darkened
-- string class (default: 'a')-> the css selector. 
-- ride-anchors(color, light = false, ratio = 21%, class = 'a')
+- [color] color -> is the basic color for your anchors
+- [bool] light (default: false)-> determines if the hover state color will be brighter (true) or darker (false)
+- [percent] ratio (default: 21%)-> the basic percentual the color will be enlighted or darkened
+- [string] class (default: 'a')-> the css selector. 
 
 ```
 ride-links(red)
@@ -28,6 +27,7 @@ a:active {
   color: #c50000;
 }
 
+```
 or
 
 ```
@@ -52,7 +52,7 @@ output
 this mixin has not a {block}
 this mixin could cache alignments
 @params
-- string classPrefix (default: 'align-') -> the class prefix for alignment
+- [string] classPrefix (default: 'align-') -> the class prefix for alignment
 
 ```
 ride-align()
@@ -114,9 +114,10 @@ h1, h2, h3, h4, h5, h6{
 this mixin has not a {block}
 
 @params
-- number fontMultiplier (default: 2) -> the h1 size multiplier (2 will means 2x the inherited font-size)
-- number line-height (default: 1.5) -> the base line-height
-- number multiplier (default: 0.2) -> each heading will subtract the multiplier and will have the line-height recalculated to keep the vertical rhytm ok
+- [number] fontMultiplier (default: 2) -> the h1 size multiplier (2 will means 2x the inherited font-size)
+- [number] line-height (default: 1.5) -> the base line-height
+- [number] multiplier (default: 0.2) -> each heading will subtract the multiplier and will have the line-height recalculated to keep the vertical rhytm ok
+
 ```
 ride-headings()
 ```
@@ -218,9 +219,9 @@ small,
 this mixin has not a {block}
 this mixin will output the current mixins with their defaults params
 
+* ride-align()
 * ride-paragraph()
 * ride-headings()
-* ride-small()
 
 ```
 ride-typography()

@@ -4,11 +4,15 @@
 
 ##css-normalize
 this mixin will render as a css normalization
-```
 // this mixin has not a {block}
 // using
+
+```
 css-normalize()
+```
+
 // will render in
+```css
 /* css normalize by Nicolas Gallagher and Jonathan Neal 
  * RELEASED UNDER MIT LICENCE
  * https://github.com/necolas/normalize.css/ 
@@ -192,11 +196,16 @@ p {
 ```
 
 ##css-reset
+this mixin has not a {block}
+using
+
 ```
-// this mixin has not a {block}
-// using
 css-reset()
-// the output will be like
+```
+
+will render to
+
+```css
 /* css reset by meyerweb. It's free. Thanks meyerweb */
 html,
 body,

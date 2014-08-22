@@ -2,11 +2,16 @@
 
 #button mixins
 ##button
+
+this mixin has not a {block}
+
 ```
-// this mixin has not a {block}
 .button
   button()
-// will render in
+```
+
+output:
+```css
 .button {
   cursor: pointer;
   display: inline-block;
@@ -14,14 +19,22 @@
   position: relative;
 }
 ```
+
 ##menu-button
+
+this mixin has a {block}
+
+@params
+- string className (default: '.hamburger'): the element selector
+- string trigger Event (default: '.show-menu .hamburger'): when the element will be triggered to become a close button
+
 ```
-// this mixin has a {block}
-// @params
-// string className (default: '.hamburger'): the element selector
-// string trigger Event (default: '.show-menu .hamburger'): when the element will be triggered to become a close button
 menu-button()
-// will render in
+```
+
+will render in
+
+```css
 .hamburger {
   background-color: #fff;
   -webkit-border-radius: 0.25em;
@@ -92,13 +105,15 @@ menu-button()
   transform-origin: 25% 0 0;
 }
 ```
+
 ##sliding-button
+this mixin has a {block}
+@params
+- [string] class: button's selector
+- [string] direction (default: 'left'): this is where the :before pseudo will come from
+- [seconds] transition (default: .4s)
+
 ```
-// this mixin has a {block}
-// @params
-// string class: button's selector
-// string direction (default: 'left'): this is where the :before pseudo will come from
-// seconds transition (default: .4s)
 +sliding-button('.sliding-button', 'top')
   background-color red
   color white
@@ -106,7 +121,11 @@ menu-button()
     color red
   &:before
     background-color #fff
-// will render in
+```
+
+will render in
+
+```css
 .sliding-button {
   background-color: #f00;
   color: #fff;

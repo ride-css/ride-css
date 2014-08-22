@@ -189,7 +189,7 @@ ride-grid-12(0 0 2, 2)
 
 will render to
 
-```
+```css
 .cl1,
 .cl2,
 .cl3,
@@ -467,20 +467,25 @@ body .row:before {
 #grid helpers
 ##ride-column
 this mixin is useful for making fast calculations about a column width
-```
-// this mixin has not a {block}
-// @params
-// width width -> the container width
-// int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
-// int currentColumn (default: 1) -> current column (eg: 1, 4)
-// int/s gutter (default: 0) -> the container gutter
-// int/s padding (default: 0) -> the container padding
+this mixin has not a {block}
 
-// example:
-// using
+@params
+- width width -> the container width
+- int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
+- int currentColumn (default: 1) -> current column (eg: 1, 4)
+- int/s gutter (default: 0) -> the container gutter
+- int/s padding (default: 0) -> the container padding
+
+example:
+
+```
 .test
   ride-column(100%, 12, 2, 0 2, 1)
-// will output
+```
+
+will output
+
+```css
 .test {
   margin: 0% 2%;
   padding: 1%;
@@ -489,21 +494,26 @@ this mixin is useful for making fast calculations about a column width
 ```
 ##ride-float
 this mixin is useful for making fast calculations about a column float
-```
-// this mixin has not a {block}
-// @params
-// width width -> the container width
-// int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
-// int currentColumn (default: 1) -> current column (eg: 1, 4)
-// int/s gutter (default: 0) -> the container gutter
-// int/s padding (default: 0) -> the container padding
-// string floatDirection (default: 'left') -> float direction (left|right)
+this mixin has not a {block}
 
-// example:
-// using
+@params
+- width width -> the container width
+- int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
+- int currentColumn (default: 1) -> current column (eg: 1, 4)
+- int/s gutter (default: 0) -> the container gutter
+- int/s padding (default: 0) -> the container padding
+- string floatDirection (default: 'left') -> float direction (left|right)
+
+example:
+
+```
 .test
   ride-float(100%, 12, 2, 0 2, 1)
-// will output
+```
+
+will output
+
+```css
 .test {
   margin-left: 12.666666666666668%;
 }

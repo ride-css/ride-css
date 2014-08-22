@@ -4,17 +4,22 @@
 
 ##ride-column-grid
 this mixin will create a column-count grid
-```
-// this mixin has not a {block}
-// @params
-// string class -> the wrapper
-// int columnCount -> the number of columns
-// string columnClass (default: '.cl') -> the css selector for the columns
-// ride-column-grid(class, columnCount, columnClass = '.cl')
+
+this mixin has not a {block}
+@params
+- string class -> the wrapper
+- int columnCount -> the number of columns
+- string columnClass (default: '.cl') -> the css selector for the columns
+
 example:
-// using
+
+```
 ride-column-grid('.my-grid', 6, 'article')
-// the output will be like
+```
+
+will render to
+
+```css
 .my-grid {
   -webkit-column-count: 6;
   -moz-column-count: 6;
@@ -32,30 +37,35 @@ ride-column-grid('.my-grid', 6, 'article')
 
 ##ride-grid
 this mixin will help you to build your custom css grids.
-```
-// this mixin has not a {block}
-// @params
-// [int] columns: the number of columns the grid will have
-// [ints] gutter (default: 0): the columns gutter
-// [ints] padding (default: 0): the columns padding. 
-//        If you will set a unit, the columns will be injected with the box-sizing property and the box model will be calculated in a different way
-// hash config (default: {})
-//   string config.column (default: '.cl') -> this is the prefix for each css column
-//   string config.float (default: '.float') -> this is the float column class prefix
-//   string config.oocss (default: false) -> the grid will be rendered using the oocss pattern
-//   string config.prefix (default: '') -> this will add a prefix to columns, push, floats and row
-//   string config.push (default: '.push') -> this is the pushing column class prefix
-//   string config.row (default: '.row') -> this is the clearfix container for the columns
-//   string config.scope (default: '') -> this is the scope for the columns
-//   unit config.width (default: 100%) -> this is the base width every calculation will be made by
+
+this mixin has not a {block}
+@params
+- [int] columns: the number of columns the grid will have
+- [ints] gutter (default: 0): the columns gutter
+- [ints] padding (default: 0): the columns padding. 
+-        If you will set a unit, the columns will be injected with the box-sizing property and the box model will be calculated in a different way
+- hash config (default: {})
+  - string config.column (default: '.cl') -> this is the prefix for each css column
+  - string config.float (default: '.float') -> this is the float column class prefix
+  - string config.oocss (default: false) -> the grid will be rendered using the oocss pattern
+  - string config.prefix (default: '') -> this will add a prefix to columns, push, floats and row
+  - string config.push (default: '.push') -> this is the pushing column class prefix
+  - string config.row (default: '.row') -> this is the clearfix container for the columns
+  - string config.scope (default: '') -> this is the scope for the columns
+  - unit config.width (default: 100%) -> this is the base width every calculation will be made by
 
 example:
-// using
+
+```
 ride-grid(6, 0 0 2, 2, {
   column: '.test',
   prefix: 'ride-'
 })
+```
+
 // will output
+
+```css
 .ride-test1,
 .ride-test2,
 .ride-test3,
@@ -123,13 +133,18 @@ ride-grid(6, 0 0 2, 2, {
   content: '';
   display: table;
 }
+```
 
-// or using
+another example
+
+```
 ride-grid(2, 20, 20, {
   oocss: true,
   width: 1000px  
 })
-// will render into
+```
+
+```css
 .cl {
   float: left;
   margin: 20px;
@@ -158,17 +173,23 @@ ride-grid(2, 20, 20, {
 
 ##ride-grid-12
 This is the basic Ride css twelve column grid
-```
-// this mixin has not a {block}
-// @params
-// int gutter (default: 0 2) -> this is the gutter each column will have 
-// int padding (default: 0 2) -> this is the padding each column will have
-// hash config (default: {}) -> a config object same as ride-grid's
 
-// example:
-// using
+this mixin has not a {block}
+@params
+
+- int gutter (default: 0 2) -> this is the gutter each column will have 
+- int padding (default: 0 2) -> this is the padding each column will have
+- hash config (default: {}) -> a config object same as ride-grid's
+
+example:
+
+```
 ride-grid-12(0 0 2, 2)
-// ths output will be like
+```
+
+will render to
+
+```css
 .cl1,
 .cl2,
 .cl3,
@@ -296,18 +317,23 @@ ride-grid-12(0 0 2, 2)
   content: '';
   display: table;
 }
-
 ```
+
 #####ride-grid-6
 Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-6 is useful for tablet devices.
-```
-// this mixin has not a {block}
-// @params: are the same of ride-grid-12 mixin
+this mixin has not a {block}
+@params: are the same of ride-grid-12 mixin
 
 // example:
-// using
+
+```
 ride-grid-6(0 0 2, 2)
-// ths output will be likebody .sm-cl1,
+```
+
+will render
+
+```css
+body .sm-cl1,
 body .sm-cl2,
 body .sm-cl3,
 body .sm-cl4,
@@ -374,18 +400,21 @@ body .row:before {
   content: '';
   display: table;
 }
-
 ```
+
 #####ride-grid-4
 Similar to the (ride-grid-12)[ride-grid-12] mixin, the ride-grid-4 is useful for tablet smaller devices.
-```
-// this mixin has not a {block}
-// @params: are the same of ride-grid-12 mixin
+this mixin has not a {block}
+@params: are the same of ride-grid-12 mixin
 
-// example:
-// using
+example:
+
+```
 ride-grid-4(0 0 2, 2)
-// ths output will be like
+```
+
+will render to
+```css
 body .smt-cl1,
 body .smt-cl2,
 body .smt-cl3,
@@ -438,20 +467,25 @@ body .row:before {
 #grid helpers
 ##ride-column
 this mixin is useful for making fast calculations about a column width
-```
-// this mixin has not a {block}
-// @params
-// width width -> the container width
-// int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
-// int currentColumn (default: 1) -> current column (eg: 1, 4)
-// int/s gutter (default: 0) -> the container gutter
-// int/s padding (default: 0) -> the container padding
+this mixin has not a {block}
 
-// example:
-// using
+@params
+- width width -> the container width
+- int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
+- int currentColumn (default: 1) -> current column (eg: 1, 4)
+- int/s gutter (default: 0) -> the container gutter
+- int/s padding (default: 0) -> the container padding
+
+example:
+
+```
 .test
   ride-column(100%, 12, 2, 0 2, 1)
-// will output
+```
+
+will output
+
+```css
 .test {
   margin: 0% 2%;
   padding: 1%;
@@ -460,21 +494,26 @@ this mixin is useful for making fast calculations about a column width
 ```
 ##ride-float
 this mixin is useful for making fast calculations about a column float
-```
-// this mixin has not a {block}
-// @params
-// width width -> the container width
-// int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
-// int currentColumn (default: 1) -> current column (eg: 1, 4)
-// int/s gutter (default: 0) -> the container gutter
-// int/s padding (default: 0) -> the container padding
-// string floatDirection (default: 'left') -> float direction (left|right)
+this mixin has not a {block}
 
-// example:
-// using
+@params
+- width width -> the container width
+- int columnCount (default: 1) -> the maximum columns of your grid (eg: 8, 12, 16)
+- int currentColumn (default: 1) -> current column (eg: 1, 4)
+- int/s gutter (default: 0) -> the container gutter
+- int/s padding (default: 0) -> the container padding
+- string floatDirection (default: 'left') -> float direction (left|right)
+
+example:
+
+```
 .test
   ride-float(100%, 12, 2, 0 2, 1)
-// will output
+```
+
+will output
+
+```css
 .test {
   margin-left: 12.666666666666668%;
 }

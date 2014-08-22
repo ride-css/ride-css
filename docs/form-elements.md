@@ -2,13 +2,18 @@
 
 #form mixins
 ##form-elements
+
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-elements()
   border 1px solid #f2f2f2
   color #222
-// will render in
+```
+  
+output
+
+```css
 input,
 textarea,
 select {
@@ -17,14 +22,19 @@ select {
 }
 
 ```
+
 ##form-elements-readonly
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-elements-readonly()
   background-color #f2f2f2
   color #999
-// will render in
+```
+
+output
+
+```css
 input:read-only,
 textarea:read-only,
 select:read-only {
@@ -33,87 +43,122 @@ select:read-only {
 }
 ```
 ##form-in-range
+
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-in-range()
   color green
-// will render in
+```
+
+output
+
+```css
 input[type='number']:in-range {
   color: #008000;
 }
 ```
+
 ##form-not-valid
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-not-valid()
   color red
-// will render in
+```
+
+output
+
+```css
 input:invalid,
 textarea:invalid,
 select:invalid {
   color: #f00;
 }
 ```
+
 ##form-optional
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-optional()
   color blue
-// will render in
+```
+
+output
+
+```css
 input:optional,
 textarea:optional,
 select:optional {
   color: #00f;
 }
 ```
+
 ##form-out-range
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-out-range()
   color red
-// will render in
+```
+
+output
+
+```css
 input[type='number']:out-of-range {
   color: #f00;
 }
 ```
+
 ##form-required
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-required()
   font-weight bold
-// will render in
+```
+
+output
+
+```css
 input:required,
 textarea:required,
 select:required {
   font-weight: bold;
 }
 ```
+
 ##form-valid
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-valid()
   border 1px solid green
-// will render in
+```
+
+output
+
+```css
 input:invalid,
 textarea:invalid,
 select:invalid {
   border: 1px solid #008000;
 }
 ```
+
 ##placeholder
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 +form-elements()
   +placeholder()
     color grey
-// will render in
+```
+
+output
+
+```css
 input::-webkit-placeholder,
 textarea::-webkit-placeholder,
 select::-webkit-placeholder {
@@ -135,12 +180,17 @@ select::-ms-placeholder {
   color: #808080;
 }
 ```
+
 ##ride-form-elements
+this mixin has a {block}
+
 ```
-// this mixin has a {block}
-// how to use it
 ride-form-elements(1px solid silver, 0 .5em)
-// will render in
+```
+
+output
+
+```css
 input,
 textarea,
 select {

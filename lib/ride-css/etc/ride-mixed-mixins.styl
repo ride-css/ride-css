@@ -26,12 +26,13 @@ absolute(top = false, left = false, right = false, bottom = false)
   _ride-setup-position(absolute, top, left, right, bottom)
 
 dont-select()
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;  
+  +cache('ride-dont-select')
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;  
 
 fixed(top = false, left = false, right = false, bottom = false)
   _ride-setup-position(fixed, top, left, right, bottom)

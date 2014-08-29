@@ -3,6 +3,7 @@
 // // returns all h1-h6 html selectors
 use('typography.js')
 
+// this was difficult
 headings()
   h1
   h2
@@ -20,6 +21,13 @@ ride-align(classPrefix = 'align-')
         +cache('text-align'+ _align)
           text-align _align
 
+// code styling
+// use it with the <pre></pre> or <code></code> tag
+ride-code(tabSize = 2)
+  .code
+    tab-size tabSize
+    {block}
+
 // returns all h1-h6 html selectors
 // it will properly calculate line-height and font size 
 ride-headings(headings = 2 1.8 1.6 1.4 1.2 1, lineHeight = 1.5, config = {})
@@ -36,17 +44,25 @@ ride-headings(headings = 2 1.8 1.6 1.4 1.2 1, lineHeight = 1.5, config = {})
         +cache('ride-headings-margin' + margin)
           margin margin 0
       {config.h}{offset + 1}
-        font-size unit(fontSize, 'em')
-        line-height lineHeight
+        +cache('ride-headings-fz' + fontSize)
+          font-size unit(fontSize, 'em')
+          line-height lineHeight
     else
       h{offset + 1}
         +cache('ride-headings-margin' + margin)
           margin margin 0
       h{offset + 1}
-        font-size unit(fontSize, 'em')
-        line-height lineHeight
+        +cache('ride-headings-fz' + fontSize)
+          font-size unit(fontSize, 'em')
+          line-height lineHeight
   // +headings()
   //   margin 0
+
+// highlighted text
+ride-highlight(className = 'mark, .highlight')
+  {className}
+    {block}
+    background-color #F1EED6 @unless background-color
 
 // returns a properly calculated "p" selector 
 ride-paragraph(fontSize = 1, lineHeight = 1.5)
@@ -66,9 +82,41 @@ ride-small(className = 'small, .small', fontSize = (62.5 / 100))
     font-size unit(fontSize, 'em')
     line-height 1
 
+// text style classes 
+ride-text-style(classPrefix = 'text-', config = {})
+  config.bold = config.bold || 'strong'
+  config.capital = config.capital || 'capital'
+  config.deleted = config.deleted || 'deleted'
+  config.italic = config.italic || 'italic'
+  config.lowercase = config.lowercase || 'lowercase'
+  config.uppercase = config.uppercase || 'uppercase'
+  config.underlined = config.underlined || 'underline'
+  +prefix-classes(classPrefix)
+    .{config.bold}
+      font-weight bold
+    .{config.capital}
+      text-transform capitalize
+    .{config.deleted}
+      text-decoration line-through
+    .{config.italic}
+      font-style italic
+    .{config.lowercase}
+      text-transform lowercase
+    .{config.uppercase}
+      text-transform uppercase
+    .{config.underlined}
+      text-decoration underline
+
+
 // using default ride-typography mixins
 ride-typography()
   ride-align()
+  ride-code()
   ride-headings()
+  ride-headings(config: {
+    oocss: true  
+  })
+  ride-highlight()
   ride-paragraph()
   ride-small()
+  ride-text-style()

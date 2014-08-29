@@ -4,10 +4,13 @@
 button()
   {block}
   +cache('ride-button')
+    dont-select()
     cursor pointer unless @cursor
     display inline-block unless @display
     line-height 3 unless @line-height
+    padding .5em 1em unless @padding
     position relative unless @position
+    white-space nowrap unless @white-space
 
 menu-button(className = '.hamburger', triggerEvent = '.show-menu .hamburger')
   {className}

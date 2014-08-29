@@ -88,6 +88,7 @@ ride-text-style(classPrefix = 'text-', config = {})
   config.capital = config.capital || 'capital'
   config.deleted = config.deleted || 'deleted'
   config.italic = config.italic || 'italic'
+  config.lowercase = config.lowercase || 'lowercase'
   config.uppercase = config.uppercase || 'uppercase'
   config.underlined = config.underlined || 'underline'
   +prefix-classes(classPrefix)
@@ -99,6 +100,8 @@ ride-text-style(classPrefix = 'text-', config = {})
       text-decoration line-through
     .{config.italic}
       font-style italic
+    .{config.lowercase}
+      text-transform lowercase
     .{config.uppercase}
       text-transform uppercase
     .{config.underlined}

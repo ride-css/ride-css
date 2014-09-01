@@ -89,8 +89,9 @@ ride-text-style(classPrefix = 'text-', config = {})
   config.deleted = config.deleted || 'deleted'
   config.italic = config.italic || 'italic'
   config.lowercase = config.lowercase || 'lowercase'
-  config.uppercase = config.uppercase || 'uppercase'
+  config.normal = config.normal || 'normal'
   config.underlined = config.underlined || 'underline'
+  config.uppercase = config.uppercase || 'uppercase'
   +prefix-classes(classPrefix)
     .{config.bold}
       font-weight bold
@@ -102,6 +103,8 @@ ride-text-style(classPrefix = 'text-', config = {})
       font-style italic
     .{config.lowercase}
       text-transform lowercase
+    .{config.normal}
+      font-weight normal
     .{config.uppercase}
       text-transform uppercase
     .{config.underlined}

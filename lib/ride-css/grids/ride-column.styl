@@ -5,22 +5,24 @@ use('grids.js')
 // doesn't accept a code block
 ride-column(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0)
   columnUnit = unit(width)
-  column = getColumn(parseFloat(width), columnCount, currentColumn, s('%s', gutter), s('%s', padding))
+  column = getColumn(parseFloat(width), columnCount, currentColumn, s('%s', gutter))
   _margin = column.gutter
-  _padding = column.padding
   _cols = column.cols
+  if _padding
+    +cache('box-sizing')
+      box-sizing border-box
   if _margin
     margin setUnit(_margin, columnUnit)
   if _padding
-    padding setUnit(_padding, columnUnit)
+    padding padding
   if _cols
     width setUnit(_cols, columnUnit)
 
 // floating column mixin
 // doesn't accept a code block
-ride-float(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0, marginDirection = 'left')
+ride-float(width, columnCount = 1, currentColumn = 1, gutter = 0, marginDirection = 'left')
   columnUnit = unit(width)
-  column = getFloat(parseFloat(width), columnCount, currentColumn, s('%s', gutter), s('%s', padding))
+  column = getFloat(parseFloat(width), columnCount, currentColumn, s('%s', gutter))
   _float = column.floats
   if _margin
     margin-{marginDirection} setUnit(_float, columnUnit)

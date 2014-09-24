@@ -23,10 +23,10 @@ ride-align(classPrefix = 'align-')
 
 // code styling
 // use it with the <pre></pre> or <code></code> tag
-ride-code(tabSize = 2)
-  .code
-    tab-size tabSize
+ride-code(className = 'code, .code', tabSize = 2)
+  {className}
     {block}
+    tab-size tabSize
 
 // returns all h1-h6 html selectors
 // it will properly calculate line-height and font size 

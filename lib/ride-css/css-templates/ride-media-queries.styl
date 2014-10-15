@@ -2,27 +2,27 @@
 // https://github.com/OctoD/ride-css/
 breakpoint(minWidth, maxWidth, minHeight = false, maxHeight = false, orientation = false)
   if orientation == false
-    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth)
+    @media only screen and (min-width: minWidth) and (max-width: maxWidth)
       {block}    
   else
-    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth) and (orientation: orientation)
+    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (orientation: orientation)
       {block}
 
 breakpoint-full(minWidth, maxWidth, minHeight = false, maxHeight = false, orientation = false)
   if orientation == false and minHeight == false
-    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth)
+    @media only screen and (min-width: minWidth) and (max-width: maxWidth)
       {block}    
   else if orientation == false and minHeight != false
-    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth) and (min-device-height: minHeight)
+    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (min-height: minHeight)
       {block}
   else if orientation == false and minHeight != false and maxHeight != false
-    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth) and (min-device-height: minHeight) and (max-device-height: maxHeight)
+    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (min-height: minHeight) and (max-height: maxHeight)
       {block}
   else if orientation != false and minHeight != false and maxHeight != false
-    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth) and (min-device-height: minHeight) and (max-device-height: maxHeight)
+    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (min-height: minHeight) and (max-height: maxHeight)
       {block}
   else
-    @media only screen and (min-device-width: minWidth) and (max-device-width: maxWidth) and (orientation: orientation)
+    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (orientation: orientation)
       {block}
 
 high-dpi()

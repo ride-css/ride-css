@@ -1,7 +1,7 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
-ride-table(className = 'table', effect = 'blur')
-  {className}
+ride-table($class = 'table', $effect = 'blur')
+  {$class}
     {block}
     background-color white unless @background-color
     border-collapse separate unless @border-collapse
@@ -9,24 +9,24 @@ ride-table(className = 'table', effect = 'blur')
     color #222 unless @color
     width 100% unless @width
     &:hover tr td
-      if effect == 'blur'
+      if $effect == 'blur'
         text-shadow 0 0 .2em @color
         border-color rgba(@color, .1)
         color transparent
-      if effect == 'blur scale'
+      if $effect == 'blur scale'
         text-shadow 0 0 .1em @color
         border-color rgba(@color, .1)
         color transparent
     &:hover tr:hover td
       color @color
-      if effect == 'blur'
+      if $effect == 'blur'
         border-color @color
         text-shadow 0 0 0 transparent
-      if effect == 'blur scale'
+      if $effect == 'blur scale'
         border-color @color
         text-shadow 0 0 0 transparent
     &:hover tbody tr:hover
-      if effect == 'blur scale'
+      if $effect == 'blur scale'
         scale(1.0125)
     td
     th
@@ -53,8 +53,8 @@ ride-table(className = 'table', effect = 'blur')
         background-color @color
         color invert(@color)
 
-fixed-table(className = 'table')
-  {className}
+fixed-table($class = 'table')
+  {$class}
     {block}
     table-layout fixed-table
     text-align left

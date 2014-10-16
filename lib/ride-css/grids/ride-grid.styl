@@ -4,89 +4,89 @@
 // options passed as an [object Object]
 use('grids.js')
 
-ride-grid(columns, gutter = 0, padding = 0, config = {})
-  config.column = config.column || '.cl'
-  config.float = config.float || '.float'
-  config.oocss = config.oocss || false
-  config.prefix = config.prefix || ''
-  config.push = config.push || '.push'
-  config.row = config.row || '.row'
-  config.scope = config.scope || ''
-  config.width = config.width || 100%
-  config.disableFloat = config.disableFloat || false
-  config.disablePush = config.disablePush || false
+ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
+  $config.column = $config.column || '.cl'
+  $config.float = $config.float || '.float'
+  $config.oocss = $config.oocss || false
+  $config.prefix = $config.prefix || ''
+  $config.push = $config.push || '.push'
+  $config.row = $config.row || '.row'
+  $config.scope = $config.scope || ''
+  $config.width = $config.width || 100%
+  $config.disableFloat = $config.disableFloat || false
+  $config.disablePush = $config.disablePush || false
   
-  paddingHasNotUnit = unit(padding[0]) == ''
-  forceBorderBox = false
+  $padding-has-not-unit = unit($padding[0]) == ''
+  $force-border-box = false
 
-  _unit = unit(config.width)
+  $base-unit = unit($config.width)
   
-  mygrid = getGrid(parseInt(config.width) || 100, columns, toArray(s('%s', gutter)))
+  $mygrid = getGrid(parseInt($config.width) || 100, $columns, toArray(s('%s', $gutter)))
 
-  {config.scope}
-    +prefix-classes(config.prefix)
-      if config.oocss == true
-        {config.column}
+  {$config.scope}
+    +prefix-classes($config.prefix)
+      if $config.oocss == true
+        {$config.column}
           box-sizing border-box 
           float left
-          margin setUnit(gutter, _unit)
-          padding padding
-      if config.oocss != true
-        for col, colName in mygrid.cols
-          {config.column}{colName + 1}
-            +cache('grid-gutter'+ columns + gutter + padding)
+          margin setUnit($gutter, $base-unit)
+          padding $padding
+      if $config.oocss != true
+        for $col, $col-name in $mygrid.cols
+          {$config.column}{$col-name + 1}
+            +cache('grid-gutter'+ $columns + $gutter + $padding)
               box-sizing border-box 
               float left
-              margin setUnit(gutter, _unit)
-              padding padding
-      for col, colName in mygrid.cols
-        {config.column}{colName + 1}
-          +cache('grid-width'+ columns + col)
-            width unit(col, _unit)
-      if config.disableFloat == false
-        for float, floatName in mygrid.floats
-          {config.float}{floatName + 1}
-            +cache('grid-float'+ columns + float)
-              margin-left unit(float, _unit)
-      if config.disablePush == false
-        for push, pushName in mygrid.floats
-          {config.push}{pushName + 1}
-            +cache('grid-push'+ columns + push)
-              margin-right unit(push, _unit)
-      if config.oocss == false
-        {config.column}{columns}
+              margin setUnit($gutter, $base-unit)
+              padding $padding
+      for $col, $col-name in $mygrid.cols
+        {$config.column}{$col-name + 1}
+          +cache('grid-width'+ $columns + $col)
+            width unit($col, $base-unit)
+      if $config.disableFloat == false
+        for $float, $float-name in $mygrid.floats
+          {$config.float}{$float-name + 1}
+            +cache('grid-float'+ $columns + $float)
+              margin-left unit($float, $base-unit)
+      if $config.disablePush == false
+        for $push, $push-name in $mygrid.floats
+          {$config.push}{$push-name + 1}
+            +cache('grid-push'+ $columns + $push)
+              margin-right unit($push, $base-unit)
+      if $config.oocss == false
+        {$config.column}{$columns}
           float none
-      {config.row}
-        +cache('grid-clearfix'+ columns + gutter + padding)
+      {$config.row}
+        +cache('grid-clearfix'+ $columns + $gutter + padding)
           clearfix()
 
 // twelve columns grid
-ride-grid-12(gutter = (0 1), padding = (1em), config = {})
-  ride-grid(12, gutter, padding, config)
+ride-grid-12($gutter = (0 1), $padding = (1em), $config = {})
+  ride-grid(12, $gutter, $padding, $config)
 
 // six columns grid (ideal for mobile use)
-ride-grid-6(gutter = (0 2), padding = (1em), config = {})
-  config.column = '.sm-cl'
-  config.float = '.sm-float'
-  config.push = '.sm-push'
-  config.scope = 'body'
-  ride-grid(6, gutter, padding, config)
+ride-grid-6($gutter = (0 2), $padding = (1em), $config = {})
+  $config.column = '.sm-cl'
+  $config.float = '.sm-float'
+  $config.push = '.sm-push'
+  $config.scope = 'body'
+  ride-grid(6, $gutter, $padding, $config)
 
 // four columns grid (ideal for mobile use)
-ride-grid-4(gutter = (0 0 2), padding = (1em), config = {})
-  config.column = '.smt-cl'
-  config.float = '.smt-float'
-  config.push = '.smt-push'
-  config.scope = 'body'
-  ride-grid(4, gutter, padding, config)
+ride-grid-4($gutter = (0 0 2), $padding = (1em), $config = {})
+  $config.column = '.smt-cl'
+  $config.float = '.smt-float'
+  $config.push = '.smt-push'
+  $config.scope = 'body'
+  ride-grid(4, $gutter, $padding, $config)
 
-ride-column-grid(columnCount, config = {})
-  config.class = config.class || '.ride-columns'
-  config.columnClass = config.columnClass || '.cl'
-  {config.class}
-    column-count(columnCount)
+ride-column-grid($column-count, $config = {})
+  $config.class = $config.class || '.ride-columns'
+  $config.columnClass = $config.columnClass || '.cl'
+  {$config.class}
+    column-count($column-count)
     {block}
-  {config.class} {config.columnClass}
+  {$config.class} {$config.columnClass}
     page-break-inside(avoid)
     margin 0
     float none

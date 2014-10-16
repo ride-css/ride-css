@@ -47,21 +47,22 @@ placeholder()
   &::-ms-placeholder
     {block}
 
-ride-form-elements(border = 0, padding = 0)
+ride-form-elements($border = 0, $padding = 0)
   +form-elements()
     box-sizing()
-    if border != 0
-      border border
-    if border == 0
+    if $border != 0
+      border $border
+    if $border == 0
       border 0 none
-    if padding != 0
-      padding padding
+    if $padding != 0
+      box-sizing border-box
+      padding $padding
   select
-    if padding != 0
-      selectPadding = ''
-      for pad in padding
-        selectPadding = selectPadding +' '+ (pad/100)*85 unit(pad)
-      padding unquote(selectPadding)
+    if $padding != 0
+      $select-padding = ''
+      for $pad in $padding
+        $select-padding = $select-padding +' '+ ($pad/100)*85 unit($pad)
+      padding unquote($select-padding)
 
 form-invalid = form-not-valid
 form-optionals = form-optional

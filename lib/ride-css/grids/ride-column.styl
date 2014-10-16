@@ -3,26 +3,26 @@
 use('grids.js')
 // column mixin
 // doesn't accept a code block
-ride-column(width, columnCount = 1, currentColumn = 1, gutter = 0, padding = 0)
-  columnUnit = unit(width)
-  column = getColumn(parseFloat(width), columnCount, currentColumn, s('%s', gutter))
-  _margin = column.gutter
-  _cols = column.cols
-  if _padding
+ride-column($width, $column-count = 1, $current-column = 1, $gutter = 0, $padding = 0)
+  $column-unit = unit($width)
+  $column = getColumn(parseFloat($width), $column-count, $current-column, s('%s', $gutter))
+  $margin = $column.gutter
+  $cols = $column.cols
+  if $padding
     +cache('box-sizing')
       box-sizing border-box
-  if _margin
-    margin setUnit(_margin, columnUnit)
-  if _padding
+  if $margin
+    margin setUnit($margin, $column-unit)
+  if $padding
     padding padding
-  if _cols
-    width setUnit(_cols, columnUnit)
+  if $cols
+    width setUnit($cols, $column-unit)
 
 // floating column mixin
 // doesn't accept a code block
-ride-float(width, columnCount = 1, currentColumn = 1, gutter = 0, marginDirection = 'left')
-  columnUnit = unit(width)
-  column = getFloat(parseFloat(width), columnCount, currentColumn, s('%s', gutter))
-  _float = column.floats
-  if _margin
-    margin-{marginDirection} setUnit(_float, columnUnit)
+ride-float($width, $column-count = 1, $current-column = 1, $gutter = 0, $margin-direction = 'left')
+  $column-unit = unit($width)
+  $column = getFloat(parseFloat($width), $column-count, $current-column, s('%s', $gutter))
+  $float = $column.floats
+  if $margin
+    margin-{$margin-direction} setUnit($float, $column-unit)

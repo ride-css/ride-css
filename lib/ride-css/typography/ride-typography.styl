@@ -14,100 +14,100 @@ headings()
     {block}
 
 // returns aligned classes
-ride-align(classPrefix = 'align-')
-  for _align in left center right justify
-    +prefix-classes(classPrefix)
-      .{_align}
-        +cache('text-align'+ _align)
-          text-align _align
+ride-align($class-prefix = 'align-')
+  for $align in left center right justify
+    +prefix-classes($class-prefix)
+      .{$align}
+        +cache('text-align'+ $align)
+          text-align $align
 
 // code styling
 // use it with the <pre></pre> or <code></code> tag
-ride-code(className = 'code, .code', tabSize = 2)
-  {className}
+ride-code($class = 'code, .code', $tab-size = 2)
+  {$class}
     {block}
-    tab-size tabSize
+    tab-size $tab-size
 
 // returns all h1-h6 html selectors
 // it will properly calculate line-height and font size 
-ride-headings(headings = 2 1.8 1.6 1.4 1.2 1, lineHeight = 1.5, config = {})
-  config.oocss = config.oocss || false
-  config.h = config.h || '.h'
-  _headings = getTypography(s('%s', headings), lineHeight)
+ride-headings($headings = 2 1.8 1.6 1.4 1.2 1, $line-height = 1.5, $config = {})
+  $config.oocss = $config.oocss || false
+  $config.h = $config.h || '.h'
+  $object = getTypography(s('%s', $headings), $line-height)
 
-  for _currentHeading, offset in _headings.headings
-    fontSize = _currentHeading['fontSize']
-    lineHeight = _currentHeading['lineHeight']
-    margin = _currentHeading['margin']
-    if config.oocss == true
-      {config.h}{offset + 1}
-        +cache('ride-headings-margin' + margin)
-          margin margin 0
-      {config.h}{offset + 1}
-        +cache('ride-headings-fz' + fontSize)
-          font-size unit(fontSize, 'em')
-          line-height lineHeight
+  for $current-heading, $offset in $object.headings
+    $font-size = $current-heading['fontSize']
+    $line-height = $current-heading['lineHeight']
+    $margin = $current-heading['margin']
+    if $config.oocss == true
+      {$config.h}{$offset + 1}
+        +cache('ride-headings-margin' + $margin)
+          margin $margin 0
+      {$config.h}{$offset + 1}
+        +cache('ride-headings-fz' + $font-size)
+          font-size unit($font-size, 'em')
+          line-height $line-height
     else
-      h{offset + 1}
-        +cache('ride-headings-margin' + margin)
-          margin margin 0
-      h{offset + 1}
-        +cache('ride-headings-fz' + fontSize)
-          font-size unit(fontSize, 'em')
-          line-height lineHeight
+      h{$offset + 1}
+        +cache('ride-headings-margin' + $margin)
+          margin $margin 0
+      h{$offset + 1}
+        +cache('ride-headings-fz' + $font-size)
+          font-size unit($font-size, 'em')
+          line-height $line-height
   // +headings()
   //   margin 0
 
 // highlighted text
-ride-highlight(className = 'mark, .highlight')
-  {className}
+ride-highlight($class = 'mark, .highlight')
+  {$class}
     {block}
     background-color #F1EED6 @unless background-color
 
 // returns a properly calculated "p" selector 
-ride-paragraph(fontSize = 1, lineHeight = 1.5)
-  _paragraph = getTypography(s('%s', fontSize), lineHeight)
-  fontSize = _paragraph.paragraph.fontSize
-  lineHeight = _paragraph.paragraph.lineHeight
-  margin = _paragraph.paragraph.margin
+ride-paragraph($font-size = 1, lineHeight = 1.5)
+  $object = getTypography(s('%s', $font-size), lineHeight)
+  $font-size = $object.paragraph.fontSize
+  lineHeight = $object.paragraph.lineHeight
+  margin = $object.paragraph.margin
   p
     {block}
-    font-size unit(fontSize, 'em')
+    font-size unit($font-size, 'em')
     line-height lineHeight unless @line-height
     if margin > 0
       margin unit(margin, 'em') 0
 
-ride-small(className = 'small, .small', fontSize = (62.5 / 100))
-  {className}
-    font-size unit(fontSize, 'em')
+ride-small($class = 'small, .small', $font-size = (62.5 / 100))
+  {$class}
+    font-size unit($font-size, 'em')
     line-height 1
 
 // text style classes 
-ride-text-style(classPrefix = 'text-', config = {})
-  config.bold = config.bold || 'strong'
-  config.capital = config.capital || 'capital'
-  config.deleted = config.deleted || 'deleted'
-  config.italic = config.italic || 'italic'
-  config.lowercase = config.lowercase || 'lowercase'
-  config.normal = config.normal || 'normal'
-  config.underlined = config.underlined || 'underline'
-  config.uppercase = config.uppercase || 'uppercase'
-  +prefix-classes(classPrefix)
-    .{config.bold}
+ride-text-style($class-prefix = 'text-', $config = {})
+  $config.bold = $config.bold || 'strong'
+  $config.capital = $config.capital || 'capital'
+  $config.deleted = $config.deleted || 'deleted'
+  $config.italic = $config.italic || 'italic'
+  $config.lowercase = $config.lowercase || 'lowercase'
+  $config.normal = $config.normal || 'normal'
+  $config.underlined = $config.underlined || 'underline'
+  $config.uppercase = $config.uppercase || 'uppercase'
+  +prefix-classes($class-prefix)
+    .{$config.bold}
       font-weight bold
-    .{config.capital}
+    .{$config.capital}
       text-transform capitalize
-    .{config.deleted}
+    .{$config.deleted}
       text-decoration line-through
-    .{config.italic}
+    .{$config.italic}
       font-style italic
-    .{config.lowercase}
+    .{$config.lowercase}
       text-transform lowercase
-    .{config.normal}
+    .{$config.normal}
       font-weight normal
-    .{config.uppercase}
+    .{$config.uppercase}
       text-transform uppercase
-    .{config.underlined}
+    .{$config.underlined}
       text-decoration underline
 
 
@@ -116,7 +116,7 @@ ride-typography()
   ride-align()
   ride-code()
   ride-headings()
-  ride-headings(config: {
+  ride-headings($config: {
     oocss: true  
   })
   ride-highlight()

@@ -1,6 +1,8 @@
 Ride css
 ========
 
+[Ride css online docs - wip](https://ride-css.github.io/)
+
 Stylus mixin library for a faster frontend development. This could be a good alternative to more famous buildable css libraries.
 
 Why walk when you can Ride?
@@ -56,4 +58,3 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 * author: [OctoD](https://github.com/OctoD/)
 * tester: [naya85](https://github.com/naya85/)
-* tester: [iamdex](https://github.com/iamdex/)

@@ -1,28 +1,28 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
-breakpoint(minWidth, maxWidth, minHeight = false, maxHeight = false, orientation = false)
+breakpoint($min-width, $max-width, $min-height = false, $max-height = false, orientation = false)
   if orientation == false
-    @media only screen and (min-width: minWidth) and (max-width: maxWidth)
+    @media only screen and (min-width: $min-width) and (max-width: $max-width)
       {block}    
   else
-    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (orientation: orientation)
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: orientation)
       {block}
 
-breakpoint-full(minWidth, maxWidth, minHeight = false, maxHeight = false, orientation = false)
-  if orientation == false and minHeight == false
-    @media only screen and (min-width: minWidth) and (max-width: maxWidth)
+breakpoint-full($min-width, $max-width, $min-height = false, $max-height = false, orientation = false)
+  if orientation == false and $min-height == false
+    @media only screen and (min-width: $min-width) and (max-width: $max-width)
       {block}    
-  else if orientation == false and minHeight != false
-    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (min-height: minHeight)
+  else if orientation == false and $min-height != false
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (min-height: $min-height)
       {block}
-  else if orientation == false and minHeight != false and maxHeight != false
-    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (min-height: minHeight) and (max-height: maxHeight)
+  else if orientation == false and $min-height != false and $max-height != false
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (min-height: $min-height) and (max-height: $max-height)
       {block}
-  else if orientation != false and minHeight != false and maxHeight != false
-    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (min-height: minHeight) and (max-height: maxHeight)
+  else if orientation != false and $min-height != false and $max-height != false
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (min-height: $min-height) and (max-height: $max-height)
       {block}
   else
-    @media only screen and (min-width: minWidth) and (max-width: maxWidth) and (orientation: orientation)
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: orientation)
       {block}
 
 high-dpi()

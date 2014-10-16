@@ -1,13 +1,13 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
-ride-dialog(class = '.ride-dialog', overlay-class = '.overlay', width = 40%, height = 40%)
-  {class}
+ride-dialog($class = '.ride-dialog', $overlay-class = '.overlay', $width = 40%, $height = 40%)
+  {$class}
     {block}
     font-size 1.6em
-    height height
+    height $height
     opacity 0
     overflow hidden
-    width width
+    width $width
     padding (@width / @height)
     position fixed
     visibility hidden
@@ -17,11 +17,11 @@ ride-dialog(class = '.ride-dialog', overlay-class = '.overlay', width = 40%, hei
     &.show
       opacity 1
       visibility visible
-      &~{overlay-class}
+      &~{$overlay-class}
         opacity 1
         visibility visible
 
-  {overlay-class}
+  {$overlay-class}
     background-color rgba(black, .4)
     height 100%
     left 0
@@ -32,6 +32,6 @@ ride-dialog(class = '.ride-dialog', overlay-class = '.overlay', width = 40%, hei
     width 100%
     z-index 9    
 
-  {class},
-  {overlay-class}
+  {$class},
+  {$overlay-class}
     transition(.2s)

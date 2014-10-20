@@ -65,17 +65,17 @@ ride-highlight($class = 'mark, .highlight')
     background-color #F1EED6 @unless background-color
 
 // returns a properly calculated "p" selector 
-ride-paragraph($font-size = 1, lineHeight = 1.5)
-  $object = getTypography(s('%s', $font-size), lineHeight)
+ride-paragraph($font-size = 1, $line-height = 1.5)
+  $object = getTypography(s('%s', $font-size), $line-height)
   $font-size = $object.paragraph.fontSize
-  lineHeight = $object.paragraph.lineHeight
-  margin = $object.paragraph.margin
+  $line-height = $object.paragraph.lineHeight
+  $margin = $object.paragraph.margin
   p
     {block}
     font-size unit($font-size, 'em')
     line-height lineHeight unless @line-height
-    if margin > 0
-      margin unit(margin, 'em') 0
+    if $margin > 0
+      margin unit(($margin / 2), 'em') 0
 
 ride-small($class = 'small, .small', $font-size = (62.5 / 100))
   {$class}

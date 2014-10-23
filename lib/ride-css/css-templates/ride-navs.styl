@@ -1,19 +1,11 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
 
-site-nav($config = {})
-  $config.current = $config.current || '.current'
-  $config.navClass = $config.navClass || '.nav'
-  $config.navItem = $config.navItem || '.item'
-  $config.orientation = $config.orientation || '.horizontal'
-  {$config.navClass}
-    display table
-    width 100%
-    {block}
-    {$config.navItem}
-      button()
-      vertical-align middle
-    {$config.navItem}
-      display table-cell
-    &{$config.orientation} {$config.navItem}
-      display s('block')
+table-nav($padding = false)
+  display table
+  line-height 0 unless @line-height
+  & > a
+    display table-cell
+    padding $padding if $padding not false
+    line-height 3 unless @line-height
+

@@ -1,8 +1,20 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
-// // returns all h1-h6 html selectors
 use('typography.js')
 
+// basic typography calculation
+ride-line-height($font-size, $line-height)
+  line-height: ($line-height / $font-size)
+
+// proxy for getting an heading faster
+--ride-set-heading($heading-number, $font-size, $line-height, $margin = 0)
+  &
+  /.{selector()}
+    font-size: $font-size
+    line-height: $line-height
+    margin: $margin 0 if $margin not 0
+
+// // returns all h1-h6 html selectors
 // this was difficult
 headings()
   h1
@@ -42,11 +54,11 @@ ride-headings($headings = 2 1.8 1.6 1.4 1.2 1, $line-height = 1.5, $config = {})
     if $config.oocss == true
       {$config.h}{$offset + 1}
         +cache('ride-headings-margin' + $margin)
-          margin $margin 0
+          margin: $margin 0
       {$config.h}{$offset + 1}
         +cache('ride-headings-fz' + $font-size)
-          font-size unit($font-size, 'em')
-          line-height $line-height
+          font-size: unit($font-size, 'em')
+          line-height: $line-height
     else
       h{$offset + 1}
         +cache('ride-headings-margin' + $margin)
@@ -55,27 +67,19 @@ ride-headings($headings = 2 1.8 1.6 1.4 1.2 1, $line-height = 1.5, $config = {})
         +cache('ride-headings-fz' + $font-size)
           font-size unit($font-size, 'em')
           line-height $line-height
-  // +headings()
-  //   margin 0
 
 // highlighted text
 ride-highlight($class = 'mark, .highlight')
   {$class}
     {block}
-    background-color #F1EED6 @unless background-color
+    background-color #F1EED6 unless @background-color
 
 // returns a properly calculated "p" selector 
-ride-paragraph($font-size = 1, $line-height = 1.5)
-  $object = getTypography(s('%s', $font-size), $line-height)
-  $font-size = $object.paragraph.fontSize
-  $line-height = $object.paragraph.lineHeight
-  $margin = $object.paragraph.margin
+ride-paragraph($font-size = 1em, $line-height = 1.5, $margin = ($font-size / 4))
   p
-    {block}
-    font-size unit($font-size, 'em')
-    line-height lineHeight unless @line-height
-    if $margin > 0
-      margin unit(($margin / 2), 'em') 0
+    font-size $font-size
+    line-height $line-height
+    margin ($font-size / 4) 0 if $margin not 0
 
 ride-small($class = 'small, .small', $font-size = (62.5 / 100))
   {$class}
@@ -112,14 +116,14 @@ ride-text-style($class-prefix = 'text-', $config = {})
 
 
 // using default ride-typography mixins
-ride-typography()
+ride-typography($font-size = 1em, $line-height = 1.5, $headings = 2 1.8 1.6 1.4 1.2 1)
   ride-align()
   ride-code()
-  ride-headings()
-  ride-headings($config: {
+  ride-headings($headings, $line-height)
+  ride-headings($headings, $line-height, $config: {
     oocss: true  
   })
   ride-highlight()
-  ride-paragraph()
+  ride-paragraph($font-size, $line-height, ($font-size / 4))
   ride-small()
   ride-text-style()

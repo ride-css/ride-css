@@ -1,7 +1,7 @@
 Ride css
 ========
 
-[Ride css online docs - wip](https://ride-css.github.io/)
+[Ride css online docs](https://ride-css.github.io/)
 
 Stylus mixin library for a faster frontend development. This could be a good alternative to more famous buildable css libraries.
 
@@ -21,10 +21,9 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 ##Documentation
 ####How to include Ride in your .styl file
 ```
-// do this and you're ready to code your beautiful webapp/website!
-// assuming your buildable file is into a workspace/test folder
-// and ride-css is into your workspace/ folder
-@require '../ride-css/*'
+// assuming you are using the stylus-contrib for grunt
+// type this
+@require 'ride-css'
 
 // write your wonderful code here
 ```
@@ -33,26 +32,6 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 [How to contribute](https://github.com/octod/ride-css/blob/master/contributing.md)
 
-##Todos
-- [x] add basic mixins
-- [ ] better documentation
-  - [x] write how to use mixins
-  - [ ] tips and tricks
-
-#Mixin list
-[Buttons](https://github.com/octod/ride-css/blob/master/docs/buttons.md)
-
-[Form elements mixins](https://github.com/octod/ride-css/blob/master/docs/form-elements.md)
-
-[Grid system and helpers](https://github.com/octod/ride-css/blob/master/docs/grids.md)
-
-[Media queries](https://github.com/octod/ride-css/blob/master/docs/media-queries.md)
-
-[css templates](https://github.com/octod/ride-css/blob/master/docs/css-templates.md)
-
-[Typography](https://github.com/octod/ride-css/blob/master/docs/typography.md)
-
-[Various mixins](https://github.com/octod/ride-css/blob/master/docs/etc.md)
 
 ##contributors
 

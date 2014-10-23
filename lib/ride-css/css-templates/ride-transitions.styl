@@ -1,11 +1,21 @@
-fadein($timer = .4s, $event = '&:hover')
-  opacity 0
-  transition $timer
-  {$event}
-    opacity 1
+// Ride css. Released under MIT licence.
+// https://github.com/OctoD/ride-css/
+--ride-fade($direction, $duration = false)
+  +cache('ride-fade'+ $duration)
+    transition: $duration if $duration not false
+  opacity: 0 if $direction is 0
+  opacity: 1 if $direction is 1
 
-fadeout($timer = .4s, $event = '&:hover')
-  opacity 1
-  transition $timer
-  {$event}
-    opacity 0
+--ride-slide($direction, $duration = false)
+  +cache('ride-slide'+ $duration)
+    transition: $duration if $duration not false
+  translateX: -100% if $direction is 0
+  translateX: 0 if $direction is 1
+  translateX: 100% if $direction is 2
+
+ride-effect($effect-name, $duration = false)
+  --ride-fade: 0 $duration if $effect-name is fade-in
+  --ride-fade: 1 $duration if $effect-name is fade-out
+  --ride-slide: 0 $duration if $effect-name is slide-out
+  --ride-slide: 1 $duration if $effect-name is slide-in
+  --ride-slide: 2 $duration if $effect-name is slide-out-right

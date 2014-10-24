@@ -35,20 +35,18 @@ menu-button($class = '.hamburger', $trigger-event = '.show-menu .hamburger')
       margin-top (@height*2)
       top @height
       transition all .4s ease 0s
-
   {$class}
   {$class}:after
   {$class}:before
-    border-radius .25em
-  
+    border-radius: .25em
   {$trigger-event}
-    background-color transparent
+    background-color: transparent
     &:after
-      rotate -45
-      transform-origin 0 50% 0
+      rotate: -45
+      transform-origin: 0 50% 0
     &:before
-      rotate 45
-      transform-origin 25% 0 0
+      rotate: 45
+      transform-origin: 25% 0 0
 
 
 sliding-button($class, $direction = 'left', $transition = .4s, $config = {})

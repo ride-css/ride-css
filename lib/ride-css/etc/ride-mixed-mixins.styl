@@ -1,19 +1,20 @@
 // Ride css. Released under MIT licence.
 // https://github.com/OctoD/ride-css/
-_ride-setup-position(_position, top = false, left = false, right = false, bottom = false)
-  position _position
-  if top != false
-    +cache('ride-position-top'+ top)
-      top top
-  if left != false
-    +cache('ride-position-left'+ left)
-      left left
-  if right != false
-    +cache('ride-position-right'+ right)
-      right right
-  if bottom != false
-    +cache('ride-position-bottom'+ bottom)
-      bottom bottom
+
+// positioning. If you are going to include NIB after Ride, these mixins will be overrided
+--ride-setup-position(_position, $position)
+  position: _position
+  for $pos, $i in $position
+    {$pos}: $position[$i + 1] if even($i) and $position[$i + 1] not undefined
+
+absolute()
+  --ride-setup-position: absolute arguments
+
+fixed()
+  --ride-setup-position: fixed arguments
+
+relative()
+  --ride-setup-position: relative arguments
 
 clearfix()
   &:after
@@ -21,9 +22,6 @@ clearfix()
     clear both
     content ''
     display table
-
-absolute(top = false, left = false, right = false, bottom = false)
-  _ride-setup-position(absolute, top, left, right, bottom)
 
 dont-select()
   +cache('ride-dont-select')
@@ -33,12 +31,6 @@ dont-select()
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;  
-
-fixed(top = false, left = false, right = false, bottom = false)
-  _ride-setup-position(fixed, top, left, right, bottom)
-
-relative(top = false, left = false, right = false, bottom = false)
-  _ride-setup-position(relative, top, left, right, bottom)
 
 reset-ul()
   ul
@@ -59,23 +51,20 @@ ride-body()
     font-size 62.5% unless @font-size
     line-height 1.5 unless @line-height
 
-tooltip($class = '.has-tooltip', $data-attribute = data-tooltip)
-  {$class}
-    position: relative;
-    &:before
-      {block}
-      translateX(-50%) unless @transform;
-      content attr($data-attribute);
-      opacity 0;
-      position absolute;
-      right 0;
-      top 0;
-      visibility hidden;
-      white-space nowrap;
-    &:hover:before
-      translateX(0) unless @transform;
-      opacity 1;
-      visibility visible;
+set-tooltip($data-attribute = data-tooltip)
+  position: relative;
+  &:before
+    {block}
+    absolute: top 0 right 0
+    content attr($data-attribute);
+    opacity 0;
+    translateX(-50%) unless @transform;
+    visibility hidden;
+    white-space nowrap;
+  &:hover:before
+    opacity 1;
+    translateX(0) unless @transform;
+    visibility visible;
 
 wrapper($class = '.wrap')
   {$class}

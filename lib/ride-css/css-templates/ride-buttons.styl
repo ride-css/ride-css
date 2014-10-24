@@ -12,6 +12,21 @@ button()
     position relative unless @position
     white-space nowrap unless @white-space
 
+ride-button($type, $colors = false)
+  line-height 1.5 if $type is small
+  line-height 2 if $type is medium
+  line-height 3 if $type is large
+  padding .25em .5em if $type is small
+  padding .5em .75em if $type is medium
+  padding .5em 1em if $type is large
+  if $colors not false
+    for $color, i in $colors
+      {$color}: $colors[i + 1] if $color is a 'ident'
+
+ride-button-color($color, $background-color)
+  background-color: $background-color if $background-color not false
+  color: $color if $color not false
+
 menu-button($class = '.hamburger', $trigger-event = '.show-menu .hamburger')
   {$class}
     {block}

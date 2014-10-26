@@ -16,13 +16,15 @@ fixed()
 relative()
   --ride-setup-position: relative arguments
 
+// clearfix
 clearfix()
   &:after
   &:before
-    clear both
-    content ''
-    display table
+    clear: both
+    content: ''
+    display: table
 
+// unselectable stuff
 dont-select()
   +cache('ride-dont-select')
     -webkit-touch-callout: none;
@@ -32,45 +34,51 @@ dont-select()
     -ms-user-select: none;
     user-select: none;  
 
+// reset for unordered list
 reset-ul()
   ul
-    margin 0
-    padding @margin
-    li
-      margin @margin
-      padding @padding
-    
+  ul li
+    margin: 0
+    padding: @margin
+
+// proxy for css normalize or css reset
+reset-type($reset-type = 'normalize')
+  if $reset-type is 'normalize'
+    css-normalize()
+  if $reset-type is 'reset'
+    css-reset()
+
+// body setup
 ride-body()
   html
   body
-    height 100%
-    width @height
+    height: 100%
+    width: @height
   body
     {block}
-    font-weight normal unless @font-weight
-    font-size 62.5% unless @font-size
-    line-height 1.5 unless @line-height
+    font-weight: normal unless @font-weight
+    font-size: 62.5% unless @font-size
+    line-height: 1.5 unless @line-height
 
-set-tooltip($data-attribute = data-tooltip)
+// ride-tooltip
+ride-tooltip($data-attribute = data-tooltip)
   position: relative;
   &:before
     {block}
     absolute: top 0 right 0
-    content attr($data-attribute);
-    opacity 0;
-    translateX(-50%) unless @transform;
-    visibility hidden;
-    white-space nowrap;
+    content: attr($data-attribute);
+    opacity: 0;
+    translateX: -50% unless @transform;
+    visibility: hidden;
+    white-space: nowrap;
   &:hover:before
-    opacity 1;
-    translateX(0) unless @transform;
-    visibility visible;
+    opacity: 1;
+    translateX: 0 unless @transform;
+    visibility: visible;
 
-wrapper($class = '.wrap')
+// ride-wrap
+ride-wrap($class = '.wrap')
   {$class}
     {block}
-    height 100% unless @height
-    width 100% unless @width
-
-// aliasing the wrapper mixin with wrap
-ride-wrap = wrap = wrapper
+    height: 100% unless @height
+    width: 100% unless @width

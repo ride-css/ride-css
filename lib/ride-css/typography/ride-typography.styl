@@ -102,24 +102,43 @@ ride-text-style($class-prefix = 'text-', $config = {})
   $config.italic = $config.italic || 'italic'
   $config.lowercase = $config.lowercase || 'lowercase'
   $config.normal = $config.normal || 'normal'
+  $config.placeholder = $config.placeholder || false
   $config.underlined = $config.underlined || 'underline'
   $config.uppercase = $config.uppercase || 'uppercase'
-  +prefix-classes($class-prefix)
-    .{$config.bold}
+  if $config.placeholder is false
+    +prefix-classes($class-prefix)
+      .{$config.bold}
+        font-weight bold
+      .{$config.capital}
+        text-transform capitalize
+      .{$config.deleted}
+        text-decoration line-through
+      .{$config.italic}
+        font-style italic
+      .{$config.lowercase}
+        text-transform lowercase
+      .{$config.normal}
+        font-weight normal
+      .{$config.uppercase}
+        text-transform uppercase
+      .{$config.underlined}
+        text-decoration underline
+  if $config.placeholder is true
+    ${$config.bold}
       font-weight bold
-    .{$config.capital}
+    ${$config.capital}
       text-transform capitalize
-    .{$config.deleted}
+    ${$config.deleted}
       text-decoration line-through
-    .{$config.italic}
+    ${$config.italic}
       font-style italic
-    .{$config.lowercase}
+    ${$config.lowercase}
       text-transform lowercase
-    .{$config.normal}
+    ${$config.normal}
       font-weight normal
-    .{$config.uppercase}
+    ${$config.uppercase}
       text-transform uppercase
-    .{$config.underlined}
+    ${$config.underlined}
       text-decoration underline
 
 

@@ -31,7 +31,7 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
           .{$config.column}
             box-sizing border-box 
             float left
-            margin setUnit($gutter, $base-unit)
+            margin set-unit($gutter, $base-unit)
             padding $padding
         if $config.oocss != true
           for $col, $col-name in $mygrid.cols
@@ -39,7 +39,7 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
               +cache('grid-gutter'+ $columns + $gutter + $padding)
                 box-sizing border-box 
                 float left
-                margin setUnit($gutter, $base-unit)
+                margin set-unit($gutter, $base-unit)
                 padding $padding
         for $col, $col-name in $mygrid.cols
           .{$config.column}{$col-name + 1}
@@ -66,7 +66,7 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
       ${$config.column}
         box-sizing border-box 
         float left
-        margin setUnit($gutter, $base-unit)
+        margin set-unit($gutter, $base-unit)
         padding $padding
     if $config.oocss != true
       for $col, $col-name in $mygrid.cols
@@ -74,7 +74,7 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
           +cache('grid-gutter'+ $columns + $gutter + $padding)
             box-sizing border-box 
             float left
-            margin setUnit($gutter, $base-unit)
+            margin set-unit($gutter, $base-unit)
             padding $padding
     for $col, $col-name in $mygrid.cols
       ${$config.column}{$col-name + 1}

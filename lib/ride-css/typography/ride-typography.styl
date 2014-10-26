@@ -73,6 +73,14 @@ ride-highlight($class = 'mark, .highlight')
   {$class}
     {block}
     background-color #F1EED6 unless @background-color
+    
+// hr
+ride-hr($font-size = 1em, $class = 'hr, .hr')
+  {$class}
+    {block}
+    border-bottom: 1px solid currentColor unless @border-bottom
+    margin: $font-size 0
+    relative: top -(@border-bottom[0])
 
 // returns a properly calculated "p" selector 
 ride-paragraph($font-size = 1em, $line-height = 1.5, $margin = ($font-size / 4))
@@ -124,6 +132,7 @@ ride-typography($font-size = 1em, $line-height = 1.5, $headings = 2 1.8 1.6 1.4 
     oocss: true  
   })
   ride-highlight()
+  ride-hr($font-size)
   ride-paragraph($font-size, $line-height, ($font-size / 4))
   ride-small()
   ride-text-style()

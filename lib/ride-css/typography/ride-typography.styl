@@ -26,11 +26,15 @@ headings()
     {block}
 
 // returns aligned classes
-ride-align($class-prefix = 'align-')
+ride-align($class-prefix = 'align-', $placeholder = false)
   for $align in left center right justify
     +prefix-classes($class-prefix)
-      .{$align}
-        +cache('text-align'+ $align)
+      if $placeholder is false
+        .{$align}
+          +cache('text-align'+ $align)
+            text-align $align
+      if $placeholder is true
+        ${$align}
           text-align $align
 
 // code styling

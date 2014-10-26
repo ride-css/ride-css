@@ -120,10 +120,19 @@ ride-grid-4($gutter = (0 0 2), $padding = (1em), $config = {})
 ride-column-grid($column-count, $config = {})
   $config.class = $config.class || 'ride-columns'
   $config.columnClass = $config.columnClass || 'cl'
-  .{$config.class}
-    column-count($column-count)
-    {block}
-  .{$config.class} .{$config.columnClass}
-    page-break-inside(avoid)
-    margin 0
-    float none
+  if not property
+    .{$config.class}
+      column-count: $column-count
+      {block}
+  if property
+    column-count: $column-count
+  if not property
+    .{$config.class} .{$config.columnClass}
+      page-break-inside(avoid)
+      margin 0
+      float none
+  if property
+    & > *
+      page-break-inside(avoid)
+      margin 0
+      float none

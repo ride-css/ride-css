@@ -4,7 +4,6 @@
   "description": "A stylus mixin library for a faster frontend development",
   "main": "./lib/index.js",
   "directories": {
-    "doc": "docs",
     "lib": "lib"
   },
   "scripts": {
@@ -18,7 +17,9 @@
     "css",
     "library",
     "frontend",
-    "ride"
+    "ride",
+    "framework",
+    "design"
   ],
   "author": "Paolo Roth <iamoctod@gmail.com>",
   "engines": {

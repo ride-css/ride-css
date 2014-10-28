@@ -34,7 +34,7 @@ ride-align($class-prefix = 'align-', $placeholder = false)
           +cache('text-align'+ $align)
             text-align $align
       if $placeholder is true
-        ${$align}
+        ${$class-prefix}{$align}
           text-align $align
 
 // code styling
@@ -66,17 +66,17 @@ ride-headings($headings = 2 1.8 1.6 1.4 1.2 1, $line-height = 1.5, $config = {})
     else
       h{$offset + 1}
         +cache('ride-headings-margin' + $margin)
-          margin $margin 0
+          margin: $margin 0
       h{$offset + 1}
         +cache('ride-headings-fz' + $font-size)
-          font-size unit($font-size, 'em')
-          line-height $line-height
+          font-size: unit($font-size, 'em')
+          line-height: $line-height
 
 // highlighted text
 ride-highlight($class = 'mark, .highlight')
   {$class}
     {block}
-    background-color #F1EED6 unless @background-color
+    background-color: #F1EED6 unless @background-color
     
 // hr
 ride-hr($font-size = 1em, $class = 'hr, .hr')
@@ -89,14 +89,14 @@ ride-hr($font-size = 1em, $class = 'hr, .hr')
 // returns a properly calculated "p" selector 
 ride-paragraph($font-size = 1em, $line-height = 1.5, $margin = ($font-size / 4))
   p
-    font-size $font-size
-    line-height $line-height
-    margin ($font-size / 4) 0 if $margin not 0
+    font-size: $font-size
+    line-height: $line-height
+    margin: ($font-size / 4) 0 if $margin not 0
 
 ride-small($class = 'small, .small', $font-size = (62.5 / 100))
   {$class}
-    font-size unit($font-size, 'em')
-    line-height 1
+    font-size: unit($font-size, 'em')
+    line-height: 1
 
 // text style classes 
 ride-text-style($class-prefix = 'text-', $config = {})

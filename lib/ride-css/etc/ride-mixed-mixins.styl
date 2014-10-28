@@ -61,14 +61,18 @@ ride-body()
     line-height: 1.5 unless @line-height
 
 // ride-tooltip
-ride-tooltip($data-attribute = data-tooltip)
+ride-tooltip($direction = left, $data-attribute = data-tooltip)
+  $direction-amount = -50% if left 
+  $direction-amount = 50% if right 
+  $direction-position = top 0 right 0 if left 
+  $direction-position = top 0 left 0 if right
   position: relative;
   &:before
     {block}
-    absolute: top 0 right 0
+    absolute: $direction-position
     content: attr($data-attribute);
     opacity: 0;
-    translateX: -50% unless @transform;
+    translateX: $direction-amount unless @transform;
     visibility: hidden;
     white-space: nowrap;
   &:hover:before

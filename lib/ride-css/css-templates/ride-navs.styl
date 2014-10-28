@@ -9,3 +9,9 @@ table-nav($padding = false)
     padding $padding if $padding not false
     line-height 3 unless @line-height
 
+vertical-nav($padding = false)
+  display: block
+  & > a
+    display: @display
+    padding: $padding if $padding not false
+    line-height: 3 unless @line-height

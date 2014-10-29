@@ -5,16 +5,17 @@
 ##How to contribute
 
 * Fork this repository
-* Create pull request (bugfixing or improving)
+* Send pull request (bugfixing or improving)
 * Ask questions
-* Report any bug or suspicious behaviour
+* Report any bug
 * Enhance the documentation
 * Tell other people about this library
 
 ##Style guide
 
 * Two spaces "soft tabs" indentation
-* Mixins and variables' name must be clear and easy to remember
-* Css classes must be writter like this: .this-is-my-class
-* Variables camelCase, mixins and placeholders written like css classes
-* If you are planning to give Ride's core a new mixin, remember to put the prefix **ride-** before it (eg: ride-my-mixin())
+* Mixins and variables' name are written using the **dash-case** should be clear and easy to remember
+* Css classes and id must be writter using the **dash-case** (e.g. .this-is-my-class, #this-is-my-id)
+* Variables, mixins and placeholders are written in **dash-case**
+* Variables should start with the **dollar sign** ($variable-name)
+* If you are planning to write a new mixin for Ride css, remember to put the prefix **ride-** before it (eg: ride-name-of-the-mixin())

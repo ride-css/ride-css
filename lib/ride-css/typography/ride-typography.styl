@@ -49,28 +49,36 @@ ride-code($class = 'code, .code', $tab-size = 2)
 ride-headings($headings = 2 1.8 1.6 1.4 1.2 1, $line-height = 1.5, $config = {})
   $config.oocss = $config.oocss || false
   $config.h = $config.h || '.h'
+  $config.placeholder = $config.placeholder || false
   $object = getTypography(s('%s', $headings), $line-height)
 
   for $current-heading, $offset in $object.headings
     $font-size = $current-heading['fontSize']
     $line-height = $current-heading['lineHeight']
     $margin = $current-heading['margin']
-    if $config.oocss == true
-      {$config.h}{$offset + 1}
+    if $config.placeholder is false
+      if $config.oocss == true
+        {$config.h}{$offset + 1}
+          +cache('ride-headings-margin' + $margin)
+            margin: $margin 0
+        {$config.h}{$offset + 1}
+          +cache('ride-headings-fz' + $font-size)
+            font-size: unit($font-size, 'em')
+            line-height: $line-height
+      else
+        h{$offset + 1}
+          +cache('ride-headings-margin' + $margin)
+            margin: $margin 0
+        h{$offset + 1}
+          +cache('ride-headings-fz' + $font-size)
+            font-size: unit($font-size, 'em')
+            line-height: $line-height
+    if $config.placeholder is true
+      $h{$offset + 1}
         +cache('ride-headings-margin' + $margin)
           margin: $margin 0
-      {$config.h}{$offset + 1}
-        +cache('ride-headings-fz' + $font-size)
-          font-size: unit($font-size, 'em')
-          line-height: $line-height
-    else
-      h{$offset + 1}
-        +cache('ride-headings-margin' + $margin)
-          margin: $margin 0
-      h{$offset + 1}
-        +cache('ride-headings-fz' + $font-size)
-          font-size: unit($font-size, 'em')
-          line-height: $line-height
+        font-size: unit($font-size, 'em')
+        line-height: $line-height
 
 // highlighted text
 ride-highlight($class = 'mark, .highlight')

@@ -6,7 +6,8 @@
   +cache('ride-set-heading'+ $font-size + $line-height + $multiplier + $margin)
     if unit($line-height) not '' and unit($font-size) not ''
       if unit($font-size) != unit($line-height)
-        warn('--ride-set-heading: if you give $line-height a unit, it must be the same of $font-size')
+        p(called-from)
+        warn(': if you give $line-height a unit, it must be the same of $font-size')
     font-size: ($font-size * $multiplier)
     if unit($line-height) is ''
       line-height: (($line-height * $font-size) / @font-size) 

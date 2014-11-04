@@ -1,27 +1,25 @@
 // Ride css. Released under MIT licence.
-// https://github.com/OctoD/ride-css/
+// https://github.com/ride-css/ride-css/
 use('functions.js')
-
-get-lineheight($em-font-size-multiplier, $base-line-height)
-  return $base-line-height / $em-font-size-multiplier
 
 // onePercent function
 // this function will return the one percent of the passed number
-onePercent($number)
+one-percent($number)
   if $number is a 'number'
     $number = $number/100
   $number
 
+get-percent($number, $percent)
+  if $number is a 'number' and $percent is a 'number'
+    $number = one-percent($number) * $percent
+  $number
+
 // setUnit function 
 // this function will set the passed unit to the passed css items 
-setUnit($items, $unit)
+set-unit($items, $unit)
   $offset = 0
   for $item in $items
     if $items[$offset]
       $items[$offset] = unit(parseFloat($item), $unit)
     $offset = $offset+1
   $items
-
-// aliasing
-one-percent = onePercent
-set-unit = setUnit

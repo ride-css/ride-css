@@ -1,0 +1,33 @@
+// Ride css. Released under MIT licence.
+// https://github.com/ride-css/ride-css/
+
+// get a shade from a color
+// similar to Google's material design® pattern for colors
+// really useful for making your own color schemes
+color-shade($color, $shade)
+  $available-weights = {
+    '50': 21, 
+    '100': 13, 
+    '200': 8, 
+    '300': 5, 
+    '400': 3, 
+    '500': 0, 
+    '600': -3, 
+    '700': -5, 
+    '800': -8, 
+    '900': -13
+  }
+  if $available-weights[$shade]
+    lighten($color, $available-weights[$shade])
+  else
+    $color
+
+// sets several shades to a selector
+ride-shades()
+  $return = false
+  for $current, $i in arguments
+    if length($current) == 1
+      {arguments[0]}: color-shade(arguments[1], arguments[2]) if $return is false
+      $return = true
+    else  
+      {$current[0]}: color-shade($current[1], $current[2]) if $current[0] is a 'ident'

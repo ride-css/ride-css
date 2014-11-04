@@ -1,30 +1,30 @@
 // Ride css. Released under MIT licence.
-// https://github.com/OctoD/ride-css/
-_ride-setup-position(_position, top = false, left = false, right = false, bottom = false)
-  position _position
-  if top != false
-    +cache('ride-position-top'+ top)
-      top top
-  if left != false
-    +cache('ride-position-left'+ left)
-      left left
-  if right != false
-    +cache('ride-position-right'+ right)
-      right right
-  if bottom != false
-    +cache('ride-position-bottom'+ bottom)
-      bottom bottom
+// https://github.com/ride-css/ride-css/
 
+// positioning. If you are going to include NIB after Ride, these mixins will be overrided
+--ride-setup-position(_position, $position)
+  position: _position
+  for $pos, $i in $position
+    {$pos}: $position[$i + 1] if even($i) and $position[$i + 1] not undefined
+
+absolute()
+  --ride-setup-position: absolute arguments
+
+fixed()
+  --ride-setup-position: fixed arguments
+
+relative()
+  --ride-setup-position: relative arguments
+
+// clearfix
 clearfix()
   &:after
   &:before
-    clear both
-    content ''
-    display table
+    clear: both
+    content: ''
+    display: table
 
-absolute(top = false, left = false, right = false, bottom = false)
-  _ride-setup-position(absolute, top, left, right, bottom)
-
+// unselectable stuff
 dont-select()
   +cache('ride-dont-select')
     -webkit-touch-callout: none;
@@ -34,54 +34,57 @@ dont-select()
     -ms-user-select: none;
     user-select: none;  
 
-fixed(top = false, left = false, right = false, bottom = false)
-  _ride-setup-position(fixed, top, left, right, bottom)
-
-relative(top = false, left = false, right = false, bottom = false)
-  _ride-setup-position(relative, top, left, right, bottom)
-
+// reset for unordered list
 reset-ul()
   ul
-    margin 0
-    padding @margin
-    li
-      margin @margin
-      padding @padding
-    
+  ul li
+    margin: 0
+    padding: @margin
+
+// proxy for css normalize or css reset
+reset-type($reset-type = 'normalize')
+  if $reset-type is 'normalize'
+    css-normalize()
+  if $reset-type is 'reset'
+    css-reset()
+
+// body setup
 ride-body()
   html
   body
-    height 100%
-    width @height
+    height: 100%
+    width: @height
   body
     {block}
-    font-weight normal unless @font-weight
-    font-size 62.5% unless @font-size
-    line-height 1.5 unless @line-height
+    font-weight: normal unless @font-weight
+    font-size: 62.5% unless @font-size
+    line-height: 1.5 unless @line-height
 
-tooltip($class = '.has-tooltip', $data-attribute = data-tooltip)
-  {$class}
-    position: relative;
-    &:before
-      {block}
-      translateX(-50%) unless @transform;
-      content attr($data-attribute);
-      opacity 0;
-      position absolute;
-      right 0;
-      top 0;
-      visibility hidden;
-      white-space nowrap;
-    &:hover:before
-      translateX(0) unless @transform;
-      opacity 1;
-      visibility visible;
+// ride-tooltip
+ride-tooltip($direction = left, $data-attribute = data-tooltip)
+  $direction-amount = -50% if left 
+  $direction-amount = 50% if right 
+  $direction-position = top 0 right 0 if left 
+  $direction-position = top 0 left 0 if right
+  position: relative;
+  &:before
+    {block}
+    absolute: $direction-position
+    content: attr($data-attribute);
+    opacity: 0;
+    translateX: $direction-amount unless @transform;
+    visibility: hidden;
+    white-space: nowrap;
+  &:hover:before
+    opacity: 1;
+    translateX: 0 unless @transform;
+    visibility: visible;
 
-wrapper($class = '.wrap')
+// ride-wrap
+ride-wrap($class = '.wrap')
   {$class}
     {block}
-    height 100% unless @height
-    width 100% unless @width
-
-// aliasing the wrapper mixin with wrap
-ride-wrap = wrap = wrapper
+    height: 100% unless @height
+    width: 100% unless @width
+    
+clear-fix = clearfix

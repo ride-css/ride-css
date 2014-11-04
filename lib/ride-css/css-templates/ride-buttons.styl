@@ -13,7 +13,6 @@ button()
     white-space nowrap unless @white-space
 
 ride-button($type, $colors = false)
-<<<<<<< HEAD
   line-height 1.5 if $type is small
   line-height 2 if $type is medium
   line-height 3 if $type is large
@@ -65,7 +64,6 @@ menu-button($class = '.hamburger', $trigger-event = '.show-menu .hamburger')
     &:before
       rotate 45
       transform-origin 25% 0 0
-=======
   +button()
     line-height 1.5 if $type is small
     line-height 2 if $type is medium
@@ -76,7 +74,6 @@ menu-button($class = '.hamburger', $trigger-event = '.show-menu .hamburger')
   if $colors not false
     for $color, i in $colors
       {$color}: $colors[i + 1] if $color is a 'ident'
->>>>>>> 0e52c5f6da6d07a93b383df54cdaa504b0be636e
 
 ride-button-color($color, $background-color)
   background-color: $background-color if $background-color not false

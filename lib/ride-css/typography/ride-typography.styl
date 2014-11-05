@@ -148,12 +148,14 @@ ride-text-style($class-prefix = 'text-', $config = {})
 
 
 // using default ride-typography mixins
-ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $config = {})
-  $config.headings = $config.headings or (2 1.8 1.6 1.4 1.2 1)
+ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $headings = (2 1.8 1.6 1.4 1.2 1))
   ride-align()
   ride-code()
-  ride-headings($font-size, $line-height, $margin, $config)
   ride-headings($font-size, $line-height, $margin, $config: {
+    headings: $headings
+  })
+  ride-headings($font-size, $line-height, $margin, $config: {
+    headings: $headings
     oocss: true  
   })
   ride-highlight()

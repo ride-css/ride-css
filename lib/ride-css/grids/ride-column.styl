@@ -12,11 +12,11 @@ ride-column($width, $column-count = 1, $current-column = 1, $gutter = 0, $paddin
     +cache('box-sizing')
       box-sizing border-box
   if $margin
-    margin setUnit($margin, $column-unit)
+    margin set-unit($margin, $column-unit)
   if $padding
     padding padding
   if $cols
-    width setUnit($cols, $column-unit)
+    width set-unit($cols, $column-unit)
 
 // floating column mixin
 // doesn't accept a code block
@@ -25,4 +25,4 @@ ride-float($width, $column-count = 1, $current-column = 1, $gutter = 0, $margin-
   $column = getFloat(parseFloat($width), $column-count, $current-column, s('%s', $gutter))
   $float = $column.floats
   if $margin
-    margin-{$margin-direction} setUnit($float, $column-unit)
+    margin-{$margin-direction} set-unit($float, $column-unit)

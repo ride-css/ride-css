@@ -1,28 +1,47 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
-use('grids.js')
+
+// column helpers
+--ride-calc-column($width, $column-count, $current-column)
+  ($width * $current-column) / $column-count
+
+--ride-get-gutter($gutter)
+  $gutter-length = length($gutter)
+  if $gutter-length is 0
+    $calc = 0
+  if $gutter-length is 1
+    $calc = ($gutter * 2)
+  if $gutter-length is 2
+    $calc = ($gutter[1] * 2)
+  if $gutter-length is 3
+    $calc = ($gutter[1] * 2)
+  else if $gutter-length is 4
+    $calc = $gutter[1] + $gutter[3]
+  $calc
 // column mixin
 // doesn't accept a code block
-ride-column($width, $column-count = 1, $current-column = 1, $gutter = 0, $padding = 0)
+--ride-column($width, $column-count, $current-column, $gutter = 0, $padding = 0)
   $column-unit = unit($width)
-  $column = getColumn(parseFloat($width), $column-count, $current-column, s('%s', $gutter))
-  $margin = $column.gutter
-  $cols = $column.cols
-  if $padding
-    +cache('box-sizing')
-      box-sizing border-box
-  if $margin
-    margin set-unit($margin, $column-unit)
-  if $padding
-    padding padding
-  if $cols
-    width set-unit($cols, $column-unit)
+  $column = --ride-calc-column($width, $column-count, $current-column)
+  $subtract-gutter = --ride-get-gutter($gutter)
+
+  +cache('box-sizing')
+    box-sizing: border-box if $padding not 0
+  padding: $padding if $padding not 0
+  margin: $gutter
+  width: ($column - $subtract-gutter)
+  
+ride-column($width, $column-count = 1, $current-column = 1, $gutter = 0, $padding = 0)
+  &
+    --ride-column: $width, $column-count, $current-column, $gutter, $padding
 
 // floating column mixin
 // doesn't accept a code block
+--ride-float($width, $column-count, $current-column, $gutter, $margin-direction)
+  $column = --ride-calc-column($width, $column-count, $current-column)
+  $add-gutter = --ride-get-gutter($gutter)
+  margin-{$margin-direction}: $column + $add-gutter
+
 ride-float($width, $column-count = 1, $current-column = 1, $gutter = 0, $margin-direction = 'left')
-  $column-unit = unit($width)
-  $column = getFloat(parseFloat($width), $column-count, $current-column, s('%s', $gutter))
-  $float = $column.floats
-  if $margin
-    margin-{$margin-direction} set-unit($float, $column-unit)
+  &
+    --ride-float: $width, $column-count, $current-column, $gutter, $margin-direction

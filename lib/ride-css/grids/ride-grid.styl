@@ -22,36 +22,37 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
 
   $base-unit = unit($config.width)
   
-  $mygrid = getGrid(parseInt($config.width) || 100, $columns, toArray(s('%s', $gutter)))
+  // $mygrid = getGrid(parseInt($config.width) || 100, $columns, toArray(s('%s', $gutter)))
 
   if $config.placeholder is false
     {$config.scope}
       +prefix-classes($config.prefix)
         if $config.oocss == true
           .{$config.column}
-            box-sizing border-box 
-            float left
-            margin set-unit($gutter, $base-unit)
-            padding $padding
+            box-sizing: border-box 
+            float: left
+            margin: set-unit($gutter, $base-unit)
+            padding: $padding
         if $config.oocss != true
-          for $col, $col-name in $mygrid.cols
+          for $col, $col-name in 1...$columns
             .{$config.column}{$col-name + 1}
               +cache('grid-gutter'+ $columns + $gutter + $padding)
-                box-sizing border-box 
-                float left
-                margin set-unit($gutter, $base-unit)
-                padding $padding
-        for $col, $col-name in $mygrid.cols
+                box-sizing: border-box 
+                float: left
+                margin: set-unit($gutter, $base-unit)
+                padding: $padding
+        for $col, $col-name in 1...$columns
           .{$config.column}{$col-name + 1}
             +cache('grid-width'+ $columns + $col)
-              width unit($col, $base-unit)
+              $_calc = ($config.width / $columns) * $col
+              width unit($_calc, $base-unit)
         if $config.disableFloat == false
-          for $float, $float-name in $mygrid.floats
+          for $float, $float-name in 1...($columns - 1)
             .{$config.float}{$float-name + 1}
               +cache('grid-float'+ $columns + $float)
                 margin-left unit($float, $base-unit)
         if $config.disablePush == false
-          for $push, $push-name in $mygrid.floats
+          for $push, $push-name in 1...($columns - 1)
             .{$config.push}{$push-name + 1}
               +cache('grid-push'+ $columns + $push)
                 margin-right unit($push, $base-unit)
@@ -69,24 +70,25 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
         margin set-unit($gutter, $base-unit)
         padding $padding
     if $config.oocss != true
-      for $col, $col-name in $mygrid.cols
+      for $col, $col-name in 1...($columns - 1)
         ${$config.column}{$col-name + 1}
           +cache('grid-gutter'+ $columns + $gutter + $padding)
             box-sizing border-box 
             float left
             margin set-unit($gutter, $base-unit)
             padding $padding
-    for $col, $col-name in $mygrid.cols
+    for $col, $col-name in 1...($columns - 1)
       ${$config.column}{$col-name + 1}
         +cache('grid-width'+ $columns + $col)
-          width unit($col, $base-unit)
+          $_calc = ($config.width / $columns) * $col
+          width unit($_calc, $base-unit)
     if $config.disableFloat == false
-      for $float, $float-name in $mygrid.floats
+      for $float, $float-name in 1...($columns - 1)
         ${$config.float}{$float-name + 1}
           +cache('grid-float'+ $columns + $float)
             margin-left unit($float, $base-unit)
     if $config.disablePush == false
-      for $push, $push-name in $mygrid.floats
+      for $push, $push-name in 1...($columns - 1)
         ${$config.push}{$push-name + 1}
           +cache('grid-push'+ $columns + $push)
             margin-right unit($push, $base-unit)

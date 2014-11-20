@@ -1,0 +1,29 @@
+// Ride css. Released under MIT licence.
+// https://github.com/ride-css/ride-css/
+
+// first implementation
+ride-flex-grid($columns, $margin, $padding)
+  if selector
+    &
+      display: -webkit-flex
+      display: flex
+      -webkit-flex-direction: row
+      flex-direction: row
+      -webkit-flex-flow: row wrap
+      flex-flow: row wrap
+      > *
+        flex: none
+  else
+    $flex-wrap
+      display: -webkit-flex
+      display: flex
+      -webkit-flex-direction: row
+      flex-direction: row
+      -webkit-flex-flow: row wrap
+      flex-flow: row wrap
+      > *
+        flex: none
+  for $column in 1..$columns
+    $flex-column-{$column}
+      order: 0
+      ride-column: 100% $columns $column $margin $padding

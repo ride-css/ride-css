@@ -51,18 +51,18 @@ ride-form-elements($border = 0, $padding = 0)
   +form-elements()
     box-sizing()
     if $border != 0
-      border $border
+      border: $border
     if $border == 0
-      border 0 none
+      border: 0 none
     if $padding != 0
-      box-sizing border-box
-      padding $padding
+      box-sizing: border-box
+      padding: $padding
   select
     if $padding != 0
       $select-padding = ''
       for $pad in $padding
         $select-padding = $select-padding +' '+ ($pad/100)*85 unit($pad)
-      padding unquote($select-padding)
+      padding: unquote($select-padding)
 
 form-invalid = form-not-valid
 form-optionals = form-optional

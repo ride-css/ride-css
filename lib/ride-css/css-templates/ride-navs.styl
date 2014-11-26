@@ -1,17 +1,15 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
 
-table-nav($padding = false)
-  display table
-  line-height 0 unless @line-height
+ride-table-nav($padding = false)
+  display: table
   & > a
-    display table-cell
-    padding $padding if $padding not false
-    line-height 3 unless @line-height
+    display: table-cell
+    padding: $padding if $padding not false
 
-vertical-nav($padding = false)
-  display: block
+ride-vertical-nav($padding = false)
+  display: block unless @display
   & > a
-    display: @display
+    display: block
     padding: $padding if $padding not false
     line-height: 3 unless @line-height

@@ -1,8 +1,37 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
-ride-dialog($class = '.ride-dialog', $overlay-class = '.overlay', $width = 40%, $height = 40%)
-  {$class}
-    {block}
+ride-dialog($width = 40%, $height = 40%, $class = '.ride-dialog', $overlay-class = '.overlay')
+  if not selector
+    {$class}
+      {block}
+      box-sizing: border-box
+      font-size: 1.6em unless @font-size
+      height: $height unless @height
+      opacity: 0
+      overflow: hidden
+      width: $width unless @width
+      padding: (@width / @height) unless @padding
+      position: fixed left ((100% - @width)/2) top ((100% - @height)/2)
+      visibility: hidden
+      z-index: 10
+      &.show
+        opacity: 1
+        visibility: visible
+        & ~ {$overlay-class}
+          opacity: 1
+          visibility: visible
+    {$overlay-class}
+      background-color: rgba(black, .4)
+      fixed: top 0 left 0
+      height: 100%
+      opacity: 0
+      visibility: hidden
+      width: @height
+      z-index: 9    
+    {$class},
+    {$overlay-class}
+      transition: .2s ease-in-out
+  else
     box-sizing: border-box
     font-size: 1.6em unless @font-size
     height: $height unless @height
@@ -13,20 +42,3 @@ ride-dialog($class = '.ride-dialog', $overlay-class = '.overlay', $width = 40%, 
     position: fixed left ((100% - @width)/2) top ((100% - @height)/2)
     visibility: hidden
     z-index: 10
-    &.show
-      opacity: 1
-      visibility: visible
-      & ~ {$overlay-class}
-        opacity: 1
-        visibility: visible
-  {$overlay-class}
-    background-color: rgba(black, .4)
-    fixed: top 0 left 0
-    height: 100%
-    opacity: 0
-    visibility: hidden
-    width: @height
-    z-index: 9    
-  {$class},
-  {$overlay-class}
-    transition: .2s ease-in-out

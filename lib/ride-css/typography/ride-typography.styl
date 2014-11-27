@@ -148,19 +148,35 @@ ride-text-style($class-prefix = 'text-', $config = {})
 
 
 // using default ride-typography mixins
-ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $headings = (2 1.8 1.6 1.4 1.2 1))
-  ride-align()
-  ride-code()
-  ride-headings($font-size, $line-height, $margin, $config: {
-    headings: $headings
-  })
-  ride-headings($font-size, $line-height, $margin, $config: {
-    headings: $headings
-    oocss: true  
-  })
-  ride-highlight()
-  ride-hr($font-size)
-  p
-    ride-paragraph($font-size, $line-height, $margin)
-  ride-small()
-  ride-text-style()
+ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $headings = (2 1.8 1.6 1.4 1.2 1), $placeholder = false)
+  if not $placeholder
+    ride-align()
+    ride-code()
+    ride-headings($font-size, $line-height, $margin, $config: {
+      headings: $headings
+    })
+    ride-headings($font-size, $line-height, $margin, $config: {
+      headings: $headings
+      oocss: true  
+    })
+    ride-highlight()
+    ride-hr($font-size)
+    p
+      ride-paragraph($font-size, $line-height, $margin)
+    ride-small()
+    ride-text-style()
+  else
+    ride-align($placeholder: $placeholder)
+    ride-code()
+    ride-headings($font-size, $line-height, $margin, $config: {
+      headings: $headings,
+      placeholder: $placeholder
+    })
+    ride-highlight()
+    ride-hr($font-size)
+    p
+      ride-paragraph($font-size, $line-height, $margin)
+    ride-small()
+    ride-text-style($config: {
+      placeholder: $placeholder
+    })

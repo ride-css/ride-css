@@ -1,0 +1,33 @@
+// Ride css. Released under MIT licence.
+// https://github.com/ride-css/ride-css/
+
+ride-placeholders()
+  $block
+    display: block
+  $bold
+    font-weight: bold
+  $code-font
+    font-family: monospace,serif
+    font-size: 1em
+  $full-background
+    background-size: cover
+    background-position: center
+    background-repeat: repeat-none 
+  $inline-block
+    display: inline-block
+  $none
+    display: none
+  $normal
+    font-weight: 400
+  $pointer
+    cursor: pointer
+  $table
+    display: table
+  $table-cell
+    display: table-cell
+  $table-row
+    display: table-row
+  // compound placeholders
+  $button
+    @extend $inline-block
+    @extend $pointer

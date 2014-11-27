@@ -89,19 +89,19 @@ sliding-button($class, $direction = 'left', $transition = .4s, $config = {})
     z-index 1
     &:hover{$moving-thing}
       if $direction == 'left' || $direction == 'right'
-        translateX(0)
+        translateX: 0
       if $direction == 'top' || $direction == 'bottom'
-        translateY(0)
+        translateY: 0
     &{$moving-thing}
       if $direction == 'top'
-        translateY(-100%)
+        translateY: -100%
       if $direction == 'right'
-        translateX(100%)
+        translateX: 100%
       if $direction == 'bottom'
-        translateY(100%)
+        translateY: 100%
       if $direction == 'left'
-        translateX(-100%)
-      absolute(top: 0, left: 0)
+        translateX: -100%
+      absolute: top 0 left 0
       content ''
       height 100%
       width 100%

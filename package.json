@@ -19,6 +19,8 @@
     "frontend",
     "ride",
     "framework",
+    "stylus",
+    "oocss",
     "design"
   ],
   "author": "Paolo Roth <iamoctod@gmail.com>",

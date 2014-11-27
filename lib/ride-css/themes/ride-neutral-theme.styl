@@ -1,0 +1,38 @@
+// Ride css. Released under MIT licence.
+// https://github.com/ride-css/ride-css/
+
+theme-ride-neutral($font-size = 15px, $line-height = 21.5px, $margin = 3px, $placeholder = false)
+  --theme-ride-neutral-grid($placeholder)
+    ride-grid: 16, 0, $font-size $line-height, {
+      oocss: true, 
+      placeholder: $placeholder
+    }
+  &
+    reset-type: 'normalize'
+    +ride-body()
+      font-size: $font-size
+      line-height: $line-height
+    ride-typography: $font-size, $line-height, $margin, (3 2.2 1.8 1.3 1.1 1) if not $placeholder
+    --theme-ride-neutral-grid: false if not $placeholder
+  $theme
+    ride-typography: $font-size, $line-height, $margin, (3 2.2 1.8 1.3 1.1 1), $placeholder if $placeholder
+    --theme-ride-neutral-grid: true if $placeholder
+  $responsive
+    +breakpoint(480, 960)
+      ride-grid: 16, 1, $font-size $line-height, {
+        cache: false,
+        oocss: true,
+        placeholder: true,
+        column: 'small-cl',
+        float: 'small-float',
+        push: 'small-push'
+      }
+    +breakpoint(200, 480)
+      ride-grid: 16, 1.5, $line-height, {
+        cache: false,
+        oocss: true,
+        placeholder: true,
+        column: 'smallest-cl',
+        float: 'smallest-float',
+        push: 'smallest-push'
+      }

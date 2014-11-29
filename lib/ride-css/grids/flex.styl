@@ -16,9 +16,9 @@ ride-flex-grid($columns, $margin, $padding, $class = '.ride-flex-grid')
     > *
       padding: $padding
       flex-basis: 1
-    for $grow in 1..$columns
-      /$flex-column-{$grow}
-        flex-grow: $grow
+    for $column in 1..$columns
+      /$flex-column-{$column}
+        ride-column: 100%, $columns, $column, $margin, $padding
   if property
     --ride-flex-grid: $columns, $margin, $padding
   else

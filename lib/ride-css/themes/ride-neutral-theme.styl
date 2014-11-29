@@ -2,8 +2,12 @@
 // https://github.com/ride-css/ride-css/
 
 theme-ride-neutral($font-size = 15px, $line-height = 21.5px, $margin = 3px, $placeholder = false)
+  $grid-columns = 16
+  $grid-gutter = 0
+  $grid-padding = $font-size $line-height
+
   --theme-ride-neutral-grid($placeholder)
-    ride-grid: 16, 0, $font-size $line-height, {
+    ride-grid: $grid-columns, $grid-gutter, $grid-padding, {
       oocss: true, 
       placeholder: $placeholder
     }
@@ -17,9 +21,23 @@ theme-ride-neutral($font-size = 15px, $line-height = 21.5px, $margin = 3px, $pla
   $theme
     ride-typography: $font-size, $line-height, $margin, (3 2.2 1.8 1.3 1.1 1), $placeholder if $placeholder
     --theme-ride-neutral-grid: true if $placeholder
+    if $placeholder
+      $nav-bar
+      $site-nav
+        ride-flex-grid: $grid-columns, $grid-gutter, $grid-padding
+        $item
+          box-sizing: border-box
+          padding: $grid-padding
+    else
+      .nav-bar
+      .site-nav
+        ride-flex-grid: $grid-columns, $grid-gutter, $grid-padding
+        .item
+          box-sizing: border-box
+          padding: $grid-padding
   $responsive
     +breakpoint(480, 960)
-      ride-grid: 16, 1, $font-size $line-height, {
+      ride-grid: $grid-columns, 1, $font-size $line-height, {
         oocss: true,
         placeholder: true,
         column: 'small-cl',
@@ -27,7 +45,7 @@ theme-ride-neutral($font-size = 15px, $line-height = 21.5px, $margin = 3px, $pla
         push: 'small-push'
       }
     +breakpoint(200, 480)
-      ride-grid: 16, 1.5, $line-height, {
+      ride-grid: $grid-columns, 1.5, $line-height, {
         oocss: true,
         placeholder: true,
         column: 'smallest-cl',

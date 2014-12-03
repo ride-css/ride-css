@@ -60,7 +60,7 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
             float: none
         .{$config.row}
           +cache('grid-clearfix'+ $columns + $gutter + padding)
-            clearfix()
+            ride-clear-fix()
   if $config.placeholder is true
     if $config.oocss == true
       ${$config.column}
@@ -95,7 +95,7 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
         float: none
     ${$config.row}
       +cache('grid-clearfix'+ $columns + $gutter + padding)
-        clearfix()
+        ride-clear-fix()
 
 // twelve columns grid
 ride-grid-12($gutter = (0 1), $padding = (1em), $config = {})

@@ -25,7 +25,7 @@ clearfix()
     display: table
 
 // unselectable stuff
-dont-select($cache)
+dont-select($cache = false)
   if $cache
     +cache('ride-dont-select')
       -webkit-touch-callout: none;

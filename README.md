@@ -30,7 +30,7 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 ##You could be really helpful
 
-[How to contribute](https://github.com/octod/ride-css/blob/master/contributing.md)
+[How to contribute](https://github.com/ride-css/ride-css/blob/master/contributing.md)
 
 
 ##contributors

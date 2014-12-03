@@ -90,9 +90,13 @@ ride-tooltip($direction = left, $data-attribute = data-tooltip)
 
 // ride-wrap
 ride-wrap($class = '.wrap')
-  {$class}
-    {block}
+  if not property
+    {$class}
+      {block}
+      height: 100% unless @height
+      width: 100% unless @width
+  else
     height: 100% unless @height
     width: 100% unless @width
-    
-clear-fix = clearfix
+
+ride-clear-fix = clear-fix = clearfix

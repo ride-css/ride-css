@@ -1,11 +1,8 @@
 {
   "name": "ride-css",
-  "version": "0.91.11",
+  "version": "0.91.12",
   "description": "A stylus mixin library for a faster frontend development.",
   "main": "./lib/index.js",
-  "bin": {
-    "ridecss": "node_modules/ride-cli/ridecss"
-  },
   "directories": {
     "lib": "lib"
   },

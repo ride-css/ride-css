@@ -35,20 +35,3 @@ theme-ride-neutral($font-size = 15px, $line-height = 21.5px, $margin = 3px, $pla
         .item
           box-sizing: border-box
           padding: $grid-padding
-  $responsive
-    +breakpoint(480, 960)
-      ride-grid: $grid-columns, 1, $font-size $line-height, {
-        oocss: true,
-        placeholder: true,
-        column: 'small-cl',
-        float: 'small-float',
-        push: 'small-push'
-      }
-    +breakpoint(200, 480)
-      ride-grid: $grid-columns, 1.5, $line-height, {
-        oocss: true,
-        placeholder: true,
-        column: 'smallest-cl',
-        float: 'smallest-float',
-        push: 'smallest-push'
-      }

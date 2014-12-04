@@ -19,9 +19,9 @@ theme-ride-neutral($font-size = 15px, $line-height = 21.5px, $margin = 3px, $pla
     ride-typography: $font-size, $line-height, $margin, (3 2.2 1.8 1.3 1.1 1) if not $placeholder
     --theme-ride-neutral-grid: false if not $placeholder
   $theme
-    ride-typography: $font-size, $line-height, $margin, (3 2.2 1.8 1.3 1.1 1), $placeholder if $placeholder
-    --theme-ride-neutral-grid: true if $placeholder
     if $placeholder
+      ride-typography: $font-size, $line-height, $margin, (3 2.2 1.8 1.3 1.1 1), $placeholder if $placeholder
+      --theme-ride-neutral-grid: true if $placeholder
       $nav-bar
       $site-nav
         ride-flex-grid: $grid-columns, $grid-gutter, $grid-padding
@@ -29,9 +29,12 @@ theme-ride-neutral($font-size = 15px, $line-height = 21.5px, $margin = 3px, $pla
           box-sizing: border-box
           padding: $grid-padding
     else
+      ride-typography: $font-size, $line-height, $margin, (3 2.2 1.8 1.3 1.1 1)
+      --theme-ride-neutral-grid: false
       .nav-bar
-      .site-nav
         ride-flex-grid: $grid-columns, $grid-gutter, $grid-padding
         .item
           box-sizing: border-box
           padding: $grid-padding
+      .site-nav
+        @extend .nav-bar

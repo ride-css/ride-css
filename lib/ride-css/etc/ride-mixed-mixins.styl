@@ -55,6 +55,8 @@ reset-type($reset-type = 'normalize')
     css-normalize()
   if $reset-type is 'reset'
     css-reset()
+  if $reset-type is 'box-sizing'
+    border-box-reset()
 
 // body setup
 ride-body()

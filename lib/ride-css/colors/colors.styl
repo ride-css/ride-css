@@ -3,7 +3,7 @@
 
 // get a shade from a color
 // similar to Google's material design® pattern for colors
-// really useful for making your own color schemes
+// really useful for setting up your own color schemes faster
 color-shade($color, $shade)
   $available-weights = {
     '50': 21, 
@@ -22,12 +22,3 @@ color-shade($color, $shade)
   else
     $color
 
-// sets several shades to a selector
-ride-shades()
-  $return = false
-  for $current, $i in arguments
-    if length($current) == 1
-      {arguments[0]}: color-shade(arguments[1], arguments[2]) if $return is false
-      $return = true
-    else  
-      {$current[0]}: color-shade($current[1], $current[2]) if $current[0] is a 'ident'

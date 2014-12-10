@@ -7,7 +7,25 @@ Stylus mixin library for a faster frontend development. This could be a good alt
 
 Why walk when you can Ride?
 
-##Installing ride
+##Installing ride using ride-cli
+
+> ```npm install -g ride-cli```
+
+> ```cd to-a-folder```
+
+> ```ridecss init my-project```
+
+##Installing ride from npm as a dependency (useful for using it along gruntjs)
+
+> add to your **package.json**
+  ```"grunt-contrib-stylus": "0.x"```
+  ```"ride-css": "0.x"```
+
+> type ```npm install```
+
+> create a task for **grunt-contrib-stylus** and **@require** ride-css in your buildable file
+
+##Installing ride from zip
 Ride **requires** Stylus.js and (obviously) node.js installed
 
 > [Install node.js](http://nodejs.org/ "Click here to go to node.js website")

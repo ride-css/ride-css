@@ -7,7 +7,10 @@ Stylus mixin library for a faster frontend development. This could be a good alt
 
 Why walk when you can Ride?
 
-##Installing ride using ride-cli
+###Installing ride using ride-cli
+Ride **requires** node.js installed
+
+> [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
 
 > ```npm install -g ride-cli```
 
@@ -15,7 +18,10 @@ Why walk when you can Ride?
 
 > ```ridecss init my-project```
 
-##Installing ride from npm as a dependency (useful for using it along gruntjs)
+###Installing ride from npm as a dependency (useful for using it along gruntjs)
+Ride **requires** node.js installed
+
+> [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
 
 > add to your **package.json**
   ```"grunt-contrib-stylus": "0.x"```
@@ -25,7 +31,7 @@ Why walk when you can Ride?
 
 > create a task for **grunt-contrib-stylus** and **@require** ride-css in your buildable file
 
-##Installing ride from zip
+###Installing ride from zip
 Ride **requires** Stylus.js and (obviously) node.js installed
 
 > [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
@@ -36,8 +42,8 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 
 > download Ride css and unzip into your working folder (eg: workspace/), include ride in your buildable "*.styl" file and you have done.
 
-##Documentation
-####How to include Ride in your .styl file
+###Documentation
+#####How to include Ride in your .styl file
 ```
 // assuming you are using the stylus-contrib for grunt
 // type this
@@ -46,12 +52,11 @@ Ride **requires** Stylus.js and (obviously) node.js installed
 // write your wonderful code here
 ```
 
-##You could be really helpful
+#####You could be really helpful
 
 [How to contribute](https://github.com/ride-css/ride-css/blob/master/contributing.md)
 
-
-##contributors
+#####contributors
 
 * author: [OctoD](https://github.com/OctoD/)
 * tester: [naya85](https://github.com/naya85/)

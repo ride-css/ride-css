@@ -16,6 +16,7 @@ fixed()
 relative()
   --ride-setup-position: relative arguments
 
+
 // clearfix
 clearfix()
   &:after
@@ -42,6 +43,11 @@ dont-select($cache = false)
     -ms-user-select: none;
     user-select: none;  
 
+// full-size
+full-size()
+  height: 100%
+  width: 100%
+
 // reset for unordered list
 reset-ul()
   ul
@@ -58,6 +64,11 @@ reset-type($reset-type = 'normalize')
   if $reset-type is 'box-sizing'
     box-sizing-reset()
 
+// absolute page
+ride-absolute-page($page-number)
+  absolute: top (100% * $page-number) left 0
+  full-size()
+  
 // body setup
 ride-body()
   html

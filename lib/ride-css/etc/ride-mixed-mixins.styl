@@ -48,6 +48,23 @@ full-size()
   height: 100%
   width: 100%
 
+// margin-horizontal
+margin-horizontal($margin)
+  margin-left: $margin 
+  margin-right: @margin-left 
+// padding-vertical
+margin-vertical($margin)
+  margin-bottom: $margin 
+  margin-top: @margin-bottom
+// padding-horizontal
+padding-horizontal($padding)
+  padding-left: $padding 
+  padding-right: @padding-left 
+// padding-vertical
+padding-vertical($padding)
+  padding-bottom: $padding 
+  padding-top: @padding-bottom
+
 // reset for unordered list
 reset-ul()
   ul

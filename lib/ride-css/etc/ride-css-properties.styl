@@ -16,6 +16,28 @@ fixed()
 relative()
   --ride-setup-position: relative arguments
 
+// background shorthand
+bkg()
+  background: arguments if arguments
+// background-color shorthand
+bkgc($color)
+  background-color: $color if $color
+// background-image shorthand
+bkgi($url)
+  background-color: url($url) if $url
+// background-position shorthand
+bkgp($position)
+  background-position: $position
+// background-size shorthand
+bkgz($size)
+  background-size: $size if $size 
+// border
+bd($border)
+  border: $border if $border
+// color shorthand
+cl($color)
+  color: $color if $color
+
 // border-horizontal
 border-horizontal($border...)
   if length($border) == 1

@@ -49,21 +49,37 @@ full-size()
   width: 100%
 
 // margin-horizontal
-margin-horizontal($margin)
-  margin-left: $margin 
-  margin-right: @margin-left 
+margin-horizontal()
+  if length(arguments) == 1
+    margin-left: arguments 
+    margin-right: @margin-left
+  else  
+    margin-left: arguments[0]
+    margin-right: arguments[1]
 // padding-vertical
-margin-vertical($margin)
-  margin-bottom: $margin 
-  margin-top: @margin-bottom
+margin-vertical()
+  if length(arguments) == 1
+    margin-bottom: arguments 
+    margin-top: @margin-bottom
+  else  
+    margin-bottom: arguments[0]
+    margin-top: arguments[1]
 // padding-horizontal
-padding-horizontal($padding)
-  padding-left: $padding 
-  padding-right: @padding-left 
+padding-horizontal()
+  if length(arguments) == 1
+    padding-left: arguments 
+    padding-right: @padding-left 
+  else  
+    padding-left: arguments[0]
+    padding-right: arguments[1]
 // padding-vertical
-padding-vertical($padding)
-  padding-bottom: $padding 
-  padding-top: @padding-bottom
+padding-vertical()
+  if length(arguments) == 1
+    padding-bottom: arguments 
+    padding-top: @padding-bottom
+  else  
+    padding-bottom: arguments[0]
+    padding-top: arguments[1]
 
 // reset for unordered list
 reset-ul()

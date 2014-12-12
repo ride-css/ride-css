@@ -17,7 +17,7 @@ ride-anchors($color, $light = false, $ratio = 21%, $class = 'a')
           color lighten($color, ($ratio + 8%))
       &:visited
         color $color
-  if not selector
+  if not property
     {$class}
       --ride-anchors($color, $light, $ratio, $class)
   else

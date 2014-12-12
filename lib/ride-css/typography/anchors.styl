@@ -2,24 +2,24 @@
 // https://github.com/ride-css/ride-css/
 ride-anchors($color, $light = false, $ratio = 21%, $class = 'a')
   --ride-anchors($color, $light, $ratio, $class)
-      color $color
+      color: $color
       {block}
       text-decoration: none unless @text-decoration
       &:hover
         if !$light
-          color darken($color, $ratio)
+          color: darken($color, $ratio)
         if $light
-          color lighten($color, $ratio)
+          color: lighten($color, $ratio)
       &:active
         if !$light
-          color darken($color, ($ratio + 8%))
+          color: darken($color, ($ratio + 8%))
         if $light
-          color lighten($color, ($ratio + 8%))
+          color: lighten($color, ($ratio + 8%))
       &:visited
-        color $color
+        color: $color
   if not property
     {$class}
-      --ride-anchors($color, $light, $ratio, $class)
+      --ride-anchors: $color, $light, $ratio, $class
   else
     --ride-anchors: $color, $light, $ratio, $class
     

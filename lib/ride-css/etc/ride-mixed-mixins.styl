@@ -43,11 +43,26 @@ dont-select($cache = false)
     -ms-user-select: none;
     user-select: none;  
 
+// border-horizontal
+border-horizontal($border...)
+  if length($border) == 1
+    border-left: $border
+    border-right: $border
+  else
+    border-left: $border[0]
+    border-right: $border[1]
+// border-horizontal
+border-vertical($border...)
+  if length($border) == 1
+    border-bottom: $border
+    border-top: $border
+  else
+    border-bottom: $border[0]
+    border-top: $border[1]
 // full-size
 full-size()
   height: 100%
   width: 100%
-
 // margin-horizontal
 margin-horizontal()
   if length(arguments) == 1

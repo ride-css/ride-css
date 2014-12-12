@@ -24,53 +24,21 @@ ride-button-color($color, $background-color)
   background-color: $background-color if $background-color not false
   color: $color if $color not false
 
-menu-button($class = '.hamburger', $trigger-event = '.show-menu .hamburger')
-  {$class}
-    {block}
-    background-color white unless @background-color
-    border-radius .25em
-    display inline-block
-    height .25em
-    transition all .4s ease 0s
-    width 2em
-    &:after
-    &:before
-      background-color @background-color
-      content ""
-      display unquote('block') // had to do this due to a Stylus bug. (the block value is rendered as a stylus block)
-      height @height
-      position relative
-    &:before
-      margin-top -(@height*2)
-      transition all .4s ease 0s
-    &:after
-      margin-top (@height*2)
-      top @height
-      transition all .4s ease 0s
-
-  {$class}
-  {$class}:after
-  {$class}:before
-    border-radius .25em
-  
-  {$trigger-event}
-    background-color transparent
-    &:after
-      rotate -45
-      transform-origin 0 50% 0
-    &:before
-      rotate 45
-      transform-origin 25% 0 0
-  +button()
-    line-height 1.5 if $type is small
-    line-height 2 if $type is medium
-    line-height 3 if $type is large
-    padding .25em .5em if $type is small
-    padding .25em .75em if $type is medium
-    padding .5em 2em if $type is large
-  if $colors not false
-    for $color, i in $colors
-      {$color}: $colors[i + 1] if $color is a 'ident'
+ride-menu-button($height, $width)
+  background-color: #000 unless @background-color
+  display: inline-block
+  height: $height
+  width: $width
+  &:after
+  &:before
+    border-radius: @border-radius if @border-radius
+    content: ''
+    display: block
+    full-size()
+  &:after
+    box-shadow: 0 @height 0 @background-color
+  &:before
+    box-shadow: 0 (-2 * @height) 0 @background-color
 
 sliding-button($class, $direction = 'left', $transition = .4s, $config = {})
   $config.oocss = $config.oocss || false

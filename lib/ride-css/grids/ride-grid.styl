@@ -97,9 +97,33 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
       +cache('grid-clearfix'+ $columns + $gutter + padding)
         ride-clear-fix()
 
+// shorthand for oocss grid
+ride-oocss-grid($columns, $gutter, $padding, $placeholder = false)
+  ride-grid($columns, $gutter, $padding, {oocss: true, placeholder: $placeholder})
+
+// shorthand for oocss ghost grid
+ride-ghost-grid($columns, $gutter, $padding)
+  ride-oocss-grid($columns, $gutter, $padding, true)
+
+// twelve columns grid
+ride-grid-16($gutter = (0 1), $padding = (1em), $config = {})
+  ride-grid(16, $gutter, $padding, $config)
+// shorthand for oocss twelve column grid
+ride-oocss-grid-16($gutter, $padding, $placeholder = false)
+  ride-grid-16($gutter, $padding, {oocss: true, placeholder: $placeholder})
+// shorthand for ghost twelve column grid
+ride-ghost-grid-16($gutter, $padding)
+  ride-oocss-grid-16($gutter, $padding, true)
+  
 // twelve columns grid
 ride-grid-12($gutter = (0 1), $padding = (1em), $config = {})
   ride-grid(12, $gutter, $padding, $config)
+// shorthand for oocss twelve column grid
+ride-oocss-grid-12($gutter, $padding, $placeholder = false)
+  ride-grid-12($gutter, $padding, {oocss: true, placeholder: $placeholder})
+// shorthand for ghost twelve column grid
+ride-ghost-grid-12($gutter, $padding)
+  ride-oocss-grid-12($gutter, $padding, true)
 
 // six columns grid (ideal for mobile use)
 ride-grid-6($gutter = (0 2), $padding = (1em), $config = {})
@@ -108,6 +132,12 @@ ride-grid-6($gutter = (0 2), $padding = (1em), $config = {})
   $config.push = 'sm-push'
   $config.scope = 'body'
   ride-grid(6, $gutter, $padding, $config)
+// shorthand for oocss six column grid
+ride-oocss-grid-6($gutter, $padding, $placeholder)
+  ride-grid-6($gutter, $padding, {oocss: true, placeholder: $placeholder})
+// shorthand for ghost six column grid
+ride-ghost-grid-6($gutter, $padding)
+  ride-oocss-grid-6($gutter, $padding, true)
 
 // four columns grid (ideal for mobile use)
 ride-grid-4($gutter = (0 0 2), $padding = (1em), $config = {})
@@ -116,6 +146,12 @@ ride-grid-4($gutter = (0 0 2), $padding = (1em), $config = {})
   $config.push = 'smt-push'
   $config.scope = 'body'
   ride-grid(4, $gutter, $padding, $config)
+// shorthand for oocss four column grid
+ride-oocss-grid-4($gutter, $padding, $placeholder)
+  ride-grid-4($gutter, $padding, {oocss: true, placeholder: $placeholder})
+// shorthand for ghost four column grid
+ride-ghost-grid-4($gutter, $padding)
+  ride-oocss-grid-4($gutter, $padding, true)
 
 ride-column-grid($column-count, $config = {})
   $config.class = $config.class || 'ride-columns'

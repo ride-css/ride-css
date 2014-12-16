@@ -78,18 +78,15 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
             padding: $padding
     for $col, $col-name in $mygrid.cols
       ${$config.column}{$col-name + 1}
-        +cache('grid-width'+ $columns + $col)
-          width: unit($col, $base-unit)
+        width: unit($col, $base-unit)
     if $config.disableFloat == false
       for $float, $float-name in $mygrid.floats
         ${$config.float}{$float-name + 1}
-          +cache('grid-float'+ $columns + $float)
-            margin-left: unit($float, $base-unit)
+          margin-left: unit($float, $base-unit)
     if $config.disablePush == false
       for $push, $push-name in $mygrid.floats
         ${$config.push}{$push-name + 1}
-          +cache('grid-push'+ $columns + $push)
-            margin-right: unit($push, $base-unit)
+          margin-right: unit($push, $base-unit)
     if $config.oocss == false
       ${$config.column}{$columns}
         float: none

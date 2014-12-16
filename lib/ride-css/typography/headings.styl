@@ -56,7 +56,10 @@ ride-h = ride-headings
 // those headings will keep a constant line-height, varying only the font-size. 
 ride-tight-headings($font-size, $line-height, $margin = 0, $placeholder = false)
   -set-heading($font-size, $index, $line-height, $margin, $unit, $args)
-    font-size: unit($font-size * (length($args) - $index), $unit)
+    if $unit is 'px' or $unit is '%' or $unit is 'pt'
+      font-size: unit($font-size * (length($args) - $index), $unit)
+    else
+      font-size: unit($font-size + (length($args) - $index) / 5, $unit)
     line-height: 1
     margin-vertical: $line-height if $margin is true and $margin not 0
     margin-vertical: $margin if $margin not true and $margin not 0

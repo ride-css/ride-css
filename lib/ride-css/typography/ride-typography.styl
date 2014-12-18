@@ -65,7 +65,6 @@ ride-small($font-size = (62.5 / 100), $class = 'small, .small')
 
 // text style classes 
 ride-text-style($config = {})
-  $config.prefix = $config.prefix || 'text-'
   $config.bold = $config.bold || 'strong'
   $config.capital = $config.capital || 'capital'
   $config.deleted = $config.deleted || 'deleted'
@@ -76,41 +75,39 @@ ride-text-style($config = {})
   $config.underlined = $config.underlined || 'underline'
   $config.uppercase = $config.uppercase || 'uppercase'
   if $config.placeholder is false
-    +prefix-classes($config.prefix)
-      .{$config.bold}
-        font-weight bold
-      .{$config.capital}
-        text-transform capitalize
-      .{$config.deleted}
-        text-decoration line-through
-      .{$config.italic}
-        font-style italic
-      .{$config.lowercase}
-        text-transform lowercase
-      .{$config.normal}
-        font-weight normal
-      .{$config.uppercase}
-        text-transform uppercase
-      .{$config.underlined}
-        text-decoration underline
+    .{$config.bold}
+      font-weight bold
+    .{$config.capital}
+      text-transform capitalize
+    .{$config.deleted}
+      text-decoration line-through
+    .{$config.italic}
+      font-style italic
+    .{$config.lowercase}
+      text-transform lowercase
+    .{$config.normal}
+      font-weight normal
+    .{$config.uppercase}
+      text-transform uppercase
+    .{$config.underlined}
+      text-decoration underline
   if $config.placeholder is true
-    +prefix-classes($config.prefix)
-      ${$config.bold}
-        font-weight bold
-      ${$config.capital}
-        text-transform capitalize
-      ${$config.deleted}
-        text-decoration line-through
-      ${$config.italic}
-        font-style italic
-      ${$config.lowercase}
-        text-transform lowercase
-      ${$config.normal}
-        font-weight normal
-      ${$config.uppercase}
-        text-transform uppercase
-      ${$config.underlined}
-        text-decoration underline
+    ${$config.bold}
+      font-weight bold
+    ${$config.capital}
+      text-transform capitalize
+    ${$config.deleted}
+      text-decoration line-through
+    ${$config.italic}
+      font-style italic
+    ${$config.lowercase}
+      text-transform lowercase
+    ${$config.normal}
+      font-weight normal
+    ${$config.uppercase}
+      text-transform uppercase
+    ${$config.underlined}
+      text-decoration underline
 
 
 // using default ride-typography mixins

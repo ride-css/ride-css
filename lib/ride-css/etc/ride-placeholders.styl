@@ -11,12 +11,24 @@ ride-placeholders()
   $code-font
     font-family: monospace,serif
     font-size: 1em
+  $font-100
+    font-weight: 100
+  $font-300
+    font-weight: 300
+  $font-400
+    font-weight: 400
+  $font-600
+    font-weight: 600
+  $font-700
+    @extend $bold
+  $font-900
+    @extend $bolder
   $inline-block
     display: inline-block
   $none
     display: none
   $normal
-    font-weight: 400
+    @extend $font-400
   $pointer
     cursor: pointer
   $table
@@ -30,9 +42,9 @@ ride-placeholders()
   $table-row
     display: table-row
   $thin
-    font-weight: 300
+    @extend $font-300
   $thinner
-    font-weight: 100
+    @extend $font-100
   // compound or more comples placeholders
   $button
     @extend $inline-block
@@ -41,4 +53,27 @@ ride-placeholders()
     background-size: cover
     background-position: center
     background-repeat: repeat-none
-  
+  $no-margin
+    margin: 0
+  $no-padding
+    padding: 0
+  $no-horizontal-margin
+    margin-horizontal: 0
+  $no-vertical-margin
+    margin-vertical: 0
+  $no-horizontal-padding
+    padding-horizontal: 0
+  $no-vertical-padding
+    padding-vertical: 0
+  $level-0
+    z-index: 0
+  $level-1
+    z-index: 10
+  $level-2
+    z-index: 20
+  $level-3
+    z-index: 30
+  $level-4
+    z-index: 40
+  $level-5
+    z-index: 50

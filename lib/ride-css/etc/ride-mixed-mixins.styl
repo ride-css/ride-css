@@ -45,9 +45,11 @@ reset-type($reset-type = 'normalize')
 
 // absolute page
 ride-absolute-page($page-number)
-  absolute: top (100% * $page-number) left 0
   +cache('ride-absolute-page-full-size')
+    left: 0
+    position: absolute
     full-size()
+  top: (100% * $page-number)
   
 // body setup
 ride-body()

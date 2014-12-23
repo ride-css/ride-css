@@ -24,8 +24,10 @@ Ride **requires** node.js installed
 > [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
 
 > add to your **package.json**
-  ```"grunt-contrib-stylus": "0.x"```
-  ```"ride-css": "0.x"```
+  ```
+    "grunt-contrib-stylus": "0.x",
+    "ride-css": "0.x"
+  ```
 
 > type ```npm install```
 

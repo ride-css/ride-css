@@ -4,6 +4,7 @@
 
 ##How to contribute
 
+* Give ride-css a star (on github and/or on npm)
 * Fork this repository
 * Send pull request (bugfixing or improving)
 * Ask questions

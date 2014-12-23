@@ -5,27 +5,26 @@ This mixin has not a **{block}**
 Basic usage
 
 ```
-ride-typography($font-size, $line-height, $headings)
+ride-typography($font-size, $line-height, $margin, $headings, $placeholder)
 ```
 
 Mixin parameters
 
 * **$font-size** (optional, default: 1em)
 * **$line-height** (optional, default: 1.5)
+* **$margin** (optional, default: 0)
 * **$headings** (optional, default: (2 1.8 1.6 1.4 1.2 1))
+* **$placeholder** (optional, default: false)
 
-This mixin will render automatically
+This mixin will be rendered automatically
 
 ```
 ride-align()
 ride-code()
-ride-headings($headings, $line-height)
-ride-headings($headings, $line-height, $config: {
-  oocss: true  
-})
+ride-headings()
 ride-highlight()
-ride-hr($font-size)
-ride-paragraph($font-size, $line-height, ($font-size / 4))
+ride-hr()
+ride-paragraph()
 ride-small()
 ride-text-style()
 ```

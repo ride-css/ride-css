@@ -47,13 +47,15 @@ css-normalize()
     -ms-text-size-adjust: 100%
     -webkit-text-size-adjust: 100%
   body
-    margin: 0
+    @extend $no-margin
   a
     background-color: transparent
   a:focus
+    @extend $no-outline
   a:active
+    @extend $no-outline
   a:hover
-    outline: 0
+    @extend $no-outline
   abbr[title]
     border-bottom: 1px dotted
   b
@@ -107,9 +109,9 @@ css-normalize()
   input
   select
   textarea
+    @extend $no-margin
     font-family: inherit
     font-size: 100%
-    margin: 0
   button
   input
     line-height: normal
@@ -127,8 +129,8 @@ css-normalize()
     cursor: default
   input[type="checkbox"]
   input[type="radio"]
+    @extend $no-padding
     box-sizing: border-box
-    padding: 0
   input[type="search"]
     -webkit-appearance: textfield
     box-sizing: content-box
@@ -137,8 +139,8 @@ css-normalize()
     -webkit-appearance: none
   button::-moz-focus-inner
   input::-moz-focus-inner
+    @extend $no-padding
     border: 0
-    padding: 0
   textarea
     overflow: auto
     vertical-align: top
@@ -146,4 +148,4 @@ css-normalize()
     border-collapse: collapse
     border-spacing: 0
   p
-    margin: 0
+    @extend $no-margin

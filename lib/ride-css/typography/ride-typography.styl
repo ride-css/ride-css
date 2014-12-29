@@ -1,11 +1,7 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
 
-// basic typography calculation
-ride-line-height($font-size, $line-height)
-  line-height: ($line-height / $font-size)
-
-// returns aligned classes
+// returns text-align classes or placeholders
 ride-align($placeholder = false, $class-prefix = 'align-')
   for $align in left center right justify
     +prefix-classes($class-prefix)
@@ -27,11 +23,13 @@ ride-code($tab-size = 2, $class = 'code, .code')
   else
     tab-size: $tab-size 
 
-// highlighted text
+// returns highlighted text
+// [deprecable]
 ride-highlight($class = 'mark, .highlight')
   {$class}
     {block}
     background-color: #F1EED6 unless @background-color
+
 // hr
 ride-hr($font-size = 1em, $class = 'hr, .hr')
   if not property
@@ -44,6 +42,12 @@ ride-hr($font-size = 1em, $class = 'hr, .hr')
     border-bottom: 1px solid currentColor unless @border-bottom
     margin: $font-size 0
     relative: top -(@border-bottom[0])
+
+// basic typography calculation
+// [deprecable]
+ride-line-height($font-size, $line-height)
+  line-height: ($line-height / $font-size)
+  
 // returns a properly calculated "p" selector 
 ride-paragraph($font-size = 1em, $line-height = 1.5, $margin = ($font-size / 4))
   if property
@@ -51,9 +55,8 @@ ride-paragraph($font-size = 1em, $line-height = 1.5, $margin = ($font-size / 4))
   else
     p
       --ride-set-heading: $font-size $line-height 1 $margin
-// aliasing
-ride-p = ride-paragraph
 
+// small tag
 ride-small($font-size = (62.5 / 100), $class = 'small, .small')
   if not property
     {$class}

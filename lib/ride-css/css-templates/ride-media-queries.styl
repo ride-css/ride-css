@@ -1,6 +1,8 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
-breakpoint($min-width, $max-width, $min-height = false, $max-height = false, orientation = false)
+
+// device agnostic media query
+breakpoint($min-width, $max-width, orientation = false)
   if orientation == false
     @media only screen and (min-width: $min-width) and (max-width: $max-width)
       {block}    
@@ -8,6 +10,7 @@ breakpoint($min-width, $max-width, $min-height = false, $max-height = false, ori
     @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: orientation)
       {block}
 
+// device agnostic media query - with heights
 breakpoint-full($min-width, $max-width, $min-height = false, $max-height = false, orientation = false)
   if orientation == false and $min-height == false
     @media only screen and (min-width: $min-width) and (max-width: $max-width)
@@ -25,10 +28,12 @@ breakpoint-full($min-width, $max-width, $min-height = false, $max-height = false
     @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: orientation)
       {block}
 
+// hdpi media query
 high-dpi()
   @media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2)
     {block}
 
+// common smartphones media query
 responsive-phone() 
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) 
     body
@@ -37,6 +42,7 @@ responsive-phone()
       display: none
     {block}
 
+// common tablets media query
 responsive-tablet() 
   @media only screen and (min-width: 321px)and (max-width: 1024px) 
     body
@@ -45,36 +51,42 @@ responsive-tablet()
       display: none
     {block}
 
+// common tablets in landscape orientation
 responsive-tablet-landscape() 
   @media only screen and (min-width: 321px)and (max-width: 1024px) and (orientation: landscape) 
     :root .tablet-hide
       display: none
     {block}
 
+// common tablets in portrait orientation
 responsive-tablet-portrait() 
   @media only screen and (min-width: 321px)and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait)
     :root .tablet-hide
       display: none
     {block}
 
+// common smallest resolution
 responsive-smallest() 
   @media only screen and (max-width: 480px) 
     :root .smallest-hide
       display: none
     {block}
 
+// common small resolution
 responsive-small() 
   @media only screen and (min-width: 481px)and (max-width: 959px) 
     :root .small-hide
       display: none
     {block}
 
+// common normal resolution
 responsive-normal() 
   @media only screen and (min-width: 960px) and (max-width: 1599px)
     :root .normal-hide
       display: none
     {block}
 
+// common high resolution
 responsive-huge() 
   @media only screen and (min-width: 1600px) 
     :root .huge-hide

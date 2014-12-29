@@ -1,12 +1,14 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
 
+// ride-css default horizontal navigation
 ride-table-nav($padding = false)
   display: table
   & > a
     display: table-cell
     padding: $padding if $padding not false
 
+// ride-css default vertical navigation
 ride-vertical-nav($padding = false)
   display: block unless @display
   & > a

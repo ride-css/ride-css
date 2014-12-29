@@ -19,21 +19,27 @@ relative()
 // background shorthand
 bkg()
   background: arguments if arguments
+  
 // background-color shorthand
 bkgc($color)
   background-color: $color if $color
+  
 // background-image shorthand
 bkgi($url)
   background-color: url($url) if $url
+  
 // background-position shorthand
 bkgp($position)
   background-position: $position
+  
 // background-size shorthand
 bkgz($size)
   background-size: $size if $size 
+  
 // border
 bd($border)
   border: $border if $border
+  
 // color shorthand
 cl($color)
   color: $color if $color
@@ -46,6 +52,7 @@ border-horizontal($border...)
   else
     border-left: $border[0]
     border-right: $border[1]
+
 // border-horizontal
 border-vertical($border...)
   if length($border) == 1
@@ -54,10 +61,12 @@ border-vertical($border...)
   else
     border-bottom: $border[0]
     border-top: $border[1]
+
 // full-size
 full-size()
   height: 100%
   width: 100%
+
 // margin-horizontal
 margin-horizontal()
   if length(arguments) == 1
@@ -66,6 +75,7 @@ margin-horizontal()
   else  
     margin-left: arguments[0]
     margin-right: arguments[1]
+
 // padding-vertical
 margin-vertical()
   if length(arguments) == 1
@@ -74,6 +84,7 @@ margin-vertical()
   else  
     margin-bottom: arguments[0]
     margin-top: arguments[1]
+
 // padding-horizontal
 padding-horizontal()
   if length(arguments) == 1
@@ -82,6 +93,7 @@ padding-horizontal()
   else  
     padding-left: arguments[0]
     padding-right: arguments[1]
+
 // padding-vertical
 padding-vertical()
   if length(arguments) == 1

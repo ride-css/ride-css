@@ -82,15 +82,16 @@ css-normalize()
     white-space: pre-wrap
   q
     quotes: "\201C" "\201D" "\2018" "\2019"
-  sub
-  sup
+  $sub-sup
     font-size: 75%
     line-height: 0
     position: relative
     vertical-align: baseline
   sup
+    @extend $sub-sup
     top: -0.5em
   sub
+    @extend $sub-sup
     bottom: -0.25em
   img
     border: 0

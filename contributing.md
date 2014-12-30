@@ -1,4 +1,4 @@
-[back](https://github.com/octod/ride-css/)
+[back](https://github.com/ride-css/ride-css/)
 
 #You could really make the difference!
 

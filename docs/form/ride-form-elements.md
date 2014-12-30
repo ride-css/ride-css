@@ -1,34 +1,24 @@
 #ride-form-elements
-this mixin has a {block}
 
-basic usage
+This mixin has a {block}
 
+Basic usage
 ```
 ride-form-elements($border, $padding)
 ```
 
-default output
+Mixin parameters
 
-```
-input,
-textarea,
-select {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 0 none;
-}
-```
+* **$border** (optional, default set to 0 none): the border your form elements will have
+* **$padding** (optional, default set to 0): the padding your form elements will have
 
-real life example
-
+Real life example
 ```
 ride-form-elements(1px solid silver, 0 .5em)
 ```
 
-output
-
-```css
+Yelds
+```
 input,
 textarea,
 select {

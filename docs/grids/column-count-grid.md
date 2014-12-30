@@ -5,7 +5,6 @@ This mixin will help you to build your custom css grid system.
 This mixin has not a {block}
 
 Basic usage
-
 ```
 ride-column-grid($column-count, $config)
 // or
@@ -19,15 +18,13 @@ Mixin parameters
 * **$config** (Hash, it is not enabled if you are using the mixin as a css property)
   * $config.**class** (optional, default: 'ride-columns'): the grid wrapper class, every direct child will be considered as a column
 
-Real life example:
-
+Real life example
 ```
 .my-grid
   ride-column-grid: 6
 ```
 
-will yeld
-
+Yelds
 ```
 .my-grid {
   -webkit-column-count: 6;

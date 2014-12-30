@@ -1,8 +1,8 @@
 #button
 
-this mixin has not a {block}
+This mixin has not a {block}
 
-basic usage
+Basic usage
   
 ```
 .scope-for-the-button

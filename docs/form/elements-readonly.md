@@ -1,15 +1,21 @@
 #form-elements-readonly
 
-this mixin has a {block}
+This mixin has a {block}
 
+Basic usage
+```
++form-elements-readonly()
+  // my ruleset
+```
+
+Real life example
 ```
 +form-elements-readonly()
   background-color #f2f2f2
   color #999
 ```
 
-output
-
+yelds
 ```
 input:read-only,
 textarea:read-only,

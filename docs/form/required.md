@@ -1,14 +1,21 @@
 #form-required
-this mixin has a {block}
 
+This mixin has a {block}
+
+Basic usage
 ```
 +form-required()
-  font-weight bold
+  // your ruleset
 ```
 
-output
+Real life example
+```
++form-required()
+  font-weight: bold
+```
 
-```css
+Yelds
+```
 input:required,
 textarea:required,
 select:required {

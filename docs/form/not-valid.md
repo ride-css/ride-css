@@ -1,14 +1,21 @@
 #form-not-valid
-this mixin has a {block}
 
+This mixin has a {block}
+
+Basic usage
 ```
 +form-not-valid()
-  color red
+  // your ruleset
 ```
 
-output
+Real life example
+```
++form-not-valid()
+  color: red
+```
 
-```css
+Yelds
+```
 input:invalid,
 textarea:invalid,
 select:invalid {

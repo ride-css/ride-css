@@ -1,14 +1,21 @@
 #form-optional
-this mixin has a {block}
 
+This mixin has a {block}
+
+Basic usage
 ```
 +form-optional()
-  color blue
+  // your ruleset
 ```
 
-output
+Real life example
+```
++form-optional()
+  color: blue
+```
 
-```css
+Yelds
+```
 input:optional,
 textarea:optional,
 select:optional {

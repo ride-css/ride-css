@@ -1,14 +1,22 @@
 #form-out-range
-this mixin has a {block}
+
+This mixin has a {block}
+
+Basic usage
 
 ```
 +form-out-range()
-  color red
+  // your ruleset
+```
+  
+Real life example
+```
++form-out-range()
+  color: red
 ```
 
-output
-
-```css
+Yelds
+```
 input[type='number']:out-of-range {
   color: #f00;
 }

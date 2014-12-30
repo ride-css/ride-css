@@ -1,15 +1,23 @@
 #placeholder
-this mixin has a {block}
 
+This mixin has a {block}
+
+Basic usage
+```
++placeholder()
+  // your ruleset
+```
+
+Real life example
 ```
 +form-elements()
   +placeholder()
-    color grey
+    color: grey
 ```
 
 output
 
-```css
+```
 input::-webkit-placeholder,
 textarea::-webkit-placeholder,
 select::-webkit-placeholder {

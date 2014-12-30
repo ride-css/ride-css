@@ -1,14 +1,20 @@
 #form-in-range
 
-this mixin has a {block}
+This mixin has a {block}
 
+Basic usage
+```
++form-in-range()
+  // your ruleset
+```
+
+Real life example
 ```
 +form-in-range()
   color green
 ```
 
-output
-
+Yelds
 ```
 input[type='number']:in-range {
   color: #008000;

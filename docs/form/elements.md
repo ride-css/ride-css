@@ -1,23 +1,14 @@
 #form-elements
 
-this mixin has a {block}
+This mixin has a {block}
 
+Basic usage
 ```
 +form-elements()
   // write your code here
 ```
 
-default output
-
-```
-input,
-textarea,
-select {
-  /* wow! it's my code there! */  
-}
-```
-
-real life example
+Real life example
 
 ```
 +form-elements()
@@ -25,8 +16,7 @@ real life example
   color #222
 ```
   
-output
-
+Yelds
 ```
 input,
 textarea,

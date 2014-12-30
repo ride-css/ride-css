@@ -41,9 +41,9 @@ Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to 
 
 > *@require* ride-css in your buildable "*.styl" file and you have done.
 
-###Your first awesome buildable file
+##2 - your first awesome buildable file
 
-####Including ride-css in your .styl file
+###Including ride-css in your .styl file
 ```
 // assuming you have installed ride-css with the first or the second step
 @require 'ride-css'
@@ -51,7 +51,7 @@ Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to 
 // write your wonderful code here
 ```
 
-####Fast setup
+###A fast setup
 ```
 @require 'ride-css'
 
@@ -70,6 +70,8 @@ $grid-padding = $line-height
   ride-grid: $grid-cols, $grid-gutter, $grid-padding
   ride-typography: $font-size, $line-height, $margin
 ```
+
+##3 - contributing
 
 ###You could be really helpful
 

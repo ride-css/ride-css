@@ -77,6 +77,14 @@ $grid-padding = $line-height
 
 [How to contribute](https://github.com/ride-css/ride-css/blob/master/contributing.md)
 
+* Giving ride-css a star (on github and/or on npm)
+* Telling other people about this library
+* Improving the documentation
+* Forking this repository
+* Sending pull request (only on the **dev branch** for bugfixing or new features)
+* Asking questions and or about new features
+* Reporting any bug
+
 ###Contributors
 
 * author: [OctoD](https://github.com/OctoD/)

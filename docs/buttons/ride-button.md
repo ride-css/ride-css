@@ -11,36 +11,41 @@ Basic usage
 
 Mixin params
 
-* **$type** (required, options available: small, medium, large): will make your button smaller or bigger
+* **$type** (required, options available: *small*, *medium* and *large*): will make your button smaller or bigger
 * **$properties** (optional): will add properties to your button
 
-Real life example
+Real life example (using @extend and placeholders)
 
 ```
-.button
+$button
   ride-button: medium, color white
-  &.danger
-    background-color: red
-  &.safe
-    background-color: green
-  &.warning
-    background-color: orange
+.button-danger
+  @extend $button
+  background-color: red
+.button-safe
+  @extend $button
+  background-color: green
+.button-warning
+  @extend $button
+  background-color: orange
 ```
 
 will yeld to
 
 ```
-.button {
+.button-danger,
+.button-safe,
+.button-warning {
   padding: 0.5em 0.75em;
   color: #fff;
 }
-.button.danger {
+.button-danger {
   background-color: #f00;
 }
-.button.safe {
+.button-safe {
   background-color: #008000;
 }
-.button.warning {
+.button-warning {
   background-color: #ffa500;
 }
 ```
@@ -53,12 +58,35 @@ How to use it:
 
 ```
 .my-button
-  ride-button-color: $background-color $color
+  ride-button-color: $color $background-color
 ```
 
 Mixin parameters
 
-* **$background-color**: the background-color for your button
-* **$color**: the color for your button
+* **$color** (required): the color for your button
+* **$background-color** (required): the background-color for your button
 
+Real life example
 
+```
+.my-button
+  ride-button: small
+  ride-button-color: white red
+  &:hover
+    ride-button-color: @color orange
+```
+
+Will yeld to
+
+```
+.my-button{
+  background-color: #f00;
+  color: #fff;
+  padding: 0.5em 0.75em;
+}
+
+.my-button:hover{
+  background-color: #ffa500;
+  color: #fff
+}
+```

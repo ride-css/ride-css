@@ -64,7 +64,7 @@ $grid-gutter = 1
 $grid-padding = $line-height 
 
 &
-  // this will setup a css normalization and a box-sizing resetD
+  // this will setup a css normalization and a box-sizing reset
   reset-type: 'normalize all'
   // this will a grid
   ride-grid: $grid-cols, $grid-gutter, $grid-padding

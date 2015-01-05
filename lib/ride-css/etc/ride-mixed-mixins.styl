@@ -35,13 +35,16 @@ reset-ul()
     padding: @margin
 
 // proxy for css normalize or css reset
-reset-type($reset-type = 'normalize')
-  if $reset-type is 'normalize'
-    css-normalize()
-  if $reset-type is 'reset'
-    css-reset()
+reset-type($reset-type = 'normalize all')
   if $reset-type is 'box-sizing'
     box-sizing-reset()
+  if $reset-type is 'normalize'
+    css-normalize()
+  if $reset-type is 'normalize all'
+    css-normalize()
+    box-sizing-reset()
+  if $reset-type is 'reset'
+    css-reset()
 
 // absolute page
 ride-absolute-page($page-number)
@@ -52,7 +55,7 @@ ride-absolute-page($page-number)
   top: (100% * $page-number)
   
 // body setup
-ride-body()
+ride-body($font-size = 62.5%, $line-height = 1.5)
   html
   body
     height: 100%
@@ -60,8 +63,8 @@ ride-body()
   body
     {block}
     font-weight: normal unless @font-weight
-    font-size: 62.5% unless @font-size
-    line-height: 1.5 unless @line-height
+    font-size: $font-size unless @font-size
+    line-height: $line-height unless @line-height
 
 // ride-tooltip
 ride-tooltip($direction = left, $data-attribute = data-tooltip)

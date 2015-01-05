@@ -1,16 +1,17 @@
-Ride css
-========
+Ride css, Why walk when you can Ride?
+=====================================
 
 [Ride css online docs](https://ride-css.github.io/)
 
-Stylus mixin library for a faster frontend development.
+Ride is a Stylus mixins library for a faster css development.
 
-Why walk when you can Ride?
+##1 - installing Ride css
 
-###Installing ride using ride-cli
-Ride **requires** node.js installed
+There are mainly three ways to install and use it.
 
-> [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
+Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to go to node.js website") installed
+
+###Installing ride-css using ride-cli
 
 > ```npm install -g ride-cli```
 
@@ -18,45 +19,73 @@ Ride **requires** node.js installed
 
 > ```ridecss init my-project```
 
-###Installing ride from npm as a dependency (useful for using it along gruntjs)
-Ride **requires** node.js installed
+> ```grunt build```
 
-> [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
+###Setting ride-css as a dependency for gruntjs tasks
 
-> add to your **package.json**
-  ```"grunt-contrib-stylus": "0.x"```
-  ```"ride-css": "0.x"```
+> add to your **package.json** (into your *dependencies* object)
+  ```
+    "grunt-contrib-stylus": "0.x",
+    "ride-css": "0.x"
+  ```
 
 > type ```npm install```
 
-> create a task for **grunt-contrib-stylus** and **@require** ride-css in your buildable file
+> create a task for **grunt-contrib-stylus** and **@require** ride-css in your main buildable file
 
-###Installing ride from zip
-Ride **requires** Stylus.js and (obviously) node.js installed
+###Installing ride-css from zip
 
-> [Install node.js](http://nodejs.org/ "Click here to go to node.js website")
+> [Download Ride css](https://github.com/ride-css/ride-css/archive/master.zip) and extract into your *working folder* 
 
-> Install stylus.js. Type ```npm install -g stylus``` in your terminal and you've done.
+> CD to your *working folder* and type ```npm install```
 
-> Install nib (recommended for css3 autoprefixing and more). Type ```npm install -g nib``` in your terminal and you've done.
+> *@require* ride-css in your buildable "*.styl" file and you have done.
 
-> Download Ride css and unzip into your working folder (eg: workspace/), include ride in your buildable "*.styl" file and you have done.
+##2 - your first awesome buildable file
 
-###Documentation
-#####How to include Ride in your .styl file
+###Including ride-css in your .styl file
 ```
-// assuming you are using the stylus-contrib for grunt
-// type this
+// assuming you have installed ride-css with the first or the second step
 @require 'ride-css'
 
 // write your wonderful code here
 ```
 
-#####You could be really helpful
+###A fast setup
+```
+@require 'ride-css'
+
+$font-size: 14px
+$line-height: 21.5px
+$margin: 14px
+
+$grid-cols = 12
+$grid-gutter = 1
+$grid-padding = $line-height 
+
+&
+  // this will setup a css normalization and a box-sizing reset
+  reset-type: 'normalize all'
+  // this will a grid
+  ride-grid: $grid-cols, $grid-gutter, $grid-padding
+  ride-typography: $font-size, $line-height, $margin
+```
+
+##3 - contributing
+
+###You could be really helpful
 
 [How to contribute](https://github.com/ride-css/ride-css/blob/master/contributing.md)
 
-#####contributors
+* Giving ride-css a star (on github and/or on npm)
+* Telling other people about this library
+* Improving the documentation
+* Forking this repository
+* Sending pull request (only on the **dev branch** for bugfixing or new features)
+* Asking questions and or about new features
+* Reporting any bug
+
+###Contributors
 
 * author: [OctoD](https://github.com/OctoD/)
 * tester: [naya85](https://github.com/naya85/)

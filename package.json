@@ -1,6 +1,6 @@
 {
   "name": "ride-css",
-  "version": "0.91.41",
+  "version": "0.91.42",
   "description": "A stylus mixin library for a faster frontend development.",
   "main": "./lib/index.js",
   "directories": {

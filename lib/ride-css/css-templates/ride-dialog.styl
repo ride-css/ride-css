@@ -1,6 +1,7 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
 
+// common proprierties for a dialog
 ride-dialog($width = auto, $height = auto)
   absolute: top 50% left 50% @unless position
   box-sizing: border-box
@@ -8,8 +9,9 @@ ride-dialog($width = auto, $height = auto)
   translate: -50% -50% @unless transform
   width: $width
   
+// common proprierties for a dialog modal background
 ride-modal-panel($background, $opacity = 1)
-  background: $background
+  background: $background if $background not transparent
+  full-size: 100%
   opacity: $opacity if $opacity not 1
   fixed: top 0 left 0
-  ride-dialog: 100% 100%

@@ -1,8 +1,10 @@
-// Ride css. Released under MIT licence.
-// https://github.com/ride-css/ride-css/
+#ride-placeholders
 
-// some premade and maybe useful placeholders if you love to @extend 
-ride-placeholders()
+This mixin will yeld a set of placeholders.
+
+The list:
+
+```
   $block
     display: block
   $bold
@@ -30,12 +32,6 @@ ride-placeholders()
     display: none
   $normal
     @extend $font-400
-  $no-outline
-    outline: 0
-  $no-margin
-    margin: 0
-  $no-padding
-    padding: 0
   $pointer
     cursor: pointer
   $table
@@ -52,7 +48,6 @@ ride-placeholders()
     @extend $font-300
   $thinner
     @extend $font-100
-  // compound or more comples placeholders
   $above-the-fold
     ride-absolute-page: 0
   $below-the-fold
@@ -77,7 +72,13 @@ ride-placeholders()
   $level-5
     z-index: 50
   $modal-like
-    ride-modal-panel: transparent
+    box-sizing: border-box
+    fixed: top 0 left 0
+    full-size: 100%
+  $no-margin
+    margin: 0
+  $no-padding
+    padding: 0
   $no-horizontal-margin
     margin-horizontal: 0
   $no-vertical-margin
@@ -86,3 +87,4 @@ ride-placeholders()
     padding-horizontal: 0
   $no-vertical-padding
     padding-vertical: 0
+```

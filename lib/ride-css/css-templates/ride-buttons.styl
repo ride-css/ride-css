@@ -1,5 +1,6 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
+
 // common button template
 button()
   {block}
@@ -12,6 +13,7 @@ button()
     position relative unless @position
     white-space nowrap unless @white-space
 
+// default ride-css button mixin
 ride-button($type, $colors = false)
   padding .25em .5em if $type is small
   padding .5em .75em if $type is medium
@@ -20,10 +22,13 @@ ride-button($type, $colors = false)
     for $color, i in $colors
       {$color}: $colors[i + 1] if $color is a 'ident'
 
+// ride-css button color mixin
+// useful for setting up quickly your button colors
 ride-button-color($color, $background-color)
   background-color: $background-color if $background-color not false
   color: $color if $color not false
 
+// should be a css hamburger menu button
 ride-menu-button($height, $width)
   background-color: #000 unless @background-color
   display: inline-block
@@ -40,6 +45,7 @@ ride-menu-button($height, $width)
   &:before
     box-shadow: 0 (-2 * @height) 0 @background-color
 
+// [deprecable]
 sliding-button($class, $direction = 'left', $transition = .4s, $config = {})
   $config.oocss = $config.oocss || false
   $moving-thing = ':before'

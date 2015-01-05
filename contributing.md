@@ -1,21 +1,21 @@
-[back](https://github.com/octod/ride-css/)
+[back](https://github.com/ride-css/ride-css/)
 
 #You could really make the difference!
 
 ##How to contribute
 
-* Fork this repository
-* Send pull request (bugfixing or improving)
-* Ask questions
-* Report any bug
-* Enhance the documentation
-* Tell other people about this library
+* Giving ride-css a star (on github and/or on npm)
+* Telling other people about this library
+* Improving the documentation
+* Forking this repository
+* Sending pull request (only on the **dev branch** for bugfixing or new features)
+* Asking questions and or about new features
+* Reporting any bug
 
-##Style guide
+##Coding style "guide"
 
-* Two spaces "soft tabs" indentation
-* Mixins and variables' name are written using the **dash-case** should be clear and easy to remember
-* Css classes and id must be writter using the **dash-case** (e.g. .this-is-my-class, #this-is-my-id)
-* Variables, mixins and placeholders are written in **dash-case**
-* Variables should start with the **dollar sign** ($variable-name)
-* If you are planning to write a new mixin for Ride css, remember to put the prefix **ride-** before it (eg: ride-name-of-the-mixin())
+* You should use two spaces "soft tabs" indentation
+* *Mixins*, *variables* and *placeholders* name should be written in **dash-case** and you should choose clear and easy names to remember
+* *Variables* should start with the **dollar sign** ($variable-name)
+* Css *Classes* and *id* should be written in **dash-case** (e.g. .this-is-my-class, #this-is-my-id)
+* If you are planning to write a new mixin for Ride, remember to *prefix it* with **ride-** (eg: ride-name-of-the-mixin())

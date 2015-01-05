@@ -9,13 +9,14 @@ one-percent($number)
     $number = $number/100
   $number
 
+// returns a given percent of a number
 get-percent($number, $percent)
   if $number is a 'number' and $percent is a 'number'
     $number = one-percent($number) * $percent
   $number
 
-// setUnit function 
-// this function will set the passed unit to the passed css items 
+// set-unit function 
+// this function will set the passed [$unit] unit to the [$items] list 
 set-unit($items, $unit)
   $offset = 0
   for $item in $items

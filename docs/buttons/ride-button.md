@@ -11,22 +11,24 @@ Basic usage
 
 Mixin params
 
-* **$type** (required, options available: *small*, *medium* and *large*): will make your button smaller or bigger
+* **$type** (required, options available: *small*, *medium*, *large* or a css *size*): will make your button smaller or bigger. If you specify a measure, the button will use it.
 * **$properties** (optional): will add properties to your button
 
 Real life example (using @extend and placeholders)
 
 ```
-$button
+$button-medium
   ride-button: medium, color white
+$button-custom
+  ride-button: 12px, color white
 .button-danger
-  @extend $button
+  @extend $button-medium
   background-color: red
 .button-safe
-  @extend $button
+  @extend $button-medium
   background-color: green
 .button-warning
-  @extend $button
+  @extend $button-custom
   background-color: orange
 ```
 
@@ -34,9 +36,12 @@ will yeld to
 
 ```
 .button-danger,
-.button-safe,
-.button-warning {
+.button-safe {
   padding: 0.5em 0.75em;
+  color: #fff;
+}
+.button-warning {
+  padding: 12px;
   color: #fff;
 }
 .button-danger {

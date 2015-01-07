@@ -6,18 +6,23 @@ button()
   {block}
   +cache('ride-button')
     dont-select: true
-    cursor pointer unless @cursor
-    display inline-block unless @display
-    line-height 3 unless @line-height
-    padding .5em 1em unless @padding
-    position relative unless @position
-    white-space nowrap unless @white-space
+    cursor: pointer unless @cursor
+    display: inline-block unless @display
+    line-height: 3 unless @line-height
+    padding: .5em 1em unless @padding
+    position: relative unless @position
+    white-space: nowrap unless @white-space
 
 // default ride-css button mixin
 ride-button($type, $colors = false)
-  padding .25em .5em if $type is small
-  padding .5em .75em if $type is medium
-  padding .75em 1em if $type is large
+  if $type is small
+    padding: .25em .5em 
+  else if $type is medium
+    padding: .5em .75em 
+  else if $type is large
+    padding: .75em 1em 
+  else
+    padding: $type
   if $colors not false
     for $color, i in $colors
       {$color}: $colors[i + 1] if $color is a 'ident'

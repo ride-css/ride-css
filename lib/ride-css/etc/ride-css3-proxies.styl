@@ -77,6 +77,25 @@ column-count(count)
 column-gap(gap)
   --ride-css-vendor-proxy($webkit $mozilla, column-gap, gap)
 
+// display
+display($display)
+  if $display is flex
+    {'display'}: -webkit-box;
+    {'display'}: -moz-box;
+    {'display'}: -ms-flexbox;
+    {'display'}: -webkit-flex;
+    {'display'}: flex;
+  else
+    {'display'}: $display
+
+// flex-direction
+flex-direction($direction)
+  --ride-css-vendor-proxy($webkit, flex-direction, $direction)
+
+// flex-flow
+flex-flow($flow)
+  --ride-css-vendor-proxy($webkit, flex-flow, $flow)
+
 // fill-mode
 fill-mode(mode)
   --ride-css-vendor-proxy($webkit $mozilla $opera, animation-fill-mode, mode)

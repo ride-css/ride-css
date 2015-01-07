@@ -13,8 +13,6 @@ ride-paragraph($font-size, $line-height, $margin)
 
 Mixin parameters
 
-$font-size = 1em, $line-height = 1.5, $margin = ($font-size / 4)
-
 * **$font-size** (optional, default: 1em)
 * **$line-height** (optional, default: 1.5)
 * **$margin** (optional, default ($font-size / 4))

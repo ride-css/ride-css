@@ -20,9 +20,9 @@ $no-prefixes = false
     for prefix in prefixes
       {prefix}{property}: values
   if !$current-prefix
-    {property} values
+    {property}: values
   if $current-prefix
-    {$current-prefix}{property} values
+    {$current-prefix}{property}: values
 
 // here comes the sun
 // animation
@@ -155,11 +155,11 @@ tab-size(size)
 // text-selection
 text-selection(background, color)
   &::selection
-    background-color background
-    color color
+    background-color: background
+    color: color
   &::{$mozilla}selection
-    background-color background
-    color color
+    background-color: background
+    color: color
 
 // transition
 transition(time = .4s, easing = ease-out, transitions = all)

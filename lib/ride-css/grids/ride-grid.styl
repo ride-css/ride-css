@@ -1,7 +1,5 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
-// ride column grid
-// options passed as an [object Object]
 use('grids.js')
 
 ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
@@ -120,7 +118,7 @@ ride-grid-6($gutter = (0 2), $padding = (1em), $config = {})
   $config.column = 'sm-cl'
   $config.float = 'sm-float'
   $config.push = 'sm-push'
-  $config.scope = 'body'
+  // $config.scope = 'body'
   ride-grid(6, $gutter, $padding, $config)
 // shorthand for oocss six column grid
 ride-oocss-grid-6($gutter, $padding, $placeholder)
@@ -134,7 +132,7 @@ ride-grid-4($gutter = (0 0 2), $padding = (1em), $config = {})
   $config.column = 'smt-cl'
   $config.float = 'smt-float'
   $config.push = 'smt-push'
-  $config.scope = 'body'
+  // $config.scope = 'body'
   ride-grid(4, $gutter, $padding, $config)
 // shorthand for oocss four column grid
 ride-oocss-grid-4($gutter, $padding, $placeholder)

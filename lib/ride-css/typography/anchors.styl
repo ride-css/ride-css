@@ -22,5 +22,15 @@ ride-anchors($color, $light = false, $ratio = 21%, $class = 'a')
       --ride-anchors: $color, $light, $ratio, $class
   else
     --ride-anchors: $color, $light, $ratio, $class
-    
+
+ride-underlined-anchors($color, $light = false, $ratio = 21%, $class = 'a')
+  if not property
+    {$class}
+      ride-links: $color, $light, $ratio, $class
+      text-decoration: underline
+  else 
+    ride-links: $color, $light, $ratio, $class
+    text-decoration: underline
+
 ride-links = ride-anchors
+ride-underlined-links = ride-underlined-anchors

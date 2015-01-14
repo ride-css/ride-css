@@ -1,3 +1,18 @@
+#color-scheme
+This mixin will return a placeholder with color and background-color (or if used as a property, it will return both properties).
+
+```
+color-scheme($color, $background-color)
+// or
+.my-selector
+  color-scheme: $color, $background-color
+```
+
+Mixin parameters:
+
+**$color**: is the text-color
+**$background-color**: is the background-color
+
 #color-shade
 
 This mixin will return a brigher or darker shade of a given color.

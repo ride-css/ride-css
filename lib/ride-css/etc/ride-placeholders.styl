@@ -5,10 +5,6 @@
 ride-placeholders()
   $block
     display: block
-  $bold
-    font-weight: 700
-  $bolder
-    font-weight: 900
   $code-font
     font-family: monospace,serif
     font-size: 1em
@@ -21,15 +17,13 @@ ride-placeholders()
   $font-600
     font-weight: 600
   $font-700
-    @extend $bold
+    font-weight: 700
   $font-900
-    @extend $bolder
+    font-weight: 900
   $inline-block
     display: inline-block
   $none
     display: none
-  $normal
-    @extend $font-400
   $no-outline
     outline: 0
   $no-margin
@@ -48,10 +42,6 @@ ride-placeholders()
     display: table-cell
   $table-row
     display: table-row
-  $thin
-    @extend $font-300
-  $thinner
-    @extend $font-100
   // compound or more comples placeholders
   $above-the-fold
     ride-absolute-page: 0

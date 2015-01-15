@@ -22,7 +22,7 @@ bkg()
   
 // background-color shorthand
 bkgc($color)
-  background-color: $color if $color
+  background-color: $color if type-of($color) is 'rgba'
   
 // background-image shorthand
 bkgi($url)
@@ -34,7 +34,7 @@ bkgp($position)
   
 // background-size shorthand
 bkgz($size)
-  background-size: $size if $size 
+  background-size: $size if $size
   
 // border
 bd($border)
@@ -42,7 +42,7 @@ bd($border)
   
 // color shorthand
 cl($color)
-  color: $color if $color
+  color: $color if type-of($color) is 'rgba'
 
 // border-horizontal
 border-horizontal($border...)
@@ -63,9 +63,9 @@ border-vertical($border...)
     border-top: $border[1]
 
 // full-size
-full-size()
-  height: 100%
-  width: 100%
+full-size($size = 100%)
+  height: $size
+  width: $size
 
 // margin-horizontal
 margin-horizontal()

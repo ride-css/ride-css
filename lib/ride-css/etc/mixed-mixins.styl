@@ -29,7 +29,7 @@ dont-select($cache = false)
 
 // reset for unordered list
 reset-ul()
-  ul
+  ul,
   ul li
     margin: 0
     padding: @margin
@@ -45,26 +45,6 @@ reset-type($reset-type = 'normalize all')
     box-sizing-reset()
   if $reset-type is 'reset'
     css-reset()
-
-// absolute page
-ride-absolute-page($page-number)
-  +cache('ride-absolute-page-full-size')
-    left: 0
-    position: absolute
-    full-size()
-  top: (100% * $page-number)
-  
-// body setup
-ride-body($font-size = 62.5%, $line-height = 1.5)
-  html
-  body
-    height: 100%
-    width: @height
-  body
-    {block}
-    font-weight: normal unless @font-weight
-    font-size: $font-size unless @font-size
-    line-height: $line-height unless @line-height
 
 // ride-tooltip
 ride-tooltip($direction = left, $data-attribute = data-tooltip)

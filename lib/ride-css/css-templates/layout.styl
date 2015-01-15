@@ -1,6 +1,26 @@
 // Ride css. Released under MIT licence.
 // https://github.com/ride-css/ride-css/
 
+// absolute page
+ride-absolute-page($page-number)
+  +cache('ride-absolute-page-full-size')
+    left: 0
+    position: absolute
+    full-size()
+  top: (100% * $page-number)
+  
+// body setup
+ride-body($font-size = 62.5%, $line-height = 1.5)
+  html
+  body
+    height: 100%
+    width: @height
+  body
+    {block}
+    font-weight: normal unless @font-weight
+    font-size: $font-size unless @font-size
+    line-height: $line-height unless @line-height
+    
 // callout
 ride-callout($position = left, $color = black, $width = 5px)
   absolute: top 0 $position 0

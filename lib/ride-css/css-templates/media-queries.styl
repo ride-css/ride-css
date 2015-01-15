@@ -2,16 +2,16 @@
 // https://github.com/ride-css/ride-css/
 
 // device agnostic media query
-breakpoint($min-width, $max-width, orientation = false)
-  if orientation == false
+breakpoint($min-width, $max-width, $orientation = false)
+  if $orientation == false
     @media only screen and (min-width: $min-width) and (max-width: $max-width)
       {block}    
   else
-    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: orientation)
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: $orientation)
       {block}
 
 // device agnostic media query - with heights
-breakpoint-full($min-width, $max-width, $min-height = false, $max-height = false, orientation = false)
+breakpoint-full($min-width, $max-width, $min-height = false, $max-height = false, $orientation = false)
   if orientation == false and $min-height == false
     @media only screen and (min-width: $min-width) and (max-width: $max-width)
       {block}    
@@ -22,10 +22,10 @@ breakpoint-full($min-width, $max-width, $min-height = false, $max-height = false
     @media only screen and (min-width: $min-width) and (max-width: $max-width) and (min-height: $min-height) and (max-height: $max-height)
       {block}
   else if orientation != false and $min-height != false and $max-height != false
-    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (min-height: $min-height) and (max-height: $max-height)
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (min-height: $min-height) and (max-height: $max-height) and (orientation: $orientation)
       {block}
   else
-    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: orientation)
+    @media only screen and (min-width: $min-width) and (max-width: $max-width) and (orientation: $orientation)
       {block}
 
 // hdpi media query

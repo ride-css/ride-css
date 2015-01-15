@@ -1,0 +1,15 @@
+// Ride css. Released under MIT licence.
+// https://github.com/ride-css/ride-css/
+
+// callout
+ride-callout($position = left, $color = black, $width = 5px)
+  absolute: top 0 $position 0
+  background-color: $color
+  content: ''
+  display: block
+  height: 100%
+  width: $width
+    
+ride-callout-parent()
+  position: relative
+  

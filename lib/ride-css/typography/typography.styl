@@ -113,7 +113,8 @@ ride-text-style($config = {})
 
 
 // using default ride-typography mixins
-ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $headings = (2 1.8 1.6 1.4 1.2 1), $placeholder = false)
+ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $placeholder = false)
+  $headings = (2 1.8 1.6 1.4 1.2 1)
   if not $placeholder
     ride-align()
     code

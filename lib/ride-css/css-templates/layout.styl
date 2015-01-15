@@ -25,3 +25,48 @@ ride-body($font-size = 62.5%, $line-height = 1.5)
 callout($color = black, $position = left, $width = 5px)
   border-{$position}: $width solid $color
   
+// ride-blockquote
+ride-blockquote($color, $width = 5px)
+  callout($color, left, $width)
+
+// ride-blockquote
+ride-blockquote-footer($color)
+  &:before
+    content: '- '
+    
+// ride-list
+ride-list($type)
+  if not property
+    ul
+      if $type is block
+        @extend $block
+      if $type is inline
+        @extend $block
+      if $type is inline-block
+        @extend $block
+      if $type is flex
+        display: flex
+      if $type is table
+        @extend $table
+  else
+    if $type is block
+      @extend $block
+    if $type is inline
+      @extend $block
+    if $type is inline-block
+      @extend $block
+    if $type is flex
+      display: flex
+    if $type is table
+      @extend $table
+  li
+    if $type is block
+      @extend $block
+    if $type is flex
+      flex: 1 1 auto
+    if $type is inline
+      @extend $inline
+    if $type is inline-block
+      @extend $inline-block
+    if $type is table
+      @extend $table $cell

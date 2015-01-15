@@ -108,6 +108,7 @@ css-normalize()
   input
   select
   textarea
+    @extend $border-box
     @extend $no-margin
     font-family: inherit
     font-size: 100%
@@ -129,7 +130,6 @@ css-normalize()
   input[type="checkbox"]
   input[type="radio"]
     @extend $no-padding
-    box-sizing: border-box
   input[type="search"]
     -webkit-appearance: textfield
     box-sizing: content-box

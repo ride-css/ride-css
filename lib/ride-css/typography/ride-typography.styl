@@ -2,16 +2,15 @@
 // https://github.com/ride-css/ride-css/
 
 // returns text-align classes or placeholders
-ride-align($placeholder = false, $class-prefix = 'align-')
+ride-align($placeholder = false)
   for $align in left center right justify
-    +prefix-classes($class-prefix)
-      if $placeholder is false
-        .{$align}
-          +cache('text-align'+ $align)
-            text-align: $align
-      if $placeholder is true
-        ${$class-prefix}{$align}
+    if $placeholder is false
+      .{$align}
+        +cache('text-align'+ $align)
           text-align: $align
+    if $placeholder is true
+      ${$align}
+        text-align: $align
 
 // code styling
 // use it with the <pre></pre> or <code></code> tag

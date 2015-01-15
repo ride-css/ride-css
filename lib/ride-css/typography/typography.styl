@@ -66,50 +66,65 @@ ride-small($font-size = (62.5 / 100), $class = 'small, .small')
     line-height: 1
 
 // text style classes 
-ride-text-style($config = {})
-  $config.bold = $config.bold || 'strong'
-  $config.capital = $config.capital || 'capital'
-  $config.deleted = $config.deleted || 'deleted'
-  $config.italic = $config.italic || 'italic'
-  $config.lowercase = $config.lowercase || 'lowercase'
-  $config.normal = $config.normal || 'normal'
+ride-text-style($placeholder = false)
+  ride-text-style-custom({placeholder: $placeholder})
+
+ride-text-style-custom($config = {})
+  $config.bold = $config.bold || 'text-strong'
+  $config.capitalize = $config.capitalize || 'text-capitalize'
+  $config.deleted = $config.deleted || 'text-deleted'
+  $config.italic = $config.italic || 'text-italic'
+  $config.lowercase = $config.lowercase || 'text-lowercase'
+  $config.normal = $config.normal || 'text-normal'
   $config.placeholder = $config.placeholder || false
-  $config.underlined = $config.underlined || 'underline'
-  $config.uppercase = $config.uppercase || 'uppercase'
+  $config.underlined = $config.underlined || 'text-underlined'
+  $config.uppercase = $config.uppercase || 'text-uppercase'
   if $config.placeholder is false
     .{$config.bold}
-      font-weight bold
-    .{$config.capital}
-      text-transform capitalize
+      if current-media() is ''
+        @extend $font-700
+      else
+        font-weight: 700
+    .{$config.capitalize}
+      text-transform: capitalize
     .{$config.deleted}
-      text-decoration line-through
+      text-decoration: line-through
     .{$config.italic}
-      font-style italic
+      font-style: italic
     .{$config.lowercase}
-      text-transform lowercase
+      text-transform: lowercase
     .{$config.normal}
-      font-weight normal
+      if current-media() is ''
+        @extend $font-400
+      else
+        font-weight: 400
     .{$config.uppercase}
-      text-transform uppercase
+      text-transform: uppercase
     .{$config.underlined}
-      text-decoration underline
-  if $config.placeholder is true
+      text-decoration: underline
+  else
     ${$config.bold}
-      font-weight bold
-    ${$config.capital}
-      text-transform capitalize
+      if current-media() is ''
+        @extend $font-700
+      else
+        font-weight: 700
+    ${$config.capitalize}
+      text-transform: capitalize
     ${$config.deleted}
-      text-decoration line-through
+      text-decoration: line-through
     ${$config.italic}
-      font-style italic
+      font-style: italic
     ${$config.lowercase}
-      text-transform lowercase
+      text-transform: lowercase
     ${$config.normal}
-      font-weight normal
+      if current-media() is ''
+        @extend $font-400
+      else
+        font-weight: 400
     ${$config.uppercase}
-      text-transform uppercase
+      text-transform: uppercase
     ${$config.underlined}
-      text-decoration underline
+      text-decoration: underline
 
 
 // using default ride-typography mixins
@@ -135,12 +150,12 @@ ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $placeholder 
       ride-small()
     ride-text-style()
   else
-    ride-align($placeholder)
+    ride-align(true)
     $code
       ride-code()
     ride-headings($font-size, $line-height, $margin, $config: {
       headings: $headings,
-      placeholder: $placeholder
+      placeholder: true
     })
     $highlight
       ride-highlight()
@@ -150,6 +165,4 @@ ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $placeholder 
       ride-paragraph($font-size, $line-height, $margin)
     $small
       ride-small()
-    ride-text-style($config: {
-      placeholder: $placeholder
-    })
+    ride-text-style(true)

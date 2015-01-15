@@ -1,3 +1,23 @@
+#column
+
+A simple column mixin for making your custom grid system.
+
+This mixin has not a {block}
+
+Basic usage:
+
+```
+.my-column-class
+  column: $columns, $col-number
+```
+
+Mixin params
+
+**$column-count** (required): the maximum columns of your grid (eg: 8, 12, 16)
+
+**$current-column** (required): current column size. 
+
+
 #ride-column
 
 This mixin is useful for making your custom grid system.

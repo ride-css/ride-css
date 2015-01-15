@@ -2,8 +2,8 @@
 // https://github.com/ride-css/ride-css/
 
 // column helpers
---ride-calc-column($width, $column-count, $current-column)
-  ($width * $current-column) / $column-count
+--ride-calc-column($width, columns, $col-number)
+  ($width * $col-number) / columns
 
 --ride-get-gutter($gutter)
   $gutter-length = length($gutter)
@@ -18,11 +18,16 @@
   else if $gutter-length is 4
     $calc = $gutter[1] + $gutter[3]
   $calc
+
+// column - this mixin could be overrided by axis
+column($columns, $col-number)
+  --ride-calc-column: 100%, $columns, $col-number
+
 // column mixin
 // doesn't accept a code block
---ride-column($width, $column-count, $current-column, $gutter = 0, $padding = 0)
+--ride-column($width, columns, $col-number, $gutter = 0, $padding = 0)
   $column-unit = unit($width)
-  $column = --ride-calc-column($width, $column-count, $current-column)
+  $column = --ride-calc-column($width, columns, $col-number)
   $subtract-gutter = --ride-get-gutter($gutter)
 
   +cache('box-sizing')
@@ -31,17 +36,17 @@
   margin: $gutter
   width: ($column - $subtract-gutter)
   
-ride-column($width, $column-count = 1, $current-column = 1, $gutter = 0, $padding = 0)
+ride-column($width, columns = 1, $col-number = 1, $gutter = 0, $padding = 0)
   &
-    --ride-column: $width, $column-count, $current-column, $gutter, $padding
+    --ride-column: $width, columns, $col-number, $gutter, $padding
 
 // floating column mixin
 // doesn't accept a code block
---ride-float($width, $column-count, $current-column, $gutter, $margin-direction)
-  $column = --ride-calc-column($width, $column-count, $current-column)
+--ride-float($width, columns, $col-number, $gutter, $margin-direction)
+  $column = --ride-calc-column($width, columns, $col-number)
   $add-gutter = --ride-get-gutter($gutter)
   margin-{$margin-direction}: $column + $add-gutter
 
-ride-float($width, $column-count = 1, $current-column = 1, $gutter = 0, $margin-direction = 'left')
+ride-float($width, columns = 1, $col-number = 1, $gutter = 0, $margin-direction = 'left')
   &
-    --ride-float: $width, $column-count, $current-column, $gutter, $margin-direction
+    --ride-float: $width, columns, $col-number, $gutter, $margin-direction

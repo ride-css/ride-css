@@ -22,14 +22,6 @@ ride-body($font-size = 62.5%, $line-height = 1.5)
     line-height: $line-height unless @line-height
     
 // callout
-ride-callout($position = left, $color = black, $width = 5px)
-  absolute: top 0 $position 0
-  background-color: $color
-  content: ''
-  display: block
-  height: 100%
-  width: $width
-    
-ride-callout-parent()
-  position: relative
+callout($color = black, $position = left, $width = 5px)
+  border-{$position}: $width solid $color
   

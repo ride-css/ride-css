@@ -30,10 +30,31 @@ ride-blockquote($color, $width = 5px)
   callout($color, left, $width)
 
 // ride-blockquote
-ride-blockquote-footer($color)
+ride-blockquote-footer($color = false)
+  color: $color if $color not false
   &:before
     content: '- '
-    
+
+// ride-description
+ride-description($color = false)
+  if not property
+    dl
+      @extend $no-margin
+      color: $color if type-of($color) is 'rgba'
+      dt
+        @extend $font-700
+      dd
+        @extend $font-400
+        @extend $no-margin
+  else
+    @extend $no-margin
+    color: $color if type-of($color) is 'rgba'
+    dt
+      @extend $font-700
+    dd
+      @extend $font-400
+      @extend $no-margin
+      
 // ride-list
 ride-list($type)
   if not property

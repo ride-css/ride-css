@@ -19,11 +19,11 @@ Mixin parameters.
 
 **$config** [optional, default: {}]: is a javascript plain object, used for setting other parameters
 
-* *$config*.**column** (default: '.cl'): this is the class name for each css column (eg .cl1, .cl2 etc).
-* *$config*.**float** (default: '.float'): this is the float class name prefix (eg .float4, .float5).
+* *$config*.**column** (default: '.col'): this is the class name for each css column (eg .cl1, .cl2 etc).
+* *$config*.**floatleft** (default: '.float-left'): this is the float class name prefix (eg .float4, .float5).
 * *$config*.**oocss** (default: false): the grid system will be fully rendered using the oocss pattern (see example below).
 * *$config*.**placeholder** (default: false): if turned to true, the mixin will render only placeholders instead of css classes. Ideal if you are plannin to use an oocss design patter for your stylesheet.
-* *$config*.**push** (default: '.push'): this is the pushing column class prefix (eg .push6, .push7).
+* *$config*.**floatright** (default: '.float-right'): this is the pushing column class prefix (eg .push6, .push7).
 * *$config*.**prefix** (default: ''): this will add a prefix to columns, push, floats and row.
 * *$config*.**row** (default: '.row'): this is a clearfix container for the columns.
 * *$config*.**scope** (default: ''): this is the scope for the columns.

@@ -2,6 +2,11 @@
 // https://github.com/ride-css/ride-css/
 use('functions.js')
 
+// ends with, useful for checkin if a classname ends with a given char
+ends-with($string, $char)
+  if type-of($char) != 'string'
+    error('ends-with: $char must be a string') 
+  match($char +'{1}$', $string)
 // onePercent function
 // this function will return the one percent of the passed number
 one-percent($number)

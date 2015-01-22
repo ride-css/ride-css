@@ -2,15 +2,15 @@
 // https://github.com/ride-css/ride-css/
 
 // color-scheme
-color-scheme($name, $color, $background-color = false)
+color-scheme($name, $background-color = false, $color)
   --color-scheme($background-color, $color)
-    background-color: $background-color if $background-color not false
-    color: $color if $color not false
+    background-color: $background-color if type-of($background-color) is 'rgba'
+    color: $color if type-of($color) is 'rgba'
   if not property
     ${$name}
-      --color-scheme: $color, $background-color
+      --color-scheme: $background-color, $color
   else
-      --color-scheme: $name, $color
+      --color-scheme: $name, $background-color
       
 // clearfix
 clearfix()
@@ -19,6 +19,9 @@ clearfix()
     clear: both
     content: ''
     display: table
+
+// aliasing
+ride-clear-fix = clear-fix = clearfix
 
 // unselectable stuff
 dont-select($cache = false)
@@ -87,5 +90,3 @@ ride-wrap($class = '.wrap')
   else
     height: 100% unless @height
     width: 100% unless @width
-
-ride-clear-fix = clear-fix = clearfix

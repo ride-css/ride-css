@@ -21,6 +21,6 @@ set-unit($items, $unit)
   $offset = 0
   for $item in $items
     if $items[$offset]
-      $items[$offset] = unit(parseFloat($item), $unit)
+      $items[$offset] = unit(parse-float($item), $unit)
     $offset = $offset+1
   $items

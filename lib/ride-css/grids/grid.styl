@@ -4,11 +4,11 @@ use('grids.js')
 
 ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
   // basic column class selector
-  $config.column = $config.column || 'col'
+  $config.column = $config.column || 'col-'
   // basic span-left class selector
-  $config.spanleft = $config.spanleft || 'span-left'
+  $config.spanleft = $config.spanleft || 'span-left-'
   // basic span-right class selector
-  $config.spanright = $config.spanright || 'span-right'
+  $config.spanright = $config.spanright || 'span-right-'
   // oocss will yeld two classes, one generic for column padding, margin etc
   // another one will be the specific class for every column (col-1 col-2) and will have only their own width
   $config.oocss = $config.oocss || false
@@ -53,7 +53,12 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
     {$config.scope}
       +prefix-classes($config.prefix)
         if $config.oocss == true
-          .{$config.column}
+          $colname = $config.column
+
+          if ends-with($colname, '-')
+            $colname = replace-once-end($colname, '-', '')
+
+          .{$colname}
             box-sizing: border-box 
             float: left
             margin: set-unit($gutter, $base-unit)
@@ -61,10 +66,11 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
         if $config.oocss != true
           for $col, $col-name in $mygrid.cols
             .{$config.column}{$col-name + 1}
-              box-sizing: border-box 
-              float: left
-              margin: set-unit($gutter, $base-unit)
-              padding: $padding
+              +cache('ride-grid-common')
+                box-sizing: border-box 
+                float: left
+                margin: set-unit($gutter, $base-unit)
+                padding: $padding
         for $col, $col-name in $mygrid.cols
           .{$config.column}{$col-name + 1}
             width: unit($col, $base-unit)
@@ -83,7 +89,12 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
           ride-clear-fix()
   if $config.placeholder is true
     if $config.oocss == true
-      ${$config.column}
+      $colname = $config.column
+      
+      if ends-with($colname, '-')
+        $colname = replace-once-end($colname, '-', '')
+
+      ${$colname}
         box-sizing: border-box 
         float: left
         margin: set-unit($gutter, $base-unit)

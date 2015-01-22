@@ -2,11 +2,11 @@
 // https://github.com/ride-css/ride-css/
 
 // absolute page
-ride-absolute-page($page-number)
+ride-absolute-page($page-number, $size = 100%)
   +cache('ride-absolute-page-full-size')
     left: 0
     position: absolute
-    full-size()
+    full-size: $size
   top: (100% * $page-number)
   
 // body setup

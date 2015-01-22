@@ -16,9 +16,9 @@ Real life example
 
 Yelds
 ```
-input:invalid,
-textarea:invalid,
-select:invalid {
+input:valid,
+textarea:valid,
+select:valid {
   border: 1px solid #008000;
 }
 ```

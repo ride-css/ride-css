@@ -3,25 +3,52 @@
 use('grids.js')
 
 ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
+  // basic column class selector
   $config.column = $config.column || 'col'
-  $config.floatleft = $config.floatleft || 'float-left'
+  // basic span-left class selector
+  $config.spanleft = $config.spanleft || 'span-left'
+  // basic span-right class selector
+  $config.spanright = $config.spanright || 'span-right'
+  // oocss will yeld two classes, one generic for column padding, margin etc
+  // another one will be the specific class for every column (col-1 col-2) and will have only their own width
   $config.oocss = $config.oocss || false
+  // if set to true, this mixin will yeld a set of placeholders
+  // e.g.
+  //  $col, $col1, $span-left1, $span-right1, $row
   $config.placeholder = $config.placeholder || false
+  // if set, each class or placeholder will get a prefix
+  // e.g.
+  //  .prefix-col1, .prefix-span-left1
   $config.prefix = $config.prefix || ''
-  $config.floatright = $config.floatright || 'float-right'
+  // basic row class selector
   $config.row = $config.row || 'row'
+  // if set, each class or placeholder will be scoped
+  // e.g.
+  //  .scope .col1, .scope .span-left1
   $config.scope = $config.scope || ''
+  // grids width
   $config.width = $config.width || 100%
-  $config.disableFloat = $config.disableFloat || false
-  $config.disablePush = $config.disablePush || false
+  // if set to true, the mixin will not yeld span-left classes
+  $config.disablespanleft = $config.disablespanleft || false
+  // if set to true, the mixin will not yeld span-right classes
+  $config.disablespanright = $config.disablespanright || false
+  // if set to true, the mixin will not yeld both span-left and span-right classes
+  $config.nospan = $config.nospan || false
+  
+  // checking if nospan is set to true
+  if $config.nospan
+    $config.disablespanleft = true
+    $config.disablespanright = true
   
   $padding-has-not-unit = unit($padding[0]) == ''
   $force-border-box = false
 
   $base-unit = unit($config.width)
   
+  // will be deprecated. in v.1.0.0 will use only stylus mixins instead of a nodejs module for every calculation
   $mygrid = getGrid(parseInt($config.width) || 100, $columns, toArray(s('%s', $gutter)))
 
+  // now everything begins
   if $config.placeholder is false
     {$config.scope}
       +prefix-classes($config.prefix)
@@ -41,13 +68,13 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
         for $col, $col-name in $mygrid.cols
           .{$config.column}{$col-name + 1}
             width: unit($col, $base-unit)
-        if $config.disableFloat == false
+        if $config.disablespanleft == false
           for $float, $float-name in $mygrid.floats
-            .{$config.floatleft}{$float-name + 1}
+            .{$config.spanleft}{$float-name + 1}
               margin-left: unit($float, $base-unit)
-        if $config.disablePush == false
+        if $config.disablespanright == false
           for $push, $push-name in $mygrid.floats
-            .{$config.floatright}{$push-name + 1}
+            .{$config.spanright}{$push-name + 1}
               margin-right: unit($push, $base-unit)
         if $config.oocss == false
           .{$config.column}{$columns}
@@ -71,13 +98,13 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
     for $col, $col-name in $mygrid.cols
       ${$config.column}{$col-name + 1}
         width: unit($col, $base-unit)
-    if $config.disableFloat == false
+    if $config.disablespanleft == false
       for $float, $float-name in $mygrid.floats
-        ${$config.floatleft}{$float-name + 1}
+        ${$config.spanleft}{$float-name + 1}
           margin-left: unit($float, $base-unit)
-    if $config.disablePush == false
+    if $config.disablespanright == false
       for $push, $push-name in $mygrid.floats
-        ${$config.floatright}{$push-name + 1}
+        ${$config.spanright}{$push-name + 1}
           margin-right: unit($push, $base-unit)
     if $config.oocss == false
       ${$config.column}{$columns}
@@ -116,8 +143,8 @@ ride-ghost-grid-12($gutter, $padding)
 // six columns grid (ideal for mobile use)
 ride-grid-6($gutter = (0 2), $padding = (1em), $config = {})
   $config.column = 'sm-cl'
-  $config.floatleft = 'sm-float'
-  $config.floatright = 'sm-push'
+  $config.spanleft = 'sm-float'
+  $config.spanright = 'sm-push'
   // $config.scope = 'body'
   ride-grid(6, $gutter, $padding, $config)
 // shorthand for oocss six column grid
@@ -130,8 +157,8 @@ ride-ghost-grid-6($gutter, $padding)
 // four columns grid (ideal for mobile use)
 ride-grid-4($gutter = (0 0 2), $padding = (1em), $config = {})
   $config.column = 'smt-cl'
-  $config.floatleft = 'smt-float'
-  $config.floatright = 'smt-push'
+  $config.spanleft = 'smt-float'
+  $config.spanright = 'smt-push'
   // $config.scope = 'body'
   ride-grid(4, $gutter, $padding, $config)
 // shorthand for oocss four column grid

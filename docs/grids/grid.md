@@ -20,14 +20,15 @@ Mixin parameters.
 **$config** [optional, default: {}]: is a javascript plain object, used for setting other parameters
 
 * *$config*.**column** (default: '.col'): this is the class name for each css column (eg .cl1, .cl2 etc).
-* *$config*.**floatleft** (default: '.float-left'): this is the float class name prefix (eg .float4, .float5).
+* *$config*.**spanleft** (default: '.span-left'): this is the span left class name prefix (eg .span-left4, .span-left5).
 * *$config*.**oocss** (default: false): the grid system will be fully rendered using the oocss pattern (see example below).
-* *$config*.**placeholder** (default: false): if turned to true, the mixin will render only placeholders instead of css classes. Ideal if you are plannin to use an oocss design patter for your stylesheet.
-* *$config*.**floatright** (default: '.float-right'): this is the pushing column class prefix (eg .push6, .push7).
+* *$config*.**placeholder** (default: false): if turned to *true*, the mixin will render only placeholders instead of css classes. Ideal if you are plannin to use an oocss design patter for your stylesheet.
+* *$config*.**spanright** (default: '.span-right'): this is the right span column class prefix (eg .span-right6, .span-right7).
 * *$config*.**prefix** (default: ''): this will add a prefix to columns, push, floats and row.
 * *$config*.**row** (default: '.row'): this is a clearfix container for the columns.
 * *$config*.**scope** (default: ''): this is the scope for the columns.
 * *$config*.**width** (default: 100%): this is the base width every calculation will be made by (remember that you cannot have a width of 800px and a gutter in %).
+* *$config*.**nospan** (default: false): if set to *true*, the mixin will not yeld ```span-left``` and ```span-right``` classes (or placeholders, is *$config.placeholder* is set to true)
 
 Real life example
 

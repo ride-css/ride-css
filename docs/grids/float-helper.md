@@ -1,5 +1,7 @@
 #ride-float
 
+*This mixin is aliased to ride-span*
+
 This mixin is useful for making your custom grid system.
 
 This mixin has not a {block}
@@ -50,3 +52,4 @@ will output
   box-sizing: border-box;  
 }
 ```
+There are two more specific mixins called **ride-span-left** and  **ride-span-right**, which take the same arguments as  *ride-span* except for **$float-direction**

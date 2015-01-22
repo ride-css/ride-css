@@ -30,12 +30,14 @@ column($columns, $col-number)
   $column = --ride-calc-column($width, columns, $col-number)
   $subtract-gutter = --ride-get-gutter($gutter)
 
+  // automatic caching. 
   +cache('box-sizing')
     box-sizing: border-box if $padding not 0
   padding: $padding if $padding not 0
   margin: $gutter
   width: ($column - $subtract-gutter)
   
+// now the real mixin
 ride-column($width, columns = 1, $col-number = 1, $gutter = 0, $padding = 0)
   &
     --ride-column: $width, columns, $col-number, $gutter, $padding
@@ -47,6 +49,20 @@ ride-column($width, columns = 1, $col-number = 1, $gutter = 0, $padding = 0)
   $add-gutter = --ride-get-gutter($gutter)
   margin-{$margin-direction}: $column + $add-gutter
 
+// floating
 ride-float($width, columns = 1, $col-number = 1, $gutter = 0, $margin-direction = 'left')
   &
     --ride-float: $width, columns, $col-number, $gutter, $margin-direction
+
+// aliasing for ride-float
+ride-span = ride-float
+
+// span left mixin
+ride-span-left($width, columns = 1, $col-number = 1, $gutter = 0)
+  &
+    ride-float($width, columns, $col-number, $gutter, 'left')
+
+// span right mixin
+ride-span-right($width, columns = 1, $col-number = 1, $gutter = 0)
+  &
+    ride-float($width, columns, $col-number, $gutter, 'right')

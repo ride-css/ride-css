@@ -1,7 +1,17 @@
 #functions, we love 'em
 
-## id
-This function will return a timestamp.
+## ends-with
+This function will check if a string ends with some chars.
+
+Basic usage
+```
+$result = ends-with($string, $char)
+```
+
+Mixin parameters:
+
+* **$string** (required, must be a string): the string you are checking
+* **$char** (required, must be a string): the char(s) you are testing
 
 ## log
 This function will log a raw stylus object into your terminal, good for debugging stuff.

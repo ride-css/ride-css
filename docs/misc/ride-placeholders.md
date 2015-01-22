@@ -7,10 +7,8 @@ The list:
 ```
   $block
     display: block
-  $bold
-    font-weight: 700
-  $bolder
-    font-weight: 900
+  $border-box
+    box-sizing: border-box
   $code-font
     font-family: monospace,serif
     font-size: 1em
@@ -23,15 +21,21 @@ The list:
   $font-600
     font-weight: 600
   $font-700
-    @extend $bold
+    font-weight: 700
   $font-900
-    @extend $bolder
+    font-weight: 900
+  $inline
+    display: inline
   $inline-block
     display: inline-block
   $none
     display: none
-  $normal
-    @extend $font-400
+  $no-outline
+    outline: 0
+  $no-margin
+    margin: 0
+  $no-padding
+    padding: 0
   $pointer
     cursor: pointer
   $table
@@ -44,14 +48,12 @@ The list:
     display: table-cell
   $table-row
     display: table-row
-  $thin
-    @extend $font-300
-  $thinner
-    @extend $font-100
+  // compound or more comples placeholders
   $above-the-fold
     ride-absolute-page: 0
   $below-the-fold
     ride-absolute-page: 1
+    height: auto
   $button
     @extend $inline-block
     @extend $pointer
@@ -59,26 +61,31 @@ The list:
     background-size: cover
     background-position: center
     background-repeat: repeat-none
-  $level-0
+  $empty-block
+    @extend $block
+    content: ''
+  $level-100
     z-index: 0
-  $level-1
+  $level-200
     z-index: 10
-  $level-2
+  $level-300
     z-index: 20
-  $level-3
+  $level-400
     z-index: 30
-  $level-4
+  $level-500
     z-index: 40
-  $level-5
+  $level-600
     z-index: 50
+  $level-700
+    z-index: 60
+  $level-800
+    z-index: 70
+  $level-900
+    z-index: 80
+  $level-1000
+    z-index: 80
   $modal-like
-    box-sizing: border-box
-    fixed: top 0 left 0
-    full-size: 100%
-  $no-margin
-    margin: 0
-  $no-padding
-    padding: 0
+    ride-modal-panel: transparent
   $no-horizontal-margin
     margin-horizontal: 0
   $no-vertical-margin

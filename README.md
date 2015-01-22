@@ -11,7 +11,7 @@ There are mainly three ways to install and use it.
 
 Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to go to node.js website") installed
 
-###Installing ride-css using ride-cli
+###Installing ride-css and more useful stuff using [ride-cli](http://github.com/ride-css/ride-cli/ "Ride-cli github repository")
 
 > ```npm install -g ride-cli```
 
@@ -21,7 +21,7 @@ Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to 
 
 > ```grunt build```
 
-###Setting ride-css as a dependency for gruntjs tasks
+###Setting ride-css as a dependency for grunt and loading it into a stylus task
 
 > add to your **package.json** (into your *dependencies* object)
   ```
@@ -41,17 +41,25 @@ Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to 
 
 > *@require* ride-css in your buildable "*.styl" file and you have done.
 
+###Installing ride-css from git
+
+> ```git clone https://github.com/ride-css/ride-css```
+
+> *@require* ride-css in your buildable "*.styl" file and you have done.
+
 ##2 - your first awesome buildable file
 
 ###Including ride-css in your .styl file
-```
-// assuming you have installed ride-css with the first or the second step
-@require 'ride-css'
 
+assuming you have installed ride-css with the first or the second step
+you will have to @require ride-css
+
+```
+@require 'ride-css'
 // write your wonderful code here
 ```
 
-###A fast setup
+###Example setup
 ```
 @require 'ride-css'
 
@@ -66,8 +74,10 @@ $grid-padding = $line-height
 &
   // this will setup a css normalization and a box-sizing reset
   reset-type: 'normalize all'
+  ride-body: $font-size, $line-height
   // this will be your grid
   ride-grid: $grid-cols, $grid-gutter, $grid-padding
+  // typography
   ride-typography: $font-size, $line-height, $margin
 ```
 

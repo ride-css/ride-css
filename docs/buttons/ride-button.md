@@ -63,22 +63,22 @@ How to use it:
 
 ```
 .my-button
-  ride-button-color: $color $background-color
+  ride-button-color: $background-color, $color
 ```
 
 Mixin parameters
 
-* **$color** (required): the color for your button
 * **$background-color** (required): the background-color for your button
+* **$color** (required): the color for your button
 
 Real life example
 
 ```
 .my-button
   ride-button: small
-  ride-button-color: white red
+  ride-button-color: red, white
   &:hover
-    ride-button-color: @color orange
+    ride-button-color: orange, @color
 ```
 
 Will yeld to

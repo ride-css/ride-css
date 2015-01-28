@@ -98,22 +98,22 @@ $grid-padding = $line-height
 +breakpoint(320px, 540px)
   ride-grid($grid-cols, $grid-gutter, $grid-padding, {
     column: 'col-sm-',
-    floatleft: 'float-left-sm-',  
-    floatright: 'float-right-sm-'  
+    spanleft: 'span-left-sm-',  
+    spanright: 'span-right-sm-'  
   })
 // a breakpoint for medium-small displays (tablets?)
 +breakpoint(540px, 780px)
   ride-grid($grid-cols, $grid-gutter, $grid-padding, {
     column: 'col-md-',
-    floatleft: 'float-left-md-',  
-    floatright: 'float-right-md-'  
+    spanleft: 'span-left-md-',  
+    spanright: 'span-right-md-'  
   })
 // a breakpoint for medium displays (old pcs and larger tablets)
 +breakpoint(780px, 1280px)
   ride-grid($grid-cols, $grid-gutter, $grid-padding, {
     column: 'col-lg-',
-    floatleft: 'float-left-lg-',  
-    floatright: 'float-right-lg-'  
+    spanleft: 'span-left-lg-',  
+    spanright: 'span-right-lg-'  
   })
 
 // wow, this will render to about 790 lines of code! You now have four grids for four different resolutions.

@@ -137,5 +137,7 @@ $grid-padding = $line-height
 
 ###Contributors
 
-* author: [OctoD](https://github.com/OctoD/)
-* tester: [naya85](https://github.com/naya85/)
+* author/developer: [OctoD](https://github.com/OctoD/)
+* tester/designer: [naya85](https://github.com/naya85/)
+* tester: [iamdex](https://github.com/iamdex)
+* tester: [iwasmisery](https://github.com/iwasmisery/)

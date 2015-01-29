@@ -9,6 +9,10 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
   $config.spanleft = $config.spanleft || 'span-left-'
   // basic span-right class selector
   $config.spanright = $config.spanright || 'span-right-'
+  // basic span-left class selector
+  $config.pull = $config.pull || 'pull-'
+  // basic push-right class selector
+  $config.push = $config.push || 'push-'
   // oocss will yeld two classes, one generic for column padding, margin etc
   // another one will be the specific class for every column (col-1 col-2) and will have only their own width
   $config.oocss = $config.oocss || false
@@ -74,6 +78,10 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
         for $col, $col-name in $mygrid.cols
           .{$config.column}{$col-name + 1}
             width: unit($col, $base-unit)
+          .{$config.pull}{$col-name + 1}
+            relative: unit((-1 * $col), $base-unit)
+          .{$config.push}{$col-name + 1}
+            relative: unit($col, $base-unit)
         if $config.disablespanleft == false
           for $float, $float-name in $mygrid.floats
             .{$config.spanleft}{$float-name + 1}
@@ -109,6 +117,10 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
     for $col, $col-name in $mygrid.cols
       ${$config.column}{$col-name + 1}
         width: unit($col, $base-unit)
+      ${$config.pull}{$col-name + 1}
+        relative: unit((-1 * $col), $base-unit)
+      ${$config.push}{$col-name + 1}
+        relative: unit($col, $base-unit)
     if $config.disablespanleft == false
       for $float, $float-name in $mygrid.floats
         ${$config.spanleft}{$float-name + 1}

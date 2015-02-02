@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
   var packageJSON = grunt.file.readJSON('package.json')
-    , buildDest = '_build/'+ packageJSON.name +'/';
+    , buildDest = '../';
     
   grunt.initConfig({
     clean: {
@@ -20,12 +20,8 @@ module.exports = function (grunt) {
         files: [
           {cwd: 'jade/compiled/', src: ['**'], dest: buildDest, expand: true},
           {cwd: 'stylus/compiled/', src: ['**'], dest: buildDest, expand: true},
+          {cwd: 'static-files/', src: ['**'], dest: buildDest, expand: true},
           {cwd: 'coffee/compiled/', src: ['**'], dest: buildDest+ 'js/', expand: true}
-        ]
-      },
-      dropbox: {
-        files: [
-          {cwd: 'versions/', src: ['**'], dest: process.env.HOME +'/Dropbox/projects-sources/'+ packageJSON.name +'/', expand: true}
         ]
       }
     },

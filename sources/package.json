@@ -1,12 +1,16 @@
 {
-  "name": "my-project",
+  "name": "ride-css-website",
   "version": "0.0.1",
-  "description": "",
-  "homepage": "",
+  "description": "Website for ride-css",
+  "homepage": "https://github.com/ride-css/ride-css",
   "keywords": [],
-  "author": "",
-  "bugs": {},
-  "repository" : {},
+  "author": "ride-css",
+  "bugs": {
+    "github": "https://github.com/ride-css/ride-css/issues"  
+  },
+  "repository" : {
+    "github": "https://github.com/ride-css/ride-css"  
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-coffee": "~0.12.0",
@@ -18,7 +22,8 @@
     "grunt-contrib-stylus": "~0.19.0",
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-ftp-deploy": "~0.1.7",
-    "grunt-zip": "~0.16.2",
+    "grunt-markdown": "~0.x",
+    "grunt-zip": "~1.16.2",
     "express": "4.x",
     "ride-css": "~0.x"
   }

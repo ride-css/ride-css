@@ -1,0 +1,13 @@
+mixin css(link)
+  link(rel="stylesheet", href!=link)
+mixin js(src, async)
+  script(src!=src, async!=async)
+doctype
+html
+  head 
+    title 
+    meta(charset="utf-8") 
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1") 
+    block head 
+  body 
+    block body

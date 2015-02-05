@@ -6,15 +6,16 @@
   "keywords": [],
   "author": "ride-css",
   "bugs": {
-    "github": "https://github.com/ride-css/ride-css/issues"  
+    "github": "https://github.com/ride-css/ride-css/issues"
   },
-  "repository" : {
-    "github": "https://github.com/ride-css/ride-css"  
+  "repository": {
+    "github": "https://github.com/ride-css/ride-css"
   },
   "devDependencies": {
+    "express": "4.x",
     "grunt": "~0.4.5",
-    "grunt-contrib-coffee": "~0.12.0",
     "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-coffee": "~0.12.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-jade": "~0.12.0",
     "grunt-contrib-jshint": "~0.10.0",
@@ -23,8 +24,8 @@
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-ftp-deploy": "~0.1.7",
     "grunt-markdown": "~0.x",
-    "grunt-zip": "~1.16.2",
-    "express": "4.x",
+    "grunt-update-submodules": "^0.4.1",
+    "grunt-zip": "~0.16.2",
     "ride-css": "~0.x"
   }
 }

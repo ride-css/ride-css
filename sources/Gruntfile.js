@@ -48,6 +48,14 @@ module.exports = function (grunt) {
         }
       }
     },
+    update_submodules: {
+      docs: {
+        cwd: '../',
+        options: {
+          params: false
+        }
+      }
+    },
     zip: {
       dropbox: {
         cwd: './',
@@ -70,10 +78,16 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-markdown');
+  grunt.loadNpmTasks('grunt-update-submodules');
   grunt.loadNpmTasks('grunt-zip');
   
   grunt.registerTask('default', 'dont use it blahblahblah', function () {
     grunt.log.writeln('I told you not to use it. :P');
+  });
+
+  grunt.registerTask('updateDocs', 'Updates docs git submodule. Use it before recompiling', function () {
+    grunt.log.writeln('Updating');
+    grunt.task.run('update_submodules:docs');
   });
 
   grunt.registerTask('dropbox', 'Store in dropbox', function () {

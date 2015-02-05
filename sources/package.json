@@ -24,7 +24,6 @@
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-ftp-deploy": "~0.1.7",
     "grunt-markdown": "~0.x",
-    "grunt-update-submodules": "^0.4.1",
     "grunt-zip": "~0.16.2",
     "ride-css": "~0.x"
   }

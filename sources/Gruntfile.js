@@ -48,14 +48,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    update_submodules: {
-      docs: {
-        cwd: '../',
-        options: {
-          params: false
-        }
-      }
-    },
     zip: {
       dropbox: {
         cwd: './',
@@ -78,7 +70,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-markdown');
-  grunt.loadNpmTasks('grunt-update-submodules');
   grunt.loadNpmTasks('grunt-zip');
   
   grunt.registerTask('default', 'dont use it blahblahblah', function () {
@@ -86,8 +77,18 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('updateDocs', 'Updates docs git submodule. Use it before recompiling', function () {
-    grunt.log.writeln('Updating');
-    grunt.task.run('update_submodules:docs');
+    var done = this.async
+      , path = require('path');
+
+    grunt.util.spawn({
+      cmd: 'git',
+      args: ['pull'],
+      opts: {
+        cwd: path.resolve(__dirname, '../ride-css/')
+      }
+    }, function () {
+      done();
+    });
   });
 
   grunt.registerTask('dropbox', 'Store in dropbox', function () {

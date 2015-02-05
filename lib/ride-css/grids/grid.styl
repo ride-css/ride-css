@@ -79,9 +79,13 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
           .{$config.column}{$col-name + 1}
             width: unit($col, $base-unit)
           .{$config.pull}{$col-name + 1}
-            relative: left unit((-1 * $col), $base-unit)
+            left: unit((-1 * $col), $base-unit)
+            +cache('ride-grid-push-pull')
+              position: relative
           .{$config.push}{$col-name + 1}
-            relative: left unit($col, $base-unit)
+            left: unit($col, $base-unit)
+            +cache('ride-grid-push-pull')
+              position: relative
         if $config.disablespanleft == false
           for $float, $float-name in $mygrid.floats
             .{$config.spanleft}{$float-name + 1}
@@ -118,9 +122,13 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
       ${$config.column}{$col-name + 1}
         width: unit($col, $base-unit)
       ${$config.pull}{$col-name + 1}
-        relative: left unit((-1 * $col), $base-unit)
+        left: unit((-1 * $col), $base-unit)
+        +cache('ride-grid-push-pull')
+          position: relative
       ${$config.push}{$col-name + 1}
-        relative: left unit($col, $base-unit)
+        left: unit($col, $base-unit)
+        +cache('ride-grid-push-pull')
+          position: relative
     if $config.disablespanleft == false
       for $float, $float-name in $mygrid.floats
         ${$config.spanleft}{$float-name + 1}

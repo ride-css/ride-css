@@ -4,7 +4,7 @@
 
 A faster way to set absolute positioning
 
-```
+```sass
   .my-selector
     absolute: top 5% left 1em
   //will yeld to
@@ -19,7 +19,7 @@ A faster way to set absolute positioning
 
 A faster way to set fixed positioning
 
-```
+```sass
   .my-selector
     fixed: top 5% left 1em
   //will yeld to
@@ -34,7 +34,7 @@ A faster way to set fixed positioning
 
 A faster way to set relative positioning
 
-```
+```sass
   .my-selector
     relative: top 5% left 1em
   //will yeld to

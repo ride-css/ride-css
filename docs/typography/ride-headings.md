@@ -6,7 +6,7 @@ This mixin will return a set of **h1-h6** headings with the proper calculations 
 
 Basic usage
 
-```
+```sass
 ride-headings($font-size, $line-height, $margin = 0, $config = {})
 ```
 

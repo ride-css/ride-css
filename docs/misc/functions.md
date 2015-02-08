@@ -4,7 +4,7 @@
 This function will check if a string starts with some chars.
 
 Basic usage
-```
+```sass
 $result = starts-with($string, $char)
 ```
 
@@ -17,7 +17,7 @@ Mixin parameters:
 This function will check if a string ends with some chars.
 
 Basic usage
-```
+```sass
 $result = ends-with($string, $char)
 ```
 
@@ -31,7 +31,7 @@ This function will replace some chars at the end of a string
 
 Basic usage
 
-```
+```sass
 $new-string = replace-end($string, $char, $replacement)
 ```
 
@@ -46,7 +46,7 @@ This function will replace the last at the end of a string
 
 Basic usage
 
-```
+```sass
 $new-string = replace-once-end($string, $char, $replacement)
 ```
 
@@ -61,7 +61,7 @@ This function will replace some chars at the beginning of a string
 
 Basic usage
 
-```
+```sass
 $new-string = replace-start($string, $char, $replacement)
 ```
 
@@ -76,7 +76,7 @@ This function will replace the last char at the beginning of a string
 
 Basic usage
 
-```
+```sass
 $new-string = replace-once-start($string, $char, $replacement)
 ```
 

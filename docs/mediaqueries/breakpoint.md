@@ -6,7 +6,7 @@ This mixin has a {block}
 
 Basic use
 
-```
+```sass
 +breakpoint($min-width, $max-width, $orientation)
   // your awesome code here
 ```
@@ -21,7 +21,7 @@ Mixin parameters
 
 Real life example
 
-```
+```sass
 +breakpoint(320px, 480px)
   +wrap()
     font-size 1.4em
@@ -38,7 +38,7 @@ This mixin has a {block}
 
 Basic use
 
-```
+```sass
 +breakpoint-full($min-width, $max-width, minHeight = false, maxHeight = false, $orientation = false)
   // your awesome code here
 ```
@@ -57,7 +57,7 @@ Mixin parameters
 
 Real life example
 
-```
+```sass
 +breakpoint(320px, 480px, 500px, 1000px, portrait)
   +wrap()
     font-size 1.4em

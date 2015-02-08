@@ -4,7 +4,7 @@ This mixin has not a {block}, and is useful for making your own buttons faster
 
 Basic usage
   
-```
+```sass
 .scope-for-the-button
   ride-button: $type, [$property $value, ...]
 ```
@@ -16,7 +16,7 @@ Mixin params
 
 Real life example (using @extend and placeholders)
 
-```
+```sass
 $button-medium
   ride-button: medium, color white
 $button-custom
@@ -34,7 +34,7 @@ $button-custom
 
 will yeld to
 
-```
+```css
 .button-danger,
 .button-safe {
   padding: 0.5em 0.75em;
@@ -61,7 +61,7 @@ this mixin has not a **block**, could be really useful for setting :hover states
 
 How to use it:
 
-```
+```sass
 .my-button
   ride-button-color: $background-color, $color
 ```
@@ -73,7 +73,7 @@ Mixin parameters
 
 Real life example
 
-```
+```sass
 .my-button
   ride-button: small
   ride-button-color: red, white
@@ -83,7 +83,7 @@ Real life example
 
 Will yeld to
 
-```
+```css
 .my-button{
   background-color: #f00;
   color: #fff;

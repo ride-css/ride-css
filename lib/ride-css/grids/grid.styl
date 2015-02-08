@@ -9,6 +9,10 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
   $config.spanleft = $config.spanleft || 'span-left-'
   // basic span-right class selector
   $config.spanright = $config.spanright || 'span-right-'
+  // basic span-left class selector
+  $config.pull = $config.pull || 'pull-'
+  // basic push-right class selector
+  $config.push = $config.push || 'push-'
   // oocss will yeld two classes, one generic for column padding, margin etc
   // another one will be the specific class for every column (col-1 col-2) and will have only their own width
   $config.oocss = $config.oocss || false
@@ -32,8 +36,10 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
   $config.disablespanleft = $config.disablespanleft || false
   // if set to true, the mixin will not yeld span-right classes
   $config.disablespanright = $config.disablespanright || false
-  // if set to true, the mixin will not yeld both span-left and span-right classes
+  // if set to true, the mixin will not yeld both span-left and span-right classes/placeholders
   $config.nospan = $config.nospan || false
+  // if set to true, the mixin will not yeld both push and pull classes/placeholders
+  $config.nopushpull = $config.nopushpull || false
   
   // checking if nospan is set to true
   if $config.nospan
@@ -74,6 +80,15 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
         for $col, $col-name in $mygrid.cols
           .{$config.column}{$col-name + 1}
             width: unit($col, $base-unit)
+          if $config.nopushpull != true
+            .{$config.pull}{$col-name + 1}
+              left: unit((-1 * $col), $base-unit)
+              +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
+                position: relative
+            .{$config.push}{$col-name + 1}
+              left: unit($col, $base-unit)
+              +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
+                position: relative
         if $config.disablespanleft == false
           for $float, $float-name in $mygrid.floats
             .{$config.spanleft}{$float-name + 1}
@@ -109,6 +124,15 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
     for $col, $col-name in $mygrid.cols
       ${$config.column}{$col-name + 1}
         width: unit($col, $base-unit)
+      if $config.nopushpull != true
+        ${$config.pull}{$col-name + 1}
+          left: unit((-1 * $col), $base-unit)
+          +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
+            position: relative
+        ${$config.push}{$col-name + 1}
+          left: unit($col, $base-unit)
+          +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
+            position: relative
     if $config.disablespanleft == false
       for $float, $float-name in $mygrid.floats
         ${$config.spanleft}{$float-name + 1}
@@ -124,59 +148,63 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
       ride-clear-fix()
 
 // shorthand for oocss grid
-ride-oocss-grid($columns, $gutter, $padding, $placeholder = false)
+ride-oocss-grid($columns, $gutter = 0, $padding = 0, $placeholder = false)
   ride-grid($columns, $gutter, $padding, {oocss: true, placeholder: $placeholder})
 
 // shorthand for oocss ghost grid
-ride-ghost-grid($columns, $gutter, $padding)
+ride-ghost-grid($columns, $gutter = 0, $padding = 0)
   ride-oocss-grid($columns, $gutter, $padding, true)
 
 // twelve columns grid
 ride-grid-16($gutter = (0 1), $padding = (1em), $config = {})
   ride-grid(16, $gutter, $padding, $config)
 // shorthand for oocss twelve column grid
-ride-oocss-grid-16($gutter, $padding, $placeholder = false)
+ride-oocss-grid-16($gutter = 0, $padding = 0, $placeholder = false)
   ride-grid-16($gutter, $padding, {oocss: true, placeholder: $placeholder})
 // shorthand for ghost twelve column grid
 ride-ghost-grid-16($gutter, $padding)
   ride-oocss-grid-16($gutter, $padding, true)
   
 // twelve columns grid
-ride-grid-12($gutter = (0 1), $padding = (1em), $config = {})
+ride-grid-12($gutter = 0, $padding = 0, $config = {})
   ride-grid(12, $gutter, $padding, $config)
 // shorthand for oocss twelve column grid
-ride-oocss-grid-12($gutter, $padding, $placeholder = false)
+ride-oocss-grid-12($gutter = 0, $padding = 0, $placeholder = false)
   ride-grid-12($gutter, $padding, {oocss: true, placeholder: $placeholder})
 // shorthand for ghost twelve column grid
-ride-ghost-grid-12($gutter, $padding)
+ride-ghost-grid-12($gutter = 0, $padding = 0)
   ride-oocss-grid-12($gutter, $padding, true)
 
 // six columns grid (ideal for mobile use)
-ride-grid-6($gutter = (0 2), $padding = (1em), $config = {})
-  $config.column = 'sm-cl'
-  $config.spanleft = 'sm-float'
-  $config.spanright = 'sm-push'
+ride-grid-6($gutter = 0, $padding = 0, $config = {})
+  $config.column = 'col-md-'
+  $config.spanleft = 'float-left-md-'
+  $config.spanright = 'float-right-md-'
+  $config.push = 'push-md-'
+  $config.pull = 'pull-md-'
   // $config.scope = 'body'
   ride-grid(6, $gutter, $padding, $config)
 // shorthand for oocss six column grid
-ride-oocss-grid-6($gutter, $padding, $placeholder)
+ride-oocss-grid-6($gutter = 0, $padding = 0, $placeholder = false)
   ride-grid-6($gutter, $padding, {oocss: true, placeholder: $placeholder})
 // shorthand for ghost six column grid
-ride-ghost-grid-6($gutter, $padding)
+ride-ghost-grid-6($gutter = 0, $padding = 0)
   ride-oocss-grid-6($gutter, $padding, true)
 
 // four columns grid (ideal for mobile use)
-ride-grid-4($gutter = (0 0 2), $padding = (1em), $config = {})
-  $config.column = 'smt-cl'
-  $config.spanleft = 'smt-float'
-  $config.spanright = 'smt-push'
+ride-grid-4($gutter = 0, $padding = 0, $config = {})
+  $config.column = 'col-xs-'
+  $config.spanleft = 'span-left-xs-'
+  $config.spanright = 'span-right-xs-'
+  $config.push = 'push-xs-'
+  $config.pull = 'pull-xs-'
   // $config.scope = 'body'
   ride-grid(4, $gutter, $padding, $config)
 // shorthand for oocss four column grid
-ride-oocss-grid-4($gutter, $padding, $placeholder)
+ride-oocss-grid-4($gutter = 0, $padding = 0, $placeholder = false)
   ride-grid-4($gutter, $padding, {oocss: true, placeholder: $placeholder})
 // shorthand for ghost four column grid
-ride-ghost-grid-4($gutter, $padding)
+ride-ghost-grid-4($gutter = 0, $padding = 0)
   ride-oocss-grid-4($gutter, $padding, true)
 
 ride-column-grid($column-count, $config = {})

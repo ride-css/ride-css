@@ -4,14 +4,14 @@ This mixin has not a {block}
 
 Basic usage
   
-```
+```sass
 .scope-for-the-button
   button()
 ```
 
 default output
 
-```
+```css
 .scope-for-the-button{
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -30,7 +30,7 @@ default output
 
 real life example
 
-```stylus
+```sass
 .button
   +button()
     padding 1em

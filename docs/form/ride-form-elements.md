@@ -3,7 +3,7 @@
 This mixin has a {block}
 
 Basic usage
-```
+```sass
 ride-form-elements($border, $padding)
 ```
 
@@ -13,12 +13,12 @@ Mixin parameters
 * **$padding** (optional, default set to 0): the padding your form elements will have
 
 Real life example
-```
+```sass
 ride-form-elements(1px solid silver, 0 .5em)
 ```
 
 Yelds
-```
+```css
 input,
 textarea,
 select {

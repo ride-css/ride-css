@@ -5,7 +5,7 @@ This mixin has not a {block}
 
 Basic usage
 
-```
+```sass
 ride-grid($columns, $gutter, $padding, $config)
 ```
 
@@ -32,7 +32,7 @@ Mixin parameters.
 
 Real life example
 
-```
+```sass
 // actually these are the params used for this website grid system
 ride-grid(12, 0 2, 1.5em, {
   oocss: true  
@@ -41,7 +41,7 @@ ride-grid(12, 0 2, 1.5em, {
 
 With some options
 
-```
+```sass
 ride-grid(4, 1, 1.5em, {
   oocss: true,
   placeholder: true  
@@ -51,7 +51,7 @@ ride-grid(4, 1, 1.5em, {
 Actually, it will not render directly, but will allow you to use **@extend**.
 example (assuming we are using the grid setup above):
 
-```
+```sass
 $my-custom-placeholder-for-half-width-columns
   @extend $cl
   @extend $cl2
@@ -68,7 +68,7 @@ $my-custom-placeholder-for-half-width-columns
 
 same as ride-grid, but with the oocss flag set to true.
 
-```
+```sass
 &
   ride-oocss-grid: $columns, $gutter, $padding, $placeholder 
 ```
@@ -84,7 +84,7 @@ mixin parameters
 
 same as oocss grid, this mixin will render a set of placeholders
 
-```
+```sass
 &
   ride-ghost-grid: $columns, $gutter, $padding
 ```

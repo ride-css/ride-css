@@ -8,7 +8,7 @@ This mixin has a {block}
 
 Basic usage
 
-```
+```sass
 +responsive-phone()
   // your code here
 ```

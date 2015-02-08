@@ -4,13 +4,13 @@ This mixin has a {block}
 
 Basic usage
 
-```
+```sass
 ride-code($class, $tab-size)
 ```
 
 or
 
-```
+```sass
 +ride-code($class, $tab-size)
   // your code here
 ```

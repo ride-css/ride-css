@@ -4,7 +4,7 @@ This mixin has not a **{block}**
 
 Basic usage
 
-```
+```sass
 ride-small($class, $font-size)
 ```
 

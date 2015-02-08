@@ -6,7 +6,7 @@ This mixin has not a {block}
 
 Basic usage:
 
-```
+```sass
 .my-column-class
   column: $columns, $col-number
 ```
@@ -26,7 +26,7 @@ This mixin has not a {block}
 
 Basic usage:
 
-```
+```sass
 .my-column-class
   ride-column: $width $column-count $current-column $gutter $padding
 ```
@@ -45,13 +45,13 @@ Mixin params
 
 How does it works?
 
-```
+```sass
 column-width = (($width/$column-count) * $current-column) - $left-gutter - $right-gutter
 ```
 
 example:
 
-```
+```sass
 .test
   ride-column: 100% 10 2 (0 2) 1em
 ```

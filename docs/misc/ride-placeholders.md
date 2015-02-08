@@ -4,7 +4,7 @@ This mixin will yeld a set of placeholders.
 
 The list:
 
-```
+```sass
   $block
     display: block
   $border-box

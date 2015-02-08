@@ -6,7 +6,7 @@ This mixin has not a **{block}**
 
 basic usage
 
-```
+```sass
 ride-grid-12($gutter, $padding, $config)
 ```
 
@@ -20,7 +20,7 @@ Mixin parameters
 
 Real life example (the parameters are the same used for this website)
 
-```
+```sass
 ride-grid-12(0 2, 1.5em, {
   oocss: true
 })
@@ -30,7 +30,7 @@ ride-grid-12(0 2, 1.5em, {
 
 same as ride-grid-12, but with the oocss flag set to true.
 
-```
+```sass
 &
   ride-oocss-grid-12: $columns, $gutter, $padding, $placeholder 
 ```
@@ -46,7 +46,7 @@ mixin parameters
 
 same as oocss grid, this mixin will render a set of placeholders
 
-```
+```sass
 &
   ride-ghost-grid-12: $columns, $gutter, $padding
 ```

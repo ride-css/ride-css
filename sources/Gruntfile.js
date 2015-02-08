@@ -77,6 +77,21 @@ module.exports = function (grunt) {
     grunt.log.writeln('I told you not to use it. :P');
   });
 
+  grunt.registerTask('updateDocs', 'Updates docs git submodule. Use it before recompiling', function () {
+    var done = this.async
+      , path = require('path');
+
+    grunt.util.spawn({
+      cmd: 'git',
+      args: ['pull'],
+      opts: {
+        cwd: path.resolve(__dirname, '../ride-css/')
+      }
+    }, function () {
+      done();
+    });
+  });
+
   grunt.registerTask('dropbox', 'Store in dropbox', function () {
     grunt.log.writeln('Backup started');
     grunt.task.run('zip:dropbox', 'copy:dropbox')

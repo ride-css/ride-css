@@ -7,62 +7,62 @@ Ride css, Why walk when you can Ride?
 
 Ride is a Stylus mixins library for a faster css development.
 
-##1 - installing Ride css
+## 1 - installing Ride css
 
 There are mainly three ways to install and use it.
 
 Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to go to node.js website") installed
 
-###Installing ride-css and more useful stuff using [ride-cli](http://github.com/ride-css/ride-cli/ "Ride-cli github repository")
+### Installing ride-css and more useful stuff using [ride-cli](http://github.com/ride-css/ride-cli/ "Ride-cli github repository")
 
-> ```npm install -g ride-cli```
+* ```npm install -g ride-cli```
 
-> ```cd to-a-folder```
+* ```cd to-a-folder```
 
-> ```ridecss init my-project```
+* ```ridecss init my-project```
 
-> ```grunt build```
+* ```grunt build```
 
-###Setting ride-css as a dependency for grunt and loading it into a stylus task
+### Setting ride-css as a dependency for grunt and loading it into a stylus task
 
-> add to your **package.json** (into your *dependencies* object)
+* add to your **package.json** (into your *dependencies* object)
   ```
     "grunt-contrib-stylus": "0.x",
     "ride-css": "0.x"
   ```
 
-> type ```npm install```
+* type ```npm install```
 
-> create a task for **grunt-contrib-stylus** and **@require** ride-css in your main buildable file
+* create a task for **grunt-contrib-stylus** and **@require** ride-css in your main buildable file
 
-###Installing ride-css from zip
+### Installing ride-css from zip
 
-> [Download Ride css](https://github.com/ride-css/ride-css/archive/master.zip) and extract into your *working folder* 
+* [Download Ride css](https://github.com/ride-css/ride-css/archive/master.zip) and extract into your *working folder* 
 
-> CD to your *working folder* and type ```npm install```
+* CD to your *working folder* and type ```npm install```
 
-> *@require* ride-css in your buildable "*.styl" file and you have done.
+* *@require* ride-css in your buildable "*.styl" file and you have done.
 
-###Installing ride-css from git
+### Installing ride-css from git
 
-> ```git clone https://github.com/ride-css/ride-css```
+* ```git clone https://github.com/ride-css/ride-css```
 
-> *@require* ride-css in your buildable "*.styl" file and you have done.
+* *@require* ride-css in your buildable "*.styl" file and you have done.
 
-##2 - your first awesome buildable file
+## 2 - your first awesome buildable file
 
-###Including ride-css in your .styl file
+### Including ride-css in your .styl file
 
 assuming you have installed ride-css with the first or the second step
 you will have to @require ride-css
 
-```
+```sass
 @require 'ride-css'
 // write your wonderful code here
 ```
 
-###Example setup
-```
+### Example setup
+```sass
 @require 'ride-css'
 
 $font-size: 14px
@@ -83,9 +83,9 @@ $grid-padding = $line-height
   ride-typography: $font-size, $line-height, $margin
 ```
 
-##3 - contributing
+## 3 - contributing
 
-###You could be really helpful
+### You could be really helpful
 
 [How to contribute](https://github.com/ride-css/ride-css/blob/master/contributing.md)
 
@@ -97,7 +97,7 @@ $grid-padding = $line-height
 * Asking questions and or about new features
 * Reporting any bug
 
-###Contributors
+### Contributors
 
 * author: [OctoD](https://github.com/OctoD/)
 * tester: [naya85](https://github.com/naya85/)

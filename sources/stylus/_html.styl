@@ -1,0 +1,30 @@
+body
+  @extend $font-300
+blockquote
+  ride-blockquote: $color-blockquote
+// basic anchors setup
+a
+  // extending $transition-fast-ease-out
+  @extend $transition-fast-ease-out
+  // we'll have lighter coloured links when hovering
+  ride-links: $color-links, true
+img
+  border-radius: $image-border-radius
+// settings headings font-weight
+h1
+  @extend $font-300
+h2
+  @extend h1
+h3
+  @extend h1
+h4
+  @extend $font-400
+h5
+  @extend h4
+h6
+  @extend $font-700
+// paragraphs font weight
+p
+  @extend $font-400
+  // whoah! magic! we'll set a nice looking letter-spacing using a simple formula: ($font-size/$line-height) * $approsimatively-number-of-chars-each-line
+  letter-spacing: (($font-size / $line-height)* 84)

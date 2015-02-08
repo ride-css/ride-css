@@ -28,6 +28,7 @@ module.exports = function (grunt) {
     jade: {
       build: {
         options: {
+          basedir: __dirname,
           pretty: true
         },
         cwd: 'jade/',

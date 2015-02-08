@@ -1,0 +1,32 @@
+// we'll do the things with the "who cares device first" pattern
+// and using lot of flexbox and some ride-grids here and there.
+
+// site page setup
+.page
+  aside
+    @extend $col
+    @extend $col-4
+  aside + section
+    @extend $col-12
+  section
+    @extend $col
+    @extend $col-16
+.page-reversed
+  @extend .page
+  aside ~ section
+    @extend .page aside + section
+// site navs
+// we'll use a flex grid for the primary nav
+.primary-nav
+  @extend $flex
+  flex-flow: column wrap
+.secondary-nav
+  @extend $flex
+  flex-flow: row
+// site elements
+.site-header
+  @extend .primary-nav
+// we are giving the site logo the same font size and line-height of a h1
+// BECAUSE REASONS! [quote]
+.site-logo
+  @extend .h1

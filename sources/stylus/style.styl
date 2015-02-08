@@ -1,3 +1,20 @@
 @require 'ride-css'
 @require 'nib'
-// your code starts here
+@require '_vars'
+// le'ts start bootstrapping the css
+&
+  // full css normalization
+  reset-type: 'normalize all'
+  // let's setup body and html quickly
+  ride-body: 100%, 1.5
+  // a quick setup for the typography
+  ride-typography: $font-size, $line-height, $margin
+  // a ride ghost grid. just a bunch of placeholders
+  ride-ghost-grid-16: $grid-gutter, $grid-padding
+  
+// some additional placeholders
+@require '_placeholders'
+// html additional tweaks
+@require '_html'
+// basic layout
+@require '_layout'

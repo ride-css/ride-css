@@ -5,7 +5,7 @@ This mixin will help you to build your custom css grid system.
 This mixin has not a {block}
 
 Basic usage
-```
+```sass
 ride-column-grid($column-count, $config)
 // or
 .my-column-grid
@@ -19,13 +19,13 @@ Mixin parameters
   * $config.**class** (optional, default: 'ride-columns'): the grid wrapper class, every direct child will be considered as a column
 
 Real life example
-```
+```sass
 .my-grid
   ride-column-grid: 6
 ```
 
 Yelds
-```
+```css
 .my-grid {
   -webkit-column-count: 6;
   -moz-column-count: 6;

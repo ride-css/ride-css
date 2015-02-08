@@ -3,13 +3,13 @@
 This mixin has a {block}
 
 Basic usage
-```
+```sass
 +placeholder()
   // your ruleset
 ```
 
 Real life example
-```
+```sass
 +form-elements()
   +placeholder()
     color: grey
@@ -17,7 +17,7 @@ Real life example
 
 output
 
-```
+```css
 input::-webkit-placeholder,
 textarea::-webkit-placeholder,
 select::-webkit-placeholder {

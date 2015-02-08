@@ -5,7 +5,7 @@ This mixin has not a **{block}**
 This mixin will returs a set of placeholders, scoped by a css selector (if set, see below)
 
 basic usage
-```
+```sass
 // outside a selector
 ride-flex-grid($columns, $gutter, $padding)
 // inside a selector
@@ -27,7 +27,7 @@ Each column placeholder will follow this naming pattern
 
 Real life example:
 
-```
+```sass
 $wrap
   ride-flex-grid: 12, .5em 1% 0, 1em
 .item

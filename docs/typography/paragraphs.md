@@ -3,7 +3,7 @@
 This mixin has not a **{block}**
 
 Basic usage
-```
+```sass
 // as a function
 ride-paragraph($font-size, $line-height, $margin)
 // as a css property

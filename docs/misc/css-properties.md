@@ -16,7 +16,7 @@ Those mixins are used as common css properties
 
 These mixins will return both horizontal or vertical border
 
-```
+```sass
   .my-selector
     border-horizontal: 1px solid red
     border-vertical: 1px solid red, 2px solid white
@@ -27,7 +27,7 @@ These mixins will return both horizontal or vertical border
 These mixins will return both horizontal or vertical margin
 
 basic usage:
-```
+```sass
 .my-selector
   margin-horizontal: $margin-right $margin-left
   margin-vertical: $margin-top $margin-bottom
@@ -43,7 +43,7 @@ mixin parameters
 **$margin-right**: (required)
 **$margin-left**: (optional, inherits from $margin-right)
 
-```
+```sass
   .my-selector
     margin-horizontal: 1em
     margin-vertical: 1em 2em
@@ -55,7 +55,7 @@ mixin parameters
 These mixins will return both horizontal or vertical padding
 
 basic usage:
-```
+```sass
 .my-selector
   padding-horizontal: $padding-right $padding-left
   padding-vertical: $padding-top $padding-bottom
@@ -71,7 +71,7 @@ mixin parameters
 **$padding-right**: (required)
 **$padding-left**: (optional, inherits from $padding-right)
 
-```
+```sass
   .my-selector
     padding-horizontal: 1em 2em
     padding-vertical: 1em

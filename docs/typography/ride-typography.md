@@ -4,7 +4,7 @@ This mixin has not a **{block}**
 
 Basic usage
 
-```
+```sass
 ride-typography($font-size, $line-height, $margin, $placeholder)
 ```
 
@@ -17,7 +17,7 @@ Mixin parameters
 
 This mixin will render automatically
 
-```
+```sass
 ride-align()
 ride-code()
 ride-headings()

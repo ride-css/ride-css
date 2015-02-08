@@ -8,7 +8,7 @@ This mixin has not a {block}
 
 Basic usage:
 
-```
+```sass
 .my-floating-class
   ride-float: $width $column-count $current-column $gutter $float-direction
 ```
@@ -27,13 +27,13 @@ Mixin params
 
 How does it works?
 
-```
+```sass
 column-float = (($width/$column-count) * $current-column) + $left-gutter + $right-gutter
 ```
 
 example:
 
-```
+```sass
 .test
   ride-float: 100% 10 2 (0 2) 'right'
 ```

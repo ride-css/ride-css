@@ -5,7 +5,7 @@
 This mixin has a {block}
 
 Basic usage
-```
+```sass
 +form-not-valid()
   // your ruleset
 // or
@@ -14,13 +14,13 @@ Basic usage
 ```
 
 Real life example
-```
+```sass
 +form-not-valid()
   color: red
 ```
 
 Yelds
-```
+```css
 input:invalid,
 textarea:invalid,
 select:invalid {

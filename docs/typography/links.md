@@ -5,7 +5,7 @@ This mixin has a **{block}**
 *aliased to: ride-anchors*
 
 Basic usage: 
-```
+```sass
   // used as a function
   ride-links($color, $light, $ratio, $class)
   // or used as a propery (the $class variable will be discarded)
@@ -21,7 +21,7 @@ Mixin params
 * **$class** (optional, default 'a') This is the css selector
 
 Real life example
-```
+```sass
 +ride-links(#df4400, true, class: '.main-anchor')
   text-decoration none
 //or
@@ -30,7 +30,7 @@ Real life example
 ```
 
 Yelds
-```
+```css
 .example-anchor{
   color:#df4400;
   text-decoration:none;

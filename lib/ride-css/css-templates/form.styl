@@ -8,6 +8,12 @@ form-elements()
   select
     {block}
 
+// quickly selects disabled form elements
+form-elements-disabled()
+  +form-elements()
+    &[disabled]
+      {block}
+
 // quickly selects readonly form elements
 form-elements-readonly()
   +form-elements()

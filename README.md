@@ -7,14 +7,27 @@ Ride, Why walk when you can Ride?
 
 Ride is a [Stylus](http://learnboost.github.io/stylus/ "Stylus homepage") mixins library for a faster css development.
 
+<<<<<<< HEAD
+## 1 - installing Ride css
+=======
 ##1 - Installing Ride css
+>>>>>>> master
 
 There are mainly three ways to install and use it.
 
 Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to go to node.js website") installed
 
-###Installing ride-css and more useful stuff using [ride-cli](http://github.com/ride-css/ride-cli/ "Ride-cli github repository")
+### Installing ride-css and more useful stuff using [ride-cli](http://github.com/ride-css/ride-cli/ "Ride-cli github repository")
 
+<<<<<<< HEAD
+* ```npm install -g ride-cli```
+
+* ```cd to-a-folder```
+
+* ```ridecss init my-project```
+
+* ```grunt build```
+=======
 > ```
     npm install -g ride-cli
   ```
@@ -33,21 +46,45 @@ Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to 
   ```
     grunt build
   ```
+>>>>>>> master
 
-###Setting ride-css as a dependency for grunt and loading it into a stylus task
+### Setting ride-css as a dependency for grunt and loading it into a stylus task
 
+<<<<<<< HEAD
+* add to your **package.json** (into your *dependencies* object)
+=======
 > Add those lines to your **package.json** (into your *dependencies* or *devDependencies* object)
+>>>>>>> master
   ```
     "grunt-contrib-stylus": "0.x",
     "ride-css": "0.x"
   ```
 
+<<<<<<< HEAD
+* type ```npm install```
+
+* create a task for **grunt-contrib-stylus** and **@require** ride-css in your main buildable file
+=======
 > Type ```npm install``` in your terminal
 
 > Then create a task for **grunt-contrib-stylus** and ```@require 'ride-css'``` at the top of your main file
+>>>>>>> master
 
-###Installing ride-css from zip
+### Installing ride-css from zip
 
+<<<<<<< HEAD
+* [Download Ride css](https://github.com/ride-css/ride-css/archive/master.zip) and extract into your *working folder* 
+
+* CD to your *working folder* and type ```npm install```
+
+* *@require* ride-css in your buildable "*.styl" file and you have done.
+
+### Installing ride-css from git
+
+* ```git clone https://github.com/ride-css/ride-css```
+
+* *@require* ride-css in your buildable "*.styl" file and you have done.
+=======
 > [Download Ride css](https://github.com/ride-css/ride-css/archive/master.zip) and extract into a folder
 
 > CD to the folder containing your extracted download and type ```npm install```
@@ -61,20 +98,26 @@ Remember that ride-css **requires** [node.js](http://nodejs.org/ "Click here to 
 > Add ```@require 'ride-css'``` in your buildable "*.styl" file, try to build and you have done.
 
 
+>>>>>>> master
 
-##2 - your first awesome buildable file
+## 2 - your first awesome buildable file
 
-###Including ride-css in your .styl file
+### Including ride-css in your .styl file
 
 *assuming you have installed ride-css following the first or the second step*
 
-```
+```sass
 @require 'ride-css'
 // write your wonderful code here
 ```
 
+<<<<<<< HEAD
+### Example setup
+```sass
+=======
 ###Example setup (try to copy&paste&build)
 ```
+>>>>>>> master
 @require 'ride-css'
 
 $font-size = 14px
@@ -119,11 +162,15 @@ $grid-padding = $line-height
 // wow, this will render to about 790 lines of code! You now have four grids for four different resolutions.
 ```
 
+<<<<<<< HEAD
+## 3 - contributing
+=======
 
 
 ##3 - contributing
+>>>>>>> master
 
-###You could be really helpful
+### You could be really helpful
 
 [How to contribute](https://github.com/ride-css/ride-css/blob/master/contributing.md)
 
@@ -135,7 +182,7 @@ $grid-padding = $line-height
 * Asking questions and or about new features
 * Reporting any bug
 
-###Contributors
+### Contributors
 
 * author/developer: [OctoD](https://github.com/OctoD/)
 * tester/designer: [naya85](https://github.com/naya85/)

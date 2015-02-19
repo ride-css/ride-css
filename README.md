@@ -101,3 +101,6 @@ $grid-padding = $line-height
 
 * author: [OctoD](https://github.com/OctoD/)
 * tester: [naya85](https://github.com/naya85/)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ride-css/ride-css/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

@@ -143,14 +143,14 @@ ride-typography($font-size = 1em, $line-height = 1.5, $margin = 0, $placeholder 
     })
     ride-highlight()
     hr
-      ride-hr($font-size)
+      ride-hr: $font-size
     p
-      ride-paragraph($font-size, $line-height, $margin)
+      ride-paragraph: $font-size, $line-height, $margin
     small
       ride-small()
     ride-text-style()
   else
-    ride-align(true)
+    ride-align: true
     $code
       ride-code()
     ride-headings($font-size, $line-height, $margin, $config: {

@@ -24,6 +24,8 @@ The list:
     font-weight: 700
   $font-900
     font-weight: 900
+  $flex
+    display: flex
   $inline
     display: inline
   $inline-block
@@ -45,9 +47,9 @@ The list:
     $row
       display: table-row
   $table-cell
-    display: table-cell
+    @extend $table $cell
   $table-row
-    display: table-row
+    @extend $table $row
   // compound or more comples placeholders
   $above-the-fold
     ride-absolute-page: 0
@@ -64,6 +66,8 @@ The list:
   $empty-block
     @extend $block
     content: ''
+  $level-0
+    z-index: -10
   $level-100
     z-index: 0
   $level-200
@@ -83,7 +87,7 @@ The list:
   $level-900
     z-index: 80
   $level-1000
-    z-index: 80
+    z-index: 90
   $modal-like
     ride-modal-panel: transparent
   $no-horizontal-margin

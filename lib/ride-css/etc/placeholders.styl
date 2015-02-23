@@ -45,9 +45,9 @@ ride-placeholders()
     $row
       display: table-row
   $table-cell
-    display: table-cell
+    @extend $table $cell
   $table-row
-    display: table-row
+    @extend $table $row
   // compound or more comples placeholders
   $above-the-fold
     ride-absolute-page: 0
@@ -64,6 +64,8 @@ ride-placeholders()
   $empty-block
     @extend $block
     content: ''
+  $level-0
+    z-index: -10
   $level-100
     z-index: 0
   $level-200
@@ -83,7 +85,7 @@ ride-placeholders()
   $level-900
     z-index: 80
   $level-1000
-    z-index: 80
+    z-index: 90
   $modal-like
     ride-modal-panel: transparent
   $no-horizontal-margin

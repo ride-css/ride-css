@@ -13,13 +13,11 @@ ride-absolute-page($page-number, $size = 100%)
 ride-body($font-size = 62.5%, $line-height = 1.5)
   html
   body
-    height: 100%
-    width: @height
+    full-size: 100%
   body
-    {block}
-    font-weight: normal unless @font-weight
-    font-size: $font-size unless @font-size
-    line-height: $line-height unless @line-height
+    @extend $font-400
+    font-size: $font-size
+    line-height: $line-height
     
 // callout
 callout($color = black, $position = left, $width = 5px)
@@ -57,19 +55,7 @@ ride-description($color = false)
       
 // ride-list
 ride-list($type)
-  if not property
-    ul
-      if $type is block
-        @extend $block
-      if $type is inline
-        @extend $block
-      if $type is inline-block
-        @extend $block
-      if $type is flex
-        display: flex
-      if $type is table
-        @extend $table
-  else
+  --ride-list-ul($type)
     if $type is block
       @extend $block
     if $type is inline
@@ -80,6 +66,12 @@ ride-list($type)
       display: flex
     if $type is table
       @extend $table
+
+  if not property
+    ul
+      --ride-list-ul: $type
+  else
+    --ride-list-ul: $type
   li
     if $type is block
       @extend $block

@@ -62,10 +62,11 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
       +prefix-classes($config.prefix)
         if $config.oocss == true
           $colname = $config.column
+          $modifier = $config.modifier
 
           if ends-with($colname, '-')
             $colname = replace-once-end($colname, '-', '')
-          if $config.modifier not ''
+          if $config.modifier != ''
             $modifier = '-'+ replace-once-end($config.modifier, '-', '')
 
           .{$colname}{$modifier}
@@ -109,6 +110,7 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
   if $config.placeholder is true
     if $config.oocss == true
       $colname = $config.column
+      $modifier = $config.modifier
       
       if ends-with($colname, '-')
         $colname = replace-once-end($colname, '-', '')

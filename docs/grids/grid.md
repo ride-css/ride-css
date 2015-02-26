@@ -19,16 +19,17 @@ Mixin parameters.
 
 **$config** [optional, default: {}]: is a javascript plain object, used for setting other parameters
 
-* *$config*.**column** (default: '.col'): this is the class name for each css column (eg .cl1, .cl2 etc).
-* *$config*.**spanleft** (default: '.span-left'): this is the span left class name prefix (eg .span-left4, .span-left5).
+* *$config*.**column** (default: '.col'): this is the class name for each css column (eg .col-1, .col-2 etc).
+* *$config*.**modifier** (default: ''): this will apply a modifier between .col, .offset, .push and .pull and their number (eg, if set to *xs-*, a col-12 will be renamed to *.col-xs-12*)
+* *$config*.**offsetleft** (default: '.offset-left'): this is the offset left class name prefix (eg .offset-left-4, .offset-left-5).
 * *$config*.**oocss** (default: false): the grid system will be fully rendered using the oocss pattern (see example below).
 * *$config*.**placeholder** (default: false): if turned to *true*, the mixin will render only placeholders instead of css classes. Ideal if you are plannin to use an oocss design patter for your stylesheet.
-* *$config*.**spanright** (default: '.span-right'): this is the right span column class prefix (eg .span-right6, .span-right7).
+* *$config*.**offsetright** (default: '.offset-right'): this is the right offset column class prefix (eg .offset-right-6, .offset-right-7).
 * *$config*.**prefix** (default: ''): this will add a prefix to columns, push, floats and row.
 * *$config*.**row** (default: '.row'): this is a clearfix container for the columns.
 * *$config*.**scope** (default: ''): this is the scope for the columns.
 * *$config*.**width** (default: 100%): this is the base width every calculation will be made by (remember that you cannot have a width of 800px and a gutter in %).
-* *$config*.**nospan** (default: false): if set to *true*, the mixin will not yeld ```span-left``` and ```span-right``` classes (or placeholders, is *$config.placeholder* is set to true)
+* *$config*.**nooffset** (default: false): if set to *true*, the mixin will not yeld ```offset-left``` and ```offset-right``` classes (or placeholders, is *$config.placeholder* is set to true)
 
 Real life example
 

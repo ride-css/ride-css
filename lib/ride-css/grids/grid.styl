@@ -5,11 +5,13 @@ use('grids.js')
 ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
   // basic column class selector
   $config.column = $config.column || 'col-'
-  // basic span-left class selector
-  $config.spanleft = $config.spanleft || 'span-left-'
-  // basic span-right class selector
-  $config.spanright = $config.spanright || 'span-right-'
-  // basic span-left class selector
+  // column, offset and push modifier
+  $config.modifier = $config.modifier || ''
+  // basic offset-left class selector
+  $config.offsetleft = $config.offsetleft || 'offset-left-'
+  // basic offset-right class selector
+  $config.offsetright = $config.offsetright || 'offset-right-'
+  // basic offset-left class selector
   $config.pull = $config.pull || 'pull-'
   // basic push-right class selector
   $config.push = $config.push || 'push-'
@@ -18,33 +20,33 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
   $config.oocss = $config.oocss || false
   // if set to true, this mixin will yeld a set of placeholders
   // e.g.
-  //  $col, $col1, $span-left1, $span-right1, $row
+  //  $col, $col1, $offset-left1, $offset-right1, $row
   $config.placeholder = $config.placeholder || false
   // if set, each class or placeholder will get a prefix
   // e.g.
-  //  .prefix-col1, .prefix-span-left1
+  //  .prefix-col1, .prefix-offset-left1
   $config.prefix = $config.prefix || ''
   // basic row class selector
   $config.row = $config.row || 'row'
   // if set, each class or placeholder will be scoped
   // e.g.
-  //  .scope .col1, .scope .span-left1
+  //  .scope .col1, .scope .offset-left1
   $config.scope = $config.scope || ''
   // grids width
   $config.width = $config.width || 100%
-  // if set to true, the mixin will not yeld span-left classes
-  $config.disablespanleft = $config.disablespanleft || false
-  // if set to true, the mixin will not yeld span-right classes
-  $config.disablespanright = $config.disablespanright || false
-  // if set to true, the mixin will not yeld both span-left and span-right classes/placeholders
-  $config.nospan = $config.nospan || false
+  // if set to true, the mixin will not yeld offset-left classes
+  $config.disableoffsetleft = $config.disableoffsetleft || false
+  // if set to true, the mixin will not yeld offset-right classes
+  $config.disableoffsetright = $config.disableoffsetright || false
+  // if set to true, the mixin will not yeld both offset-left and offset-right classes/placeholders
+  $config.nooffset = $config.nooffset || false
   // if set to true, the mixin will not yeld both push and pull classes/placeholders
   $config.nopushpull = $config.nopushpull || false
   
-  // checking if nospan is set to true
-  if $config.nospan
-    $config.disablespanleft = true
-    $config.disablespanright = true
+  // checking if nooffset is set to true
+  if $config.nooffset
+    $config.disableoffsetleft = true
+    $config.disableoffsetright = true
   
   $padding-has-not-unit = unit($padding[0]) == ''
   $force-border-box = false
@@ -63,42 +65,44 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
 
           if ends-with($colname, '-')
             $colname = replace-once-end($colname, '-', '')
+          if $config.modifier not ''
+            $modifier = '-'+ replace-once-end($config.modifier, '-', '')
 
-          .{$colname}
+          .{$colname}{$modifier}
             box-sizing: border-box 
             float: left
             margin: set-unit($gutter, $base-unit)
             padding: $padding
         if $config.oocss != true
           for $col, $col-name in $mygrid.cols
-            .{$config.column}{$col-name + 1}
+            .{$config.column}{$config.modifier}{$col-name + 1}
               +cache('ride-grid-common')
                 box-sizing: border-box 
                 float: left
                 margin: set-unit($gutter, $base-unit)
                 padding: $padding
         for $col, $col-name in $mygrid.cols
-          .{$config.column}{$col-name + 1}
+          .{$config.column}{$config.modifier}{$col-name + 1}
             width: unit($col, $base-unit)
           if $config.nopushpull != true
-            .{$config.pull}{$col-name + 1}
+            .{$config.pull}{$config.modifier}{$col-name + 1}
               left: unit((-1 * $col), $base-unit)
               +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
                 position: relative
-            .{$config.push}{$col-name + 1}
+            .{$config.push}{$config.modifier}{$col-name + 1}
               left: unit($col, $base-unit)
               +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
                 position: relative
-        if $config.disablespanleft == false
+        if $config.disableoffsetleft == false
           for $float, $float-name in $mygrid.floats
-            .{$config.spanleft}{$float-name + 1}
+            .{$config.offsetleft}{$config.modifier}{$float-name + 1}
               margin-left: unit($float, $base-unit)
-        if $config.disablespanright == false
+        if $config.disableoffsetright == false
           for $push, $push-name in $mygrid.floats
-            .{$config.spanright}{$push-name + 1}
+            .{$config.offsetright}{$config.modifier}{$push-name + 1}
               margin-right: unit($push, $base-unit)
         if $config.oocss == false
-          .{$config.column}{$columns}
+          .{$config.column}{$config.modifier}{$columns}
             float: none
         .{$config.row}
           ride-clear-fix()
@@ -108,41 +112,43 @@ ride-grid($columns, $gutter = 0, $padding = 0, $config = {})
       
       if ends-with($colname, '-')
         $colname = replace-once-end($colname, '-', '')
+      if $config.modifier not ''
+        $modifier = '-'+ replace-once-end($config.modifier, '-', '')
 
-      ${$colname}
+      ${$colname}{$modifier}
         box-sizing: border-box 
         float: left
         margin: set-unit($gutter, $base-unit)
         padding: $padding
     if $config.oocss != true
       for $col, $col-name in $mygrid.cols
-        ${$config.column}{$col-name + 1}
+        ${$config.column}{$config.modifier}{$col-name + 1}
           box-sizing: border-box 
           float: left
           margin: set-unit($gutter, $base-unit)
           padding: $padding
     for $col, $col-name in $mygrid.cols
-      ${$config.column}{$col-name + 1}
+      ${$config.column}{$config.modifier}{$col-name + 1}
         width: unit($col, $base-unit)
       if $config.nopushpull != true
-        ${$config.pull}{$col-name + 1}
+        ${$config.pull}{$config.modifier}{$col-name + 1}
           left: unit((-1 * $col), $base-unit)
           +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
             position: relative
-        ${$config.push}{$col-name + 1}
+        ${$config.push}{$config.modifier}{$col-name + 1}
           left: unit($col, $base-unit)
           +cache('ride-grid-push-pull'+ current-media() + $columns + $gutter + $padding)
             position: relative
-    if $config.disablespanleft == false
+    if $config.disableoffsetleft == false
       for $float, $float-name in $mygrid.floats
-        ${$config.spanleft}{$float-name + 1}
+        ${$config.offsetleft}{$config.modifier}{$float-name + 1}
           margin-left: unit($float, $base-unit)
-    if $config.disablespanright == false
+    if $config.disableoffsetright == false
       for $push, $push-name in $mygrid.floats
-        ${$config.spanright}{$push-name + 1}
+        ${$config.offsetright}{$config.modifier}{$push-name + 1}
           margin-right: unit($push, $base-unit)
     if $config.oocss == false
-      ${$config.column}{$columns}
+      ${$config.column}{$config.modifier}{$columns}
         float: none
     ${$config.row}
       ride-clear-fix()
@@ -175,37 +181,29 @@ ride-oocss-grid-12($gutter = 0, $padding = 0, $placeholder = false)
 ride-ghost-grid-12($gutter = 0, $padding = 0)
   ride-oocss-grid-12($gutter, $padding, true)
 
-// six columns grid (ideal for mobile use)
-ride-grid-6($gutter = 0, $padding = 0, $config = {})
-  $config.column = 'col-md-'
-  $config.spanleft = 'float-left-md-'
-  $config.spanright = 'float-right-md-'
-  $config.push = 'push-md-'
-  $config.pull = 'pull-md-'
+// six columns grid (ideal for tablet use)
+ride-grid-tablet($gutter = 0, $padding = 0, $config = {})
+  $config.modifier = 'md-'
   // $config.scope = 'body'
-  ride-grid(6, $gutter, $padding, $config)
+  ride-grid(12, $gutter, $padding, $config)
 // shorthand for oocss six column grid
-ride-oocss-grid-6($gutter = 0, $padding = 0, $placeholder = false)
-  ride-grid-6($gutter, $padding, {oocss: true, placeholder: $placeholder})
+ride-oocss-grid-tablet($gutter = 0, $padding = 0, $placeholder = false)
+  ride-grid-tablet($gutter, $padding, {oocss: true, placeholder: $placeholder})
 // shorthand for ghost six column grid
-ride-ghost-grid-6($gutter = 0, $padding = 0)
-  ride-oocss-grid-6($gutter, $padding, true)
+ride-ghost-grid-tablet($gutter = 0, $padding = 0)
+  ride-oocss-grid-tablet($gutter, $padding, true)
 
 // four columns grid (ideal for mobile use)
-ride-grid-4($gutter = 0, $padding = 0, $config = {})
-  $config.column = 'col-xs-'
-  $config.spanleft = 'span-left-xs-'
-  $config.spanright = 'span-right-xs-'
-  $config.push = 'push-xs-'
-  $config.pull = 'pull-xs-'
+ride-grid-mobile($gutter = 0, $padding = 0, $config = {})
+  $config.modifier = 'xs-'
   // $config.scope = 'body'
-  ride-grid(4, $gutter, $padding, $config)
+  ride-grid(12, $gutter, $padding, $config)
 // shorthand for oocss four column grid
-ride-oocss-grid-4($gutter = 0, $padding = 0, $placeholder = false)
-  ride-grid-4($gutter, $padding, {oocss: true, placeholder: $placeholder})
+ride-oocss-grid-mobile($gutter = 0, $padding = 0, $placeholder = false)
+  ride-grid-mobile($gutter, $padding, {oocss: true, placeholder: $placeholder})
 // shorthand for ghost four column grid
-ride-ghost-grid-4($gutter = 0, $padding = 0)
-  ride-oocss-grid-4($gutter, $padding, true)
+ride-ghost-grid-mobile($gutter = 0, $padding = 0)
+  ride-oocss-grid-mobile($gutter, $padding, true)
 
 ride-column-grid($column-count, $config = {})
   $config.class = $config.class || 'ride-columns'

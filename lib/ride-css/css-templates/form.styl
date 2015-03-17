@@ -80,7 +80,7 @@ ride-form-elements($border = 0, $padding = 0)
     if $padding != 0
       $select-padding = ''
       for $pad in $padding
-        $select-padding = ($pad/100)*85 unit($pad)
+        $select-padding = unit(($pad/100)*85, unit($pad))
       padding: 0 $select-padding
       option
         padding: $select-padding

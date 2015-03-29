@@ -36,5 +36,9 @@
     "stylus": "^0.50.x",
     "nib": "^1.0.4",
     "ride-cli": "0.x"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-stylus": "*"
   }
 }

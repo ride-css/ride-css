@@ -5,7 +5,7 @@
 --ride-setup-position(_position, $position)
   position: _position
   for $pos, $i in $position
-    {$pos}: $position[$i + 1] if even($i) and $position[$i + 1] not undefined
+    {$pos}: $position[$i + 1] if type-of($pos) == 'ident'
 
 absolute()
   --ride-setup-position: absolute arguments
@@ -15,6 +15,9 @@ fixed()
 
 relative()
   --ride-setup-position: relative arguments
+
+sticky()
+  --ride-setup-position: sticky arguments
 
 // background shorthand
 bkg()

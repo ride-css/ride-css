@@ -1,0 +1,53 @@
+a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0;
+}
+h2 {
+  font-size: 25.2px;
+  line-height: 1.1;
+  margin: 0 0 3.080000000000001px;
+}
+h3 {
+  font-size: 23.8px;
+  line-height: 1.1;
+  margin: 0 0 4.619999999999999px;
+}
+h4 {
+  font-size: 22.400000000000002px;
+  line-height: 1.1;
+  margin: 0 0 6.159999999999998px;
+}
+h5 {
+  font-size: 21px;
+  line-height: 1.1;
+  margin: 0 0 7.700000000000001px;
+}
+h6 {
+  font-size: 19.599999999999998px;
+  line-height: 1.1;
+  margin: 0 0 9.240000000000004px;
+}
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 10.5px;
+}
+small {
+  font-size: 0.625em;
+}
+a {
+  color: #ff4136;
+}
+a:hover {
+  color: #f40d00;
+}
+a:active {
+  color: #d20b00;
+}
+a:visited {
+  color: #910800;
+}

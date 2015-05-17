@@ -1,0 +1,64 @@
+@import 'ride-css/mixins/css'
+@import 'ride-css/mixins/css3'
+
+
+.set-properties-single
+  set-properties: top 0
+  
+.set-properties-multy
+  set-properties: top 0 left 0
+  
+.set-properties-multy-absurd
+  set-properties: top 0 left 0 padding 1em margin 2em
+
+.absolute-one
+  absolute: top 0
+
+.absolute-full
+  absolute: top 0 left 0
+
+.fixed
+  fixed: top 0 left 0
+
+.relative
+  relative: top 0 left 0
+
+.sticky
+  sticky: top 0 left 0
+
+.margin-horizontal
+  margin-horizontal: 1em
+
+.margin-horizontal-double
+  margin-horizontal: 1em 2em
+
+.margin-vertical
+  margin-vertical: 1em
+
+.padding-horizontal
+  padding-horizontal: 1em
+
+.padding-vertical
+  padding-vertical: 1em
+  
+.css3-transform
+  transform: scale(1)
+
+.css3-scale
+  scale: 1
+
+.css3-translateX
+  translateX: 1
+
+.css3-translateY
+  translateY: 1
+  
+.dont-select
+  dont-select()
+
+.dont-select-2
+  dont-select()
+  
+@media (min-width: 768px)
+  .dont-select-3
+    dont-select()

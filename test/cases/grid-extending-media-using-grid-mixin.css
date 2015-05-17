@@ -1,0 +1,16 @@
+@media (min-width: 400px) {
+  .extends-400 {
+    margin: 0;
+  }
+  .extends-400 {
+    width: 10%;
+  }
+}
+@media (min-width: 800px) {
+  .extends-800 {
+    margin: 0;
+  }
+  .extends-800 {
+    width: 20%;
+  }
+}

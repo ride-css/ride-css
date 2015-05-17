@@ -1,0 +1,21 @@
+@require '../../lib/ride-css/index'
+
+$grid-cols = 10
+$grid-gutter = 0
+$grid-padding = 1em
+
+@media (min-width: 768px)
+  placeholders('sm')
+  grid($grid-cols, $grid-gutter, $grid-padding, 'sm', true)
+
+@media (min-width: 1280px)
+  placeholders('md')
+  grid($grid-cols, $grid-gutter, $grid-padding, 'md', true)
+
+.col-sm-1
+  @extend $col-sm
+  @extend $col-sm-1
+  
+.col-md-1
+  @extend $col-md
+  @extend $col-md-1

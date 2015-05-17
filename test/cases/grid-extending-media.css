@@ -1,0 +1,22 @@
+@media (min-width: 400px) {
+  .col,
+  .extends-400 {
+    margin: 0;
+  }
+  .col,
+  .extends-400 {
+    width: 50%;
+  }
+}
+@media (min-width: 800px) {
+  .col,
+  .extends-800 {
+    margin: 0;
+  }
+  .col {
+    width: 50%;
+  }
+  .extends-800 {
+    width: 100%;
+  }
+}

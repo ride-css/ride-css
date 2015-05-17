@@ -1,8 +1,14 @@
-// Ride css. Released under MIT licence.
-// https://github.com/ride-css/ride-css/
-@require 'css-templates/*'
-@require 'etc/*'
-@require 'grids/*'
-@require 'resets/*'
-@require 'typography/*'
-ride-placeholders()
+use('js/functions.js')
+
+@import 'placeholders'
+@import 'colours/colours'
+@import 'mixins/bem-css'
+@import 'mixins/buttons'
+@import 'mixins/colours'
+@import 'mixins/css'
+@import 'mixins/form'
+// deprecated. use autoprefixer.
+// @import 'mixins/css3'
+@import 'mixins/normalize'
+@import 'mixins/typography'
+@import 'mixins/traditional-grid-system.styl'

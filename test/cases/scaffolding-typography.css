@@ -1,0 +1,82 @@
+h1 {
+  font-size: 20px;
+  line-height: 1.1;
+  margin: 0;
+}
+h2 {
+  font-size: 18px;
+  line-height: 1.1;
+  margin: 0 0 2.2px;
+}
+h3 {
+  font-size: 17px;
+  line-height: 1.1;
+  margin: 0 0 3.3px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 1.1;
+  margin: 0 0 4.4px;
+}
+h5 {
+  font-size: 15px;
+  line-height: 1.1;
+  margin: 0 0 5.5px;
+}
+h6 {
+  font-size: 14px;
+  line-height: 1.1;
+  margin: 0 0 6.600000000000001px;
+}
+p {
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0 0 7.5px;
+}
+small {
+  font-size: 6.25px;
+}
+.h1 {
+  font-size: 20px;
+  line-height: 1.1;
+  margin: 0;
+}
+.p {
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0 0 7.5px;
+}
+.h1-suffixed {
+  font-size: 20px;
+  line-height: 1.1;
+  margin: 0;
+}
+.p-suffixed {
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0 0 7.5px;
+}
+@media (min-width: 400px) {
+  .h1-media-sm {
+    font-size: 20px;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .p-media-sm {
+    font-size: 10px;
+    line-height: 1.5;
+    margin: 0 0 7.5px;
+  }
+}
+@media (min-width: 800px) {
+  .h1-media-md {
+    font-size: 20px;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .p-media-md {
+    font-size: 10px;
+    line-height: 1.5;
+    margin: 0 0 7.5px;
+  }
+}

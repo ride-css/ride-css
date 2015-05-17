@@ -1,0 +1,23 @@
+.block {
+  display: block;
+}
+@media (min-width: 400px) {
+  .block-xs,
+  .table,
+  .table .cell {
+    display: block;
+  }
+}
+@media (min-width: 700px) {
+  .block-sm {
+    display: block;
+  }
+}
+@media (min-width: 1100px) {
+  .table {
+    display: table;
+  }
+  .table .cell {
+    display: table-cell;
+  }
+}

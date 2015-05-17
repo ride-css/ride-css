@@ -1,0 +1,252 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this mixin will return a column!
+// @params:
+//   $grid-cols: the maximum columns your grid has
+//   $current-col: how many column your column will occupy
+//   $col-margin: margin, what else?
+//   $display-margin: if set to false, the col mixin will not display margin
+col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
+  $$check-margin = 0
+  if @margin
+    $col-margin = @margin
+  // getting the right horizontal margin. 
+  // because reasons  
+  if length($col-margin) == 1
+    $$check-margin = parse-float($col-margin)
+    $$col-margin = $col-margin * 2
+  if length($col-margin) == 2
+    $$check-margin = parse-float($col-margin[0]) + parse-float($col-margin[1])
+    $$col-margin = $col-margin[1] * 2
+  if length($col-margin) == 3
+    $$check-margin = parse-float($col-margin[0]) + parse-float($col-margin[1]) + parse-float($col-margin[2])
+    $$col-margin = $col-margin[1] * 2
+  if length($col-margin) == 4
+    $$check-margin = parse-float($col-margin[0]) + parse-float($col-margin[1]) + parse-float($col-margin[2]) + parse-float($col-margin[3])
+    $$col-margin = $col-margin[1] + $col-margin[3]
+  
+  // if you set margin, you'll have it
+  if $display-margin
+    +cache('col-margin'+ $col-margin + $display-margin)
+      margin: $col-margin
+  +cache('ride-col'+ arguments + current-media())
+    // if you already set your margin, we will use it for proper calculating
+    // calculating column width
+    $$width = (100% / $grid-cols * $current-col) - $$col-margin
+    width: $$width
+  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// [Not ready to use. too many bugs]
+// this mixin will yeld a list of cols.
+// @params
+//   $grid-cols : the maximum columns your grid has
+//    e.g: 12, 16, 5, 11
+//   $cols-margin : the margin each column is going to have (must be set in %)
+//    e.g: 1%, 0 1%, 1% 2% 4%, 0 0 2% 1%
+//   $cols-padding : padding for each column
+//    e.g: 1rem, 1em, 24px, 4%
+//   $suffix : each column will be suffixex 
+//    e.g: 'xs', 'sm', 'md', 'lg'...
+//   $display-margin: if set to false, the col mixin will not display margin
+//   $display-as-placeholders : setting this flag to true, you will get a set o placeholders instead of css classes
+//    e.g: true, false
+// cols($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $display-margin = true, $suffix = 'xs', $display-as-placeholders = false)
+//   $$selector-notation = '.'
+//   if $suffix != ''
+//     $$suffix = \-+$suffix
+  
+//   if $display-as-placeholders == true
+//     $$selector-notation = '$'
+    
+//   // getting columns    
+//   for $colnumber in 1...($grid-cols + 1)
+//     {$$selector-notation}col{$$suffix}-{$colnumber}
+//       col: $grid-cols, $colnumber, $cols-margin, $display-margin
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
+// offset mixin, will help you to move your content left or right
+// @params:
+//   $direction: decide where you have to move your column
+//   $grid-cols: the maximum columns your grid has
+//   $current-offset: how many column your column will move to left or right
+//   $col-margin: margin, what else?
+offset($direction = left, $grid-cols = 12, $current-offset = 0, $col-margin = 0)
+  // if you already set your margin, we will use it for proper calculating
+  if @margin
+    $col-margin = @margin
+  // resetting margin if $current-offset is 0
+  if $current-offset == 0
+    $col-margin = 0
+
+  // getting the right horizontal margin. 
+  // because reasons
+  if length($col-margin) == 1
+    $col-margin = $col-margin
+  if length($col-margin) == 2
+    $col-margin = $col-margin[1]
+  if length($col-margin) == 3
+    $col-margin = $col-margin[1]
+  if length($col-margin) == 4
+    $col-margin = $col-margin[1] + $col-margin[3]
+
+  // +cache('ride-offset'+ $direction +'-'+ $grid-cols +'-'+ $current-offset +'-'+ $col-margin + current-media())
+  margin-{$direction}: (100% / $grid-cols * $current-offset) + $col-margin
+  
+// shorthand for offset with left
+// @params:
+//   $grid-cols: the maximum columns your grid has
+//   $current-offset: how many column your column will move to left or right
+//   $col-margin: margin, what else?
+offset-left($grid-cols = 12, $current-offset = 0, $col-margin = 0)
+  offset(left, $grid-cols, $current-offset, $col-margin)
+
+// shorthand for offset with right
+// @params:
+//   $grid-cols: the maximum columns your grid has
+//   $current-offset: how many column your column will move to left or right
+//   $col-margin: margin, what else?
+offset-right($grid-cols = 12, $current-offset = 0, $col-margin = 0)
+  offset(right, $grid-cols, $current-offset, $col-margin)
+  
+// push - pull system. This is awful, but helpful
+// sincerly I prefer using flexbox model for making this, but since there are some browser
+// that are not really capable of doing their homeworks (internet explorer uh?) i've implemented this system anyway
+// @params
+//   $move-direction : direction where the column should move. backward will pull the column to left, forward will push the column to right
+//   $grid-cols: the maximum columns your grid has
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+col-move($move-direction = forward, $grid-cols = 12, $move-offset = 0, $cache-position = true)
+  // "guessing" direction
+  if $move-direction == forward
+    $$sign = 1
+  if $move-direction == backward
+    $$sign = -1
+  
+  // setting movement
+  // +cache('ride-col-move'+ $move-direction +'-'+ $grid-cols +'-'+ $move-offset +'-'+ $cache-position + current-media())
+  left: (100% / $grid-cols * $move-offset * $$sign)
+  // caching positioning. It's awful to read 12 or more times the position: relative property in a stylesheet
+  if $cache-position == true
+    +cache('col-move-relative'+ current-media())
+      position: relative
+
+// pull column shorthand
+// @params
+//   $grid-cols: the maximum columns your grid has
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+pull($grid-cols = 12, $move-offset = 0, $cache-position = true)
+  col-move(backward, $grid-cols, $move-offset, $cache-position)
+
+// push column shorthand
+// @params
+//   $grid-cols: the maximum columns your grid has
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+push($grid-cols = 12, $move-offset = 0, $cache-position = true)
+  col-move(forward, $grid-cols, $move-offset, $cache-position)
+  
+// row mixin
+// well, this will do nothing but setting a clearfix.
+// oh, we will use caching, of course.
+row()
+  +cache('row'+ current-media())
+    &:after
+    &:before
+      clear: both
+      content: ''
+      display: table
+      
+// grid mixin
+// @params
+//   $grid-cols : the maximum columns your grid has
+//    e.g: 12, 16, 5, 11
+//   $cols-margin : the margin each column is going to have (must be set in %)
+//    e.g: 1%, 0 1%, 1% 2% 4%, 0 0 2% 1%
+//   $cols-padding : padding for each column
+//    e.g: 1rem, 1em, 24px, 4%
+//   $suffix : each column will be suffixex 
+//    e.g: 'xs', 'sm', 'md', 'lg'...
+//   $display-as-placeholders : setting this flag to true, you will get a set o placeholders instead of css classes
+//    e.g: true, false
+grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $display-as-placeholders = false)
+  if current-media()
+    $$current-media = current-media()
+  $$selector-notation = '.'
+  if $suffix != ''
+    $$suffix = \-+$suffix
+  else
+    $$suffix = ''
+  
+  if $display-as-placeholders == true
+    $$selector-notation = '$'
+  // getting columns
+  if $display-as-placeholders == true
+    $col{$$suffix}
+      // this is commented because needs more tests
+      // margin: $cols-margin
+      float: left
+      padding: $cols-padding
+  else
+    {'[class*="col'+ $$suffix +'"]'}
+      margin: $cols-margin
+      padding: $cols-padding
+    
+  for $colnumber in 1...($grid-cols + 1)
+    {$$selector-notation}col{$$suffix}-{$colnumber}
+      col: $grid-cols, $colnumber, $cols-margin, $$current-media
+
+  // getting offsets (left)
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}offset-left{$$suffix}-{$colnumber}
+      offset-left: $grid-cols, $colnumber, $cols-margin
+
+  // offset-left reset
+  {$$selector-notation}offset-left{$$suffix}-0
+    offset-left: $grid-cols, 0, 0
+
+  // getting offsets (right)
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}offset-right{$$suffix}-{$colnumber}
+      offset-right: $grid-cols, $colnumber, $cols-margin
+
+  // offset-right reset
+  {$$selector-notation}offset-right{$$suffix}-0
+    offset-right: $grid-cols, 0, 0
+    
+  // getting columns
+  if $display-as-placeholders == true
+    $push{$$suffix}
+      position: relative
+    $pull{$$suffix}
+      position: relative
+      // this is commented due to a bug in this mixin
+      // if uncommented, a maximum stack error could be thrown
+      // @extend $pull-{$$suffix}
+  else
+    {'[class*="pull'+ $$suffix +'"]'}
+      position: relative
+    {'[class*="push'+ $$suffix +'"]'}
+      @extend {'[class*="pull'+ $$suffix +'"]'}
+
+  // getting pulls
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}pull{$$suffix}-{$colnumber}
+      pull: $grid-cols, $colnumber, false
+
+  // getting pushes 
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}push{$$suffix}-{$colnumber}
+      push: $grid-cols, $colnumber, false
+
+  // pull reset
+  {$$selector-notation}pull{$$suffix}-0
+    pull: $grid-cols
+  // push reset
+  {$$selector-notation}push{$$suffix}-0
+    push: $grid-cols
+
+  {$$selector-notation}row
+    row()

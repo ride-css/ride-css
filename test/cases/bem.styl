@@ -1,0 +1,40 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+@require '../../lib/ride-css/mixins/bem-css'
+
+.btn
+  color: #eee
+  +bem-mod('danger')
+    color: #f00
+  +bem-mod('safe')
+    color: #00f
+
++bem-mod('.btn', 'safe:hover')
+  color: #0af
+
++bem-mod('.btn', 'big')
+  padding: 1em
+
++bem-elem('.btn', 'text')
+  font-style: italic
+  
+.block
+  padding: 1em
+  +bem-mod('big')
+    padding: 2em
+  +bem-mod('bigger')
+    padding: 4em
+    +bem-elem('list')
+      display: inline-block
+      
+.accordion
+  +bem-elem('copy')
+    display: none
+    padding: 1rem 1.5rem 2rem 1.5rem
+    color: #ddd
+    line-height: 1.6
+    font-size: 14px
+    font-weight: 500
+    +bem-mod('open')
+      display: block

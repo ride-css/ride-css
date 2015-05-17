@@ -1,0 +1,3 @@
+--require should
+--check-leaks
+test/test.js

@@ -1,0 +1,145 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// line-height fixer mixin
+// this should not be used outside of this sheet
+// but if you like it, well, use it! :-)
+--line-height($font-size, $line-height)
+  if unit($line-height) != '' 
+    if unit($line-height) == unit($font-size)
+      if parse-float($line-height) > parse-float($font-size)
+        $line-height = unit($font-size / $line-height, '')
+      else
+        $line-height = unit($line-height / $font-size, '')
+    else
+      $line-height
+  else
+    $line-height
+
+// a mixin for a common heading
+// @param $number [number] the number which identifies the <h></h> tag (from 1 to 6)
+//      e.g: if you set $number to 1, you will get the css for <h1></h1>
+// @param $font-size [unit] the font-size you are using in your typography system. 
+//      e.g: 12px or 1rem or 1em or 2vh
+// @param $line-height [unit] the base line-height you are using in your typography system.
+//      e.g: 12px or 1.5 or 1.5rem ...
+// @param $font-multiplier [number] will help the preprocessor to calculate the proper <h1></h1> font size
+//      e.g: 2, 3, 1.8...
+// @param $factor-modifier [number] this will help to calculate <h2></h2> to <h6></h6> font size
+//      e.g: 20, 30, 25...
+// @return [css]
+heading($number, $font-size = 1rem, $line-height = 1.1, $font-multiplier = 2, $factor-modifier = 20)
+  // this factor will multiply your $font-size for $number
+  $$factor = 1
+  // but if the $number is higher than 1 (you want an <h2></h2> ... <h6></h6>)
+  // the factor will be modified
+  if $number > 1
+    $$factor = $$factor - ($number / $factor-modifier)
+
+  // usually, using a number is the common way to define line-height
+  // there are people who want to use strict measured line-heights
+  $line-height = --line-height($font-size, $line-height)
+
+  // now we are ready to setup the font-size properly
+  font-size: ($font-size * $font-multiplier * $$factor)
+  // now we are ready to setup the line-height properly
+  line-height: $line-height
+  // if $number is higher than 1, we will have to add a margin in order to fix the vertical rhytm
+  if $number > 1
+    $$margin-fix = ((($font-size * $font-multiplier) - @font-size) * @line-height)
+    margin: 0 0 $$margin-fix
+  else
+    margin: 0
+
+
+// this mixin will select all headings at once. 
+// @block  true
+// @param [unit] $font-size                 if set this param, the mixin will yeld a set of headings and the block will be discarded
+// @param [boolean/string] $placeholder     if set to true and the $font-size is set, this mixin will yeld a set of placeholders.
+//                                          if you set a string, the placeholders will be suffixed with this string
+// @return [css]
+headings($font-size = false, $placeholder = false)
+  if $font-size is false
+    h1, h2, h3, h4, h5, h6
+      {block}
+  if type-of($font-size) is 'unit'
+    if $placeholder == false
+      for $h in 1 2 3 4 5 6
+        h{$h}
+          heading: $h, $font-size
+    if $placeholder
+      $$suffix = ''
+      if $placeholder != true
+        $$suffix = \-+$placeholder
+      for $h in 1 2 3 4 5 6
+        $h{$h}{$$suffix}
+          heading: $h, $font-size
+
+// anchors, or links if you prefer, mixin
+// @param $color [rgba] is the base color for your links
+// @param $tint-and-shade [unit] your color will be modified by this percent (as a tint or a shade, based upon the "darkness")
+// @return [css]
+links($color = inherit, $tint-and-shade = 21%)
+  if @color && $color == inherit
+    $color = $color
+  unless @text-decoration
+    @extend $no-text-decoration
+  if type-of($color) is 'rgba'
+    color: $color
+    &:hover
+      color: lighten($color, $tint-and-shade) if dark($color)
+      color: darken($color, $tint-and-shade) if light($color)
+    &:active
+      color: lighten($color, $tint-and-shade + 11%) if dark($color)
+      color: darken($color, $tint-and-shade + 11%) if light($color)
+    &:visited
+      color: lighten($color, $tint-and-shade + 32%) if dark($color)
+      color: darken($color, $tint-and-shade + 32%) if light($color)
+
+
+// paragraphs. what else? 
+// @param $font-size [unit] the font-size you are using in your typography system. 
+//      e.g: 12px or 1rem or 1em or 2vh
+// @param $line-height [unit] the base line-height you are using in your typography system.
+//      e.g: 12px or 1.5 or 1.5rem ...
+// @return [css]
+paragraph($font-size = 1rem, $line-height = 1.5)
+  $line-height = --line-height($font-size, $line-height)
+  font-size: $font-size
+  line-height: $line-height
+  margin: 0 0 ($font-size * $line-height / 2)
+  
+
+// small tags should be small
+// @param $font-size [unit] the font-size you are using in your typography system. 
+//      e.g: 12px or 1rem or 1em or 2vh
+// @param $new-font-size-perc [unit] setting this number (a percent), you will tell the preprocessor how large the small tag will render fonts
+//      e.g: 75%
+// @return [css]
+small($font-size = 1rem, $new-font-size-perc = 62.5%)
+  // well. small tags should render small text
+  // there is no reason to display larger text 
+  if parse-float($new-font-size-perc) > 100
+    warn('small: '+ $new-font-size-perc +' is above or equal to 100%. This is not really small. $new-font-size-perc will be reset to 62.5%')
+    $new-font-size-perc = 62.5%
+  // setting up your nice font size :3
+  font-size: (($font-size / 100) * $new-font-size-perc)
+  
+
+scaffolding-typography($font-size = 1rem, $line-height = 1.5, $placeholder = false)
+  $$suffix = ''
+  if $placeholder
+    if $placeholder != true
+      $$suffix = \-+$placeholder
+  headings($font-size, $placeholder)
+  if !$placeholder
+    p
+      paragraph($font-size, $line-height)
+    small
+      small($font-size)
+  else 
+    $p{$$suffix}
+      paragraph($font-size, $line-height)
+    $small{$$suffix}
+      small($font-size)
+  

@@ -1,0 +1,99 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// quickly selects form elements
+form-elements()
+  &
+    input
+    select
+    textarea
+      {block}
+      
+// quickly selects disabled form elements
+form-disabled()
+  +form-elements()
+    &[disabled]
+      {block}
+
+// quickly selects read-only form elements
+form-read-only()
+  +form-elements()
+    &[readonly]
+      {block}
+
+// aliasing
+form-readonly = form-read-only
+
+// quickly selects in-range input elements
+form-in-range()
+  input[type="number"]:in-range
+    {block}
+    
+// quickly selects invalid input elements
+form-invalid()
+  +form-elements()
+    &:invalid
+      {block}
+      
+// quickly selects optional input elements
+form-optional()
+  +form-elements()
+    &:optional
+      {block}
+
+// quickly selects out-of-range input elements
+form-out-of-range()
+  input[type="number"]:out-of-range
+    {block}
+      
+// quickly selects required input elements
+form-required()
+  +form-elements()
+    &:required
+      {block}
+
+// quickly selects valid input elements
+form-valid()
+  +form-elements()
+    &:valid
+      {block}
+
+// helps you to setup form elements placeholders
+placeholder()
+  &::-webkit-placeholder
+    {block}
+  &::-moz-placeholder
+    {block}
+  &:-moz-placeholder
+    {block}
+  &::-ms-placeholder
+    {block}
+
+// ride-form-elements mixins
+// this will help you to setup quickly your own form elements
+// @param {ident} $form-border          the border!
+// @param {unit} $form-padding          the padding!
+// @param {unit} $apply-to-options      this will applies padding to options. Won't work on IE & chrome btw. But is funny.
+// @return {css}
+ride-form-elements($form-border = 0 none, $form-padding = 0, $apply-to-options = true)
+  input
+  select
+  textarea
+    border: $form-border if $form-border not 0 none
+    padding: $form-padding if $form-padding not 0
+    width: 100%
+  input[type="checkbox"]
+  input[type="radio"]
+    width: auto
+  select
+    if $form-padding not 0
+      $select-padding = ''
+      for $padding in $form-padding
+        $select-padding = unit(($padding/100)*85, unit($padding))
+      if $apply-to-options
+        padding: 0 $select-padding
+        option
+          padding: $select-padding
+      if !$apply-to-options
+        padding: $select-padding
+        

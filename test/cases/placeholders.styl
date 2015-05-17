@@ -1,0 +1,29 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+@import '../../lib/ride-css/placeholders'
+
+@media (min-width 400px)
+  placeholders('xs')
+  
+@media (min-width 700px)
+  placeholders('sm')
+
+@media (min-width 1100px)
+  placeholders('md')
+  
+.block
+  @extend $block
+  
+.block-xs
+  @extend $block-xs
+  
+.block-sm
+  @extend $block-sm
+  
+.table
+  @extend $block-xs
+  @extend $table-md
+  .cell
+    @extend $block-xs
+    @extend $table-cell-md

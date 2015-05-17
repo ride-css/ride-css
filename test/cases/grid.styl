@@ -1,0 +1,42 @@
+@import 'ride-css/mixins/traditional-grid-system'
+
+$i = 0
+
+[class*="col-"]
+  float: left
+  padding: 1em
+
+for $i in 1...11
+  .col-{$i}
+    col: 10, $i
+    
+.col-test-cache
+  col: 10, 1
+
+.offset-left-0
+  offset-left: 12
+  
+.offset-left-2
+  offset-left: 10, 2
+
+.offset-left-2-margin
+  offset-left: 10, 2, 1%
+
+.offset-left-2-margin-3
+  offset-left: 10, 2, 0 1% 0 3%
+
+.offset-right-0
+  offset-right: 12
+  
+.pull-5
+  pull: 10, 5
+
+.pull-6
+  pull: 10, 6
+  
+.row
+  row()
+  
+@media (min-width: 768px)
+  .col-sm-1
+    col: 10, 1

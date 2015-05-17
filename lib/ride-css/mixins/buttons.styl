@@ -1,0 +1,26 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+button($type = false)
+  // commented due to a stylus bug.
+  // used into media queries it would throw an "indexOf undefined" exception
+  // if selector-exists($button)
+  @extend $button
+  dont-select()
+  unless @vertical-align
+    +cache('vertical-align-middle'+ current-media())
+      vertical-align: middle
+  if $type is small
+    +cache('ride-button'+ $type + current-media())
+      font-size: .8em
+      padding: .5em 1.2em
+  else if $type is medium
+    +cache('ride-button'+ $type + current-media())
+      padding: .5em .75em
+  else if $type is large
+    +cache('ride-button'+ $type + current-media())
+      font-size: 1.2em
+      padding: .25em .325em
+  else
+    +cache('ride-button'+ $type + current-media())
+      padding: $type if typeof($type) is 'unit'

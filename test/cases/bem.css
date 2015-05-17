@@ -1,0 +1,41 @@
+.btn {
+  color: #eee;
+}
+.btn--danger {
+  color: #f00;
+}
+.btn--safe {
+  color: #00f;
+}
+.btn--safe:hover {
+  color: #0af;
+}
+.btn--big {
+  padding: 1em;
+}
+.btn__text {
+  font-style: italic;
+}
+.block {
+  padding: 1em;
+}
+.block--big {
+  padding: 2em;
+}
+.block--bigger {
+  padding: 4em;
+}
+.block--bigger__list {
+  display: inline-block;
+}
+.accordion__copy {
+  display: none;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  color: #ddd;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: 500;
+}
+.accordion__copy--open {
+  display: block;
+}

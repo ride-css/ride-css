@@ -1,0 +1,160 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// just some premade placeholder
+// @param [string] $suffix is the suffix for this set of placeholders
+// @return [$placeholders]
+placeholders($suffix = '')
+  if ($suffix != '')
+    $suffix = \-+$suffix
+
+  $align-center{$suffix}
+    text-align: center
+
+  $align-right{$suffix}
+    text-align: right
+
+  $align-left{$suffix}
+    text-align: left
+
+  $block{$suffix}
+    display: block
+
+  $border-box{$suffix}
+    box-sizing: border-box
+
+  $code-font{$suffix}
+    font-family: monospace,serif
+    font-size: 1em
+
+  $font-100{$suffix}
+    font-weight: 100
+
+  $font-300{$suffix}
+    font-weight: 300
+
+  $font-400{$suffix}
+    font-weight: 400
+
+  $font-600{$suffix}
+    font-weight: 600
+
+  $font-700{$suffix}
+    font-weight: 700
+
+  $font-900{$suffix}
+    font-weight: 900
+
+  $flex{$suffix}
+    display: flex
+
+  $inline{$suffix}
+    display: inline
+
+  $inline-block{$suffix}
+    display: inline-block
+
+  $invisible{$suffix}
+    visibility: hidden
+
+  $none{$suffix}
+    display: none
+
+  $no-outline{$suffix}
+    outline: 0
+
+  $no-margin{$suffix}
+    margin: 0
+
+  $no-padding{$suffix}
+    padding: 0
+
+  $pointer{$suffix}
+    cursor: pointer
+
+  $reset-position{$suffix}
+    position: inherit
+
+  $table{$suffix}
+    display: table
+    $cell{$suffix}
+      display: table-cell
+    $row{$suffix}
+      display: table-row
+
+  $visible{$suffix}
+    visibility: visible
+
+  $table-cell{$suffix}
+    @extend $table{$suffix} $cell{$suffix}
+
+  $table-row{$suffix}
+    @extend $table{$suffix} $row{$suffix}
+
+  $button{$suffix}
+    @extend $inline-block{$suffix}
+    @extend $pointer{$suffix}
+
+  $background-image-cover{$suffix}
+    background-size: cover
+    background-position: center
+    background-repeat: repeat-none
+
+  $empty-block{$suffix}
+    @extend $block{$suffix}
+    content: ''
+
+  $level-0{$suffix}
+    z-index: -10
+
+  $level-100{$suffix}
+    z-index: 0
+
+  $level-200{$suffix}
+    z-index: 10
+
+  $level-300{$suffix}
+    z-index: 20
+
+  $level-400{$suffix}
+    z-index: 30
+
+  $level-500{$suffix}
+    z-index: 40
+
+  $level-600{$suffix}
+    z-index: 50
+
+  $level-700{$suffix}
+    z-index: 60
+
+  $level-800{$suffix}
+    z-index: 70
+
+  $level-900{$suffix}
+    z-index: 80
+
+  $level-1000{$suffix}
+    z-index: 90
+
+  $level-9000{$suffix}
+    z-index: 1000
+
+  $no-horizontal-margin{$suffix}
+    margin-horizontal: 0
+
+  $no-vertical-margin{$suffix}
+    margin-vertical: 0
+
+  $no-horizontal-padding{$suffix}
+    padding-horizontal: 0
+
+  $no-vertical-padding{$suffix}
+    padding-vertical: 0
+    
+  $no-text-decoration{$suffix}
+    text-decoration: none
+    
+// automatic call for placeholders
+// doing this because some mixins automatically extends some placeholders (DRY code)
+placeholders()

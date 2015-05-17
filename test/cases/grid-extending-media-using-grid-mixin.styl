@@ -1,0 +1,12 @@
+@import 'ride-css/mixins/traditional-grid-system'
+
+@media (min-width 400px)
+  grid(10, 0, 0, 'xs', true)
+@media (min-width 800px)
+  grid(5, 0, 0, 'sm', true)
+    
+.extends-400
+  @extend $col-xs-1
+
+.extends-800
+  @extend $col-sm-1

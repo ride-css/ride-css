@@ -1,0 +1,22 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+bem-mod($bem-block, $bem-mod-name...)
+  // while not using as a property
+  if !current-property
+    if selector() != '&'
+      &--{$bem-block}
+        {block}
+    if selector() == '&'
+      {$bem-block}--{$bem-mod-name}
+        {block}
+
+bem-elem($bem-block, $bem-element...)
+  // while not using as a property
+  if !current-property
+    if selector() != '&'
+      &__{$bem-block}
+        {block}
+    if selector() == '&'
+      {$bem-block}__{$bem-element}
+        {block}

@@ -1,0 +1,47 @@
+.btn,
+.btn-large,
+.btn-ext,
+.btn-400 {
+  display: inline-block;
+}
+.btn,
+.btn-large,
+.btn-ext,
+.btn-400 {
+  cursor: pointer;
+}
+.btn-ext,
+.btn,
+.btn-large {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn-ext,
+.btn,
+.btn-large {
+  vertical-align: middle;
+}
+.btn-large {
+  font-size: 1.2em;
+  padding: 0.25em 0.325em;
+}
+@media (min-width: 400px) {
+  .btn-400 {
+    font-size: 0.8em;
+  }
+  .btn-400 {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .btn-400 {
+    vertical-align: middle;
+  }
+}

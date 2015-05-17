@@ -1,44 +1,28 @@
 {
+  "author": "Paolo Roth <iamoctod@gmail.com>",
   "name": "ride-css",
-  "version": "0.92.11",
-  "description": "A stylus mixin library for a faster frontend development.",
-  "main": "./lib/index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Ride css, a stylus mixins library for a faster and painless css development.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "lib/ride-css.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ride-css/ride-css"
+    "url": "git://github.com/ride-css/ride-css"
   },
-  "keywords": [
-    "css",
-    "library",
-    "frontend",
-    "ride",
-    "framework",
-    "stylus",
-    "oocss",
-    "design"
-  ],
-  "author": "Paolo Roth <iamoctod@gmail.com>",
-  "engines": {
-    "node": "*"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ride-css/ride-css/issues"
-  },
-  "homepage": "https://github.com/ride-css/ride-css",
   "dependencies": {
-    "stylus": "^0.50.x",
-    "nib": "^1.0.4",
-    "ride-cli": "0.x"
+    "stylus": "*"
   },
   "devDependencies": {
-    "gulp": "*",
-    "gulp-stylus": "*"
+    "express": "^4.12.3",
+    "gulp": "^3.8.11",
+    "gulp-jade": "^1.0.0",
+    "gulp-stylus": "^2.0.1",
+    "jade": "^1.9.2",
+    "mocha": "^2.2.1",
+    "should": "^5.2.0"
+  },
+  "scripts": {
+    "start": "node test/server.js",
+    "test": "mocha"
   }
 }

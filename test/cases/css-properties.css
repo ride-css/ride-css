@@ -1,0 +1,96 @@
+.set-properties-single {
+  top: 0;
+}
+.set-properties-multy {
+  top: 0;
+  left: 0;
+}
+.set-properties-multy-absurd {
+  top: 0;
+  left: 0;
+  padding: 1em;
+  margin: 2em;
+}
+.absolute-one {
+  position: absolute;
+  top: 0;
+}
+.absolute-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.relative {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+.margin-horizontal {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.margin-horizontal-double {
+  margin-left: 2em;
+  margin-right: 1em;
+}
+.margin-vertical {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+.padding-horizontal {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.padding-vertical {
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+.css3-transform {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.css3-scale {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.css3-translateX {
+  -webkit-transform: translateX(1);
+  -ms-transform: translateX(1);
+  transform: translateX(1);
+}
+.css3-translateY {
+  -webkit-transform: translateY(1);
+  -ms-transform: translateY(1);
+  transform: translateY(1);
+}
+.dont-select,
+.dont-select-2 {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@media (min-width: 768px) {
+  .dont-select-3 {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}

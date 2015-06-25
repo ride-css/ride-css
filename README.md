@@ -3,6 +3,8 @@
 Ride css, Why walk when you can Ride?
 =====================================
 
+[![Build Status](https://travis-ci.org/ride-css/ride-css.svg)](https://travis-ci.org/ride-css/ride-css)
+
 [Ride css online docs](https://ridecss.com/)
 
 Ride is a Stylus mixins library for a faster css development.

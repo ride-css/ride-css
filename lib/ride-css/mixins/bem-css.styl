@@ -11,6 +11,8 @@ bem-mod($bem-block, $bem-mod-name...)
       {$bem-block}--{$bem-mod-name}
         {block}
 
+mod = bem-mod
+
 bem-elem($bem-block, $bem-element...)
   // while not using as a property
   if !current-property
@@ -20,3 +22,5 @@ bem-elem($bem-block, $bem-element...)
     if selector() == '&'
       {$bem-block}__{$bem-element}
         {block}
+
+elem = bem-elem

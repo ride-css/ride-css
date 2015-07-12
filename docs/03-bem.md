@@ -8,11 +8,13 @@ At the moment there are two different mixins for using bem quickly.
 
 ## bem-elem, also known as the element that depends on the block
 
-this is the mixins
+this is the mixin
 
 ```sass
-        bem-elem($bem-block[, $bem-element])
+bem-elem($bem-block[, $bem-element])
 ```
+
+this mixin is aliased to `elem`
 
 this mixin accepts two parameters:
 
@@ -43,11 +45,13 @@ Each example will yeld the same thing:
 
 ## bem-mod, modifier for the block
 
-this is the mixins
+this is the mixin
 
 ```sass
 bem-mod($bem-block[, $bem-modifier])
 ```
+
+this mixin is aliased to `mod`
 
 this mixin accepts two parameters:
 

@@ -13,7 +13,7 @@ This mixin seems quite complicated, but it's not really such a pain to use it.
 You will be able to render a title-like text without getting worried too much about maths calculations.
 
 ```sass
-        heading($number, $font-size, $line-height, $font-multiplier, $factor-modifier)
+heading($number, $font-size, $line-height, $font-multiplier, $factor-modifier)
 ```
 
 The parameters accepted by this mixin are
@@ -34,26 +34,26 @@ The parameters accepted by this mixin are
 Maybe an example is better rather than the stuff written above.
 
 ```sass
-        h1
-          heading: 1, 14px, 1.2
-          
-        h2
-          heading: 2, 14px, 1.2
+h1
+  heading: 1, 14px, 1.2
+
+h2
+  heading: 2, 14px, 1.2
 ```
 
 Once built you will get
 
 ```css
-        h1 {
-          font-size: 28px;
-          line-height: 1.2;
-          margin: 0;
-        }
-        h2 {
-          font-size: 25.2px;
-          line-height: 1.2;
-          margin: 0 0 3.360000000000001px;
-        }
+h1 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0;
+}
+h2 {
+  font-size: 25.2px;
+  line-height: 1.2;
+  margin: 0 0 3.360000000000001px;
+}
 ```
 
 **Wait, what is the margin for? I didn't put it anywhere!**
@@ -65,7 +65,7 @@ Obviously you can use the **heading** mixin into every css selector.
 ### headings mixin
 
 ```sass
-        headings($font-size[default: false], $placeholder[default: false])
+headings($font-size[default: false], $placeholder[default: false])
 ```
 
 This mixin is double-faced. Without giving any param to it, this will automatically select headings from h1 to h6.
@@ -77,82 +77,82 @@ Giving it both a $font-size and setting $placeholder to true, this mixin will re
 *First case example*
 
 ```sass
-        +headings()
-          color: #aaa
++headings()
+  color: #aaa
 ```
 
 Will be rendered like
 
 ```css
-        h1, h2, h3, h4, h5, h6 {
-          color: #aaa;
-        }
+h1, h2, h3, h4, h5, h6 {
+  color: #aaa;
+}
 ```
 
 *Second case example*
 
 ```sass
-      .test
-        headings: 14px
+.test
+  headings: 14px
 ```
 
 will yeld
 
 ```css
-        .test h1 {
-          font-size: 28px;
-          line-height: 1.1;
-          margin: 0;
-        }
-        .test h2 {
-          font-size: 25.2px;
-          line-height: 1.1;
-          margin: 0 0 3.080000000000001px;
-        }
-        .test h3 {
-          font-size: 23.8px;
-          line-height: 1.1;
-          margin: 0 0 4.619999999999999px;
-        }
-        .test h4 {
-          font-size: 22.400000000000002px;
-          line-height: 1.1;
-          margin: 0 0 6.159999999999998px;
-        }
-        .test h5 {
-          font-size: 21px;
-          line-height: 1.1;
-          margin: 0 0 7.700000000000001px;
-        }
-        .test h6 {
-          font-size: 19.599999999999998px;
-          line-height: 1.1;
-          margin: 0 0 9.240000000000004px;
-        }
+.test h1 {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0;
+}
+.test h2 {
+  font-size: 25.2px;
+  line-height: 1.1;
+  margin: 0 0 3.080000000000001px;
+}
+.test h3 {
+  font-size: 23.8px;
+  line-height: 1.1;
+  margin: 0 0 4.619999999999999px;
+}
+.test h4 {
+  font-size: 22.400000000000002px;
+  line-height: 1.1;
+  margin: 0 0 6.159999999999998px;
+}
+.test h5 {
+  font-size: 21px;
+  line-height: 1.1;
+  margin: 0 0 7.700000000000001px;
+}
+.test h6 {
+  font-size: 19.599999999999998px;
+  line-height: 1.1;
+  margin: 0 0 9.240000000000004px;
+}
 ```
 
 *Third case*
 
 ```sass
-        headings(14px, true)
+headings(14px, true)
 
-        .lead
-          @extend $h1
-        .lead-small
-          @extend $h3
+.lead
+  @extend $h1
+.lead-small
+  @extend $h3
 ```
 
 ```css
-        .lead {
-          font-size: 28px;
-          line-height: 1.1;
-          margin: 0;
-        }
-        .lead-small {
-          font-size: 23.8px;
-          line-height: 1.1;
-          margin: 0 0 4.619999999999999px;
-        }
+.lead {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0;
+}
+.lead-small {
+  font-size: 23.8px;
+  line-height: 1.1;
+  margin: 0 0 4.619999999999999px;
+}
 ```
 
 ## links
@@ -160,26 +160,26 @@ will yeld
 A nice way to style links with a single line of code! You will have just to give this mixin a colour, and everything will be calculated automatically!
 
 ```sass
-        a
-          links: #bbb
+a
+  links: #bbb
 ```
 
 ```css
-        a {
-          text-decoration: none;
-        }
-        a {
-          color: #bbb;
-        }
-        a:hover {
-          color: #949494;
-        }
-        a:active {
-          color: #7f7f7f;
-        }
-        a:visited {
-          color: #585858;
-        }
+a {
+  text-decoration: none;
+}
+a {
+  color: #bbb;
+}
+a:hover {
+  color: #949494;
+}
+a:active {
+  color: #7f7f7f;
+}
+a:visited {
+  color: #585858;
+}
 ```
 
 **WAIT! I want to set the text decoration manually!**
@@ -187,25 +187,25 @@ A nice way to style links with a single line of code! You will have just to give
 You will have to set a text-decoration before calling the mixin
 
 ```sass
-        a
-          text-decoration: underline
-          links: #bbb
+a
+  text-decoration: underline
+  links: #bbb
 ```
 
 ```css
-        a {
-          text-decoration: underline;
-          color: #bbb;
-        }
-        a:hover {
-          color: #949494;
-        }
-        a:active {
-          color: #7f7f7f;
-        }
-        a:visited {
-          color: #585858;
-        }
+a {
+  text-decoration: underline;
+  color: #bbb;
+}
+a:hover {
+  color: #949494;
+}
+a:active {
+  color: #7f7f7f;
+}
+a:visited {
+  color: #585858;
+}
 ```
 
 **what about getting darker or brighter colours?**
@@ -213,25 +213,25 @@ You will have to set a text-decoration before calling the mixin
 You can specify a second parameter. This is a percentage of how much the colour will be lightened or darkened.
 
 ```sass
-        a
-          text-decoration: underline
-          links: #bbb, 12%
+a
+  text-decoration: underline
+  links: #bbb, 12%
 ```
 
 ```css
-        a {
-          text-decoration: underline;
-          color: #bbb;
-        }
-        a:hover {
-          color: #a5a5a5;
-        }
-        a:active {
-          color: #909090;
-        }
-        a:visited {
-          color: #696969;
-        }
+a {
+  text-decoration: underline;
+  color: #bbb;
+}
+a:hover {
+  color: #a5a5a5;
+}
+a:active {
+  color: #909090;
+}
+a:visited {
+  color: #696969;
+}
 ```
 
 You have to bear in mind that the percentage will be modified by each pseudo-class selector.
@@ -249,17 +249,17 @@ In ride-css you can calculate paragraphs vertical rhythm very quickly using the 
 This mixin requires two paramenters: $font-size and $line-height
 
 ```sass
-        p
-          // paragraph: $font-size, $line-height
-          paragraph: 14px, 20.5px
+p
+  // paragraph: $font-size, $line-height
+  paragraph: 14px, 20.5px
 ```
 
 ```css
-        p {
-          font-size: 14px;
-          line-height: 0.682926829268293;
-          margin: 0 0 4.78048780487805px;
-        }
+p {
+  font-size: 14px;
+  line-height: 0.682926829268293;
+  margin: 0 0 4.78048780487805px;
+}
 ```
 
 You will get margin automatically calculated like to **heading** mixin.
@@ -269,82 +269,82 @@ You will get margin automatically calculated like to **heading** mixin.
 This mixin allows you to calculate ```&lt;small&gt;``` tags. Or you can simply use it into a css class to calculate small portions of text.
 
 ```sass
-        small
-          // note that this parameters are optional.
-          // small: $font-size = 1rem, $percentage = 62.5%
-          small: 14px
-        .small
-          small()
+small
+  // note that this parameters are optional.
+  // small: $font-size = 1rem, $percentage = 62.5%
+  small: 14px
+.small
+  small()
 ```
 
 ```css
-        small {
-          font-size: 8.75px;
-        }
-        .small {
-          font-size: 0.625rem;
-        }
+small {
+  font-size: 8.75px;
+}
+.small {
+  font-size: 0.625rem;
+}
 ```
 
 ## typography scaffolding: AKA I'm laaaaazy
 
-Ride-css comes with a typography scaffolding system. 
+Ride-css comes with a typography scaffolding system.
 
 This mixin will automatically calculate these elemenents:
 
 * headings (from h1 to h6)
 
-* paragraphs 
+* paragraphs
 
 * small tags
 
 A brief example:
 
 ```sass
-        scaffolding-typography()
+scaffolding-typography()
 ```
 
 will yeld
 
 ```css
-        h1 {
-          font-size: 2rem;
-          line-height: 1.1;
-          margin: 0;
-        }
-        h2 {
-          font-size: 1.8rem;
-          line-height: 1.1;
-          margin: 0 0 0.22rem;
-        }
-        h3 {
-          font-size: 1.7rem;
-          line-height: 1.1;
-          margin: 0 0 0.33rem;
-        }
-        h4 {
-          font-size: 1.6rem;
-          line-height: 1.1;
-          margin: 0 0 0.44rem;
-        }
-        h5 {
-          font-size: 1.5rem;
-          line-height: 1.1;
-          margin: 0 0 0.55rem;
-        }
-        h6 {
-          font-size: 1.4rem;
-          line-height: 1.1;
-          margin: 0 0 0.66rem;
-        }
-        p {
-          font-size: 1rem;
-          line-height: 1.5;
-          margin: 0 0 0.75rem;
-        }
-        small {
-          font-size: 0.625rem;
-        }
+h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0;
+}
+h2 {
+  font-size: 1.8rem;
+  line-height: 1.1;
+  margin: 0 0 0.22rem;
+}
+h3 {
+  font-size: 1.7rem;
+  line-height: 1.1;
+  margin: 0 0 0.33rem;
+}
+h4 {
+  font-size: 1.6rem;
+  line-height: 1.1;
+  margin: 0 0 0.44rem;
+}
+h5 {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin: 0 0 0.55rem;
+}
+h6 {
+  font-size: 1.4rem;
+  line-height: 1.1;
+  margin: 0 0 0.66rem;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 0.75rem;
+}
+small {
+  font-size: 0.625rem;
+}
 ```
 
 **overriding default parameters**
@@ -358,50 +358,50 @@ Available parameters are quite the same as the mixins above.
 using
 
 ```sass
-        scaffolding-typography(14px, 1.5)
+scaffolding-typography(14px, 1.5)
 ```
 
 you will get
 
 ```css
-        h1 {
-          font-size: 28px;
-          line-height: 1.1;
-          margin: 0;
-        }
-        h2 {
-          font-size: 25.2px;
-          line-height: 1.1;
-          margin: 0 0 3.080000000000001px;
-        }
-        h3 {
-          font-size: 23.8px;
-          line-height: 1.1;
-          margin: 0 0 4.619999999999999px;
-        }
-        h4 {
-          font-size: 22.400000000000002px;
-          line-height: 1.1;
-          margin: 0 0 6.159999999999998px;
-        }
-        h5 {
-          font-size: 21px;
-          line-height: 1.1;
-          margin: 0 0 7.700000000000001px;
-        }
-        h6 {
-          font-size: 19.599999999999998px;
-          line-height: 1.1;
-          margin: 0 0 9.240000000000004px;
-        }
-        p {
-          font-size: 14px;
-          line-height: 1.5;
-          margin: 0 0 10.5px;
-        }
-        small {
-          font-size: 8.75px;
-        }
+h1 {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0;
+}
+h2 {
+  font-size: 25.2px;
+  line-height: 1.1;
+  margin: 0 0 3.080000000000001px;
+}
+h3 {
+  font-size: 23.8px;
+  line-height: 1.1;
+  margin: 0 0 4.619999999999999px;
+}
+h4 {
+  font-size: 22.400000000000002px;
+  line-height: 1.1;
+  margin: 0 0 6.159999999999998px;
+}
+h5 {
+  font-size: 21px;
+  line-height: 1.1;
+  margin: 0 0 7.700000000000001px;
+}
+h6 {
+  font-size: 19.599999999999998px;
+  line-height: 1.1;
+  margin: 0 0 9.240000000000004px;
+}
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 10.5px;
+}
+small {
+  font-size: 8.75px;
+}
 ```
 
 **using the typography-scaffolding as a placeholders generator**
@@ -409,36 +409,36 @@ you will get
 You can specify a third parameter. If you set it to true, the mixin will generate a set of placeholders.
 
 ```sass
-        scaffolding-typography(14px, 1.5, true)
+scaffolding-typography(14px, 1.5, true)
 
-        .text-title
-          @extend $h1
-          
-        .text-block
-          @extend $p
+.text-title
+  @extend $h1
 
-        .text-block-small
-          @extend .text-block
-          @extend $small
+.text-block
+  @extend $p
+
+.text-block-small
+  @extend .text-block
+  @extend $small
 ```
 
 You will get this css
 
 ```css
-        .text-title {
-          font-size: 28px;
-          line-height: 1.1;
-          margin: 0;
-        }
-        .text-block,
-        .text-block-small {
-          font-size: 14px;
-          line-height: 1.5;
-          margin: 0 0 10.5px;
-        }
-        .text-block-small {
-          font-size: 8.75px;
-        }
+.text-title {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0;
+}
+.text-block,
+.text-block-small {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 10.5px;
+}
+.text-block-small {
+  font-size: 8.75px;
+}
 ```
 
 Placeholders are called like this (if you don't call the mixin inside a placeholder or inside a css class)

@@ -1,6 +1,6 @@
 # using bem inside ride-css
 
-BEM ([block element modifier](https://css-tricks.com/bem-101/)), it's a different methodology than SMACSS and OOCSS. 
+BEM ([block element modifier](https://css-tricks.com/bem-101/)), it's a different methodology than SMACSS and OOCSS.
 
 Ride-css partially supports it with mixins.
 
@@ -25,20 +25,20 @@ this mixin also accepts a block.
 Let's see this two examples
 
 ```sass
-        +bem-elem('.btn', 'price')
-          color: #ddd
-        // or
-        .btn
-          +bem-elem('price')
-            color: #ddd
++bem-elem('.btn', 'price')
+  color: #ddd
+// or
+.btn
+  +bem-elem('price')
+    color: #ddd
 ```
 
 Each example will yeld the same thing:
 
-```sass
-        .btn__price {  
-          color: #ddd; 
-        }
+```css
+.btn__price {  
+  color: #ddd;
+}
 ```
 
 ## bem-mod, modifier for the block
@@ -46,7 +46,7 @@ Each example will yeld the same thing:
 this is the mixins
 
 ```sass
-        bem-mod($bem-block[, $bem-modifier])
+bem-mod($bem-block[, $bem-modifier])
 ```
 
 this mixin accepts two parameters:
@@ -60,18 +60,18 @@ this mixin also accepts a block.
 Let's see this two examples
 
 ```sass
-        +bem-mod('.btn', 'big')
-          font-size: 2em
-        // or
-        .btn
-          +bem-mod('big')
-            font-size: 2em
++bem-mod('.btn', 'big')
+  font-size: 2em
+// or
+.btn
+  +bem-mod('big')
+    font-size: 2em
 ```
 
 Each example will yeld the same thing:
 
-```sass
-        .btn--big {  
-          font-size: 2em; 
-        }
+```css
+.btn--big {  
+  font-size: 2em;
+}
 ```

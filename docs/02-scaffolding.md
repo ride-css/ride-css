@@ -6,7 +6,7 @@ First of all, make a folder called ```source/stylus/``` and into that folder cre
 
 Open that file and copy/paste this code below
 
-```sass    
+```sass
       @require 'ride-css'
 
       $grid-cols = 12
@@ -32,7 +32,7 @@ Open that file and copy/paste this code below
         placeholders('md')
         grid($grid-cols, $grid-gutter, $grid-padding, 'md')
 ```
- 
+
 Once you compile this code into css, you'll find that you've already written a fully responsive and mobile first grid system, a nice looking typography system.
 
 ## the "hey i don't want all this meaningless css"
@@ -41,7 +41,7 @@ Well, it's simple. Quite every mixin in ride-css is capable of rendering a **pla
 
 Let us take the example above and tweak it a bit more
 
-```sass    
+```sass
       @require 'ride-css'
 
       $grid-cols = 12
@@ -72,7 +72,7 @@ Now, after you've compiled the code above you will feel soooooo annoied by this 
 
 Let's do some magic now:
 
-```sass    
+```sass
       @require 'ride-css'
 
       $grid-cols = 12
@@ -102,16 +102,13 @@ Let's do some magic now:
       .four-articles
         @extend $row
         article
-          @extend $col-xs
-          @extend $col-xs-12
-          @extend $col-sm-6
-          @extend $col-md-3
+          @extend $col-xs, $col-xs-12, $col-sm-6, $col-md-3
 ```
 
 Rebuild everything now. Wow, much responsive, less code, such wow! Your css is responsive, semantic and more beautiful. But hey, let's go on with a more complex example
 
 
-```sass    
+```sass
       @require 'ride-css'
 
       $grid-cols = 12
@@ -140,15 +137,10 @@ Rebuild everything now. Wow, much responsive, less code, such wow! Your css is r
 
       // this is where real code will be written
       $four-column
-        @extend $col-xs
-        @extend $col-xs-12
-        @extend $col-md-6
-        @extend $col-lg-3
+        @extend $col-xs, $col-xs-12, $col-md-6, $col-lg-3
 
       $three-column
-        @extend $four-column
-        @extend $col-md-12
-        @extend $col-lg-4
+        @extend $four-column, $col-md-12, $col-lg-4
 
       .btn
         button: medium
@@ -171,32 +163,29 @@ Rebuild everything now. Wow, much responsive, less code, such wow! Your css is r
       .four-articles
         @extend $row
         h2
-          @extend $h2
-          @extend $font-300
+          @extend $h2, $font-300
         h2 small
           @extend $font-700
         article
           @extend $four-column
-          
+
       .message
         fixed: bottom $line-height right $font-size
         &.danger
-          @extend .btn--danger    
+          @extend .btn--danger
 
       .navbar
-        @extend $block
-        @extend $table-md
-        a 
-          @extend $block
-          @extend $table-cell-md
+        @extend $block, $table-md
+        a
+          @extend $block, $table-cell-md
 
       .three-articles
         @extend .four-articles
         article
           @extend $three-column
-          
+
       .shopping-list
-        &.four-column    
+        &.four-column
           @extend $four-column
         &.three-column
           @extend $three-column

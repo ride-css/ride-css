@@ -29,8 +29,8 @@ Open that file and copy/paste this code below
         grid($grid-cols, $grid-gutter, $grid-padding, 'md')
 
       @media (min-width: 1500px)
-        placeholders('md')
-        grid($grid-cols, $grid-gutter, $grid-padding, 'md')
+        placeholders('lg')
+        grid($grid-cols, $grid-gutter, $grid-padding, 'lg')
 ```
 
 Once you compile this code into css, you'll find that you've already written a fully responsive and mobile first grid system, a nice looking typography system.
@@ -64,8 +64,8 @@ Let us take the example above and tweak it a bit more
         grid($grid-cols, $grid-gutter, $grid-padding, 'md', true)
 
       @media (min-width: 1500px)
-        placeholders('md')
-        grid($grid-cols, $grid-gutter, $grid-padding, 'md', true)
+        placeholders('lg')
+        grid($grid-cols, $grid-gutter, $grid-padding, 'lg', true)
 ```
 
 Now, after you've compiled the code above you will feel soooooo annoied by this readme. We'll, you will see probably nothing but an empty css file!
@@ -95,8 +95,8 @@ Let's do some magic now:
         grid($grid-cols, $grid-gutter, $grid-padding, 'md', true)
 
       @media (min-width: 1500px)
-        placeholders('md')
-        grid($grid-cols, $grid-gutter, $grid-padding, 'md', true)
+        placeholders('lg')
+        grid($grid-cols, $grid-gutter, $grid-padding, 'lg', true)
 
       // this is where real code will be written
       .four-articles

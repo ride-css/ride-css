@@ -68,8 +68,5 @@ input[type="radio"] {
   width: auto;
 }
 select {
-  padding: 0 0.85em;
-}
-select option {
   padding: 0.85em;
 }

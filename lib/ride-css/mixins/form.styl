@@ -8,7 +8,7 @@ form-elements()
     select
     textarea
       {block}
-      
+
 // quickly selects disabled form elements
 form-disabled()
   +form-elements()
@@ -28,13 +28,13 @@ form-readonly = form-read-only
 form-in-range()
   input[type="number"]:in-range
     {block}
-    
+
 // quickly selects invalid input elements
 form-invalid()
   +form-elements()
     &:invalid
       {block}
-      
+
 // quickly selects optional input elements
 form-optional()
   +form-elements()
@@ -45,7 +45,7 @@ form-optional()
 form-out-of-range()
   input[type="number"]:out-of-range
     {block}
-      
+
 // quickly selects required input elements
 form-required()
   +form-elements()
@@ -75,7 +75,7 @@ placeholder()
 // @param {unit} $form-padding          the padding!
 // @param {unit} $apply-to-options      this will applies padding to options. Won't work on IE & chrome btw. But is funny.
 // @return {css}
-ride-form-elements($form-border = 0 none, $form-padding = 0, $apply-to-options = true)
+ride-form-elements($form-border = 0 none, $form-padding = 0, $apply-to-options = false)
   input
   select
   textarea
@@ -96,4 +96,3 @@ ride-form-elements($form-border = 0 none, $form-padding = 0, $apply-to-options =
           padding: $select-padding
       if !$apply-to-options
         padding: $select-padding
-        

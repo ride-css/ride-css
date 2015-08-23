@@ -1,0 +1,39 @@
+// copyright 2015 @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this mixin will yeld a flex-box grid
+// @param {Number}    $grid-cols                the number of columns your grid will have
+// @param {Unit}      $grid-gutter              if not 0, this will be the margin for each column
+// @param {Unit}      $grid-padding             if not 0, this will be the padding for each column
+// @param {String}    $suffix                   an additional suffix for the set of css classes/stylus placeholders
+// @param {Boolean}   $display-as-placeholders  if set to true, this mixin will yeld a set of placeholders instead of css classes
+flex-grid($grid-cols = 12, $grid-gutter = 0, $grid-padding = 0, $suffix = '', $display-as-placeholders = false)
+  // configuring stuff for this flexgrid
+  if current-media()
+    $$current-media = current-media()
+  $$selector-notation = '.'
+  if $suffix != ''
+    $$suffix = \-+$suffix
+  else
+    $$suffix = ''
+
+  if $display-as-placeholders == true
+    $$selector-notation = '$'
+
+  // ok, let's start doing something
+  // this is going to be the wrapper.
+  {$$selector-notation}flex-wrap{$$suffix}
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+
+  // thw column
+  {$$selector-notation}flex-col{$$suffix}
+    flex: 1 0 auto
+    margin: $grid-gutter
+    padding: $grid-padding
+
+  // the column-set
+  for $index in 1...($grid-cols + 1)
+    {$$selector-notation}flex-col{$$suffix}-{$index}
+      col: $grid-cols, $index, 0, false

@@ -1,0 +1,22 @@
+.flex-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.flex-col {
+  flex: 1 0 auto;
+  margin: 0;
+  padding: 0;
+}
+.flex-col-1 {
+  width: 25%;
+}
+.flex-col-2 {
+  width: 50%;
+}
+.flex-col-3 {
+  width: 75%;
+}
+.flex-col-4 {
+  width: 100%;
+}

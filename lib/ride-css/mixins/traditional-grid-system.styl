@@ -11,8 +11,8 @@ col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
   $$check-margin = 0
   if @margin
     $col-margin = @margin
-  // getting the right horizontal margin. 
-  // because reasons  
+  // getting the right horizontal margin.
+  // because reasons
   if length($col-margin) == 1
     $$check-margin = parse-float($col-margin)
     $$col-margin = $col-margin * 2
@@ -25,7 +25,7 @@ col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
   if length($col-margin) == 4
     $$check-margin = parse-float($col-margin[0]) + parse-float($col-margin[1]) + parse-float($col-margin[2]) + parse-float($col-margin[3])
     $$col-margin = $col-margin[1] + $col-margin[3]
-  
+
   // if you set margin, you'll have it
   if $display-margin
     +cache('col-margin'+ $col-margin + $display-margin)
@@ -33,9 +33,14 @@ col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
   +cache('ride-col'+ arguments + current-media())
     // if you already set your margin, we will use it for proper calculating
     // calculating column width
-    $$width = (100% / $grid-cols * $current-col) - $$col-margin
+    if is-unit($$col-margin)
+      if unit($$col-margin) == '' || unit($$col-margin) == '%'
+        $$width = (100% / $grid-cols * $current-col) - $$col-margin
+      else
+        $$width = (100% / $grid-cols * $current-col)
+        $$width = unquote(s('calc(%s - %s)', $$width, $$col-margin))
     width: $$width
-  
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // [Not ready to use. too many bugs]
 // this mixin will yeld a list of cols.
@@ -46,7 +51,7 @@ col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
 //    e.g: 1%, 0 1%, 1% 2% 4%, 0 0 2% 1%
 //   $cols-padding : padding for each column
 //    e.g: 1rem, 1em, 24px, 4%
-//   $suffix : each column will be suffixex 
+//   $suffix : each column will be suffixex
 //    e.g: 'xs', 'sm', 'md', 'lg'...
 //   $display-margin: if set to false, the col mixin will not display margin
 //   $display-as-placeholders : setting this flag to true, you will get a set o placeholders instead of css classes
@@ -55,16 +60,16 @@ col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
 //   $$selector-notation = '.'
 //   if $suffix != ''
 //     $$suffix = \-+$suffix
-  
+
 //   if $display-as-placeholders == true
 //     $$selector-notation = '$'
-    
-//   // getting columns    
+
+//   // getting columns
 //   for $colnumber in 1...($grid-cols + 1)
 //     {$$selector-notation}col{$$suffix}-{$colnumber}
 //       col: $grid-cols, $colnumber, $cols-margin, $display-margin
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      
+
 // offset mixin, will help you to move your content left or right
 // @params:
 //   $direction: decide where you have to move your column
@@ -79,7 +84,7 @@ offset($direction = left, $grid-cols = 12, $current-offset = 0, $col-margin = 0)
   if $current-offset == 0
     $col-margin = 0
 
-  // getting the right horizontal margin. 
+  // getting the right horizontal margin.
   // because reasons
   if length($col-margin) == 1
     $col-margin = $col-margin
@@ -92,7 +97,7 @@ offset($direction = left, $grid-cols = 12, $current-offset = 0, $col-margin = 0)
 
   // +cache('ride-offset'+ $direction +'-'+ $grid-cols +'-'+ $current-offset +'-'+ $col-margin + current-media())
   margin-{$direction}: (100% / $grid-cols * $current-offset) + $col-margin
-  
+
 // shorthand for offset with left
 // @params:
 //   $grid-cols: the maximum columns your grid has
@@ -108,7 +113,7 @@ offset-left($grid-cols = 12, $current-offset = 0, $col-margin = 0)
 //   $col-margin: margin, what else?
 offset-right($grid-cols = 12, $current-offset = 0, $col-margin = 0)
   offset(right, $grid-cols, $current-offset, $col-margin)
-  
+
 // push - pull system. This is awful, but helpful
 // sincerly I prefer using flexbox model for making this, but since there are some browser
 // that are not really capable of doing their homeworks (internet explorer uh?) i've implemented this system anyway
@@ -123,7 +128,7 @@ col-move($move-direction = forward, $grid-cols = 12, $move-offset = 0, $cache-po
     $$sign = 1
   if $move-direction == backward
     $$sign = -1
-  
+
   // setting movement
   // +cache('ride-col-move'+ $move-direction +'-'+ $grid-cols +'-'+ $move-offset +'-'+ $cache-position + current-media())
   left: (100% / $grid-cols * $move-offset * $$sign)
@@ -147,7 +152,7 @@ pull($grid-cols = 12, $move-offset = 0, $cache-position = true)
 //   $cache-position: this will output a cached position: relative;
 push($grid-cols = 12, $move-offset = 0, $cache-position = true)
   col-move(forward, $grid-cols, $move-offset, $cache-position)
-  
+
 // row mixin
 // well, this will do nothing but setting a clearfix.
 // oh, we will use caching, of course.
@@ -158,7 +163,7 @@ row()
       clear: both
       content: ''
       display: table
-      
+
 // grid mixin
 // @params
 //   $grid-cols : the maximum columns your grid has
@@ -167,7 +172,7 @@ row()
 //    e.g: 1%, 0 1%, 1% 2% 4%, 0 0 2% 1%
 //   $cols-padding : padding for each column
 //    e.g: 1rem, 1em, 24px, 4%
-//   $suffix : each column will be suffixex 
+//   $suffix : each column will be suffixex
 //    e.g: 'xs', 'sm', 'md', 'lg'...
 //   $display-as-placeholders : setting this flag to true, you will get a set o placeholders instead of css classes
 //    e.g: true, false
@@ -179,7 +184,7 @@ grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $displa
     $$suffix = \-+$suffix
   else
     $$suffix = ''
-  
+
   if $display-as-placeholders == true
     $$selector-notation = '$'
   // getting columns
@@ -193,7 +198,7 @@ grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $displa
     {'[class*="col'+ $$suffix +'"]'}
       margin: $cols-margin
       padding: $cols-padding
-    
+
   for $colnumber in 1...($grid-cols + 1)
     {$$selector-notation}col{$$suffix}-{$colnumber}
       col: $grid-cols, $colnumber, $cols-margin, $$current-media
@@ -215,7 +220,7 @@ grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $displa
   // offset-right reset
   {$$selector-notation}offset-right{$$suffix}-0
     offset-right: $grid-cols, 0, 0
-    
+
   // getting columns
   if $display-as-placeholders == true
     $push{$$suffix}
@@ -236,7 +241,7 @@ grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $displa
     {$$selector-notation}pull{$$suffix}-{$colnumber}
       pull: $grid-cols, $colnumber, false
 
-  // getting pushes 
+  // getting pushes
   for $colnumber in 1...$grid-cols
     {$$selector-notation}push{$$suffix}-{$colnumber}
       push: $grid-cols, $colnumber, false

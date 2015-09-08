@@ -1,0 +1,22 @@
+.test-col-no-margin {
+  margin: 0;
+}
+.test-col-no-margin {
+  width: 100%;
+}
+.test-col-perc-margin {
+  margin: 1%;
+}
+.test-col-perc-margin {
+  width: 98%;
+}
+.test-col-calc-margin,
+.test-col-calc-margin-2 {
+  margin: 1em;
+}
+.test-col-calc-margin {
+  width: calc(100% - 2em);
+}
+.test-col-calc-margin-2 {
+  width: calc(50% - 2em);
+}

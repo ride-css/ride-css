@@ -20,7 +20,7 @@ col($grid-cols, $current-col, $col-margin, $display-margin)
 
 * $current-col (default: 12, optional): this parameter tells the mixin the occupancy of the current column (if you set $grid-cols to 12 and this parameter to 5, the total occupancy will be 12/5)
 
-* $col-margin (default: 0, optional): this is the column gutter. Note that this should be a percentage. If you want to use other units, you have to set it to 0 and add a padding to the column itself.
+* $col-margin (default: 0, optional): this is the column gutter. You can use any valid unit you want. If you use a unit different from percentage `(%)`, the width will use the css function `calc()`.
 
 * $display-margin (default: true, optional): setting this flag to false, the gutter will be subtracted to the column width but will not be rendered.
 

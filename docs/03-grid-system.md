@@ -413,7 +413,7 @@ grid($grid-cols, $cols-margin, $cols-padding, $suffix, $display-as-placeholders)
 
 * $grid-cols (default: 12) : this is the number of columns your grid has.
 
-* $cols-margin (default: 0): this will tell the mixin to add some gutter to each column. If you choose to set it, the parameter must be a percentage (e.g. 1% or 0 1% 2% etc...)
+* $cols-margin (default: 0): this will tell the mixin to add some gutter to each column. You are free to use any valid unit there.
 
 * $cols-padding (default: 0): this will automatically add some padding to your columns.
 

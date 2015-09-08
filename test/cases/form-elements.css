@@ -40,20 +40,8 @@ select:valid,
 textarea:valid {
   color: #0ff;
 }
-input::-webkit-placeholder,
-textarea::-webkit-placeholder {
-  color: #ddd;
-}
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-  color: #ddd;
-}
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: #ddd;
-}
-input::-ms-placeholder,
-textarea::-ms-placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #ddd;
 }
 input,

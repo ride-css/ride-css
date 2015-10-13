@@ -1,10 +1,12 @@
 .btn,
+.btn-alt,
 .btn-large,
 .btn-ext,
 .btn-400 {
   display: inline-block;
 }
 .btn,
+.btn-alt,
 .btn-large,
 .btn-ext,
 .btn-400 {
@@ -13,6 +15,9 @@
 .btn-ext,
 .btn,
 .btn-large {
+  vertical-align: middle;
+}
+.btn-alt {
   vertical-align: middle;
 }
 .btn-large {

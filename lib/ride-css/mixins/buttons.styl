@@ -6,7 +6,6 @@ button($type = false)
   // used into media queries it would throw an "indexOf undefined" exception
   // if selector-exists($button)
   @extend $button
-  dont-select()
   unless @vertical-align
     +cache('vertical-align-middle'+ current-media())
       vertical-align: middle

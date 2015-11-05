@@ -1,0 +1,25 @@
+@media (min-width: 100px) {
+  .rectangle,
+  .rectangle-alt-media-query {
+    height: 10px;
+    width: 20px;
+  }
+}
+.rectangle,
+.rectangle-alt {
+  height: 10px;
+  width: 20px;
+}
+.round,
+.round-alt {
+  border-radius: 50%;
+}
+.round,
+.square {
+  height: 10px;
+  width: 10px;
+}
+.round-alt {
+  height: 20px;
+  width: 20px;
+}

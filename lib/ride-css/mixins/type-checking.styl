@@ -8,6 +8,9 @@
 ensure($item, $check)
   if type-of($item) != $check
     warn('expected a unit, but got a '+ typeof($item))
+    return false
+  else
+    return true
 
 // checks quickly if a passed variable is of the correct type
 // throws an error if it's not compliant
@@ -157,8 +160,7 @@ is-vw($unit)
 // @param   {any}     $variable   the variable you wish to check
 // @return  {Boolean}             returns true if it's type is correct.
 is-boolean($variable)
-  ensure($variable, 'boolean')
-  return true
+  return ensure($variable, 'boolean')
 
 // aliasing is-boolean
 is-bool = is-boolean
@@ -167,15 +169,13 @@ is-bool = is-boolean
 // @param   {any}     $variable   the variable you wish to check
 // @return  {Boolean}             returns true if it's type is correct.
 is-ident($variable)
-  ensure($variable, 'ident')
-  return true
+  return ensure($variable, 'ident')
 
 // this function checks if the passed variable is a function
 // @param   {any}     $variable   the variable you wish to check
 // @return  {Boolean}             returns true if it's type is correct.
 is-function($variable)
-  ensure($variable, 'function')
-  return true
+  return ensure($variable, 'function')
 
 // this function checks if the passed variable is a number
 // @param   {any}     $variable   the variable you wish to check
@@ -188,5 +188,4 @@ is-number($variable)
 // @param   {any}     $variable   the variable you wish to check
 // @return  {Boolean}             returns true if it's type is correct.
 is-string($variable)
-  ensure($variable, 'string')
-  return true
+  return ensure($variable, 'string')

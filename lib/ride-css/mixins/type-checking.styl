@@ -7,8 +7,16 @@
 // @returns {Void}
 ensure($item, $check)
   if type-of($item) != $check
-    error('expected a unit, but got a '+ typeof($item))
+    warn('expected a unit, but got a '+ typeof($item))
 
+// checks quickly if a passed variable is of the correct type
+// throws an error if it's not compliant
+// @param {Any}     $item   is the variable you are checking
+// @param {String}  $check  is the type you are expecting
+// @returns {Void}
+ensure-strict($item, $check)
+  if type-of($item) != $check
+    error('expected a unit, but got a '+ typeof($item))
 // unit typechecking functions
 // they're should spare you some seconds and some code
 // I hope.

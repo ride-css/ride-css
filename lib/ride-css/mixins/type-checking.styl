@@ -7,7 +7,6 @@
 // @returns {Void}
 ensure($item, $check)
   if type-of($item) != $check
-    warn('expected a unit, but got a '+ typeof($item))
     return false
   else
     return true

@@ -290,7 +290,7 @@ small {
 
 Ride-css comes with a typography scaffolding system.
 
-This mixin will automatically calculate these elemenents:
+This mixin will automatically calculate these elements:
 
 * headings (from h1 to h6)
 

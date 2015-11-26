@@ -1,0 +1,9 @@
+.scheme-1 {
+  background-color: #1f1f1f;
+  color: #efefef;
+}
+.scheme-2,
+.scheme-2-cached {
+  background-color: #010101;
+  color: #f1f1f1;
+}

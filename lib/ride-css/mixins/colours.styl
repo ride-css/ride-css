@@ -7,3 +7,10 @@
 color-scheme($background-color = transparent, $color = inherit)
   background-color: $background-color if type-of($background-color) is 'rgba'
   color: $color if type-of($color) is 'rgba'
+
+// shorthand for caching a colorscheme
+// @params [rgba] $background-color is the background-color
+// @params [rgba] $color is the color
+color-scheme-c($background-color, $color)
+  +cache('ride-color-scheme'+ $background-color +''+ $color)
+    color-scheme($background-color, $color)

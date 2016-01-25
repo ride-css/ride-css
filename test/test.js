@@ -9,7 +9,7 @@ var rideCss = require('../');
 // this extension for each file in the collection and prepare to test.
 var cases = fs.readdirSync('test/cases').filter(function (file) {
   // bitwise flip to treat result as truthy.
-  return ~file.indexOf('.styl'); 
+  return ~file.indexOf('.styl');
 }).map(function(file){
   return file.replace('.styl', '');
 });

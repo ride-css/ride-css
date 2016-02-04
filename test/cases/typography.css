@@ -36,6 +36,11 @@ p {
   line-height: 1.5;
   margin: 0 0 10.5px;
 }
+p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 10.5px;
+}
 small {
   font-size: 0.625em;
 }

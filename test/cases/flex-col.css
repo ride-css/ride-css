@@ -1,0 +1,18 @@
+.col,
+.col-cache {
+  flex-basis: 100%;
+}
+.col-uncached {
+  flex-basis: 100%;
+  margin: 1em;
+}
+@media (min-width: 768px) {
+  .col,
+  .col-cache {
+    flex-basis: 100%;
+  }
+  .col-uncached {
+    flex-basis: 50%;
+    margin: 1em;
+  }
+}

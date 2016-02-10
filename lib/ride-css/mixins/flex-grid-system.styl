@@ -1,6 +1,25 @@
 // copyright 2016 @ Paolo Roth <iamoctod@gmail.com>
 // MIT licenced
 
+flex-col($grid-cols = 12, $col-size = 12, $margin = 0, $padding = 0)
+  $$current-media = ''
+
+  if current-media()
+    $$current-media = current-media()
+
+  $calc = (100% / $grid-cols) * $col-size
+
+  $margin = $margin unless @margin
+  $padding = $padding unless @padding
+
+  ensure-strict($margin, 'unit')
+  ensure-strict($padding, 'unit')
+
+  +cache('ride-flex-col'+ $$current-media +''+ $calc +''+ $margin +''+ $padding)
+    flex-basis: $calc
+    margin: $margin if $margin not 0
+    padding: $padding if $padding not 0
+
 // this mixin will yeld a flex-box grid
 // @param {Number}    $grid-cols                the number of columns your grid will have
 // @param {Unit}      $grid-gutter              if not 0, this will be the margin for each column

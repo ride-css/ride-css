@@ -46,13 +46,7 @@ flex-grid($grid-cols = 12, $grid-gutter = 0, $grid-padding = 0, $suffix = '', $d
     flex-direction: column
     flex-wrap: wrap
 
-  // thw column
-  {$$selector-notation}flex-col{$$suffix}
-    flex: 1 0 auto
-    margin: $grid-gutter
-    padding: $grid-padding
-
   // the column-set
   for $index in 1...($grid-cols + 1)
     {$$selector-notation}flex-col{$$suffix}-{$index}
-      col: $grid-cols, $index, 0, false
+      flex-col: $grid-cols, $index, $grid-gutter, $grid-padding

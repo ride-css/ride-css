@@ -1,7 +1,7 @@
 // copyright 2016 @ Paolo Roth <iamoctod@gmail.com>
 // MIT licenced
 
-@require '../../lib/ride-css/mixins/bem-css'
+@require 'ride-css/mixins/bem-css'
 
 .btn
   color: #eee
@@ -18,7 +18,7 @@
 
 +bem-elem('.btn', 'text')
   font-style: italic
-  
+
 .block
   padding: 1em
   +bem-mod('big')
@@ -27,7 +27,7 @@
     padding: 4em
     +bem-elem('list')
       display: inline-block
-      
+
 .accordion
   +bem-elem('copy')
     display: none

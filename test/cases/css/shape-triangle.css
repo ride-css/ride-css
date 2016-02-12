@@ -1,0 +1,33 @@
+.triangle-bottom,
+.triangle-top,
+.triangle-top-short,
+.triangle-bottom-short {
+  border: 10px solid transparent;
+}
+.triangle-bottom,
+.triangle-bottom-short {
+  border-top-color: #ff0;
+}
+.triangle-bottom,
+.triangle-top,
+.triangle-top-short,
+.triangle-bottom-short {
+  height: 10px;
+  width: 10px;
+}
+.triangle-top,
+.triangle-top-short {
+  border-bottom-color: #ff0;
+}
+@media (min-width: 768px) {
+  .triangle-bottom {
+    border: 10px solid transparent;
+  }
+  .triangle-bottom {
+    border-top-color: #ff0;
+  }
+  .triangle-bottom {
+    height: 10px;
+    width: 10px;
+  }
+}

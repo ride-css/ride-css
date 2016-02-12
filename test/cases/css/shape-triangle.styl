@@ -1,0 +1,20 @@
+@require 'ride-css/mixins/shapes.styl'
+
+$colour = #ff0
+$width = 10px
+
+.triangle-bottom
+  shape-triangle: bottom, $width, $colour
+
+.triangle-top
+  shape-triangle: top, $width, $colour
+
+.triangle-top-short
+  shape-triangle-top: $width, $colour
+
+.triangle-bottom-short
+  shape-triangle-bottom: $width, $colour
+
+@media (min-width: 768px)
+  .triangle-bottom
+    shape-triangle: bottom, $width, $colour

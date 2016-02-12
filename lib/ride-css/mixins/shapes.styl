@@ -16,3 +16,22 @@ shape-rectangle($width, $height)
 // creates a squared shape
 shape-square($size)
   shape-rectangle: $size, $size
+
+shape-triangle($position, $size, $colour)
+  +cache('shape-triangle border-width'+ $size + current-media())
+    border: $size solid transparent
+  +cache('shape-triangle border-colour'+ $position + $size + current-media())
+    border-{opposite-position($position)}-color: $colour
+  shape-square: $size
+
+shape-triangle-bottom($size, $colour)
+  shape-triangle: bottom, $size, $colour
+
+shape-triangle-left($size, $colour)
+  shape-triangle: left, $size, $colour
+
+shape-triangle-right($size, $colour)
+  shape-triangle: right, $size, $colour
+
+shape-triangle-top($size, $colour)
+  shape-triangle: top, $size, $colour

@@ -29,7 +29,7 @@ files.filter(function (file) {
   cases[group].push({
     css: fs.readFileSync(css, 'utf8').replace(/\r/g, '').replace(/\s+/g, ''),
     group: group,
-    name: filename,
+    name: path.basename(filename),
     styl: fs.readFileSync(styl, 'utf8').replace(/\r/g, '')
   })
 });

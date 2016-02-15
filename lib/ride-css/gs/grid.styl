@@ -74,12 +74,12 @@ grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $displa
       @extend {'[class*="pull'+ $$suffix +'"]'}
 
   // getting pulls
-  for $colnumber in 1...$grid-cols
+  for $colnumber in 1...($grid-cols + 1)
     {$$selector-notation}pull{$$suffix}-{$colnumber}
       pull: $grid-cols, $colnumber, false
 
   // getting pushes
-  for $colnumber in 1...$grid-cols
+  for $colnumber in 1...($grid-cols + 1)
     {$$selector-notation}push{$$suffix}-{$colnumber}
       push: $grid-cols, $colnumber, false
 

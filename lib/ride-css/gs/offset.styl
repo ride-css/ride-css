@@ -1,0 +1,46 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// offset mixin, will help you to move your content left or right
+// @params:
+//   $direction: decide where you have to move your column
+//   $grid-cols: the maximum columns your grid has
+//   $current-offset: how many column your column will move to left or right
+//   $col-margin: margin, what else?
+offset($direction = left, $grid-cols = 12, $current-offset = 0, $col-margin = 0)
+  // if you already set your margin, we will use it for proper calculating
+  if @margin
+    $col-margin = @margin
+  // resetting margin if $current-offset is 0
+  if $current-offset == 0
+    $col-margin = 0
+
+  // getting the right horizontal margin.
+  // because reasons
+  if length($col-margin) == 1
+    $col-margin = $col-margin
+  if length($col-margin) == 2
+    $col-margin = $col-margin[1]
+  if length($col-margin) == 3
+    $col-margin = $col-margin[1]
+  if length($col-margin) == 4
+    $col-margin = $col-margin[1] + $col-margin[3]
+
+  // +cache('ride-offset'+ $direction +'-'+ $grid-cols +'-'+ $current-offset +'-'+ $col-margin + current-media())
+  margin-{$direction}: (100% / $grid-cols * $current-offset) + $col-margin
+
+// shorthand for offset with left
+// @params:
+//   $grid-cols: the maximum columns your grid has
+//   $current-offset: how many column your column will move to left or right
+//   $col-margin: margin, what else?
+offset-left($grid-cols = 12, $current-offset = 0, $col-margin = 0)
+  offset(left, $grid-cols, $current-offset, $col-margin)
+
+// shorthand for offset with right
+// @params:
+//   $grid-cols: the maximum columns your grid has
+//   $current-offset: how many column your column will move to left or right
+//   $col-margin: margin, what else?
+offset-right($grid-cols = 12, $current-offset = 0, $col-margin = 0)
+  offset(right, $grid-cols, $current-offset, $col-margin)

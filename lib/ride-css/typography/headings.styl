@@ -1,0 +1,25 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this mixin will select all headings at once.
+// @block  true
+// @param [unit] $font-size                 if set this param, the mixin will yeld a set of headings and the block will be discarded
+// @param [boolean/string] $placeholder     if set to true and the $font-size is set, this mixin will yeld a set of placeholders.
+//                                          if you set a string, the placeholders will be suffixed with this string
+// @return [css]
+headings($font-size = false, $placeholder = false)
+  if $font-size is false
+    h1, h2, h3, h4, h5, h6
+      {block}
+  if type-of($font-size) is 'unit'
+    if $placeholder == false
+      for $h in 1 2 3 4 5 6
+        h{$h}
+          heading: $h, $font-size
+    if $placeholder
+      $$suffix = ''
+      if $placeholder != true
+        $$suffix = \-+$placeholder
+      for $h in 1 2 3 4 5 6
+        $h{$h}{$$suffix}
+          heading: $h, $font-size

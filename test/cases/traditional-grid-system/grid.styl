@@ -1,4 +1,7 @@
-@import 'ride-css/mixins/traditional-grid-system'
+@import 'ride-css/gs/col'
+@import 'ride-css/gs/offset'
+@import 'ride-css/gs/col-move'
+@import 'ride-css/gs/row'
 
 $i = 0
 
@@ -9,13 +12,13 @@ $i = 0
 for $i in 1...11
   .col-{$i}
     col: 10, $i
-    
+
 .col-test-cache
   col: 10, 1
 
 .offset-left-0
   offset-left: 12
-  
+
 .offset-left-2
   offset-left: 10, 2
 
@@ -27,16 +30,16 @@ for $i in 1...11
 
 .offset-right-0
   offset-right: 12
-  
+
 .pull-5
   pull: 10, 5
 
 .pull-6
   pull: 10, 6
-  
+
 .row
   row()
-  
+
 @media (min-width: 768px)
   .col-sm-1
     col: 10, 1

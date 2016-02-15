@@ -1,4 +1,5 @@
-@import 'ride-css/mixins/form'
+@import 'ride-css/placeholders'
+@import 'ride-css/form/*'
 
 +form-elements()
   box-sizing: border-box
@@ -12,7 +13,7 @@
 
 +form-in-range()
   color: #0f0
-  
+
 +form-invalid()
   color: #f00
 
@@ -21,16 +22,16 @@
 
 +form-out-of-range()
   color: #ff0
-  
+
 +form-required()
   font-size: 2em
-  
+
 +form-valid()
   color: #0ff
-  
-input, 
+
+input,
 textarea
   +placeholder()
     color: #ddd
-    
+
 ride-form-elements(1px solid #eee, 1em)

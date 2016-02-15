@@ -1,0 +1,14 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// yelds an horizontal margin (right, left)
+// @param [Unit] $right this is the right (or right and left if $left is omitted) margin
+// @param [Unit] $left this is the left margin
+// @return [css]
+margin-horizontal($right, $left = false)
+  if $left
+    margin-left: $left
+    margin-right: $right
+  if !$left
+    margin-left: $right
+    margin-right: @margin-left

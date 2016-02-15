@@ -1,0 +1,30 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// ride-form-elements mixins
+// this will help you to setup quickly your own form elements
+// @param {ident} $form-border          the border!
+// @param {unit} $form-padding          the padding!
+// @param {unit} $apply-to-options      this will applies padding to options. Won't work on IE & chrome btw. But is funny.
+// @return {css}
+ride-form-elements($form-border = 0 none, $form-padding = 0, $apply-to-options = false)
+  input
+  select
+  textarea
+    border: $form-border if $form-border not 0 none
+    padding: $form-padding if $form-padding not 0
+    width: 100%
+  input[type="checkbox"]
+  input[type="radio"]
+    width: auto
+  select
+    if $form-padding not 0
+      $select-padding = ''
+      for $padding in $form-padding
+        $select-padding = unit(($padding/100)*85, unit($padding))
+      if $apply-to-options
+        padding: 0 $select-padding
+        option
+          padding: $select-padding
+      if !$apply-to-options
+        padding: $select-padding

@@ -1,0 +1,14 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// yelds a vertical padding (top, bottom)
+// @param [Unit] $top this is the top (or top and left if $bottom is omitted) padding
+// @param [Unit] $bottom this is the bottom padding
+// @return [css]
+padding-vertical($top, $bottom = false)
+  if $bottom
+    padding-bottom: $bottom
+    padding-top: $top
+  if !$bottom
+    padding-bottom: $top
+    padding-top: @padding-bottom

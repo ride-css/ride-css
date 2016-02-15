@@ -1,0 +1,9 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this function checks if the passed variable is a number
+// @param   {any}     $variable   the variable you wish to check
+// @return  {Boolean}             returns true if it's type is correct.
+is-number($variable)
+  ensure($variable, 'unit')
+  return unit($variable) is ''

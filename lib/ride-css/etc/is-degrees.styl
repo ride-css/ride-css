@@ -1,0 +1,13 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this function checks if the passed variable is a unit and it's unit is deg
+// @param {unit} $unit the passed variable
+// @returns {Boolean} return true if the passed variable is correct
+is-degrees($unit)
+  ensure($unit, 'unit')
+  $check = unit($unit) is 'deg'
+  return $check
+
+// aliasing is-milliseconds function
+are-deg = areDegrees = are-degrees = is-deg = isDegrees = is-degrees

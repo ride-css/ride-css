@@ -1,22 +1,6 @@
 // copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
 // MIT licenced
 
-// creates a circle shape
-shape-circle($diameter)
-  +cache('shape-circle' + current-media())
-    border-radius: 50%
-  shape-square: $diameter
-
-// creates a rectangle shape
-shape-rectangle($width, $height)
-  +cache('shape-rectangle'+ $height + $width + current-media())
-    height: $height if is-unit($height)
-    width: $width if is-unit($width)
-
-// creates a squared shape
-shape-square($size)
-  shape-rectangle: $size, $size
-
 shape-triangle($position, $size, $colour)
   +cache('shape-triangle border-width'+ $size + current-media())
     border: $size solid transparent

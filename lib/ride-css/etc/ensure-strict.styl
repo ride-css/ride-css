@@ -1,0 +1,11 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// checks quickly if a passed variable is of the correct type
+// throws an error if it's not compliant
+// @param {Any}     $item   is the variable you are checking
+// @param {String}  $check  is the type you are expecting
+// @returns {Void}
+ensure-strict($item, $check)
+  if type-of($item) != $check
+    error('expected a unit, but got a '+ typeof($item))

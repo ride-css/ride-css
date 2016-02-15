@@ -1,0 +1,9 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// sets automatically a centered block
+// @return [css]
+center-block()
+  @extend $block
+  +cache('center-block'+ current-media())
+    margin-horizontal: auto

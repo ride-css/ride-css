@@ -1,0 +1,8 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this function checks if the passed variable is a function
+// @param   {any}     $variable   the variable you wish to check
+// @return  {Boolean}             returns true if it's type is correct.
+is-function($variable)
+  return ensure($variable, 'function')

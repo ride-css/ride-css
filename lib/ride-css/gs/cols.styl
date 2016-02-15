@@ -1,0 +1,31 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// [Not ready to use. too many bugs]
+// this mixin will yeld a list of cols.
+// @params
+//   $grid-cols : the maximum columns your grid has
+//    e.g: 12, 16, 5, 11
+//   $cols-margin : the margin each column is going to have (must be set in %)
+//    e.g: 1%, 0 1%, 1% 2% 4%, 0 0 2% 1%
+//   $cols-padding : padding for each column
+//    e.g: 1rem, 1em, 24px, 4%
+//   $suffix : each column will be suffixex
+//    e.g: 'xs', 'sm', 'md', 'lg'...
+//   $display-margin: if set to false, the col mixin will not display margin
+//   $display-as-placeholders : setting this flag to true, you will get a set o placeholders instead of css classes
+//    e.g: true, false
+// cols($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $display-margin = true, $suffix = 'xs', $display-as-placeholders = false)
+//   $$selector-notation = '.'
+//   if $suffix != ''
+//     $$suffix = \-+$suffix
+
+//   if $display-as-placeholders == true
+//     $$selector-notation = '$'
+
+//   // getting columns
+//   for $colnumber in 1...($grid-cols + 1)
+//     {$$selector-notation}col{$$suffix}-{$colnumber}
+//       col: $grid-cols, $colnumber, $cols-margin, $display-margin
+////////////////////////////////////////////////////////////////////////////////////////////////////////////

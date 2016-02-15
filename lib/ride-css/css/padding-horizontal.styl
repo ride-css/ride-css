@@ -1,0 +1,14 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// yelds an horizontal padding (right, left)
+// @param [Unit] $right this is the right (or right and left if $left is omitted) padding
+// @param [Unit] $left this is the left padding
+// @return [css]
+padding-horizontal($right, $left = false)
+  if $left
+    padding-left: $left
+    padding-right: $right
+  if !$left
+    padding-left: $right
+    padding-right: @padding-left

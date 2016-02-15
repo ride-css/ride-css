@@ -1,0 +1,8 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// sets inline properties faster
+// @return [css]
+set-properties()
+  for $property, $index in arguments
+    {$property}: arguments[$index + 1] if type-of($property) is 'ident' and type-of(arguments[$index + 1]) is 'unit'

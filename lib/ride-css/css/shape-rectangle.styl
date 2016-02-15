@@ -1,0 +1,8 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// creates a rectangle shape
+shape-rectangle($width, $height)
+  +cache('shape-rectangle'+ $height + $width + current-media())
+    height: $height if is-unit($height)
+    width: $width if is-unit($width)

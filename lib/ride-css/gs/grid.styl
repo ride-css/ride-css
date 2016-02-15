@@ -1,0 +1,94 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// grid mixin
+// @params
+//   $grid-cols : the maximum columns your grid has
+//    e.g: 12, 16, 5, 11
+//   $cols-margin : the margin each column is going to have (must be set in %)
+//    e.g: 1%, 0 1%, 1% 2% 4%, 0 0 2% 1%
+//   $cols-padding : padding for each column
+//    e.g: 1rem, 1em, 24px, 4%
+//   $suffix : each column will be suffixex
+//    e.g: 'xs', 'sm', 'md', 'lg'...
+//   $display-as-placeholders : setting this flag to true, you will get a set o placeholders instead of css classes
+//    e.g: true, false
+grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $display-as-placeholders = false)
+  if current-media()
+    $$current-media = current-media()
+  $$selector-notation = '.'
+  if $suffix != ''
+    $$suffix = \-+$suffix
+  else
+    $$suffix = ''
+
+  if $display-as-placeholders == true
+    $$selector-notation = '$'
+  // getting columns
+  if $display-as-placeholders == true
+    $col{$$suffix}
+      // this is commented because needs more tests
+      // margin: $cols-margin
+      float: left
+      padding: $cols-padding
+  else
+    {'[class*="col'+ $$suffix +'"]'}
+      margin: $cols-margin
+      padding: $cols-padding
+
+  for $colnumber in 1...($grid-cols + 1)
+    {$$selector-notation}col{$$suffix}-{$colnumber}
+      col: $grid-cols, $colnumber, $cols-margin, $$current-media
+
+  // getting offsets (left)
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}offset-left{$$suffix}-{$colnumber}
+      offset-left: $grid-cols, $colnumber, $cols-margin
+
+  // offset-left reset
+  {$$selector-notation}offset-left{$$suffix}-0
+    offset-left: $grid-cols, 0, 0
+
+  // getting offsets (right)
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}offset-right{$$suffix}-{$colnumber}
+      offset-right: $grid-cols, $colnumber, $cols-margin
+
+  // offset-right reset
+  {$$selector-notation}offset-right{$$suffix}-0
+    offset-right: $grid-cols, 0, 0
+
+  // getting columns
+  if $display-as-placeholders == true
+    $push{$$suffix}
+      position: relative
+    $pull{$$suffix}
+      position: relative
+      // this is commented due to a bug in this mixin
+      // if uncommented, a maximum stack error could be thrown
+      // @extend $pull-{$$suffix}
+  else
+    {'[class*="pull'+ $$suffix +'"]'}
+      position: relative
+    {'[class*="push'+ $$suffix +'"]'}
+      @extend {'[class*="pull'+ $$suffix +'"]'}
+
+  // getting pulls
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}pull{$$suffix}-{$colnumber}
+      pull: $grid-cols, $colnumber, false
+
+  // getting pushes
+  for $colnumber in 1...$grid-cols
+    {$$selector-notation}push{$$suffix}-{$colnumber}
+      push: $grid-cols, $colnumber, false
+
+  // pull reset
+  {$$selector-notation}pull{$$suffix}-0
+    pull: $grid-cols
+  // push reset
+  {$$selector-notation}push{$$suffix}-0
+    push: $grid-cols
+
+  {$$selector-notation}row
+    row()

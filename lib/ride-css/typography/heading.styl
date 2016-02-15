@@ -1,0 +1,37 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// a mixin for a common heading
+// @param $number [number] the number which identifies the <h></h> tag (from 1 to 6)
+//      e.g: if you set $number to 1, you will get the css for <h1></h1>
+// @param $font-size [unit] the font-size you are using in your typography system.
+//      e.g: 12px or 1rem or 1em or 2vh
+// @param $line-height [unit] the base line-height you are using in your typography system.
+//      e.g: 12px or 1.5 or 1.5rem ...
+// @param $font-multiplier [number] will help the preprocessor to calculate the proper <h1></h1> font size
+//      e.g: 2, 3, 1.8...
+// @param $factor-modifier [number] this will help to calculate <h2></h2> to <h6></h6> font size
+//      e.g: 20, 30, 25...
+// @return [css]
+heading($number, $font-size = 1rem, $line-height = 1.1, $font-multiplier = 2, $factor-modifier = 20)
+  // this factor will multiply your $font-size for $number
+  $$factor = 1
+  // but if the $number is higher than 1 (you want an <h2></h2> ... <h6></h6>)
+  // the factor will be modified
+  if $number > 1
+    $$factor = $$factor - ($number / $factor-modifier)
+
+  // usually, using a number is the common way to define line-height
+  // there are people who want to use strict measured line-heights
+  $line-height = --line-height($font-size, $line-height)
+
+  // now we are ready to setup the font-size properly
+  font-size: ($font-size * $font-multiplier * $$factor)
+  // now we are ready to setup the line-height properly
+  line-height: $line-height
+  // if $number is higher than 1, we will have to add a margin in order to fix the vertical rhytm
+  if $number > 1
+    $$margin-fix = ((($font-size * $font-multiplier) - @font-size) * @line-height)
+    margin: 0 0 $$margin-fix
+  else
+    margin: 0

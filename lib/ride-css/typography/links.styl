@@ -1,0 +1,23 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// anchors, or links if you prefer, mixin
+// @param $color [rgba] is the base color for your links
+// @param $tint-and-shade [unit] your color will be modified by this percent (as a tint or a shade, based upon the "darkness")
+// @return [css]
+links($color = inherit, $tint-and-shade = 21%)
+  if @color && $color == inherit
+    $color = $color
+  unless @text-decoration
+    @extend $no-text-decoration
+  if type-of($color) is 'rgba'
+    color: $color
+    &:hover
+      color: lighten($color, $tint-and-shade) if dark($color)
+      color: darken($color, $tint-and-shade) if light($color)
+    &:active
+      color: lighten($color, $tint-and-shade + 11%) if dark($color)
+      color: darken($color, $tint-and-shade + 11%) if light($color)
+    &:visited
+      color: lighten($color, $tint-and-shade + 32%) if dark($color)
+      color: darken($color, $tint-and-shade + 32%) if light($color)

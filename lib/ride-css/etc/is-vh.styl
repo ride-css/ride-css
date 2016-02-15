@@ -1,0 +1,10 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this function checks if the passed variable is a unit and it's unit is vh
+// @param {unit} $unit the passed variable
+// @returns {Boolean} return true if the passed variable is correct
+is-vh($unit)
+  ensure($unit, 'unit')
+  $check = unit($unit) is 'vh'
+  return $check

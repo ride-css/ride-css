@@ -1,0 +1,17 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// line-height fixer mixin
+// this should not be used outside of this sheet
+// but if you like it, well, use it! :-)
+--line-height($font-size, $line-height)
+  if unit($line-height) != ''
+    if unit($line-height) == unit($font-size)
+      if parse-float($line-height) >= parse-float($font-size)
+        $line-height = unit($line-height / $font-size, '')
+      else
+        $line-height = unit($line-height / $font-size, '')
+    else
+      $line-height
+  else
+    $line-height

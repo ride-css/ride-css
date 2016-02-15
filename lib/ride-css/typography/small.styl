@@ -1,0 +1,17 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// small tags should be small
+// @param $font-size [unit] the font-size you are using in your typography system.
+//      e.g: 12px or 1rem or 1em or 2vh
+// @param $new-font-size-perc [unit] setting this number (a percent), you will tell the preprocessor how large the small tag will render fonts
+//      e.g: 75%
+// @return [css]
+small($font-size = 1rem, $new-font-size-perc = 62.5%)
+  // well. small tags should render small text
+  // there is no reason to display larger text
+  if parse-float($new-font-size-perc) > 100
+    warn('small: '+ $new-font-size-perc +' is above or equal to 100%. This is not really small. $new-font-size-perc will be reset to 62.5%')
+    $new-font-size-perc = 62.5%
+  // setting up your nice font size :3
+  font-size: (($font-size / 100) * $new-font-size-perc)

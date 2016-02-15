@@ -1,0 +1,42 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// this mixin will return a column!
+// @params:
+//   $grid-cols: the maximum columns your grid has
+//   $current-col: how many column your column will occupy
+//   $col-margin: margin, what else?
+//   $display-margin: if set to false, the col mixin will not display margin
+col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
+  $$check-margin = 0
+  if @margin
+    $col-margin = @margin
+  // getting the right horizontal margin.
+  // because reasons
+  if length($col-margin) == 1
+    $$check-margin = parse-float($col-margin)
+    $$col-margin = $col-margin * 2
+  if length($col-margin) == 2
+    $$check-margin = parse-float($col-margin[0]) + parse-float($col-margin[1])
+    $$col-margin = $col-margin[1] * 2
+  if length($col-margin) == 3
+    $$check-margin = parse-float($col-margin[0]) + parse-float($col-margin[1]) + parse-float($col-margin[2])
+    $$col-margin = $col-margin[1] * 2
+  if length($col-margin) == 4
+    $$check-margin = parse-float($col-margin[0]) + parse-float($col-margin[1]) + parse-float($col-margin[2]) + parse-float($col-margin[3])
+    $$col-margin = $col-margin[1] + $col-margin[3]
+
+  // if you set margin, you'll have it
+  if $display-margin
+    +cache('col-margin'+ $col-margin + $display-margin)
+      margin: $col-margin
+  +cache('ride-col'+ arguments + current-media())
+    // if you already set your margin, we will use it for proper calculating
+    // calculating column width
+    if is-unit($$col-margin)
+      if unit($$col-margin) == '' || unit($$col-margin) == '%'
+        $$width = (100% / $grid-cols * $current-col) - $$col-margin
+      else
+        $$width = (100% / $grid-cols * $current-col)
+        $$width = unquote(s('calc(%s - %s)', $$width, $$col-margin))
+    width: $$width

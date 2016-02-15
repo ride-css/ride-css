@@ -1,0 +1,41 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// push - pull system. This is awful, but helpful
+// sincerly I prefer using flexbox model for making this, but since there are some browser
+// that are not really capable of doing their homeworks (internet explorer uh?) i've implemented this system anyway
+// @params
+//   $move-direction : direction where the column should move. backward will pull the column to left, forward will push the column to right
+//   $grid-cols: the maximum columns your grid has
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+col-move($move-direction = forward, $grid-cols = 12, $move-offset = 0, $cache-position = true)
+  // "guessing" direction
+  if $move-direction == forward
+    $$sign = 1
+  if $move-direction == backward
+    $$sign = -1
+
+  // setting movement
+  // +cache('ride-col-move'+ $move-direction +'-'+ $grid-cols +'-'+ $move-offset +'-'+ $cache-position + current-media())
+  left: (100% / $grid-cols * $move-offset * $$sign)
+  // caching positioning. It's awful to read 12 or more times the position: relative property in a stylesheet
+  if $cache-position == true
+    +cache('col-move-relative'+ current-media())
+      position: relative
+
+// pull column shorthand
+// @params
+//   $grid-cols: the maximum columns your grid has
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+pull($grid-cols = 12, $move-offset = 0, $cache-position = true)
+  col-move(backward, $grid-cols, $move-offset, $cache-position)
+
+// push column shorthand
+// @params
+//   $grid-cols: the maximum columns your grid has
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+push($grid-cols = 12, $move-offset = 0, $cache-position = true)
+  col-move(forward, $grid-cols, $move-offset, $cache-position)

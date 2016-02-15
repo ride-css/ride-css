@@ -1,0 +1,13 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// row mixin
+// well, this will do nothing but setting a clearfix.
+// oh, we will use caching, of course.
+row()
+  +cache('row'+ current-media())
+    &:after
+    &:before
+      clear: both
+      content: ''
+      display: table

@@ -1,0 +1,17 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+@require 'line-height-helper'
+
+// paragraphs. what else?
+// @param $font-size [unit] the font-size you are using in your typography system.
+//      e.g: 12px or 1rem or 1em or 2vh
+// @param $line-height [unit] the base line-height you are using in your typography system.
+//      e.g: 12px or 1.5 or 1.5rem ...
+// @return [css]
+paragraph($font-size = 1rem, $line-height = 1.5)
+  $line-height = --line-height($font-size, $line-height)
+  $margin = 0 0 (($font-size * $line-height) / 2)
+  font-size: $font-size
+  line-height: $line-height
+  margin: $margin

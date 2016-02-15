@@ -1,0 +1,12 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// checks quickly if a passed variable is of the correct type
+// @param {Any}     $item   is the variable you are checking
+// @param {String}  $check  is the type you are expecting
+// @returns {Void}
+ensure($item, $check)
+  if type-of($item) != $check
+    return false
+  else
+    return true

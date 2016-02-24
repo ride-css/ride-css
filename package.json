@@ -2,7 +2,7 @@
   "author": "Paolo Roth <iamoctod@gmail.com>",
   "name": "ride-css",
   "description": "Ride css, a stylus mixins library for a faster and painless css development.",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "license": "MIT",
   "main": "lib/ride-css.js",
   "keywords": [

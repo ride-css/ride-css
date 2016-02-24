@@ -60,3 +60,34 @@ The code above will yeld this:
 ```
 
 Nice, uh?
+
+## push, pull
+
+Similar to a traditional grid system, we can use a push/pull with flex. Note that this will behave differently
+(the columns will be reordered instead of moving around the webview)
+
+```sass
+flex-pull($move-factor, $cached)
+flex-push($move-factor, $cached)
+```
+
+* $move-factor (required, number): this tells the mixin how many column your element should move
+
+* $cached (default: true, boolean): if set to false, your push/pull will not be cached
+
+```sass
+.my-pull
+  pull: 4
+
+.my-pull--cached
+  pull: 4
+```
+
+will yeld to
+
+```css
+.my-pull,
+.my-pull--cached {
+  order: -4;
+}
+```

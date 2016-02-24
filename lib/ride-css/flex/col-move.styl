@@ -1,0 +1,36 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+// @params
+//   $move-direction : direction where the column should move. backward will pull the column to left, forward will push the column to right
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+flex-move($move-direction = forward, $move-offset = 0, $cache-position = true)
+  // "guessing" direction
+  if $move-direction == forward
+    $$sign = 1
+  if $move-direction == backward
+    $$sign = -1
+
+  $$move-factor = ($move-offset * $$sign)
+
+  // setting movement
+  if $cache-position != true
+    order: $$move-factor
+  if $cache-position == true
+    +cache('flex-move'+ $$move-factor + current-media())
+      order: $$move-factor
+
+// pull column shorthand
+// @params
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+flex-pull($move-offset = 0, $cache-position = true)
+  flex-move(backward, $move-offset, $cache-position)
+
+// push column shorthand
+// @params
+//   $move-offset: how many cols your column will move by
+//   $cache-position: this will output a cached position: relative;
+flex-push($move-offset = 0, $cache-position = true)
+  flex-move(forward, $move-offset, $cache-position)

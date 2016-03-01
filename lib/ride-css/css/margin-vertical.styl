@@ -6,9 +6,5 @@
 // @param [Unit] $bottom this is the bottom margin
 // @return [css]
 margin-vertical($top, $bottom = false)
-  if $bottom
-    margin-bottom: $bottom
-    margin-top: $top
-  if !$bottom
-    margin-bottom: $top
-    margin-top: @margin-bottom
+  margin-top: $top
+  margin-bottom: $bottom == false ? $top : $bottom

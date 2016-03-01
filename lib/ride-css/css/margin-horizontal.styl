@@ -6,9 +6,5 @@
 // @param [Unit] $left this is the left margin
 // @return [css]
 margin-horizontal($right, $left = false)
-  if $left
-    margin-left: $left
-    margin-right: $right
-  if !$left
-    margin-left: $right
-    margin-right: @margin-left
+  margin-right: $right
+  margin-left: $left == false ? $right : $left

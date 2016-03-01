@@ -6,9 +6,5 @@
 // @param [Unit] $bottom this is the bottom padding
 // @return [css]
 padding-vertical($top, $bottom = false)
-  if $bottom
-    padding-bottom: $bottom
-    padding-top: $top
-  if !$bottom
-    padding-bottom: $top
-    padding-top: @padding-bottom
+  padding-top: $top
+  padding-bottom: $bottom == false ? $top : $bottom

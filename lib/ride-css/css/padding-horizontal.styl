@@ -6,9 +6,5 @@
 // @param [Unit] $left this is the left padding
 // @return [css]
 padding-horizontal($right, $left = false)
-  if $left
-    padding-left: $left
-    padding-right: $right
-  if !$left
-    padding-left: $right
-    padding-right: @padding-left
+  padding-right: $right
+  padding-left: $left == false ? $right : $left

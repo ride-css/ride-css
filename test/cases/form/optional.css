@@ -1,0 +1,6 @@
+input:optional,
+select:optional,
+button:optional,
+textarea:optional {
+  color: #0010ff;
+}

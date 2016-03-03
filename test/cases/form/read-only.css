@@ -1,0 +1,6 @@
+input[readonly],
+select[readonly],
+button[readonly],
+textarea[readonly] {
+  color: #123456;
+}

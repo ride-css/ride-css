@@ -1,0 +1,7 @@
+input[disabled],
+select[disabled],
+button[disabled],
+textarea[disabled] {
+  background-color: #cdcdcd;
+  color: #8f8f8f;
+}

@@ -1,0 +1,6 @@
+input:valid,
+select:valid,
+button:valid,
+textarea:valid {
+  color: #00ff01;
+}

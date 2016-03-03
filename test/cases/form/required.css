@@ -1,0 +1,6 @@
+input:required,
+select:required,
+button:required,
+textarea:required {
+  color: #c67258;
+}

@@ -27,6 +27,7 @@
     "gulp-stylus": "^2.0.1",
     "jade": "^1.9.2",
     "mocha": "^2.2.1",
+    "mocha-lcov-reporter": "^1.2.0",
     "should": "^5.2.0"
   },
   "scripts": {

@@ -1,4 +1,6 @@
 ![](https://d13yacurqjgara.cloudfront.net/users/505610/screenshots/1892404/ridecss.jpg)
+[![Coverage Status](https://coveralls.io/repos/github/ride-css/ride-css/badge.svg?branch=master)](https://coveralls.io/github/ride-css/ride-css?branch=master)
+
 
 Ride css, Why walk when you can Ride?
 =====================================

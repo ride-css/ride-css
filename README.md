@@ -7,6 +7,8 @@ Ride css, Why walk when you can Ride?
 
 Ride is a Stylus mixins library for a faster css development.
 
+[Documentation](https://github.com/ride-css/ride-css/blob/master/docs/01-install.md)
+
 [How to contribute](https://github.com/ride-css/ride-css/blob/master/contributing.md)
 
 * Giving ride-css a star (on github and/or on npm)

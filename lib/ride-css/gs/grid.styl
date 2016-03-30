@@ -40,7 +40,7 @@ grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $displa
 
   for $colnumber in 1...($grid-cols + 1)
     {$$selector-notation}col{$$suffix}-{$colnumber}
-      col: $grid-cols, $colnumber, $cols-margin, $$display-margin
+      col: $grid-cols, $colnumber, $cols-margin, $$display-margin, $$current-media
 
   // getting offsets (left)
   for $colnumber in 1...$grid-cols

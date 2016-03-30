@@ -1,0 +1,8 @@
+.col--xs {
+  width: 100%;
+}
+@media (min-width: 400px) {
+  .col--sm {
+    width: 50%;
+  }
+}

@@ -7,7 +7,7 @@
 //   $current-col: how many column your column will occupy
 //   $col-margin: margin, what else?
 //   $display-margin: if set to false, the col mixin will not display margin
-col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true)
+col($grid-cols = 12, $current-col = 12, $col-margin = 0, $display-margin = true, $$currentmedia = '')
   $$check-margin = 0
   if @margin
     $col-margin = @margin

@@ -36,9 +36,11 @@ grid($grid-cols = 12, $cols-margin = 0, $cols-padding = 0, $suffix = '', $displa
       margin: $cols-margin
       padding: $cols-padding
 
+  $$display-margin = $display-as-placeholders ? $$current-media : false
+
   for $colnumber in 1...($grid-cols + 1)
     {$$selector-notation}col{$$suffix}-{$colnumber}
-      col: $grid-cols, $colnumber, $cols-margin, $$current-media
+      col: $grid-cols, $colnumber, $cols-margin, $$display-margin
 
   // getting offsets (left)
   for $colnumber in 1...$grid-cols

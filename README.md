@@ -22,5 +22,5 @@ Ride is a Stylus mixins library for a faster css development.
 **Contributors**
 
 * author: [Paolo Roth](https://github.com/OctoD/)
-* developer: [Martin Gagnon](https://github.com/B7th)
+* contributor: [Martin Gagnon](https://github.com/B7th)
 * tester: [Beatrice Caielli](https://github.com/naya85/)

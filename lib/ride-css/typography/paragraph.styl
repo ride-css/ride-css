@@ -14,4 +14,4 @@ paragraph($font-size = 1rem, $line-height = 1.5)
   $margin = 0 0 (($font-size * $line-height) / 2)
   font-size: $font-size
   line-height: $line-height
-  margin: $margin
+  margin: $margin if @margin is null

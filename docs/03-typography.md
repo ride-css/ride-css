@@ -264,6 +264,10 @@ p {
 
 You will get margin automatically calculated like to **heading** mixin.
 
+*note*
+
+If your css rule has a margin property set, the mixin calculated margin will be discarded in favour of your margin.
+
 ## small elements (or small text)
 
 This mixin allows you to calculate ```&lt;small&gt;``` tags. Or you can simply use it into a css class to calculate small portions of text.

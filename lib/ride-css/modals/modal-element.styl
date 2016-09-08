@@ -1,0 +1,18 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+modal-element($$width = false, $$height = false) {
+  if is-unit($$height) {
+    height: $$height;
+  }
+  if is-unit($$width) {
+    width: $$width;
+  }
+
+  +cache('fixed left 0 top 0') {
+    fixed: left 0 top 0;
+  }
+  +cache('transform: translate(50%, 50%)') {
+    transform: translate(50%, 50%);
+  }
+}

@@ -1,0 +1,7 @@
+// copyright 2015 - this year @ Paolo Roth <iamoctod@gmail.com>
+// MIT licenced
+
+modal-panel($$background-color = rgba(black, .2))
+  background-color: $$background-color if is-rgba($$background-color)
+  +cache('fixed left 0 top 0')
+    fixed: left 0 top 0

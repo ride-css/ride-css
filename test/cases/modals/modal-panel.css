@@ -1,0 +1,8 @@
+.modal-panel {
+  background-color: #000;
+}
+.modal-panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+}

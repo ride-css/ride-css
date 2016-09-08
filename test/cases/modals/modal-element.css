@@ -1,0 +1,12 @@
+.dialog {
+  height: 400px;
+  width: 500px;
+}
+.dialog {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.dialog {
+  transform: translate(50%, 50%);
+}
